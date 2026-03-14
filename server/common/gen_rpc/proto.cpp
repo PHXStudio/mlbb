@@ -289,9 +289,9 @@ void Client2ServerStub::changProp(U32 guid,const std::vector< COM_Addprop >& pro
 	}
 	// serialize props
 	{
-		size_t __len__ = (size_t)props.size();
+		U32 __len__ = (U32)props.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			props[i].serialize(w);
 		}
@@ -651,9 +651,9 @@ void Client2ServerStub::delEmployee(const std::vector< U32 >& emps)
 	w->writeType(pid);
 	// serialize emps
 	{
-		size_t __len__ = (size_t)emps.size();
+		U32 __len__ = (U32)emps.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(emps[i]);
 		}
@@ -2089,9 +2089,9 @@ void Client2ServerStub::fixAllItem(const std::vector< U32 >& items,FixType type)
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(items[i]);
 		}
@@ -2127,9 +2127,9 @@ void Client2ServerStub::levelUpMagicItem(const std::vector< U32 >& items)
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(items[i]);
 		}
@@ -2226,9 +2226,9 @@ void Client2ServerStub::sceneFilter(const std::vector< SceneFilterType >& sfType
 	w->writeType(pid);
 	// serialize sfType
 	{
-		size_t __len__ = (size_t)sfType.size();
+		U32 __len__ = (U32)sfType.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			EnumSize __e__ = (EnumSize)sfType[i];
 			w->writeType(__e__);
@@ -2616,9 +2616,9 @@ void Client2ServerStub::acceptEmployeeQuest(S32 questId,const std::vector< S32 >
 	}
 	// serialize employees
 	{
-		size_t __len__ = (size_t)employees.size();
+		U32 __len__ = (U32)employees.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(employees[i]);
 		}
@@ -2653,9 +2653,9 @@ void Client2ServerStub::resetCrystalProp(const std::vector< S32 >& locklist)
 	w->writeType(pid);
 	// serialize locklist
 	{
-		size_t __len__ = (size_t)locklist.size();
+		U32 __len__ = (U32)locklist.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(locklist[i]);
 		}
@@ -2890,10 +2890,10 @@ bool Client2ServerProxy::changProp(ProtocolReader* __r__)
 	}
 	// deserialize props
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		props.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!props[i].deserialize(__r__)) return false;
 		}
@@ -3202,10 +3202,10 @@ bool Client2ServerProxy::delEmployee(ProtocolReader* __r__)
 	std::vector< U32 > emps;
 	// deserialize emps
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		emps.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(emps[i])) return false;
 		}
@@ -4248,10 +4248,10 @@ bool Client2ServerProxy::fixAllItem(ProtocolReader* __r__)
 	FixType type=(FixType)(0);
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(items[i])) return false;
 		}
@@ -4283,10 +4283,10 @@ bool Client2ServerProxy::levelUpMagicItem(ProtocolReader* __r__)
 	std::vector< U32 > items;
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(items[i])) return false;
 		}
@@ -4360,10 +4360,10 @@ bool Client2ServerProxy::sceneFilter(ProtocolReader* __r__)
 	std::vector< SceneFilterType > sfType;
 	// deserialize sfType
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		sfType.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			EnumSize __e__;
 			if(!__r__->readType(__e__) || __e__ >= 6) return false;
@@ -4656,10 +4656,10 @@ bool Client2ServerProxy::acceptEmployeeQuest(ProtocolReader* __r__)
 	}
 	// deserialize employees
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		employees.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(employees[i])) return false;
 		}
@@ -4684,10 +4684,10 @@ bool Client2ServerProxy::resetCrystalProp(ProtocolReader* __r__)
 	std::vector< S32 > locklist;
 	// deserialize locklist
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		locklist.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(locklist[i])) return false;
 		}
@@ -5918,9 +5918,9 @@ void Server2ClientStub::loginok(const std::string& sessionkey,const std::vector<
 	}
 	// serialize players
 	{
-		size_t __len__ = (size_t)players.size();
+		U32 __len__ = (U32)players.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			players[i].serialize(w);
 		}
@@ -5979,9 +5979,9 @@ void Server2ClientStub::initBabies(const std::vector< COM_BabyInst >& insts)
 	w->writeType(pid);
 	// serialize insts
 	{
-		size_t __len__ = (size_t)insts.size();
+		U32 __len__ = (U32)insts.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			insts[i].serialize(w);
 		}
@@ -5996,9 +5996,9 @@ void Server2ClientStub::initEmployees(const std::vector< COM_EmployeeInst >& ins
 	w->writeType(pid);
 	// serialize insts
 	{
-		size_t __len__ = (size_t)insts.size();
+		U32 __len__ = (U32)insts.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			insts[i].serialize(w);
 		}
@@ -6029,9 +6029,9 @@ void Server2ClientStub::initNpc(const std::vector< S32 >& npcList)
 	w->writeType(pid);
 	// serialize npcList
 	{
-		size_t __len__ = (size_t)npcList.size();
+		U32 __len__ = (U32)npcList.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(npcList[i]);
 		}
@@ -6046,9 +6046,9 @@ void Server2ClientStub::initAchievement(const std::vector< COM_Achievement >& ac
 	w->writeType(pid);
 	// serialize actlist
 	{
-		size_t __len__ = (size_t)actlist.size();
+		U32 __len__ = (U32)actlist.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			actlist[i].serialize(w);
 		}
@@ -6067,9 +6067,9 @@ void Server2ClientStub::initGather(U32 allnum,const std::vector< COM_Gather >& g
 	}
 	// serialize gathers
 	{
-		size_t __len__ = (size_t)gathers.size();
+		U32 __len__ = (U32)gathers.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			gathers[i].serialize(w);
 		}
@@ -6084,9 +6084,9 @@ void Server2ClientStub::initcompound(const std::vector< U32 >& compounds)
 	w->writeType(pid);
 	// serialize compounds
 	{
-		size_t __len__ = (size_t)compounds.size();
+		U32 __len__ = (U32)compounds.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(compounds[i]);
 		}
@@ -6511,9 +6511,9 @@ void Server2ClientStub::syncProperties(U32 guid,const std::vector< COM_PropValue
 	}
 	// serialize props
 	{
-		size_t __len__ = (size_t)props.size();
+		U32 __len__ = (U32)props.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			props[i].serialize(w);
 		}
@@ -6548,9 +6548,9 @@ void Server2ClientStub::requestAudioOk(S32 audioId,const std::vector< U8 >& cont
 	}
 	// serialize content
 	{
-		size_t __len__ = (size_t)content.size();
+		U32 __len__ = (U32)content.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(content[i]);
 		}
@@ -6635,9 +6635,9 @@ void Server2ClientStub::addNpc(const std::vector< S32 >& npcList)
 	w->writeType(pid);
 	// serialize npcList
 	{
-		size_t __len__ = (size_t)npcList.size();
+		U32 __len__ = (U32)npcList.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(npcList[i]);
 		}
@@ -6652,9 +6652,9 @@ void Server2ClientStub::delNpc(const std::vector< S32 >& npcList)
 	w->writeType(pid);
 	// serialize npcList
 	{
-		size_t __len__ = (size_t)npcList.size();
+		U32 __len__ = (U32)npcList.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(npcList[i]);
 		}
@@ -6685,9 +6685,9 @@ void Server2ClientStub::initBag(const std::vector< COM_Item >& items)
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -6786,9 +6786,9 @@ void Server2ClientStub::sortItemStorageOK(const std::vector< COM_Item >& items)
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -6803,9 +6803,9 @@ void Server2ClientStub::sortBabyStorageOK(const std::vector< U32 >& babys)
 	w->writeType(pid);
 	// serialize babys
 	{
-		size_t __len__ = (size_t)babys.size();
+		U32 __len__ = (U32)babys.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(babys[i]);
 		}
@@ -6824,9 +6824,9 @@ void Server2ClientStub::initItemStorage(U16 gridNum,const std::vector< COM_Item 
 	}
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -6845,9 +6845,9 @@ void Server2ClientStub::initBabyStorage(U16 gridNum,const std::vector< COM_BabyI
 	}
 	// serialize babys
 	{
-		size_t __len__ = (size_t)babys.size();
+		U32 __len__ = (U32)babys.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			babys[i].serialize(w);
 		}
@@ -6891,9 +6891,9 @@ void Server2ClientStub::initPlayerEquips(const std::vector< COM_Item >& equips)
 	w->writeType(pid);
 	// serialize equips
 	{
-		size_t __len__ = (size_t)equips.size();
+		U32 __len__ = (U32)equips.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			equips[i].serialize(w);
 		}
@@ -6980,9 +6980,9 @@ void Server2ClientStub::jointLobbyOk(const std::vector< COM_SimpleTeamInfo >& in
 	w->writeType(pid);
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -7169,9 +7169,9 @@ void Server2ClientStub::syncTeamDirtyProp(S32 guid,const std::vector< COM_PropVa
 	}
 	// serialize props
 	{
-		size_t __len__ = (size_t)props.size();
+		U32 __len__ = (U32)props.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			props[i].serialize(w);
 		}
@@ -7242,9 +7242,9 @@ void Server2ClientStub::drawLotteryBoxRep(const std::vector< COM_Item >& items)
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -7342,9 +7342,9 @@ void Server2ClientStub::delEmployeeOK(const std::vector< U32 >& instids)
 	w->writeType(pid);
 	// serialize instids
 	{
-		size_t __len__ = (size_t)instids.size();
+		U32 __len__ = (U32)instids.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(instids[i]);
 		}
@@ -7375,18 +7375,18 @@ void Server2ClientStub::initQuest(const std::vector< COM_QuestInst >& qlist,cons
 	w->writeType(pid);
 	// serialize qlist
 	{
-		size_t __len__ = (size_t)qlist.size();
+		U32 __len__ = (U32)qlist.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			qlist[i].serialize(w);
 		}
 	}
 	// serialize clist
 	{
-		size_t __len__ = (size_t)clist.size();
+		U32 __len__ = (U32)clist.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(clist[i]);
 		}
@@ -7517,9 +7517,9 @@ void Server2ClientStub::referrFriendOK(const std::vector< COM_ContactInfo >& ins
 	w->writeType(pid);
 	// serialize insts
 	{
-		size_t __len__ = (size_t)insts.size();
+		U32 __len__ = (U32)insts.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			insts[i].serialize(w);
 		}
@@ -7534,9 +7534,9 @@ void Server2ClientStub::requestFriendListOK(const std::vector< COM_ContactInfo >
 	w->writeType(pid);
 	// serialize insts
 	{
-		size_t __len__ = (size_t)insts.size();
+		U32 __len__ = (U32)insts.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			insts[i].serialize(w);
 		}
@@ -7555,9 +7555,9 @@ void Server2ClientStub::lotteryOk(S32 lotteryId,const std::vector< COM_DropItem 
 	}
 	// serialize dropItem
 	{
-		size_t __len__ = (size_t)dropItem.size();
+		U32 __len__ = (U32)dropItem.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			dropItem[i].serialize(w);
 		}
@@ -7584,9 +7584,9 @@ void Server2ClientStub::miningOk(const std::vector< COM_DropItem >& items,const 
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -7669,9 +7669,9 @@ void Server2ClientStub::requestRivalOK(const std::vector< COM_EndlessStair >& in
 	w->writeType(pid);
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -7706,9 +7706,9 @@ void Server2ClientStub::requestMyAllbattleMsgOK(const std::vector< COM_JJCBattle
 	w->writeType(pid);
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -7739,9 +7739,9 @@ void Server2ClientStub::requestJJCRankOK(U32 myRank,const std::vector< COM_Endle
 	}
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -7760,9 +7760,9 @@ void Server2ClientStub::requestLevelRankOK(U32 myRank,const std::vector< COM_Con
 	}
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -7781,9 +7781,9 @@ void Server2ClientStub::requestBabyRankOK(U32 myRank,const std::vector< COM_Baby
 	}
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -7802,9 +7802,9 @@ void Server2ClientStub::requestEmpRankOK(U32 myRank,const std::vector< COM_Emplo
 	}
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -7823,9 +7823,9 @@ void Server2ClientStub::requestPlayerFFRankOK(U32 myRank,const std::vector< COM_
 	}
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -8106,9 +8106,9 @@ void Server2ClientStub::initSignUp(const std::vector< S32 >& info,S32 process,bo
 	w->writeType(pid);
 	// serialize info
 	{
-		size_t __len__ = (size_t)info.size();
+		U32 __len__ = (U32)info.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(info[i]);
 		}
@@ -8191,9 +8191,9 @@ void Server2ClientStub::sycnStates(const std::vector< COM_State >& states)
 	w->writeType(pid);
 	// serialize states
 	{
-		size_t __len__ = (size_t)states.size();
+		U32 __len__ = (U32)states.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			states[i].serialize(w);
 		}
@@ -8208,9 +8208,9 @@ void Server2ClientStub::requestpvprankOK(const std::vector< COM_ContactInfo >& i
 	w->writeType(pid);
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -8285,9 +8285,9 @@ void Server2ClientStub::syncEnemyPvpJJCTeamInfo(const std::vector< COM_SimpleInf
 	w->writeType(pid);
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -8330,9 +8330,9 @@ void Server2ClientStub::syncWarriorEnemyTeamInfo(const std::vector< COM_SimpleIn
 	w->writeType(pid);
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -8351,9 +8351,9 @@ void Server2ClientStub::appendMail(const std::vector< COM_Mail >& mails)
 	w->writeType(pid);
 	// serialize mails
 	{
-		size_t __len__ = (size_t)mails.size();
+		U32 __len__ = (U32)mails.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			mails[i].serialize(w);
 		}
@@ -8452,9 +8452,9 @@ void Server2ClientStub::initGuildMemberList(const std::vector< COM_GuildMember >
 	w->writeType(pid);
 	// serialize member
 	{
-		size_t __len__ = (size_t)member.size();
+		U32 __len__ = (U32)member.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			member[i].serialize(w);
 		}
@@ -8511,9 +8511,9 @@ void Server2ClientStub::queryGuildListResult(S16 page,S16 pageNum,const std::vec
 	}
 	// serialize guildList
 	{
-		size_t __len__ = (size_t)guildList.size();
+		U32 __len__ = (U32)guildList.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			guildList[i].serialize(w);
 		}
@@ -8544,9 +8544,9 @@ void Server2ClientStub::updateGuildShopItems(const std::vector< COM_GuildShopIte
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -8626,9 +8626,9 @@ void Server2ClientStub::setProgenitusPositionOk(const std::vector< S32 >& positi
 	w->writeType(pid);
 	// serialize positions
 	{
-		size_t __len__ = (size_t)positions.size();
+		U32 __len__ = (U32)positions.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(positions[i]);
 		}
@@ -8743,9 +8743,9 @@ void Server2ClientStub::initMySelling(const std::vector< COM_SellItem >& items)
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -8760,9 +8760,9 @@ void Server2ClientStub::initMySelled(const std::vector< COM_SelledItem >& items)
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -8777,9 +8777,9 @@ void Server2ClientStub::fetchSellingOk(const std::vector< COM_SellItem >& items,
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -8798,9 +8798,9 @@ void Server2ClientStub::fetchSellingOk2(const std::vector< COM_SellItem >& items
 	w->writeType(pid);
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -8960,9 +8960,9 @@ void Server2ClientStub::zhuanpanOK(const std::vector< U32 >& pond)
 	w->writeType(pid);
 	// serialize pond
 	{
-		size_t __len__ = (size_t)pond.size();
+		U32 __len__ = (U32)pond.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(pond[i]);
 		}
@@ -9013,9 +9013,9 @@ void Server2ClientStub::sceneFilterOk(const std::vector< SceneFilterType >& sfTy
 	w->writeType(pid);
 	// serialize sfType
 	{
-		size_t __len__ = (size_t)sfType.size();
+		U32 __len__ = (U32)sfType.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			EnumSize __e__ = (EnumSize)sfType[i];
 			w->writeType(__e__);
@@ -9432,9 +9432,9 @@ void Server2ClientStub::requestEmployeeQuestOk(const std::vector< COM_EmployeeQu
 	w->writeType(pid);
 	// serialize questList
 	{
-		size_t __len__ = (size_t)questList.size();
+		U32 __len__ = (U32)questList.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			questList[i].serialize(w);
 		}
@@ -9509,9 +9509,9 @@ void Server2ClientStub::sycnCourseGift(const std::vector< COM_CourseGift >& data
 	w->writeType(pid);
 	// serialize data
 	{
-		size_t __len__ = (size_t)data.size();
+		U32 __len__ = (U32)data.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			data[i].serialize(w);
 		}
@@ -9616,10 +9616,10 @@ bool Server2ClientProxy::loginok(ProtocolReader* __r__)
 	}
 	// deserialize players
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		players.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!players[i].deserialize(__r__)) return false;
 		}
@@ -9662,10 +9662,10 @@ bool Server2ClientProxy::initBabies(ProtocolReader* __r__)
 	std::vector< COM_BabyInst > insts;
 	// deserialize insts
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		insts.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!insts[i].deserialize(__r__)) return false;
 		}
@@ -9678,10 +9678,10 @@ bool Server2ClientProxy::initEmployees(ProtocolReader* __r__)
 	bool isFlag=false;
 	// deserialize insts
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		insts.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!insts[i].deserialize(__r__)) return false;
 		}
@@ -9706,10 +9706,10 @@ bool Server2ClientProxy::initNpc(ProtocolReader* __r__)
 	std::vector< S32 > npcList;
 	// deserialize npcList
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		npcList.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(npcList[i])) return false;
 		}
@@ -9721,10 +9721,10 @@ bool Server2ClientProxy::initAchievement(ProtocolReader* __r__)
 	std::vector< COM_Achievement > actlist;
 	// deserialize actlist
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		actlist.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!actlist[i].deserialize(__r__)) return false;
 		}
@@ -9741,10 +9741,10 @@ bool Server2ClientProxy::initGather(ProtocolReader* __r__)
 	}
 	// deserialize gathers
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		gathers.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!gathers[i].deserialize(__r__)) return false;
 		}
@@ -9756,10 +9756,10 @@ bool Server2ClientProxy::initcompound(ProtocolReader* __r__)
 	std::vector< U32 > compounds;
 	// deserialize compounds
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		compounds.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(compounds[i])) return false;
 		}
@@ -10099,10 +10099,10 @@ bool Server2ClientProxy::syncProperties(ProtocolReader* __r__)
 	}
 	// deserialize props
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		props.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!props[i].deserialize(__r__)) return false;
 		}
@@ -10133,10 +10133,10 @@ bool Server2ClientProxy::requestAudioOk(ProtocolReader* __r__)
 	}
 	// deserialize content
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		content.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(content[i])) return false;
 		}
@@ -10207,10 +10207,10 @@ bool Server2ClientProxy::addNpc(ProtocolReader* __r__)
 	std::vector< S32 > npcList;
 	// deserialize npcList
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		npcList.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(npcList[i])) return false;
 		}
@@ -10222,10 +10222,10 @@ bool Server2ClientProxy::delNpc(ProtocolReader* __r__)
 	std::vector< S32 > npcList;
 	// deserialize npcList
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		npcList.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(npcList[i])) return false;
 		}
@@ -10251,10 +10251,10 @@ bool Server2ClientProxy::initBag(ProtocolReader* __r__)
 	std::vector< COM_Item > items;
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -10329,10 +10329,10 @@ bool Server2ClientProxy::sortItemStorageOK(ProtocolReader* __r__)
 	std::vector< COM_Item > items;
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -10344,10 +10344,10 @@ bool Server2ClientProxy::sortBabyStorageOK(ProtocolReader* __r__)
 	std::vector< U32 > babys;
 	// deserialize babys
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		babys.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(babys[i])) return false;
 		}
@@ -10364,10 +10364,10 @@ bool Server2ClientProxy::initItemStorage(ProtocolReader* __r__)
 	}
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -10384,10 +10384,10 @@ bool Server2ClientProxy::initBabyStorage(ProtocolReader* __r__)
 	}
 	// deserialize babys
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		babys.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!babys[i].deserialize(__r__)) return false;
 		}
@@ -10424,10 +10424,10 @@ bool Server2ClientProxy::initPlayerEquips(ProtocolReader* __r__)
 	std::vector< COM_Item > equips;
 	// deserialize equips
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		equips.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!equips[i].deserialize(__r__)) return false;
 		}
@@ -10499,10 +10499,10 @@ bool Server2ClientProxy::jointLobbyOk(ProtocolReader* __r__)
 	std::vector< COM_SimpleTeamInfo > infos;
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -10645,10 +10645,10 @@ bool Server2ClientProxy::syncTeamDirtyProp(ProtocolReader* __r__)
 	}
 	// deserialize props
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		props.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!props[i].deserialize(__r__)) return false;
 		}
@@ -10700,10 +10700,10 @@ bool Server2ClientProxy::drawLotteryBoxRep(ProtocolReader* __r__)
 	std::vector< COM_Item > items;
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -10791,10 +10791,10 @@ bool Server2ClientProxy::delEmployeeOK(ProtocolReader* __r__)
 	std::vector< U32 > instids;
 	// deserialize instids
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		instids.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(instids[i])) return false;
 		}
@@ -10821,20 +10821,20 @@ bool Server2ClientProxy::initQuest(ProtocolReader* __r__)
 	std::vector< S32 > clist;
 	// deserialize qlist
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		qlist.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!qlist[i].deserialize(__r__)) return false;
 		}
 	}
 	// deserialize clist
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		clist.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(clist[i])) return false;
 		}
@@ -10931,10 +10931,10 @@ bool Server2ClientProxy::referrFriendOK(ProtocolReader* __r__)
 	std::vector< COM_ContactInfo > insts;
 	// deserialize insts
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		insts.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!insts[i].deserialize(__r__)) return false;
 		}
@@ -10946,10 +10946,10 @@ bool Server2ClientProxy::requestFriendListOK(ProtocolReader* __r__)
 	std::vector< COM_ContactInfo > insts;
 	// deserialize insts
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		insts.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!insts[i].deserialize(__r__)) return false;
 		}
@@ -10966,10 +10966,10 @@ bool Server2ClientProxy::lotteryOk(ProtocolReader* __r__)
 	}
 	// deserialize dropItem
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		dropItem.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!dropItem[i].deserialize(__r__)) return false;
 		}
@@ -10992,10 +10992,10 @@ bool Server2ClientProxy::miningOk(ProtocolReader* __r__)
 	U32 gatherNum=0;
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -11060,10 +11060,10 @@ bool Server2ClientProxy::requestRivalOK(ProtocolReader* __r__)
 	std::vector< COM_EndlessStair > infos;
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -11088,10 +11088,10 @@ bool Server2ClientProxy::requestMyAllbattleMsgOK(ProtocolReader* __r__)
 	std::vector< COM_JJCBattleMsg > infos;
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -11117,10 +11117,10 @@ bool Server2ClientProxy::requestJJCRankOK(ProtocolReader* __r__)
 	}
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -11137,10 +11137,10 @@ bool Server2ClientProxy::requestLevelRankOK(ProtocolReader* __r__)
 	}
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -11157,10 +11157,10 @@ bool Server2ClientProxy::requestBabyRankOK(ProtocolReader* __r__)
 	}
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -11177,10 +11177,10 @@ bool Server2ClientProxy::requestEmpRankOK(ProtocolReader* __r__)
 	}
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -11197,10 +11197,10 @@ bool Server2ClientProxy::requestPlayerFFRankOK(ProtocolReader* __r__)
 	}
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -11424,10 +11424,10 @@ bool Server2ClientProxy::initSignUp(ProtocolReader* __r__)
 	bool sign28=false;
 	// deserialize info
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		info.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(info[i])) return false;
 		}
@@ -11490,10 +11490,10 @@ bool Server2ClientProxy::sycnStates(ProtocolReader* __r__)
 	std::vector< COM_State > states;
 	// deserialize states
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		states.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!states[i].deserialize(__r__)) return false;
 		}
@@ -11505,10 +11505,10 @@ bool Server2ClientProxy::requestpvprankOK(ProtocolReader* __r__)
 	std::vector< COM_ContactInfo > infos;
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -11560,10 +11560,10 @@ bool Server2ClientProxy::syncEnemyPvpJJCTeamInfo(ProtocolReader* __r__)
 	U32 teamID_=0;
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -11592,10 +11592,10 @@ bool Server2ClientProxy::syncWarriorEnemyTeamInfo(ProtocolReader* __r__)
 	U32 teamID_=0;
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -11611,10 +11611,10 @@ bool Server2ClientProxy::appendMail(ProtocolReader* __r__)
 	std::vector< COM_Mail > mails;
 	// deserialize mails
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		mails.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!mails[i].deserialize(__r__)) return false;
 		}
@@ -11689,10 +11689,10 @@ bool Server2ClientProxy::initGuildMemberList(ProtocolReader* __r__)
 	std::vector< COM_GuildMember > member;
 	// deserialize member
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		member.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!member[i].deserialize(__r__)) return false;
 		}
@@ -11746,10 +11746,10 @@ bool Server2ClientProxy::queryGuildListResult(ProtocolReader* __r__)
 	}
 	// deserialize guildList
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		guildList.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!guildList[i].deserialize(__r__)) return false;
 		}
@@ -11775,10 +11775,10 @@ bool Server2ClientProxy::updateGuildShopItems(ProtocolReader* __r__)
 	std::vector< COM_GuildShopItem > items;
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -11842,10 +11842,10 @@ bool Server2ClientProxy::setProgenitusPositionOk(ProtocolReader* __r__)
 	std::vector< S32 > positions;
 	// deserialize positions
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		positions.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(positions[i])) return false;
 		}
@@ -11946,10 +11946,10 @@ bool Server2ClientProxy::initMySelling(ProtocolReader* __r__)
 	std::vector< COM_SellItem > items;
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -11961,10 +11961,10 @@ bool Server2ClientProxy::initMySelled(ProtocolReader* __r__)
 	std::vector< COM_SelledItem > items;
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -11977,10 +11977,10 @@ bool Server2ClientProxy::fetchSellingOk(ProtocolReader* __r__)
 	S32 total=0;
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -11997,10 +11997,10 @@ bool Server2ClientProxy::fetchSellingOk2(ProtocolReader* __r__)
 	S32 total=0;
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -12121,10 +12121,10 @@ bool Server2ClientProxy::zhuanpanOK(ProtocolReader* __r__)
 	std::vector< U32 > pond;
 	// deserialize pond
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		pond.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(pond[i])) return false;
 		}
@@ -12163,10 +12163,10 @@ bool Server2ClientProxy::sceneFilterOk(ProtocolReader* __r__)
 	std::vector< SceneFilterType > sfType;
 	// deserialize sfType
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		sfType.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			EnumSize __e__;
 			if(!__r__->readType(__e__) || __e__ >= 6) return false;
@@ -12478,10 +12478,10 @@ bool Server2ClientProxy::requestEmployeeQuestOk(ProtocolReader* __r__)
 	std::vector< COM_EmployeeQuestInst > questList;
 	// deserialize questList
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		questList.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!questList[i].deserialize(__r__)) return false;
 		}
@@ -12538,10 +12538,10 @@ bool Server2ClientProxy::sycnCourseGift(ProtocolReader* __r__)
 	std::vector< COM_CourseGift > data;
 	// deserialize data
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		data.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!data[i].deserialize(__r__)) return false;
 		}
@@ -14372,9 +14372,9 @@ void SGE_World2DBStub::updateBabys(const std::string& playername,const std::vect
 	}
 	// serialize babys
 	{
-		size_t __len__ = (size_t)babys.size();
+		U32 __len__ = (U32)babys.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			babys[i].serialize(w);
 		}
@@ -14425,9 +14425,9 @@ void SGE_World2DBStub::deleteEmployee(const std::string& playername,const std::v
 	}
 	// serialize instIds
 	{
-		size_t __len__ = (size_t)instIds.size();
+		U32 __len__ = (U32)instIds.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(instIds[i]);
 		}
@@ -14498,9 +14498,9 @@ void SGE_World2DBStub::insertMailByRecvs(const COM_Mail& mail,const std::vector<
 	}
 	// serialize recvs
 	{
-		size_t __len__ = (size_t)recvs.size();
+		U32 __len__ = (U32)recvs.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(recvs[i]);
 		}
@@ -14579,9 +14579,9 @@ void SGE_World2DBStub::updateGuildRequestList(U32 guildId,const std::vector< COM
 	}
 	// serialize data
 	{
-		size_t __len__ = (size_t)data.size();
+		U32 __len__ = (U32)data.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			data[i].serialize(w);
 		}
@@ -14947,10 +14947,10 @@ bool SGE_World2DBProxy::updateBabys(ProtocolReader* __r__)
 	}
 	// deserialize babys
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		babys.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!babys[i].deserialize(__r__)) return false;
 		}
@@ -14995,10 +14995,10 @@ bool SGE_World2DBProxy::deleteEmployee(ProtocolReader* __r__)
 	}
 	// deserialize instIds
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		instIds.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(instIds[i])) return false;
 		}
@@ -15056,10 +15056,10 @@ bool SGE_World2DBProxy::insertMailByRecvs(ProtocolReader* __r__)
 	}
 	// deserialize recvs
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		recvs.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(recvs[i], 65535)) return false;
 		}
@@ -15127,10 +15127,10 @@ bool SGE_World2DBProxy::updateGuildRequestList(ProtocolReader* __r__)
 	}
 	// deserialize data
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		data.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!data[i].deserialize(__r__)) return false;
 		}
@@ -15519,9 +15519,9 @@ void SGE_DB2WorldStub::syncContactInfo(const std::vector< SGE_ContactInfoExt >& 
 	w->writeType(pid);
 	// serialize info
 	{
-		size_t __len__ = (size_t)info.size();
+		U32 __len__ = (U32)info.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			info[i].serialize(w);
 		}
@@ -15540,9 +15540,9 @@ void SGE_DB2WorldStub::queryPlayerSimpleInformationOk(const std::string& usernam
 	}
 	// serialize insts
 	{
-		size_t __len__ = (size_t)insts.size();
+		U32 __len__ = (U32)insts.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			insts[i].serialize(w);
 		}
@@ -15629,9 +15629,9 @@ void SGE_DB2WorldStub::queryEndlessStairAllDateOK(const std::vector< std::string
 	w->writeType(pid);
 	// serialize name
 	{
-		size_t __len__ = (size_t)name.size();
+		U32 __len__ = (U32)name.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(name[i]);
 		}
@@ -15646,9 +15646,9 @@ void SGE_DB2WorldStub::queryPlayerByLevelOK(const std::vector< COM_ContactInfo >
 	w->writeType(pid);
 	// serialize info
 	{
-		size_t __len__ = (size_t)info.size();
+		U32 __len__ = (U32)info.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			info[i].serialize(w);
 		}
@@ -15663,9 +15663,9 @@ void SGE_DB2WorldStub::queryPlayerByFFOK(const std::vector< COM_ContactInfo >& i
 	w->writeType(pid);
 	// serialize info
 	{
-		size_t __len__ = (size_t)info.size();
+		U32 __len__ = (U32)info.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			info[i].serialize(w);
 		}
@@ -15716,9 +15716,9 @@ void SGE_DB2WorldStub::queryBabyByFFOK(const std::vector< COM_BabyRankData >& in
 	w->writeType(pid);
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -15781,9 +15781,9 @@ void SGE_DB2WorldStub::deleteEmployeeOK(const std::string& playername,const std:
 	}
 	// serialize instIds
 	{
-		size_t __len__ = (size_t)instIds.size();
+		U32 __len__ = (U32)instIds.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(instIds[i]);
 		}
@@ -15798,9 +15798,9 @@ void SGE_DB2WorldStub::queryEmployeeByFFOK(const std::vector< COM_EmployeeRankDa
 	w->writeType(pid);
 	// serialize infos
 	{
-		size_t __len__ = (size_t)infos.size();
+		U32 __len__ = (U32)infos.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			infos[i].serialize(w);
 		}
@@ -15835,9 +15835,9 @@ void SGE_DB2WorldStub::appendMail(const std::string& playerName,const std::vecto
 	}
 	// serialize mails
 	{
-		size_t __len__ = (size_t)mails.size();
+		U32 __len__ = (U32)mails.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			mails[i].serialize(w);
 		}
@@ -15885,9 +15885,9 @@ void SGE_DB2WorldStub::syncGuild(const std::vector< COM_Guild >& guilds)
 	w->writeType(pid);
 	// serialize guilds
 	{
-		size_t __len__ = (size_t)guilds.size();
+		U32 __len__ = (U32)guilds.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			guilds[i].serialize(w);
 		}
@@ -15902,9 +15902,9 @@ void SGE_DB2WorldStub::syncGuildMember(const std::vector< COM_GuildMember >& gui
 	w->writeType(pid);
 	// serialize guildMember
 	{
-		size_t __len__ = (size_t)guildMember.size();
+		U32 __len__ = (U32)guildMember.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			guildMember[i].serialize(w);
 		}
@@ -15931,9 +15931,9 @@ void SGE_DB2WorldStub::syncEmployeeQuest(const std::vector< SGE_PlayerEmployeeQu
 	w->writeType(pid);
 	// serialize info
 	{
-		size_t __len__ = (size_t)info.size();
+		U32 __len__ = (U32)info.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			info[i].serialize(w);
 		}
@@ -15954,10 +15954,10 @@ bool SGE_DB2WorldProxy::syncContactInfo(ProtocolReader* __r__)
 	std::vector< SGE_ContactInfoExt > info;
 	// deserialize info
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		info.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!info[i].deserialize(__r__)) return false;
 		}
@@ -15975,10 +15975,10 @@ bool SGE_DB2WorldProxy::queryPlayerSimpleInformationOk(ProtocolReader* __r__)
 	}
 	// deserialize insts
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		insts.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!insts[i].deserialize(__r__)) return false;
 		}
@@ -16055,10 +16055,10 @@ bool SGE_DB2WorldProxy::queryEndlessStairAllDateOK(ProtocolReader* __r__)
 	std::vector< std::string > name;
 	// deserialize name
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		name.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(name[i], 65535)) return false;
 		}
@@ -16070,10 +16070,10 @@ bool SGE_DB2WorldProxy::queryPlayerByLevelOK(ProtocolReader* __r__)
 	std::vector< COM_ContactInfo > info;
 	// deserialize info
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		info.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!info[i].deserialize(__r__)) return false;
 		}
@@ -16085,10 +16085,10 @@ bool SGE_DB2WorldProxy::queryPlayerByFFOK(ProtocolReader* __r__)
 	std::vector< COM_ContactInfo > info;
 	// deserialize info
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		info.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!info[i].deserialize(__r__)) return false;
 		}
@@ -16133,10 +16133,10 @@ bool SGE_DB2WorldProxy::queryBabyByFFOK(ProtocolReader* __r__)
 	std::vector< COM_BabyRankData > infos;
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -16190,10 +16190,10 @@ bool SGE_DB2WorldProxy::deleteEmployeeOK(ProtocolReader* __r__)
 	}
 	// deserialize instIds
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		instIds.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(instIds[i])) return false;
 		}
@@ -16205,10 +16205,10 @@ bool SGE_DB2WorldProxy::queryEmployeeByFFOK(ProtocolReader* __r__)
 	std::vector< COM_EmployeeRankData > infos;
 	// deserialize infos
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		infos.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!infos[i].deserialize(__r__)) return false;
 		}
@@ -16239,10 +16239,10 @@ bool SGE_DB2WorldProxy::appendMail(ProtocolReader* __r__)
 	}
 	// deserialize mails
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		mails.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!mails[i].deserialize(__r__)) return false;
 		}
@@ -16284,10 +16284,10 @@ bool SGE_DB2WorldProxy::syncGuild(ProtocolReader* __r__)
 	std::vector< COM_Guild > guilds;
 	// deserialize guilds
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		guilds.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!guilds[i].deserialize(__r__)) return false;
 		}
@@ -16299,10 +16299,10 @@ bool SGE_DB2WorldProxy::syncGuildMember(ProtocolReader* __r__)
 	std::vector< COM_GuildMember > guildMember;
 	// deserialize guildMember
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		guildMember.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!guildMember[i].deserialize(__r__)) return false;
 		}
@@ -16323,10 +16323,10 @@ bool SGE_DB2WorldProxy::syncEmployeeQuest(ProtocolReader* __r__)
 	std::vector< SGE_PlayerEmployeeQuest > info;
 	// deserialize info
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		info.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!info[i].deserialize(__r__)) return false;
 		}
@@ -16544,9 +16544,9 @@ void SGE_World2SceneStub::addDynamicNpcs(S32 sceneId,const std::vector< S32 >& n
 	}
 	// serialize npcs
 	{
-		size_t __len__ = (size_t)npcs.size();
+		U32 __len__ = (U32)npcs.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(npcs[i]);
 		}
@@ -16658,10 +16658,10 @@ bool SGE_World2SceneProxy::addDynamicNpcs(ProtocolReader* __r__)
 	}
 	// deserialize npcs
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		npcs.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(npcs[i])) return false;
 		}
@@ -16836,9 +16836,9 @@ void SGE_Player_Scene2WorldStub::playerAddNpc(const std::vector< S32 >& npcs)
 	w->writeType(pid);
 	// serialize npcs
 	{
-		size_t __len__ = (size_t)npcs.size();
+		U32 __len__ = (U32)npcs.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(npcs[i]);
 		}
@@ -16853,9 +16853,9 @@ void SGE_Player_Scene2WorldStub::playerDelNpc(const std::vector< S32 >& npcs)
 	w->writeType(pid);
 	// serialize npcs
 	{
-		size_t __len__ = (size_t)npcs.size();
+		U32 __len__ = (U32)npcs.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(npcs[i]);
 		}
@@ -16944,10 +16944,10 @@ bool SGE_Player_Scene2WorldProxy::playerAddNpc(ProtocolReader* __r__)
 	std::vector< S32 > npcs;
 	// deserialize npcs
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		npcs.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(npcs[i])) return false;
 		}
@@ -16959,10 +16959,10 @@ bool SGE_Player_Scene2WorldProxy::playerDelNpc(ProtocolReader* __r__)
 	std::vector< S32 > npcs;
 	// deserialize npcs
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		npcs.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(npcs[i])) return false;
 		}
@@ -17306,9 +17306,9 @@ void SGE_Player_World2SceneStub::addFollows(const std::vector< S32 >& scenePlaye
 	w->writeType(pid);
 	// serialize scenePlayers
 	{
-		size_t __len__ = (size_t)scenePlayers.size();
+		U32 __len__ = (U32)scenePlayers.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			w->writeType(scenePlayers[i]);
 		}
@@ -17547,10 +17547,10 @@ bool SGE_Player_World2SceneProxy::addFollows(ProtocolReader* __r__)
 	std::vector< S32 > scenePlayers;
 	// deserialize scenePlayers
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		scenePlayers.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(scenePlayers[i])) return false;
 		}
@@ -18733,9 +18733,9 @@ void SGE_Mall2WorldStub::fetchSellOk(S32 playerid,const std::vector< COM_SellIte
 	}
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -18758,9 +18758,9 @@ void SGE_Mall2WorldStub::fetchMySellOk(S32 playerid,const std::vector< COM_SellI
 	}
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -18779,9 +18779,9 @@ void SGE_Mall2WorldStub::fetchSelledItemOk(S32 playerId,const std::vector< COM_S
 	}
 	// serialize items
 	{
-		size_t __len__ = (size_t)items.size();
+		U32 __len__ = (U32)items.size();
 		w->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items[i].serialize(w);
 		}
@@ -18864,10 +18864,10 @@ bool SGE_Mall2WorldProxy::fetchSellOk(ProtocolReader* __r__)
 	}
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -18888,10 +18888,10 @@ bool SGE_Mall2WorldProxy::fetchMySellOk(ProtocolReader* __r__)
 	}
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}
@@ -18908,10 +18908,10 @@ bool SGE_Mall2WorldProxy::fetchSelledItemOk(ProtocolReader* __r__)
 	}
 	// deserialize items
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items[i].deserialize(__r__)) return false;
 		}

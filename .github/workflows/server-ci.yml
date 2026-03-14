@@ -1,0 +1,38 @@
+name: Server CI Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    paths:
+      - 'server/**'
+      - 'common/**'
+      - 'sql/**'
+      - 'config/**'
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-20.04
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build C++ Server (mlbb-server-build)
+      run: |
+        cd server
+        docker build -t mlbb-server-build -f Dockerfile .
+        
+    - name: Create Production Image (mlbb-server-runtime)
+      run: |
+        cd server
+        chmod +x build_image.sh
+        ./build_image.sh
+
+    - name: Verify Docker Images
+      run: |
+        docker images | grep mlbb-server

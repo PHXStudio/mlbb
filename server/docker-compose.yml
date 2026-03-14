@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mlbb-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: 8000_game
+      MYSQL_USER: xysk
+      MYSQL_PASSWORD: xysk_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ../sql:/docker-entrypoint-initdb.d
+    networks:
+      - mlbb-network
+
+networks:
+  mlbb-network:
+    driver: bridge

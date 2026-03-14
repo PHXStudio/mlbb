@@ -143,9 +143,9 @@ void COM_ADLoginTotalContent::serialize(ProtocolWriter* __s__) const
 	// serialize itemIds_
 	if(itemIds_.size())
 	{
-		size_t __len__ = (size_t)itemIds_.size();
+		U32 __len__ = (U32)itemIds_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(itemIds_[i]);
 		}
@@ -153,9 +153,9 @@ void COM_ADLoginTotalContent::serialize(ProtocolWriter* __s__) const
 	// serialize itemStacks_
 	if(itemStacks_.size())
 	{
-		size_t __len__ = (size_t)itemStacks_.size();
+		U32 __len__ = (U32)itemStacks_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(itemStacks_[i]);
 		}
@@ -181,10 +181,10 @@ bool COM_ADLoginTotalContent::deserialize(ProtocolReader* __r__)
 	// deserialize itemIds_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		itemIds_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(itemIds_[i])) return false;
 		}
@@ -192,10 +192,10 @@ bool COM_ADLoginTotalContent::deserialize(ProtocolReader* __r__)
 	// deserialize itemStacks_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		itemStacks_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(itemStacks_[i])) return false;
 		}
@@ -221,8 +221,8 @@ void COM_ADLoginTotalContent::serializeJson(std::ostream& ss, bool needBracket)c
 	ss << "\"itemIds_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)itemIds_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)itemIds_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)itemIds_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -234,8 +234,8 @@ void COM_ADLoginTotalContent::serializeJson(std::ostream& ss, bool needBracket)c
 	ss << "\"itemStacks_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)itemStacks_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)itemStacks_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)itemStacks_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -287,9 +287,9 @@ void COM_ADLoginTotal::serialize(ProtocolWriter* __s__) const
 	// serialize contents_
 	if(contents_.size())
 	{
-		size_t __len__ = (size_t)contents_.size();
+		U32 __len__ = (U32)contents_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serialize(__s__);
 		}
@@ -321,10 +321,10 @@ bool COM_ADLoginTotal::deserialize(ProtocolReader* __r__)
 	// deserialize contents_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		contents_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!contents_[i].deserialize(__r__)) return false;
 		}
@@ -356,8 +356,8 @@ void COM_ADLoginTotal::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"contents_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)contents_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)contents_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -390,9 +390,9 @@ void COM_ADChargeTotalContent::serialize(ProtocolWriter* __s__) const
 	// serialize itemIds_
 	if(itemIds_.size())
 	{
-		size_t __len__ = (size_t)itemIds_.size();
+		U32 __len__ = (U32)itemIds_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(itemIds_[i]);
 		}
@@ -400,9 +400,9 @@ void COM_ADChargeTotalContent::serialize(ProtocolWriter* __s__) const
 	// serialize itemStacks_
 	if(itemStacks_.size())
 	{
-		size_t __len__ = (size_t)itemStacks_.size();
+		U32 __len__ = (U32)itemStacks_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(itemStacks_[i]);
 		}
@@ -428,10 +428,10 @@ bool COM_ADChargeTotalContent::deserialize(ProtocolReader* __r__)
 	// deserialize itemIds_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		itemIds_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(itemIds_[i])) return false;
 		}
@@ -439,10 +439,10 @@ bool COM_ADChargeTotalContent::deserialize(ProtocolReader* __r__)
 	// deserialize itemStacks_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		itemStacks_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(itemStacks_[i])) return false;
 		}
@@ -468,8 +468,8 @@ void COM_ADChargeTotalContent::serializeJson(std::ostream& ss, bool needBracket)
 	ss << "\"itemIds_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)itemIds_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)itemIds_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)itemIds_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -481,8 +481,8 @@ void COM_ADChargeTotalContent::serializeJson(std::ostream& ss, bool needBracket)
 	ss << "\"itemStacks_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)itemStacks_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)itemStacks_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)itemStacks_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -534,9 +534,9 @@ void COM_ADChargeTotal::serialize(ProtocolWriter* __s__) const
 	// serialize contents_
 	if(contents_.size())
 	{
-		size_t __len__ = (size_t)contents_.size();
+		U32 __len__ = (U32)contents_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serialize(__s__);
 		}
@@ -568,10 +568,10 @@ bool COM_ADChargeTotal::deserialize(ProtocolReader* __r__)
 	// deserialize contents_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		contents_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!contents_[i].deserialize(__r__)) return false;
 		}
@@ -603,8 +603,8 @@ void COM_ADChargeTotal::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"contents_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)contents_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)contents_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -743,9 +743,9 @@ void COM_ADDiscountStore::serialize(ProtocolWriter* __s__) const
 	// serialize contents_
 	if(contents_.size())
 	{
-		size_t __len__ = (size_t)contents_.size();
+		U32 __len__ = (U32)contents_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serialize(__s__);
 		}
@@ -771,10 +771,10 @@ bool COM_ADDiscountStore::deserialize(ProtocolReader* __r__)
 	// deserialize contents_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		contents_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!contents_[i].deserialize(__r__)) return false;
 		}
@@ -800,8 +800,8 @@ void COM_ADDiscountStore::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"contents_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)contents_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)contents_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -836,9 +836,9 @@ void COM_ADChargeEveryContent::serialize(ProtocolWriter* __s__) const
 	// serialize itemIds_
 	if(itemIds_.size())
 	{
-		size_t __len__ = (size_t)itemIds_.size();
+		U32 __len__ = (U32)itemIds_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(itemIds_[i]);
 		}
@@ -846,9 +846,9 @@ void COM_ADChargeEveryContent::serialize(ProtocolWriter* __s__) const
 	// serialize itemStacks_
 	if(itemStacks_.size())
 	{
-		size_t __len__ = (size_t)itemStacks_.size();
+		U32 __len__ = (U32)itemStacks_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(itemStacks_[i]);
 		}
@@ -880,10 +880,10 @@ bool COM_ADChargeEveryContent::deserialize(ProtocolReader* __r__)
 	// deserialize itemIds_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		itemIds_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(itemIds_[i])) return false;
 		}
@@ -891,10 +891,10 @@ bool COM_ADChargeEveryContent::deserialize(ProtocolReader* __r__)
 	// deserialize itemStacks_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		itemStacks_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(itemStacks_[i])) return false;
 		}
@@ -926,8 +926,8 @@ void COM_ADChargeEveryContent::serializeJson(std::ostream& ss, bool needBracket)
 	ss << "\"itemIds_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)itemIds_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)itemIds_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)itemIds_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -939,8 +939,8 @@ void COM_ADChargeEveryContent::serializeJson(std::ostream& ss, bool needBracket)
 	ss << "\"itemStacks_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)itemStacks_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)itemStacks_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)itemStacks_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -998,9 +998,9 @@ void COM_ADChargeEvery::serialize(ProtocolWriter* __s__) const
 	// serialize contents_
 	if(contents_.size())
 	{
-		size_t __len__ = (size_t)contents_.size();
+		U32 __len__ = (U32)contents_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serialize(__s__);
 		}
@@ -1032,10 +1032,10 @@ bool COM_ADChargeEvery::deserialize(ProtocolReader* __r__)
 	// deserialize contents_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		contents_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!contents_[i].deserialize(__r__)) return false;
 		}
@@ -1067,8 +1067,8 @@ void COM_ADChargeEvery::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"contents_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)contents_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)contents_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -1167,9 +1167,9 @@ void COM_ADCards::serialize(ProtocolWriter* __s__) const
 	// serialize contents_
 	if(contents_.size())
 	{
-		size_t __len__ = (size_t)contents_.size();
+		U32 __len__ = (U32)contents_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serialize(__s__);
 		}
@@ -1195,10 +1195,10 @@ bool COM_ADCards::deserialize(ProtocolReader* __r__)
 	// deserialize contents_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		contents_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!contents_[i].deserialize(__r__)) return false;
 		}
@@ -1224,8 +1224,8 @@ void COM_ADCards::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"contents_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)contents_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)contents_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -1367,9 +1367,9 @@ void COM_ADHotRole::serialize(ProtocolWriter* __s__) const
 	// serialize contents_
 	if(contents_.size())
 	{
-		size_t __len__ = (size_t)contents_.size();
+		U32 __len__ = (U32)contents_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serialize(__s__);
 		}
@@ -1395,10 +1395,10 @@ bool COM_ADHotRole::deserialize(ProtocolReader* __r__)
 	// deserialize contents_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		contents_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!contents_[i].deserialize(__r__)) return false;
 		}
@@ -1424,8 +1424,8 @@ void COM_ADHotRole::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"contents_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)contents_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)contents_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -1458,9 +1458,9 @@ void COM_ADEmployeeTotalContent::serialize(ProtocolWriter* __s__) const
 	// serialize itemIds_
 	if(itemIds_.size())
 	{
-		size_t __len__ = (size_t)itemIds_.size();
+		U32 __len__ = (U32)itemIds_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(itemIds_[i]);
 		}
@@ -1468,9 +1468,9 @@ void COM_ADEmployeeTotalContent::serialize(ProtocolWriter* __s__) const
 	// serialize itemStacks_
 	if(itemStacks_.size())
 	{
-		size_t __len__ = (size_t)itemStacks_.size();
+		U32 __len__ = (U32)itemStacks_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(itemStacks_[i]);
 		}
@@ -1496,10 +1496,10 @@ bool COM_ADEmployeeTotalContent::deserialize(ProtocolReader* __r__)
 	// deserialize itemIds_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		itemIds_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(itemIds_[i])) return false;
 		}
@@ -1507,10 +1507,10 @@ bool COM_ADEmployeeTotalContent::deserialize(ProtocolReader* __r__)
 	// deserialize itemStacks_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		itemStacks_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(itemStacks_[i])) return false;
 		}
@@ -1536,8 +1536,8 @@ void COM_ADEmployeeTotalContent::serializeJson(std::ostream& ss, bool needBracke
 	ss << "\"itemIds_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)itemIds_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)itemIds_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)itemIds_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -1549,8 +1549,8 @@ void COM_ADEmployeeTotalContent::serializeJson(std::ostream& ss, bool needBracke
 	ss << "\"itemStacks_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)itemStacks_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)itemStacks_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)itemStacks_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -1602,9 +1602,9 @@ void COM_ADEmployeeTotal::serialize(ProtocolWriter* __s__) const
 	// serialize contents_
 	if(contents_.size())
 	{
-		size_t __len__ = (size_t)contents_.size();
+		U32 __len__ = (U32)contents_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serialize(__s__);
 		}
@@ -1636,10 +1636,10 @@ bool COM_ADEmployeeTotal::deserialize(ProtocolReader* __r__)
 	// deserialize contents_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		contents_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!contents_[i].deserialize(__r__)) return false;
 		}
@@ -1671,8 +1671,8 @@ void COM_ADEmployeeTotal::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"contents_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)contents_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)contents_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -1792,9 +1792,9 @@ void COM_ADGiftBag::serialize(ProtocolWriter* __s__) const
 	// serialize itemdata_
 	if(itemdata_.size())
 	{
-		size_t __len__ = (size_t)itemdata_.size();
+		U32 __len__ = (U32)itemdata_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			itemdata_[i].serialize(__s__);
 		}
@@ -1836,10 +1836,10 @@ bool COM_ADGiftBag::deserialize(ProtocolReader* __r__)
 	// deserialize itemdata_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		itemdata_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!itemdata_[i].deserialize(__r__)) return false;
 		}
@@ -1883,8 +1883,8 @@ void COM_ADGiftBag::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"itemdata_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)itemdata_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)itemdata_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			itemdata_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -2218,9 +2218,9 @@ void COM_ZhuanpanData::serialize(ProtocolWriter* __s__) const
 	// serialize contents_
 	if(contents_.size())
 	{
-		size_t __len__ = (size_t)contents_.size();
+		U32 __len__ = (U32)contents_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serialize(__s__);
 		}
@@ -2228,9 +2228,9 @@ void COM_ZhuanpanData::serialize(ProtocolWriter* __s__) const
 	// serialize rarity_
 	if(rarity_.size())
 	{
-		size_t __len__ = (size_t)rarity_.size();
+		U32 __len__ = (U32)rarity_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			rarity_[i].serialize(__s__);
 		}
@@ -2256,10 +2256,10 @@ bool COM_ZhuanpanData::deserialize(ProtocolReader* __r__)
 	// deserialize contents_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		contents_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!contents_[i].deserialize(__r__)) return false;
 		}
@@ -2267,10 +2267,10 @@ bool COM_ZhuanpanData::deserialize(ProtocolReader* __r__)
 	// deserialize rarity_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		rarity_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!rarity_[i].deserialize(__r__)) return false;
 		}
@@ -2296,8 +2296,8 @@ void COM_ZhuanpanData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"contents_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)contents_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)contents_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -2309,8 +2309,8 @@ void COM_ZhuanpanData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"rarity_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)rarity_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)rarity_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			rarity_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -2462,9 +2462,9 @@ void COM_IntegralData::serialize(ProtocolWriter* __s__) const
 	// serialize contents_
 	if(contents_.size())
 	{
-		size_t __len__ = (size_t)contents_.size();
+		U32 __len__ = (U32)contents_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serialize(__s__);
 		}
@@ -2500,10 +2500,10 @@ bool COM_IntegralData::deserialize(ProtocolReader* __r__)
 	// deserialize contents_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		contents_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!contents_[i].deserialize(__r__)) return false;
 		}
@@ -2541,8 +2541,8 @@ void COM_IntegralData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"contents_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)contents_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)contents_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			contents_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -4274,9 +4274,9 @@ void COM_Item::serialize(ProtocolWriter* __s__) const
 	// serialize propArr
 	if(propArr.size())
 	{
-		size_t __len__ = (size_t)propArr.size();
+		U32 __len__ = (U32)propArr.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			propArr[i].serialize(__s__);
 		}
@@ -4358,10 +4358,10 @@ bool COM_Item::deserialize(ProtocolReader* __r__)
 	// deserialize propArr
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		propArr.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!propArr[i].deserialize(__r__)) return false;
 		}
@@ -4447,8 +4447,8 @@ void COM_Item::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"propArr\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)propArr.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)propArr.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			propArr[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -4623,9 +4623,9 @@ void COM_CrystalData::serialize(ProtocolWriter* __s__) const
 	// serialize props_
 	if(props_.size())
 	{
-		size_t __len__ = (size_t)props_.size();
+		U32 __len__ = (U32)props_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			props_[i].serialize(__s__);
 		}
@@ -4645,10 +4645,10 @@ bool COM_CrystalData::deserialize(ProtocolReader* __r__)
 	// deserialize props_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		props_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!props_[i].deserialize(__r__)) return false;
 		}
@@ -4668,8 +4668,8 @@ void COM_CrystalData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"props_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)props_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)props_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			props_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -4841,9 +4841,9 @@ void COM_QuestInst::serialize(ProtocolWriter* __s__) const
 	// serialize targets_
 	if(targets_.size())
 	{
-		size_t __len__ = (size_t)targets_.size();
+		U32 __len__ = (U32)targets_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			targets_[i].serialize(__s__);
 		}
@@ -4863,10 +4863,10 @@ bool COM_QuestInst::deserialize(ProtocolReader* __r__)
 	// deserialize targets_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		targets_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!targets_[i].deserialize(__r__)) return false;
 		}
@@ -4886,8 +4886,8 @@ void COM_QuestInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"targets_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)targets_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)targets_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			targets_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -5086,9 +5086,9 @@ void COM_Entity::serialize(ProtocolWriter* __s__) const
 	// serialize properties_
 	if(properties_.size())
 	{
-		size_t __len__ = (size_t)properties_.size();
+		U32 __len__ = (U32)properties_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(properties_[i]);
 		}
@@ -5096,9 +5096,9 @@ void COM_Entity::serialize(ProtocolWriter* __s__) const
 	// serialize skill_
 	if(skill_.size())
 	{
-		size_t __len__ = (size_t)skill_.size();
+		U32 __len__ = (U32)skill_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			skill_[i].serialize(__s__);
 		}
@@ -5106,9 +5106,9 @@ void COM_Entity::serialize(ProtocolWriter* __s__) const
 	// serialize equips_
 	if(equips_.size())
 	{
-		size_t __len__ = (size_t)equips_.size();
+		U32 __len__ = (U32)equips_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			equips_[i].serialize(__s__);
 		}
@@ -5116,9 +5116,9 @@ void COM_Entity::serialize(ProtocolWriter* __s__) const
 	// serialize states_
 	if(states_.size())
 	{
-		size_t __len__ = (size_t)states_.size();
+		U32 __len__ = (U32)states_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			states_[i].serialize(__s__);
 		}
@@ -5160,10 +5160,10 @@ bool COM_Entity::deserialize(ProtocolReader* __r__)
 	// deserialize properties_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		properties_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(properties_[i])) return false;
 		}
@@ -5171,10 +5171,10 @@ bool COM_Entity::deserialize(ProtocolReader* __r__)
 	// deserialize skill_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		skill_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!skill_[i].deserialize(__r__)) return false;
 		}
@@ -5182,10 +5182,10 @@ bool COM_Entity::deserialize(ProtocolReader* __r__)
 	// deserialize equips_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		equips_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!equips_[i].deserialize(__r__)) return false;
 		}
@@ -5193,10 +5193,10 @@ bool COM_Entity::deserialize(ProtocolReader* __r__)
 	// deserialize states_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		states_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!states_[i].deserialize(__r__)) return false;
 		}
@@ -5234,8 +5234,8 @@ void COM_Entity::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"properties_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)properties_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)properties_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (double)properties_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -5247,8 +5247,8 @@ void COM_Entity::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"skill_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)skill_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)skill_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			skill_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -5260,8 +5260,8 @@ void COM_Entity::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"equips_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)equips_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)equips_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			equips_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -5273,8 +5273,8 @@ void COM_Entity::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"states_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)states_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)states_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			states_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -5365,9 +5365,9 @@ void COM_BabyInst::serialize(ProtocolWriter* __s__) const
 	// serialize gear_
 	if(gear_.size())
 	{
-		size_t __len__ = (size_t)gear_.size();
+		U32 __len__ = (U32)gear_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(gear_[i]);
 		}
@@ -5375,9 +5375,9 @@ void COM_BabyInst::serialize(ProtocolWriter* __s__) const
 	// serialize addprop_
 	if(addprop_.size())
 	{
-		size_t __len__ = (size_t)addprop_.size();
+		U32 __len__ = (U32)addprop_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(addprop_[i]);
 		}
@@ -5444,10 +5444,10 @@ bool COM_BabyInst::deserialize(ProtocolReader* __r__)
 	// deserialize gear_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		gear_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(gear_[i])) return false;
 		}
@@ -5455,10 +5455,10 @@ bool COM_BabyInst::deserialize(ProtocolReader* __r__)
 	// deserialize addprop_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		addprop_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(addprop_[i])) return false;
 		}
@@ -5533,8 +5533,8 @@ void COM_BabyInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"gear_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)gear_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)gear_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)gear_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -5546,8 +5546,8 @@ void COM_BabyInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"addprop_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)addprop_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)addprop_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (double)addprop_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -6726,9 +6726,9 @@ void COM_ActivityTable::serialize(ProtocolWriter* __s__) const
 	// serialize activities_
 	if(activities_.size())
 	{
-		size_t __len__ = (size_t)activities_.size();
+		U32 __len__ = (U32)activities_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			activities_[i].serialize(__s__);
 		}
@@ -6736,9 +6736,9 @@ void COM_ActivityTable::serialize(ProtocolWriter* __s__) const
 	// serialize flag_
 	if(flag_.size())
 	{
-		size_t __len__ = (size_t)flag_.size();
+		U32 __len__ = (U32)flag_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(flag_[i]);
 		}
@@ -6758,10 +6758,10 @@ bool COM_ActivityTable::deserialize(ProtocolReader* __r__)
 	// deserialize activities_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		activities_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!activities_[i].deserialize(__r__)) return false;
 		}
@@ -6769,10 +6769,10 @@ bool COM_ActivityTable::deserialize(ProtocolReader* __r__)
 	// deserialize flag_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		flag_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(flag_[i])) return false;
 		}
@@ -6792,8 +6792,8 @@ void COM_ActivityTable::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"activities_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)activities_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)activities_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			activities_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -6805,8 +6805,8 @@ void COM_ActivityTable::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"flag_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)flag_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)flag_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)flag_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -6958,9 +6958,9 @@ void COM_SimplePlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize babies1_
 	if(babies1_.size())
 	{
-		size_t __len__ = (size_t)babies1_.size();
+		U32 __len__ = (U32)babies1_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			babies1_[i].serialize(__s__);
 		}
@@ -6968,9 +6968,9 @@ void COM_SimplePlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize battleEmps_
 	if(battleEmps_.size())
 	{
-		size_t __len__ = (size_t)battleEmps_.size();
+		U32 __len__ = (U32)battleEmps_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			battleEmps_[i].serialize(__s__);
 		}
@@ -7037,10 +7037,10 @@ bool COM_SimplePlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize babies1_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		babies1_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!babies1_[i].deserialize(__r__)) return false;
 		}
@@ -7048,10 +7048,10 @@ bool COM_SimplePlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize battleEmps_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		battleEmps_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!battleEmps_[i].deserialize(__r__)) return false;
 		}
@@ -7126,8 +7126,8 @@ void COM_SimplePlayerInst::serializeJson(std::ostream& ss, bool needBracket)cons
 	ss << "\"babies1_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)babies1_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)babies1_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			babies1_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -7139,8 +7139,8 @@ void COM_SimplePlayerInst::serializeJson(std::ostream& ss, bool needBracket)cons
 	ss << "\"battleEmps_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)battleEmps_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)battleEmps_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			battleEmps_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -7323,9 +7323,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize onlineTimeReward_
 	if(onlineTimeReward_.size())
 	{
-		size_t __len__ = (size_t)onlineTimeReward_.size();
+		U32 __len__ = (U32)onlineTimeReward_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(onlineTimeReward_[i]);
 		}
@@ -7336,9 +7336,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize fundtags_
 	if(fundtags_.size())
 	{
-		size_t __len__ = (size_t)fundtags_.size();
+		U32 __len__ = (U32)fundtags_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(fundtags_[i]);
 		}
@@ -7446,9 +7446,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize openScenes_
 	if(openScenes_.size())
 	{
-		size_t __len__ = (size_t)openScenes_.size();
+		U32 __len__ = (U32)openScenes_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(openScenes_[i]);
 		}
@@ -7456,9 +7456,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize copyNum_
 	if(copyNum_.size())
 	{
-		size_t __len__ = (size_t)copyNum_.size();
+		U32 __len__ = (U32)copyNum_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(copyNum_[i]);
 		}
@@ -7491,9 +7491,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize cachedNpcs_
 	if(cachedNpcs_.size())
 	{
-		size_t __len__ = (size_t)cachedNpcs_.size();
+		U32 __len__ = (U32)cachedNpcs_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(cachedNpcs_[i]);
 		}
@@ -7501,9 +7501,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize gft_
 	if(gft_.size())
 	{
-		size_t __len__ = (size_t)gft_.size();
+		U32 __len__ = (U32)gft_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(gft_[i]);
 		}
@@ -7511,9 +7511,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize babycache_
 	if(babycache_.size())
 	{
-		size_t __len__ = (size_t)babycache_.size();
+		U32 __len__ = (U32)babycache_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(babycache_[i]);
 		}
@@ -7521,9 +7521,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize titles_
 	if(titles_.size())
 	{
-		size_t __len__ = (size_t)titles_.size();
+		U32 __len__ = (U32)titles_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(titles_[i]);
 		}
@@ -7543,9 +7543,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize guildSkills_
 	if(guildSkills_.size())
 	{
-		size_t __len__ = (size_t)guildSkills_.size();
+		U32 __len__ = (U32)guildSkills_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			guildSkills_[i].serialize(__s__);
 		}
@@ -7553,9 +7553,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize gmActivities_
 	if(gmActivities_.size())
 	{
-		size_t __len__ = (size_t)gmActivities_.size();
+		U32 __len__ = (U32)gmActivities_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			EnumSize __e__ = (EnumSize)gmActivities_[i];
 			__s__->writeType(__e__);
@@ -7618,9 +7618,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize sevendata_
 	if(sevendata_.size())
 	{
-		size_t __len__ = (size_t)sevendata_.size();
+		U32 __len__ = (U32)sevendata_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			sevendata_[i].serialize(__s__);
 		}
@@ -7637,9 +7637,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize levelgift_
 	if(levelgift_.size())
 	{
-		size_t __len__ = (size_t)levelgift_.size();
+		U32 __len__ = (U32)levelgift_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(levelgift_[i]);
 		}
@@ -7651,9 +7651,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize fuwen_
 	if(fuwen_.size())
 	{
-		size_t __len__ = (size_t)fuwen_.size();
+		U32 __len__ = (U32)fuwen_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			fuwen_[i].serialize(__s__);
 		}
@@ -7669,9 +7669,9 @@ void COM_PlayerInst::serialize(ProtocolWriter* __s__) const
 	// serialize coursegift_
 	if(coursegift_.size())
 	{
-		size_t __len__ = (size_t)coursegift_.size();
+		U32 __len__ = (U32)coursegift_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			coursegift_[i].serialize(__s__);
 		}
@@ -7748,10 +7748,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize onlineTimeReward_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		onlineTimeReward_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(onlineTimeReward_[i])) return false;
 		}
@@ -7763,10 +7763,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize fundtags_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		fundtags_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(fundtags_[i])) return false;
 		}
@@ -7880,10 +7880,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize openScenes_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		openScenes_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(openScenes_[i])) return false;
 		}
@@ -7891,10 +7891,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize copyNum_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		copyNum_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(copyNum_[i])) return false;
 		}
@@ -7928,10 +7928,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize cachedNpcs_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		cachedNpcs_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(cachedNpcs_[i])) return false;
 		}
@@ -7939,10 +7939,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize gft_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		gft_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(gft_[i], 65535)) return false;
 		}
@@ -7950,10 +7950,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize babycache_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		babycache_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(babycache_[i])) return false;
 		}
@@ -7961,10 +7961,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize titles_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		titles_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(titles_[i])) return false;
 		}
@@ -7984,10 +7984,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize guildSkills_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		guildSkills_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!guildSkills_[i].deserialize(__r__)) return false;
 		}
@@ -7995,10 +7995,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize gmActivities_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		gmActivities_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			EnumSize __e__;
 			if(!__r__->readType(__e__) || __e__ >= 21) return false;
@@ -8088,10 +8088,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize sevendata_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		sevendata_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!sevendata_[i].deserialize(__r__)) return false;
 		}
@@ -8109,10 +8109,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize levelgift_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		levelgift_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(levelgift_[i])) return false;
 		}
@@ -8126,10 +8126,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize fuwen_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		fuwen_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!fuwen_[i].deserialize(__r__)) return false;
 		}
@@ -8149,10 +8149,10 @@ bool COM_PlayerInst::deserialize(ProtocolReader* __r__)
 	// deserialize coursegift_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		coursegift_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!coursegift_[i].deserialize(__r__)) return false;
 		}
@@ -8239,8 +8239,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"onlineTimeReward_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)onlineTimeReward_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)onlineTimeReward_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)onlineTimeReward_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8258,8 +8258,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"fundtags_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)fundtags_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)fundtags_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)fundtags_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8385,8 +8385,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"openScenes_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)openScenes_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)openScenes_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)openScenes_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8398,8 +8398,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"copyNum_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)copyNum_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)copyNum_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)copyNum_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8435,8 +8435,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"cachedNpcs_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)cachedNpcs_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)cachedNpcs_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)cachedNpcs_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8448,8 +8448,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"gft_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)gft_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)gft_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << "\"" << gft_[i] << "\"";
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8461,8 +8461,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"babycache_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)babycache_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)babycache_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)babycache_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8474,8 +8474,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"titles_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)titles_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)titles_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)titles_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8499,8 +8499,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"guildSkills_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)guildSkills_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)guildSkills_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			guildSkills_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8512,8 +8512,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"gmActivities_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)gmActivities_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)gmActivities_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << "\"" << ENUM(ADType).getItemName(gmActivities_[i]) << "\"";
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8609,8 +8609,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"sevendata_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)sevendata_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)sevendata_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			sevendata_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8634,8 +8634,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"levelgift_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)levelgift_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)levelgift_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)levelgift_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8653,8 +8653,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"fuwen_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)fuwen_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)fuwen_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			fuwen_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8678,8 +8678,8 @@ void COM_PlayerInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"coursegift_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)coursegift_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)coursegift_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			coursegift_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8700,9 +8700,9 @@ void COM_MonsterInst::serialize(ProtocolWriter* __s__) const
 	// serialize gear_
 	if(gear_.size())
 	{
-		size_t __len__ = (size_t)gear_.size();
+		U32 __len__ = (U32)gear_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(gear_[i]);
 		}
@@ -8717,10 +8717,10 @@ bool COM_MonsterInst::deserialize(ProtocolReader* __r__)
 	// deserialize gear_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		gear_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(gear_[i])) return false;
 		}
@@ -8735,8 +8735,8 @@ void COM_MonsterInst::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"gear_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)gear_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)gear_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)gear_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -8927,9 +8927,9 @@ void COM_ReportTarget::serialize(ProtocolWriter* __s__) const
 	// serialize prop2_
 	if(prop2_.size())
 	{
-		size_t __len__ = (size_t)prop2_.size();
+		U32 __len__ = (U32)prop2_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			prop2_[i].serialize(__s__);
 		}
@@ -8944,10 +8944,10 @@ bool COM_ReportTarget::deserialize(ProtocolReader* __r__)
 	// deserialize prop2_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		prop2_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!prop2_[i].deserialize(__r__)) return false;
 		}
@@ -8962,8 +8962,8 @@ void COM_ReportTarget::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"prop2_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)prop2_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)prop2_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			prop2_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9245,9 +9245,9 @@ void COM_ReportActionCounter::serialize(ProtocolWriter* __s__) const
 	// serialize states_
 	if(states_.size())
 	{
-		size_t __len__ = (size_t)states_.size();
+		U32 __len__ = (U32)states_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			states_[i].serialize(__s__);
 		}
@@ -9279,10 +9279,10 @@ bool COM_ReportActionCounter::deserialize(ProtocolReader* __r__)
 	// deserialize states_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		states_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!states_[i].deserialize(__r__)) return false;
 		}
@@ -9314,8 +9314,8 @@ void COM_ReportActionCounter::serializeJson(std::ostream& ss, bool needBracket)c
 	ss << "\"states_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)states_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)states_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			states_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9386,9 +9386,9 @@ void COM_ReportAction::serialize(ProtocolWriter* __s__) const
 	// serialize eraseEntities_
 	if(eraseEntities_.size())
 	{
-		size_t __len__ = (size_t)eraseEntities_.size();
+		U32 __len__ = (U32)eraseEntities_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(eraseEntities_[i]);
 		}
@@ -9396,9 +9396,9 @@ void COM_ReportAction::serialize(ProtocolWriter* __s__) const
 	// serialize targets_
 	if(targets_.size())
 	{
-		size_t __len__ = (size_t)targets_.size();
+		U32 __len__ = (U32)targets_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			targets_[i].serialize(__s__);
 		}
@@ -9406,9 +9406,9 @@ void COM_ReportAction::serialize(ProtocolWriter* __s__) const
 	// serialize stateIds_
 	if(stateIds_.size())
 	{
-		size_t __len__ = (size_t)stateIds_.size();
+		U32 __len__ = (U32)stateIds_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			stateIds_[i].serialize(__s__);
 		}
@@ -9416,9 +9416,9 @@ void COM_ReportAction::serialize(ProtocolWriter* __s__) const
 	// serialize counters_
 	if(counters_.size())
 	{
-		size_t __len__ = (size_t)counters_.size();
+		U32 __len__ = (U32)counters_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			counters_[i].serialize(__s__);
 		}
@@ -9426,9 +9426,9 @@ void COM_ReportAction::serialize(ProtocolWriter* __s__) const
 	// serialize dynamicEntities_
 	if(dynamicEntities_.size())
 	{
-		size_t __len__ = (size_t)dynamicEntities_.size();
+		U32 __len__ = (U32)dynamicEntities_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			dynamicEntities_[i].serialize(__s__);
 		}
@@ -9481,10 +9481,10 @@ bool COM_ReportAction::deserialize(ProtocolReader* __r__)
 	// deserialize eraseEntities_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		eraseEntities_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(eraseEntities_[i])) return false;
 		}
@@ -9492,10 +9492,10 @@ bool COM_ReportAction::deserialize(ProtocolReader* __r__)
 	// deserialize targets_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		targets_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!targets_[i].deserialize(__r__)) return false;
 		}
@@ -9503,10 +9503,10 @@ bool COM_ReportAction::deserialize(ProtocolReader* __r__)
 	// deserialize stateIds_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		stateIds_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!stateIds_[i].deserialize(__r__)) return false;
 		}
@@ -9514,10 +9514,10 @@ bool COM_ReportAction::deserialize(ProtocolReader* __r__)
 	// deserialize counters_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		counters_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!counters_[i].deserialize(__r__)) return false;
 		}
@@ -9525,10 +9525,10 @@ bool COM_ReportAction::deserialize(ProtocolReader* __r__)
 	// deserialize dynamicEntities_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		dynamicEntities_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!dynamicEntities_[i].deserialize(__r__)) return false;
 		}
@@ -9579,8 +9579,8 @@ void COM_ReportAction::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"eraseEntities_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)eraseEntities_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)eraseEntities_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)eraseEntities_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9592,8 +9592,8 @@ void COM_ReportAction::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"targets_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)targets_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)targets_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			targets_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9605,8 +9605,8 @@ void COM_ReportAction::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"stateIds_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)stateIds_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)stateIds_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			stateIds_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9618,8 +9618,8 @@ void COM_ReportAction::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"counters_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)counters_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)counters_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			counters_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9631,8 +9631,8 @@ void COM_ReportAction::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"dynamicEntities_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)dynamicEntities_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)dynamicEntities_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			dynamicEntities_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9655,9 +9655,9 @@ void COM_BattleReport::serialize(ProtocolWriter* __s__) const
 	// serialize stateIds_
 	if(stateIds_.size())
 	{
-		size_t __len__ = (size_t)stateIds_.size();
+		U32 __len__ = (U32)stateIds_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			stateIds_[i].serialize(__s__);
 		}
@@ -9665,9 +9665,9 @@ void COM_BattleReport::serialize(ProtocolWriter* __s__) const
 	// serialize actionResults_
 	if(actionResults_.size())
 	{
-		size_t __len__ = (size_t)actionResults_.size();
+		U32 __len__ = (U32)actionResults_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			actionResults_[i].serialize(__s__);
 		}
@@ -9675,9 +9675,9 @@ void COM_BattleReport::serialize(ProtocolWriter* __s__) const
 	// serialize targets_
 	if(targets_.size())
 	{
-		size_t __len__ = (size_t)targets_.size();
+		U32 __len__ = (U32)targets_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			targets_[i].serialize(__s__);
 		}
@@ -9685,9 +9685,9 @@ void COM_BattleReport::serialize(ProtocolWriter* __s__) const
 	// serialize waveEntities_
 	if(waveEntities_.size())
 	{
-		size_t __len__ = (size_t)waveEntities_.size();
+		U32 __len__ = (U32)waveEntities_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			waveEntities_[i].serialize(__s__);
 		}
@@ -9701,10 +9701,10 @@ bool COM_BattleReport::deserialize(ProtocolReader* __r__)
 	// deserialize stateIds_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		stateIds_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!stateIds_[i].deserialize(__r__)) return false;
 		}
@@ -9712,10 +9712,10 @@ bool COM_BattleReport::deserialize(ProtocolReader* __r__)
 	// deserialize actionResults_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		actionResults_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!actionResults_[i].deserialize(__r__)) return false;
 		}
@@ -9723,10 +9723,10 @@ bool COM_BattleReport::deserialize(ProtocolReader* __r__)
 	// deserialize targets_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		targets_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!targets_[i].deserialize(__r__)) return false;
 		}
@@ -9734,10 +9734,10 @@ bool COM_BattleReport::deserialize(ProtocolReader* __r__)
 	// deserialize waveEntities_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		waveEntities_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!waveEntities_[i].deserialize(__r__)) return false;
 		}
@@ -9751,8 +9751,8 @@ void COM_BattleReport::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"stateIds_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)stateIds_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)stateIds_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			stateIds_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9764,8 +9764,8 @@ void COM_BattleReport::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"actionResults_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)actionResults_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)actionResults_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			actionResults_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9777,8 +9777,8 @@ void COM_BattleReport::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"targets_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)targets_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)targets_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			targets_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9790,8 +9790,8 @@ void COM_BattleReport::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"waveEntities_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)waveEntities_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)waveEntities_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			waveEntities_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -9856,9 +9856,9 @@ void COM_InitBattle::serialize(ProtocolWriter* __s__) const
 	// serialize actors_
 	if(actors_.size())
 	{
-		size_t __len__ = (size_t)actors_.size();
+		U32 __len__ = (U32)actors_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			actors_[i].serialize(__s__);
 		}
@@ -9908,10 +9908,10 @@ bool COM_InitBattle::deserialize(ProtocolReader* __r__)
 	// deserialize actors_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		actors_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!actors_[i].deserialize(__r__)) return false;
 		}
@@ -9955,8 +9955,8 @@ void COM_InitBattle::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"actors_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)actors_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)actors_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			actors_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -10290,9 +10290,9 @@ void COM_TeamInfo::serialize(ProtocolWriter* __s__) const
 	// serialize members_
 	if(members_.size())
 	{
-		size_t __len__ = (size_t)members_.size();
+		U32 __len__ = (U32)members_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			members_[i].serialize(__s__);
 		}
@@ -10307,10 +10307,10 @@ bool COM_TeamInfo::deserialize(ProtocolReader* __r__)
 	// deserialize members_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		members_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!members_[i].deserialize(__r__)) return false;
 		}
@@ -10325,8 +10325,8 @@ void COM_TeamInfo::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"members_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)members_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)members_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			members_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -10472,9 +10472,9 @@ void COM_BattleEmp::serialize(ProtocolWriter* __s__) const
 	// serialize employeeGroup1_
 	if(employeeGroup1_.size())
 	{
-		size_t __len__ = (size_t)employeeGroup1_.size();
+		U32 __len__ = (U32)employeeGroup1_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(employeeGroup1_[i]);
 		}
@@ -10482,9 +10482,9 @@ void COM_BattleEmp::serialize(ProtocolWriter* __s__) const
 	// serialize employeeGroup2_
 	if(employeeGroup2_.size())
 	{
-		size_t __len__ = (size_t)employeeGroup2_.size();
+		U32 __len__ = (U32)employeeGroup2_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(employeeGroup2_[i]);
 		}
@@ -10506,10 +10506,10 @@ bool COM_BattleEmp::deserialize(ProtocolReader* __r__)
 	// deserialize employeeGroup1_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		employeeGroup1_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(employeeGroup1_[i])) return false;
 		}
@@ -10517,10 +10517,10 @@ bool COM_BattleEmp::deserialize(ProtocolReader* __r__)
 	// deserialize employeeGroup2_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		employeeGroup2_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(employeeGroup2_[i])) return false;
 		}
@@ -10540,8 +10540,8 @@ void COM_BattleEmp::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"employeeGroup1_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)employeeGroup1_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)employeeGroup1_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)employeeGroup1_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -10553,8 +10553,8 @@ void COM_BattleEmp::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"employeeGroup2_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)employeeGroup2_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)employeeGroup2_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)employeeGroup2_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -10773,9 +10773,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize orders_
 	if(orders_.size())
 	{
-		size_t __len__ = (size_t)orders_.size();
+		U32 __len__ = (U32)orders_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			orders_[i].serialize(__s__);
 		}
@@ -10813,9 +10813,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize employees_
 	if(employees_.size())
 	{
-		size_t __len__ = (size_t)employees_.size();
+		U32 __len__ = (U32)employees_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			employees_[i].serialize(__s__);
 		}
@@ -10823,9 +10823,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize itemStorage_
 	if(itemStorage_.size())
 	{
-		size_t __len__ = (size_t)itemStorage_.size();
+		U32 __len__ = (U32)itemStorage_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			itemStorage_[i].serialize(__s__);
 		}
@@ -10833,9 +10833,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize babyStorage_
 	if(babyStorage_.size())
 	{
-		size_t __len__ = (size_t)babyStorage_.size();
+		U32 __len__ = (U32)babyStorage_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			babyStorage_[i].serialize(__s__);
 		}
@@ -10843,9 +10843,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize babies_
 	if(babies_.size())
 	{
-		size_t __len__ = (size_t)babies_.size();
+		U32 __len__ = (U32)babies_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			babies_[i].serialize(__s__);
 		}
@@ -10853,9 +10853,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize bagItems_
 	if(bagItems_.size())
 	{
-		size_t __len__ = (size_t)bagItems_.size();
+		U32 __len__ = (U32)bagItems_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			bagItems_[i].serialize(__s__);
 		}
@@ -10863,9 +10863,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize quests_
 	if(quests_.size())
 	{
-		size_t __len__ = (size_t)quests_.size();
+		U32 __len__ = (U32)quests_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			quests_[i].serialize(__s__);
 		}
@@ -10873,9 +10873,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize completeQuests_
 	if(completeQuests_.size())
 	{
-		size_t __len__ = (size_t)completeQuests_.size();
+		U32 __len__ = (U32)completeQuests_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(completeQuests_[i]);
 		}
@@ -10883,9 +10883,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize mineReward_
 	if(mineReward_.size())
 	{
-		size_t __len__ = (size_t)mineReward_.size();
+		U32 __len__ = (U32)mineReward_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			mineReward_[i].serialize(__s__);
 		}
@@ -10893,9 +10893,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize jjcBattleMsg_
 	if(jjcBattleMsg_.size())
 	{
-		size_t __len__ = (size_t)jjcBattleMsg_.size();
+		U32 __len__ = (U32)jjcBattleMsg_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			jjcBattleMsg_[i].serialize(__s__);
 		}
@@ -10903,9 +10903,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize friend_
 	if(friend_.size())
 	{
-		size_t __len__ = (size_t)friend_.size();
+		U32 __len__ = (U32)friend_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			friend_[i].serialize(__s__);
 		}
@@ -10913,9 +10913,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize blacklist_
 	if(blacklist_.size())
 	{
-		size_t __len__ = (size_t)blacklist_.size();
+		U32 __len__ = (U32)blacklist_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			blacklist_[i].serialize(__s__);
 		}
@@ -10923,9 +10923,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize achValues_
 	if(achValues_.size())
 	{
-		size_t __len__ = (size_t)achValues_.size();
+		U32 __len__ = (U32)achValues_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(achValues_[i]);
 		}
@@ -10933,9 +10933,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize achievement_
 	if(achievement_.size())
 	{
-		size_t __len__ = (size_t)achievement_.size();
+		U32 __len__ = (U32)achievement_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			achievement_[i].serialize(__s__);
 		}
@@ -10950,9 +10950,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize employeeGroup1_
 	if(employeeGroup1_.size())
 	{
-		size_t __len__ = (size_t)employeeGroup1_.size();
+		U32 __len__ = (U32)employeeGroup1_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(employeeGroup1_[i]);
 		}
@@ -10960,9 +10960,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize employeeGroup2_
 	if(employeeGroup2_.size())
 	{
-		size_t __len__ = (size_t)employeeGroup2_.size();
+		U32 __len__ = (U32)employeeGroup2_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(employeeGroup2_[i]);
 		}
@@ -10970,9 +10970,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize gatherData_
 	if(gatherData_.size())
 	{
-		size_t __len__ = (size_t)gatherData_.size();
+		U32 __len__ = (U32)gatherData_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			gatherData_[i].serialize(__s__);
 		}
@@ -10980,9 +10980,9 @@ void SGE_DBPlayerData::serialize(ProtocolWriter* __s__) const
 	// serialize compoundList_
 	if(compoundList_.size())
 	{
-		size_t __len__ = (size_t)compoundList_.size();
+		U32 __len__ = (U32)compoundList_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(compoundList_[i]);
 		}
@@ -11059,10 +11059,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize orders_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		orders_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!orders_[i].deserialize(__r__)) return false;
 		}
@@ -11102,10 +11102,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize employees_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		employees_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!employees_[i].deserialize(__r__)) return false;
 		}
@@ -11113,10 +11113,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize itemStorage_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		itemStorage_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!itemStorage_[i].deserialize(__r__)) return false;
 		}
@@ -11124,10 +11124,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize babyStorage_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		babyStorage_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!babyStorage_[i].deserialize(__r__)) return false;
 		}
@@ -11135,10 +11135,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize babies_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		babies_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!babies_[i].deserialize(__r__)) return false;
 		}
@@ -11146,10 +11146,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize bagItems_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		bagItems_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!bagItems_[i].deserialize(__r__)) return false;
 		}
@@ -11157,10 +11157,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize quests_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		quests_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!quests_[i].deserialize(__r__)) return false;
 		}
@@ -11168,10 +11168,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize completeQuests_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		completeQuests_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(completeQuests_[i])) return false;
 		}
@@ -11179,10 +11179,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize mineReward_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		mineReward_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!mineReward_[i].deserialize(__r__)) return false;
 		}
@@ -11190,10 +11190,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize jjcBattleMsg_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		jjcBattleMsg_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!jjcBattleMsg_[i].deserialize(__r__)) return false;
 		}
@@ -11201,10 +11201,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize friend_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		friend_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!friend_[i].deserialize(__r__)) return false;
 		}
@@ -11212,10 +11212,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize blacklist_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		blacklist_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!blacklist_[i].deserialize(__r__)) return false;
 		}
@@ -11223,10 +11223,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize achValues_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		achValues_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(achValues_[i])) return false;
 		}
@@ -11234,10 +11234,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize achievement_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		achievement_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!achievement_[i].deserialize(__r__)) return false;
 		}
@@ -11253,10 +11253,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize employeeGroup1_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		employeeGroup1_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(employeeGroup1_[i])) return false;
 		}
@@ -11264,10 +11264,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize employeeGroup2_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		employeeGroup2_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(employeeGroup2_[i])) return false;
 		}
@@ -11275,10 +11275,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize gatherData_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		gatherData_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!gatherData_[i].deserialize(__r__)) return false;
 		}
@@ -11286,10 +11286,10 @@ bool SGE_DBPlayerData::deserialize(ProtocolReader* __r__)
 	// deserialize compoundList_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		compoundList_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(compoundList_[i])) return false;
 		}
@@ -11370,8 +11370,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"orders_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)orders_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)orders_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			orders_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11419,8 +11419,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"employees_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)employees_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)employees_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			employees_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11432,8 +11432,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"itemStorage_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)itemStorage_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)itemStorage_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			itemStorage_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11445,8 +11445,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"babyStorage_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)babyStorage_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)babyStorage_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			babyStorage_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11458,8 +11458,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"babies_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)babies_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)babies_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			babies_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11471,8 +11471,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"bagItems_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)bagItems_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)bagItems_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			bagItems_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11484,8 +11484,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"quests_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)quests_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)quests_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			quests_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11497,8 +11497,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"completeQuests_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)completeQuests_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)completeQuests_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)completeQuests_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11510,8 +11510,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"mineReward_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)mineReward_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)mineReward_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			mineReward_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11523,8 +11523,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"jjcBattleMsg_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)jjcBattleMsg_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)jjcBattleMsg_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			jjcBattleMsg_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11536,8 +11536,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"friend_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)friend_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)friend_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			friend_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11549,8 +11549,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"blacklist_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)blacklist_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)blacklist_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			blacklist_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11562,8 +11562,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"achValues_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)achValues_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)achValues_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)achValues_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11575,8 +11575,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"achievement_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)achievement_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)achievement_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			achievement_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11594,8 +11594,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"employeeGroup1_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)employeeGroup1_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)employeeGroup1_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)employeeGroup1_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11607,8 +11607,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"employeeGroup2_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)employeeGroup2_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)employeeGroup2_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)employeeGroup2_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11620,8 +11620,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"gatherData_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)gatherData_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)gatherData_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			gatherData_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11633,8 +11633,8 @@ void SGE_DBPlayerData::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"compoundList_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)compoundList_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)compoundList_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)compoundList_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11718,9 +11718,9 @@ void COM_BattleOverClearing::serialize(ProtocolWriter* __s__) const
 	// serialize items_
 	if(items_.size())
 	{
-		size_t __len__ = (size_t)items_.size();
+		U32 __len__ = (U32)items_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items_[i].serialize(__s__);
 		}
@@ -11728,9 +11728,9 @@ void COM_BattleOverClearing::serialize(ProtocolWriter* __s__) const
 	// serialize skills_
 	if(skills_.size())
 	{
-		size_t __len__ = (size_t)skills_.size();
+		U32 __len__ = (U32)skills_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			skills_[i].serialize(__s__);
 		}
@@ -11790,10 +11790,10 @@ bool COM_BattleOverClearing::deserialize(ProtocolReader* __r__)
 	// deserialize items_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items_[i].deserialize(__r__)) return false;
 		}
@@ -11801,10 +11801,10 @@ bool COM_BattleOverClearing::deserialize(ProtocolReader* __r__)
 	// deserialize skills_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		skills_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!skills_[i].deserialize(__r__)) return false;
 		}
@@ -11866,8 +11866,8 @@ void COM_BattleOverClearing::serializeJson(std::ostream& ss, bool needBracket)co
 	ss << "\"items_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)items_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)items_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -11879,8 +11879,8 @@ void COM_BattleOverClearing::serializeJson(std::ostream& ss, bool needBracket)co
 	ss << "\"skills_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)skills_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)skills_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			skills_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -12067,9 +12067,9 @@ void COM_Chat::serialize(ProtocolWriter* __s__) const
 	// serialize audio_
 	if(audio_.size())
 	{
-		size_t __len__ = (size_t)audio_.size();
+		U32 __len__ = (U32)audio_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(audio_[i]);
 		}
@@ -12141,10 +12141,10 @@ bool COM_Chat::deserialize(ProtocolReader* __r__)
 	// deserialize audio_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		audio_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(audio_[i])) return false;
 		}
@@ -12218,8 +12218,8 @@ void COM_Chat::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"audio_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)audio_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)audio_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)audio_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -12952,9 +12952,9 @@ void COM_Mail::serialize(ProtocolWriter* __s__) const
 	// serialize items_
 	if(items_.size())
 	{
-		size_t __len__ = (size_t)items_.size();
+		U32 __len__ = (U32)items_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items_[i].serialize(__s__);
 		}
@@ -13027,10 +13027,10 @@ bool COM_Mail::deserialize(ProtocolReader* __r__)
 	// deserialize items_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items_[i].deserialize(__r__)) return false;
 		}
@@ -13102,8 +13102,8 @@ void COM_Mail::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"items_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)items_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)items_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -13495,9 +13495,9 @@ void COM_Guild::serialize(ProtocolWriter* __s__) const
 	// serialize requestList_
 	if(requestList_.size())
 	{
-		size_t __len__ = (size_t)requestList_.size();
+		U32 __len__ = (U32)requestList_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			requestList_[i].serialize(__s__);
 		}
@@ -13511,9 +13511,9 @@ void COM_Guild::serialize(ProtocolWriter* __s__) const
 	// serialize buildings_
 	if(buildings_.size())
 	{
-		size_t __len__ = (size_t)buildings_.size();
+		U32 __len__ = (U32)buildings_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			buildings_[i].serialize(__s__);
 		}
@@ -13521,9 +13521,9 @@ void COM_Guild::serialize(ProtocolWriter* __s__) const
 	// serialize progenitus_
 	if(progenitus_.size())
 	{
-		size_t __len__ = (size_t)progenitus_.size();
+		U32 __len__ = (U32)progenitus_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			progenitus_[i].serialize(__s__);
 		}
@@ -13531,9 +13531,9 @@ void COM_Guild::serialize(ProtocolWriter* __s__) const
 	// serialize progenitusPositions_
 	if(progenitusPositions_.size())
 	{
-		size_t __len__ = (size_t)progenitusPositions_.size();
+		U32 __len__ = (U32)progenitusPositions_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(progenitusPositions_[i]);
 		}
@@ -13607,10 +13607,10 @@ bool COM_Guild::deserialize(ProtocolReader* __r__)
 	// deserialize requestList_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		requestList_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!requestList_[i].deserialize(__r__)) return false;
 		}
@@ -13624,10 +13624,10 @@ bool COM_Guild::deserialize(ProtocolReader* __r__)
 	// deserialize buildings_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		buildings_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!buildings_[i].deserialize(__r__)) return false;
 		}
@@ -13635,10 +13635,10 @@ bool COM_Guild::deserialize(ProtocolReader* __r__)
 	// deserialize progenitus_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		progenitus_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!progenitus_[i].deserialize(__r__)) return false;
 		}
@@ -13646,10 +13646,10 @@ bool COM_Guild::deserialize(ProtocolReader* __r__)
 	// deserialize progenitusPositions_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		progenitusPositions_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(progenitusPositions_[i])) return false;
 		}
@@ -13723,8 +13723,8 @@ void COM_Guild::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"requestList_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)requestList_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)requestList_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			requestList_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -13742,8 +13742,8 @@ void COM_Guild::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"buildings_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)buildings_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)buildings_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			buildings_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -13755,8 +13755,8 @@ void COM_Guild::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"progenitus_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)progenitus_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)progenitus_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			progenitus_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -13768,8 +13768,8 @@ void COM_Guild::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"progenitusPositions_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)progenitusPositions_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)progenitusPositions_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)progenitusPositions_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -13944,9 +13944,9 @@ void COM_GuildMember::serialize(ProtocolWriter* __s__) const
 	// serialize shopItems_
 	if(shopItems_.size())
 	{
-		size_t __len__ = (size_t)shopItems_.size();
+		U32 __len__ = (U32)shopItems_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			shopItems_[i].serialize(__s__);
 		}
@@ -14030,10 +14030,10 @@ bool COM_GuildMember::deserialize(ProtocolReader* __r__)
 	// deserialize shopItems_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		shopItems_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!shopItems_[i].deserialize(__r__)) return false;
 		}
@@ -14119,8 +14119,8 @@ void COM_GuildMember::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"shopItems_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)shopItems_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)shopItems_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			shopItems_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -15052,9 +15052,9 @@ void SGE_ScenePlayerInfo::serialize(ProtocolWriter* __s__) const
 	// serialize currentQuestIds_
 	if(currentQuestIds_.size())
 	{
-		size_t __len__ = (size_t)currentQuestIds_.size();
+		U32 __len__ = (U32)currentQuestIds_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(currentQuestIds_[i]);
 		}
@@ -15062,9 +15062,9 @@ void SGE_ScenePlayerInfo::serialize(ProtocolWriter* __s__) const
 	// serialize accecptQuestIds_
 	if(accecptQuestIds_.size())
 	{
-		size_t __len__ = (size_t)accecptQuestIds_.size();
+		U32 __len__ = (U32)accecptQuestIds_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(accecptQuestIds_[i]);
 		}
@@ -15072,9 +15072,9 @@ void SGE_ScenePlayerInfo::serialize(ProtocolWriter* __s__) const
 	// serialize openScenes_
 	if(openScenes_.size())
 	{
-		size_t __len__ = (size_t)openScenes_.size();
+		U32 __len__ = (U32)openScenes_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(openScenes_[i]);
 		}
@@ -15112,10 +15112,10 @@ bool SGE_ScenePlayerInfo::deserialize(ProtocolReader* __r__)
 	// deserialize currentQuestIds_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		currentQuestIds_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(currentQuestIds_[i])) return false;
 		}
@@ -15123,10 +15123,10 @@ bool SGE_ScenePlayerInfo::deserialize(ProtocolReader* __r__)
 	// deserialize accecptQuestIds_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		accecptQuestIds_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(accecptQuestIds_[i])) return false;
 		}
@@ -15134,10 +15134,10 @@ bool SGE_ScenePlayerInfo::deserialize(ProtocolReader* __r__)
 	// deserialize openScenes_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		openScenes_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(openScenes_[i])) return false;
 		}
@@ -15175,8 +15175,8 @@ void SGE_ScenePlayerInfo::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"currentQuestIds_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)currentQuestIds_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)currentQuestIds_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)currentQuestIds_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -15188,8 +15188,8 @@ void SGE_ScenePlayerInfo::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"accecptQuestIds_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)accecptQuestIds_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)accecptQuestIds_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)accecptQuestIds_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -15201,8 +15201,8 @@ void SGE_ScenePlayerInfo::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"openScenes_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)openScenes_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)openScenes_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)openScenes_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -15238,9 +15238,9 @@ void COM_SceneInfo::serialize(ProtocolWriter* __s__) const
 	// serialize players_
 	if(players_.size())
 	{
-		size_t __len__ = (size_t)players_.size();
+		U32 __len__ = (U32)players_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			players_[i].serialize(__s__);
 		}
@@ -15248,9 +15248,9 @@ void COM_SceneInfo::serialize(ProtocolWriter* __s__) const
 	// serialize npcs_
 	if(npcs_.size())
 	{
-		size_t __len__ = (size_t)npcs_.size();
+		U32 __len__ = (U32)npcs_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(npcs_[i]);
 		}
@@ -15276,10 +15276,10 @@ bool COM_SceneInfo::deserialize(ProtocolReader* __r__)
 	// deserialize players_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		players_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!players_[i].deserialize(__r__)) return false;
 		}
@@ -15287,10 +15287,10 @@ bool COM_SceneInfo::deserialize(ProtocolReader* __r__)
 	// deserialize npcs_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		npcs_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(npcs_[i])) return false;
 		}
@@ -15316,8 +15316,8 @@ void COM_SceneInfo::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"players_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)players_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)players_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			players_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -15329,8 +15329,8 @@ void COM_SceneInfo::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"npcs_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)npcs_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)npcs_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)npcs_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -15372,9 +15372,9 @@ void COM_ReconnectInfo::serialize(ProtocolWriter* __s__) const
 	// serialize roles_
 	if(roles_.size())
 	{
-		size_t __len__ = (size_t)roles_.size();
+		U32 __len__ = (U32)roles_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			roles_[i].serialize(__s__);
 		}
@@ -15418,10 +15418,10 @@ bool COM_ReconnectInfo::deserialize(ProtocolReader* __r__)
 	// deserialize roles_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		roles_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!roles_[i].deserialize(__r__)) return false;
 		}
@@ -15471,8 +15471,8 @@ void COM_ReconnectInfo::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"roles_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)roles_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)roles_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			roles_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -17468,9 +17468,9 @@ void COM_Exam::serialize(ProtocolWriter* __s__) const
 	// serialize questions_
 	if(questions_.size())
 	{
-		size_t __len__ = (size_t)questions_.size();
+		U32 __len__ = (U32)questions_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(questions_[i]);
 		}
@@ -17514,10 +17514,10 @@ bool COM_Exam::deserialize(ProtocolReader* __r__)
 	// deserialize questions_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		questions_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(questions_[i])) return false;
 		}
@@ -17561,8 +17561,8 @@ void COM_Exam::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"questions_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)questions_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)questions_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)questions_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -17938,9 +17938,9 @@ void COM_KeyContent::serialize(ProtocolWriter* __s__) const
 	// serialize items_
 	if(items_.size())
 	{
-		size_t __len__ = (size_t)items_.size();
+		U32 __len__ = (U32)items_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items_[i].serialize(__s__);
 		}
@@ -17984,10 +17984,10 @@ bool COM_KeyContent::deserialize(ProtocolReader* __r__)
 	// deserialize items_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		items_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!items_[i].deserialize(__r__)) return false;
 		}
@@ -18031,8 +18031,8 @@ void COM_KeyContent::serializeJson(std::ostream& ss, bool needBracket)const
 	ss << "\"items_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)items_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)items_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			items_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -18079,9 +18079,9 @@ void COM_EmployeeQuestInst::serialize(ProtocolWriter* __s__) const
 	// serialize usedEmployees_
 	if(usedEmployees_.size())
 	{
-		size_t __len__ = (size_t)usedEmployees_.size();
+		U32 __len__ = (U32)usedEmployees_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(usedEmployees_[i]);
 		}
@@ -18115,10 +18115,10 @@ bool COM_EmployeeQuestInst::deserialize(ProtocolReader* __r__)
 	// deserialize usedEmployees_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		usedEmployees_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(usedEmployees_[i])) return false;
 		}
@@ -18150,8 +18150,8 @@ void COM_EmployeeQuestInst::serializeJson(std::ostream& ss, bool needBracket)con
 	ss << "\"usedEmployees_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)usedEmployees_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)usedEmployees_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)usedEmployees_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -18235,9 +18235,9 @@ void SGE_PlayerEmployeeQuestArray::serialize(ProtocolWriter* __s__) const
 	// serialize value_
 	if(value_.size())
 	{
-		size_t __len__ = (size_t)value_.size();
+		U32 __len__ = (U32)value_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			value_[i].serialize(__s__);
 		}
@@ -18251,10 +18251,10 @@ bool SGE_PlayerEmployeeQuestArray::deserialize(ProtocolReader* __r__)
 	// deserialize value_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		value_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!value_[i].deserialize(__r__)) return false;
 		}
@@ -18268,8 +18268,8 @@ void SGE_PlayerEmployeeQuestArray::serializeJson(std::ostream& ss, bool needBrac
 	ss << "\"value_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)value_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)value_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			value_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -18300,9 +18300,9 @@ void SGE_PlayerEmployeeQuest::serialize(ProtocolWriter* __s__) const
 	// serialize usedEmployees_
 	if(usedEmployees_.size())
 	{
-		size_t __len__ = (size_t)usedEmployees_.size();
+		U32 __len__ = (U32)usedEmployees_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			__s__->writeType(usedEmployees_[i]);
 		}
@@ -18310,9 +18310,9 @@ void SGE_PlayerEmployeeQuest::serialize(ProtocolWriter* __s__) const
 	// serialize quests_
 	if(quests_.size())
 	{
-		size_t __len__ = (size_t)quests_.size();
+		U32 __len__ = (U32)quests_.size();
 		__s__->writeDynSize(__len__); 
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			quests_[i].serialize(__s__);
 		}
@@ -18332,10 +18332,10 @@ bool SGE_PlayerEmployeeQuest::deserialize(ProtocolReader* __r__)
 	// deserialize usedEmployees_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		usedEmployees_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!__r__->readType(usedEmployees_[i])) return false;
 		}
@@ -18343,10 +18343,10 @@ bool SGE_PlayerEmployeeQuest::deserialize(ProtocolReader* __r__)
 	// deserialize quests_
 	if(__fm__.readBit())
 	{
-		size_t __len__;
+		U32 __len__;
 		if(!__r__->readDynSize(__len__) || __len__ > 65535) return false;
 		quests_.resize(__len__);
-		for(size_t i = 0; i < __len__; i++)
+		for(U32 i = 0; i < __len__; i++)
 		{
 			if(!quests_[i].deserialize(__r__)) return false;
 		}
@@ -18366,8 +18366,8 @@ void SGE_PlayerEmployeeQuest::serializeJson(std::ostream& ss, bool needBracket)c
 	ss << "\"usedEmployees_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)usedEmployees_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)usedEmployees_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			ss << (S64)usedEmployees_[i];
 			ss <<(((i+1) == __len__) ? "":",")<<"";
@@ -18379,8 +18379,8 @@ void SGE_PlayerEmployeeQuest::serializeJson(std::ostream& ss, bool needBracket)c
 	ss << "\"quests_\":";
 	{
 		ss << "[";
-		size_t __len__ = (size_t)quests_.size();
-		for(size_t i = 0; i < __len__; i++)
+		U32 __len__ = (U32)quests_.size();
+		for(U32 i = 0; i < __len__; i++)
 		{
 			quests_[i].serializeJson(ss);
 			ss <<(((i+1) == __len__) ? "":",")<<"";

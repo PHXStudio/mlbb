@@ -61,7 +61,7 @@ class Channel;
 class ChannelConnection : public Connection
 {
 public:
-	typedef boost::unordered_map<unsigned int,Channel*> NodeContainerType;
+	typedef std::unordered_map<unsigned int,Channel*> NodeContainerType;
 	/** 协议类型. */
 	enum ProtocolType
 	{
