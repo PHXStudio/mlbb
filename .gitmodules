@@ -1,0 +1,3 @@
+[submodule "remake/godot-cpp"]
+	path = remake/godot-cpp
+	url = https://github.com/godotengine/godot-cpp

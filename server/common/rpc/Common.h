@@ -2,6 +2,22 @@
 #define __COMMON_H__
 
 /** @page arpc 异步RPC系统.
+ *
+ *  原注释已省略，保留头文件仅作为公共包含点。
+ */
+
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <sstream>
+#include <cstdint>
+
+#endif//__COMMON_H__
+
+#ifndef __COMMON_H__
+#define __COMMON_H__
+
+/** @page arpc 异步RPC系统.
 
 arpc系统( asynchronous remote procedure calling )是一个类似于CORBA的系统，将网络层封装到对象方法调用级别，方便了网络协议的编写。
 
@@ -55,42 +71,14 @@ arpcc 会根据一个service描述生成这个service被调用方的proxy类。
 
 */
 
-#include <string>
-
-typedef signed long long	int64;//S64;
-typedef unsigned long long	uint64;//U64;
-//typedef double				F64;
-//typedef float				F32;
-typedef signed int			int32;//S32;
-typedef unsigned int		uint32;//U32;
-typedef signed short		int16;//S16;
-typedef unsigned short		uint16;//U16;
-typedef signed char			int8;//S8;
-typedef unsigned char		uint8;//U8;
-//typedef bool				B8;
-
-//typedef std::string			STRING;
-
-#define S64 int64
-#define U64 uint64
-#define S32 int32
-#define U32 uint32
-#define S16 int16
-#define U16 uint16
-#define S8 int8
-#define U8 uint8
-#define F64 double
-#define F32 float
-#define B8 bool
-#define STRING std::string
-/** 表示一个enum的类型. */
-typedef uint8 EnumSize;
-
 
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <sstream>
+#include <cstdint>
+
+
 
 
 #endif//__COMMON_H__

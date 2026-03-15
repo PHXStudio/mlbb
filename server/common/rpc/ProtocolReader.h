@@ -20,71 +20,71 @@ public:
 
 	/** @name read basic types. */
 	//@{
-	bool readType(S64& v)
+	bool readType(std::int64_t& v)
 	{
-		return read(&v, sizeof(S64));
+		return read(&v, sizeof(v));
 	}
-	bool readType(U64& v)
+	bool readType(std::uint64_t& v)
 	{
-		return read(&v, sizeof(U64));
+		return read(&v, sizeof(v));
 	}
-	bool readType(F64& v)
+	bool readType(double& v)
 	{
-		return read(&v, sizeof(F64));
+		return read(&v, sizeof(v));
 	}
-	bool readType(F32& v)
+	bool readType(float& v)
 	{
-		return read(&v, sizeof(F32));
+		return read(&v, sizeof(v));
 	}
-	bool readType(S32& v)
+	bool readType(std::int32_t& v)
 	{
-		return read(&v, sizeof(S32));
+		return read(&v, sizeof(v));
 	}
-	bool readType(U32& v)
+	bool readType(std::uint32_t& v)
 	{
-		return read(&v, sizeof(U32));
+		return read(&v, sizeof(v));
 	}
-	bool readType(S16& v)
+	bool readType(std::int16_t& v)
 	{
-		return read(&v, sizeof(S16));
+		return read(&v, sizeof(v));
 	}
-	bool readType(U16& v)
+	bool readType(std::uint16_t& v)
 	{
-		return read(&v, sizeof(U16));
+		return read(&v, sizeof(v));
 	}
-	bool readType(S8& v)
+	bool readType(std::int8_t& v)
 	{
-		return read(&v, sizeof(S8));
+		return read(&v, sizeof(v));
 	}
-	bool readType(U8& v)
+	bool readType(std::uint8_t& v)
 	{
-		return read(&v, sizeof(U8));
+		return read(&v, sizeof(v));
 	}
-	bool readType(B8& v)
+	bool readType(bool& v)
 	{
 		char vv;
-		if(!read(&vv, sizeof(B8)))
+		if(!read(&vv, sizeof(vv)))
 			return false;
 		v = vv?true:false;
 		return true;
 	}
-	bool readType(STRING& v, U32 maxlen)
+	bool readType(std::string& v, std::uint32_t maxlen)
 	{
-		U32 len;
+		std::uint32_t len;
 		if(!readDynSize(len) || len > maxlen)
 			return false;
 		v.resize(len);
 		return read((void*)v.c_str(), len);
 	}
-	bool readDynSize(U32& s)
+	bool readDynSize(std::uint32_t& s)
 	{
 		s = 0;
-		U8 b;
+		std::uint8_t b;
 		if(!readType(b))
 			return false;
-		S32 n = (b & 0XC0)>>6;
+		std::int32_t n = (b & 0XC0)>>6;
 		s = (b & 0X3F);
-		for(S32 i = 0; i < n; i++)
+		for(std::int32_t i = 0; i < n; i++)
 		{
 			if(!readType(b))
 				return false;

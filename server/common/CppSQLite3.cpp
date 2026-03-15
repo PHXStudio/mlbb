@@ -411,7 +411,7 @@ int CppSQLite3Query::getIntField(const char* szField, int nNullValue/*=0*/)
 }
 
 
-sqlite_int64 CppSQLite3Query::getInt64Field(int nField, sqlite_int64 nNullValue/*=0*/)
+S64 CppSQLite3Query::getInt64Field(int nField, S64 nNullValue/*=0*/)
 {
 	if (fieldDataType(nField) == SQLITE_NULL)
 	{
@@ -424,7 +424,7 @@ sqlite_int64 CppSQLite3Query::getInt64Field(int nField, sqlite_int64 nNullValue/
 }
 
 
-sqlite_int64 CppSQLite3Query::getInt64Field(const char* szField, sqlite_int64 nNullValue/*=0*/)
+S64 CppSQLite3Query::getInt64Field(const char* szField, S64 nNullValue/*=0*/)
 {
 	int nField = fieldIndex(szField);
 	return getInt64Field(nField, nNullValue);
@@ -1365,7 +1365,7 @@ CppSQLite3Table CppSQLite3DB::getTable(const char* szSQL)
 }
 
 
-sqlite_int64 CppSQLite3DB::lastRowId()
+S64 CppSQLite3DB::lastRowId()
 {
 	return sqlite3_last_insert_rowid(mpDB);
 }

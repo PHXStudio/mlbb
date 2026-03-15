@@ -6,7 +6,7 @@
 #include "EnumInfo.h"
 //=============================================================
 // enum Var
-enum Var : S32
+enum Var : int32_t
 {
 	V_None,
 	V_WorldListenDB,

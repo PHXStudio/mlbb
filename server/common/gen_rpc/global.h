@@ -6,7 +6,7 @@
 #include "EnumInfo.h"
 //=============================================================
 // enum Constant
-enum Constant : S32
+enum Constant : int32_t
 {
 	C_None,
 	C_SceneVisibleMaxRadius,

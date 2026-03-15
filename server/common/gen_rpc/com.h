@@ -6,7 +6,7 @@
 #include "EnumInfo.h"
 //=============================================================
 // enum MajorVersion
-enum MajorVersion : S32
+enum MajorVersion : int32_t
 {
 	Major_0,
 	MajorNumber,
@@ -14,7 +14,7 @@ enum MajorVersion : S32
 extern EnumInfo enumMajorVersion;
 //=============================================================
 // enum MinorVersion
-enum MinorVersion : S32
+enum MinorVersion : int32_t
 {
 	Minor_0,
 	Minor_1,
@@ -28,7 +28,7 @@ enum MinorVersion : S32
 extern EnumInfo enumMinorVersion;
 //=============================================================
 // enum PatchVersion
-enum PatchVersion : S32
+enum PatchVersion : int32_t
 {
 	Patch_0,
 	Patch_1,
@@ -41,7 +41,7 @@ enum PatchVersion : S32
 extern EnumInfo enumPatchVersion;
 //=============================================================
 // enum PetQuality
-enum PetQuality : S32
+enum PetQuality : int32_t
 {
 	PE_None,
 	PE_White,
@@ -55,7 +55,7 @@ enum PetQuality : S32
 extern EnumInfo enumPetQuality;
 //=============================================================
 // enum ErrorNo
-enum ErrorNo : S32
+enum ErrorNo : int32_t
 {
 	EN_None,
 	EN_VersionNotMatch,
@@ -219,7 +219,7 @@ enum ErrorNo : S32
 extern EnumInfo enumErrorNo;
 //=============================================================
 // enum OperateType
-enum OperateType : S32
+enum OperateType : int32_t
 {
 	OT_0,
 	OT_P1,
@@ -229,7 +229,7 @@ enum OperateType : S32
 extern EnumInfo enumOperateType;
 //=============================================================
 // enum BindType
-enum BindType : S32
+enum BindType : int32_t
 {
 	BIT_None,
 	BIT_Bag,
@@ -239,7 +239,7 @@ enum BindType : S32
 extern EnumInfo enumBindType;
 //=============================================================
 // enum ReconnectType
-enum ReconnectType : S32
+enum ReconnectType : int32_t
 {
 	RECT_None,
 	RECT_LoginOk,
@@ -252,7 +252,7 @@ enum ReconnectType : S32
 extern EnumInfo enumReconnectType;
 //=============================================================
 // enum SexType
-enum SexType : S32
+enum SexType : int32_t
 {
 	ST_Unknown,
 	ST_Male,
@@ -261,7 +261,7 @@ enum SexType : S32
 extern EnumInfo enumSexType;
 //=============================================================
 // enum BattleType
-enum BattleType : S32
+enum BattleType : int32_t
 {
 	BT_None,
 	BT_PVE,
@@ -277,7 +277,7 @@ enum BattleType : S32
 extern EnumInfo enumBattleType;
 //=============================================================
 // enum EntityType
-enum EntityType : S32
+enum EntityType : int32_t
 {
 	ET_None,
 	ET_Player,
@@ -290,7 +290,7 @@ enum EntityType : S32
 extern EnumInfo enumEntityType;
 //=============================================================
 // enum MineType
-enum MineType : S32
+enum MineType : int32_t
 {
 	MT_None,
 	MT_JinShu,
@@ -301,7 +301,7 @@ enum MineType : S32
 extern EnumInfo enumMineType;
 //=============================================================
 // enum GroupType
-enum GroupType : S32
+enum GroupType : int32_t
 {
 	GT_None,
 	GT_Up,
@@ -310,7 +310,7 @@ enum GroupType : S32
 extern EnumInfo enumGroupType;
 //=============================================================
 // enum SkillTargetType
-enum SkillTargetType : S32
+enum SkillTargetType : int32_t
 {
 	STT_None,
 	STT_Self,
@@ -324,7 +324,7 @@ enum SkillTargetType : S32
 extern EnumInfo enumSkillTargetType;
 //=============================================================
 // enum SkillType
-enum SkillType : S32
+enum SkillType : int32_t
 {
 	SKT_None,
 	SKT_DefaultSecActive,
@@ -343,7 +343,7 @@ enum SkillType : S32
 extern EnumInfo enumSkillType;
 //=============================================================
 // enum PassiveType
-enum PassiveType : S32
+enum PassiveType : int32_t
 {
 	PAT_None,
 	PAT_Buff,
@@ -359,7 +359,7 @@ enum PassiveType : S32
 extern EnumInfo enumPassiveType;
 //=============================================================
 // enum PlayerStatus
-enum PlayerStatus : S32
+enum PlayerStatus : int32_t
 {
 	PS_Idle,
 	PS_Login,
@@ -370,7 +370,7 @@ enum PlayerStatus : S32
 extern EnumInfo enumPlayerStatus;
 //=============================================================
 // enum OccupationType
-enum OccupationType : S32
+enum OccupationType : int32_t
 {
 	OT_None,
 	OT_HeavyArmor,
@@ -381,7 +381,7 @@ enum OccupationType : S32
 extern EnumInfo enumOccupationType;
 //=============================================================
 // enum PeriodType
-enum PeriodType : S32
+enum PeriodType : int32_t
 {
 	PT_Daily,
 	PT_Weekly,
@@ -390,7 +390,7 @@ enum PeriodType : S32
 extern EnumInfo enumPeriodType;
 //=============================================================
 // enum JobType
-enum JobType : S32
+enum JobType : int32_t
 {
 	JT_None,
 	JT_Newbie,
@@ -408,7 +408,7 @@ enum JobType : S32
 extern EnumInfo enumJobType;
 //=============================================================
 // enum RaceType
-enum RaceType : S32
+enum RaceType : int32_t
 {
 	RT_None,
 	RT_Human,
@@ -425,7 +425,7 @@ enum RaceType : S32
 extern EnumInfo enumRaceType;
 //=============================================================
 // enum BabyInitGear
-enum BabyInitGear : S32
+enum BabyInitGear : int32_t
 {
 	BIG_None,
 	BIG_Stama,
@@ -438,7 +438,7 @@ enum BabyInitGear : S32
 extern EnumInfo enumBabyInitGear;
 //=============================================================
 // enum QualityColor
-enum QualityColor : S32
+enum QualityColor : int32_t
 {
 	QC_None,
 	QC_White,
@@ -460,7 +460,7 @@ enum QualityColor : S32
 extern EnumInfo enumQualityColor;
 //=============================================================
 // enum PropertyType
-enum PropertyType : S32
+enum PropertyType : int32_t
 {
 	PT_None,
 	PT_NoSleep,
@@ -529,7 +529,7 @@ enum PropertyType : S32
 extern EnumInfo enumPropertyType;
 //=============================================================
 // enum VipLevel
-enum VipLevel : S32
+enum VipLevel : int32_t
 {
 	VL_None,
 	VL_1,
@@ -539,7 +539,7 @@ enum VipLevel : S32
 extern EnumInfo enumVipLevel;
 //=============================================================
 // enum ItemMainType
-enum ItemMainType : S32
+enum ItemMainType : int32_t
 {
 	IMT_None,
 	IMT_Quest,
@@ -555,7 +555,7 @@ enum ItemMainType : S32
 extern EnumInfo enumItemMainType;
 //=============================================================
 // enum ItemSubType
-enum ItemSubType : S32
+enum ItemSubType : int32_t
 {
 	IST_None,
 	IST_Axe,
@@ -609,7 +609,7 @@ enum ItemSubType : S32
 extern EnumInfo enumItemSubType;
 //=============================================================
 // enum ItemUseFlag
-enum ItemUseFlag : S32
+enum ItemUseFlag : int32_t
 {
 	IUF_None,
 	IUF_Battle,
@@ -619,7 +619,7 @@ enum ItemUseFlag : S32
 extern EnumInfo enumItemUseFlag;
 //=============================================================
 // enum EquipmentSlot
-enum EquipmentSlot : S32
+enum EquipmentSlot : int32_t
 {
 	ES_None,
 	ES_Boot,
@@ -636,7 +636,7 @@ enum EquipmentSlot : S32
 extern EnumInfo enumEquipmentSlot;
 //=============================================================
 // enum WeaponType
-enum WeaponType : S32
+enum WeaponType : int32_t
 {
 	WT_None,
 	WT_Axe,
@@ -654,7 +654,7 @@ enum WeaponType : S32
 extern EnumInfo enumWeaponType;
 //=============================================================
 // enum ChatKind
-enum ChatKind : S32
+enum ChatKind : int32_t
 {
 	CK_None,
 	CK_World,
@@ -668,7 +668,7 @@ enum ChatKind : S32
 extern EnumInfo enumChatKind;
 //=============================================================
 // enum BattlePosition
-enum BattlePosition : S32
+enum BattlePosition : int32_t
 {
 	BP_None,
 	BP_Down0,
@@ -696,7 +696,7 @@ enum BattlePosition : S32
 extern EnumInfo enumBattlePosition;
 //=============================================================
 // enum BattleJudgeType
-enum BattleJudgeType : S32
+enum BattleJudgeType : int32_t
 {
 	BJT_None,
 	BJT_Continue,
@@ -706,7 +706,7 @@ enum BattleJudgeType : S32
 extern EnumInfo enumBattleJudgeType;
 //=============================================================
 // enum OrderParamType
-enum OrderParamType : S32
+enum OrderParamType : int32_t
 {
 	OPT_None,
 	OPT_BabyId,
@@ -718,7 +718,7 @@ enum OrderParamType : S32
 extern EnumInfo enumOrderParamType;
 //=============================================================
 // enum OrderStatus
-enum OrderStatus : S32
+enum OrderStatus : int32_t
 {
 	OS_None,
 	OS_ActiveOk,
@@ -733,7 +733,7 @@ enum OrderStatus : S32
 extern EnumInfo enumOrderStatus;
 //=============================================================
 // enum AIEvent
-enum AIEvent : S32
+enum AIEvent : int32_t
 {
 	ME_None,
 	ME_Born,
@@ -746,7 +746,7 @@ enum AIEvent : S32
 extern EnumInfo enumAIEvent;
 //=============================================================
 // enum SyncIPropType
-enum SyncIPropType : S32
+enum SyncIPropType : int32_t
 {
 	SPT_None,
 	SPT_Player,
@@ -757,7 +757,7 @@ enum SyncIPropType : S32
 extern EnumInfo enumSyncIPropType;
 //=============================================================
 // enum BoxType
-enum BoxType : S32
+enum BoxType : int32_t
 {
 	BX_None,
 	BX_Normal,
@@ -767,7 +767,7 @@ enum BoxType : S32
 extern EnumInfo enumBoxType;
 //=============================================================
 // enum QuestKind
-enum QuestKind : S32
+enum QuestKind : int32_t
 {
 	QK_None,
 	QK_Main,
@@ -785,7 +785,7 @@ enum QuestKind : S32
 extern EnumInfo enumQuestKind;
 //=============================================================
 // enum QuestType
-enum QuestType : S32
+enum QuestType : int32_t
 {
 	QT_None,
 	QT_Dialog,
@@ -802,14 +802,14 @@ enum QuestType : S32
 extern EnumInfo enumQuestType;
 //=============================================================
 // enum RequireType
-enum RequireType : S32
+enum RequireType : int32_t
 {
 	RT_Nil,
 };
 extern EnumInfo enumRequireType;
 //=============================================================
 // enum TeamType
-enum TeamType : S32
+enum TeamType : int32_t
 {
 	TT_None,
 	TT_MainQuest,
@@ -827,7 +827,7 @@ enum TeamType : S32
 extern EnumInfo enumTeamType;
 //=============================================================
 // enum StateType
-enum StateType : S32
+enum StateType : int32_t
 {
 	ST_None,
 	ST_Normal,
@@ -858,7 +858,7 @@ enum StateType : S32
 extern EnumInfo enumStateType;
 //=============================================================
 // enum SceneType
-enum SceneType : S32
+enum SceneType : int32_t
 {
 	SCT_None,
 	SCT_New,
@@ -876,7 +876,7 @@ enum SceneType : S32
 extern EnumInfo enumSceneType;
 //=============================================================
 // enum BornType
-enum BornType : S32
+enum BornType : int32_t
 {
 	BOT_None,
 	BOT_BornPos,
@@ -889,7 +889,7 @@ enum BornType : S32
 extern EnumInfo enumBornType;
 //=============================================================
 // enum WeaponActionType
-enum WeaponActionType : S32
+enum WeaponActionType : int32_t
 {
 	WAT_None,
 	WAT_Chop,
@@ -901,7 +901,7 @@ enum WeaponActionType : S32
 extern EnumInfo enumWeaponActionType;
 //=============================================================
 // enum SceneOutpuType
-enum SceneOutpuType : S32
+enum SceneOutpuType : int32_t
 {
 	SOT_None,
 	SOT_PVE,
@@ -911,7 +911,7 @@ enum SceneOutpuType : S32
 extern EnumInfo enumSceneOutpuType;
 //=============================================================
 // enum TogetherStateType
-enum TogetherStateType : S32
+enum TogetherStateType : int32_t
 {
 	TST_None,
 	TST_Self,
@@ -921,7 +921,7 @@ enum TogetherStateType : S32
 extern EnumInfo enumTogetherStateType;
 //=============================================================
 // enum GuideAimType
-enum GuideAimType : S32
+enum GuideAimType : int32_t
 {
 	GAT_None,
 	GAT_FirstAchievement,
@@ -1033,7 +1033,7 @@ enum GuideAimType : S32
 extern EnumInfo enumGuideAimType;
 //=============================================================
 // enum ScriptGameEvent
-enum ScriptGameEvent : S32
+enum ScriptGameEvent : int32_t
 {
 	SGE_None,
 	SGE_MainPanelOpen,
@@ -1174,7 +1174,7 @@ enum ScriptGameEvent : S32
 extern EnumInfo enumScriptGameEvent;
 //=============================================================
 // enum SenseActorType
-enum SenseActorType : S32
+enum SenseActorType : int32_t
 {
 	SAT_Guard,
 	SAT_Ambassdor,
@@ -1191,7 +1191,7 @@ enum SenseActorType : S32
 extern EnumInfo enumSenseActorType;
 //=============================================================
 // enum GameEventType
-enum GameEventType : S32
+enum GameEventType : int32_t
 {
 	GET_None,
 	GET_Online,
@@ -1265,7 +1265,7 @@ enum GameEventType : S32
 extern EnumInfo enumGameEventType;
 //=============================================================
 // enum SneakAttackType
-enum SneakAttackType : S32
+enum SneakAttackType : int32_t
 {
 	SAT_None,
 	SAT_SneakAttack,
@@ -1275,7 +1275,7 @@ enum SneakAttackType : S32
 extern EnumInfo enumSneakAttackType;
 //=============================================================
 // enum ShopType
-enum ShopType : S32
+enum ShopType : int32_t
 {
 	SIT_None,
 	SIT_FirstRecharge,
@@ -1292,7 +1292,7 @@ enum ShopType : S32
 extern EnumInfo enumShopType;
 //=============================================================
 // enum ShopPayType
-enum ShopPayType : S32
+enum ShopPayType : int32_t
 {
 	SPT_Nil,
 	SPT_RMB,
@@ -1303,7 +1303,7 @@ enum ShopPayType : S32
 extern EnumInfo enumShopPayType;
 //=============================================================
 // enum GuidePointerRotateType
-enum GuidePointerRotateType : S32
+enum GuidePointerRotateType : int32_t
 {
 	GPRT_None,
 	GPRT_R45,
@@ -1318,7 +1318,7 @@ enum GuidePointerRotateType : S32
 extern EnumInfo enumGuidePointerRotateType;
 //=============================================================
 // enum NpcType
-enum NpcType : S32
+enum NpcType : int32_t
 {
 	NT_None,
 	NT_Normal,
@@ -1335,7 +1335,7 @@ enum NpcType : S32
 extern EnumInfo enumNpcType;
 //=============================================================
 // enum OpenSubSystemFlag
-enum OpenSubSystemFlag : S32
+enum OpenSubSystemFlag : int32_t
 {
 	OSSF_None,
 	OSSF_Skill,
@@ -1377,7 +1377,7 @@ enum OpenSubSystemFlag : S32
 extern EnumInfo enumOpenSubSystemFlag;
 //=============================================================
 // enum AchievementType
-enum AchievementType : S32
+enum AchievementType : int32_t
 {
 	AT_None,
 	AT_EarnConis,
@@ -1443,7 +1443,7 @@ enum AchievementType : S32
 extern EnumInfo enumAchievementType;
 //=============================================================
 // enum CategoryType
-enum CategoryType : S32
+enum CategoryType : int32_t
 {
 	ACH_All,
 	ACH_Growup,
@@ -1456,7 +1456,7 @@ enum CategoryType : S32
 extern EnumInfo enumCategoryType;
 //=============================================================
 // enum ClassifyType
-enum ClassifyType : S32
+enum ClassifyType : int32_t
 {
 	SD_Debris,
 	SD_Data,
@@ -1469,7 +1469,7 @@ enum ClassifyType : S32
 extern EnumInfo enumClassifyType;
 //=============================================================
 // enum FunctionalPointType
-enum FunctionalPointType : S32
+enum FunctionalPointType : int32_t
 {
 	FPT_None,
 	FPT_Tongji,
@@ -1481,7 +1481,7 @@ enum FunctionalPointType : S32
 extern EnumInfo enumFunctionalPointType;
 //=============================================================
 // enum ActivityType
-enum ActivityType : S32
+enum ActivityType : int32_t
 {
 	ACT_None,
 	ACT_Tongji,
@@ -1508,7 +1508,7 @@ enum ActivityType : S32
 extern EnumInfo enumActivityType;
 //=============================================================
 // enum MailType
-enum MailType : S32
+enum MailType : int32_t
 {
 	MT_Normal,
 	MT_System,
@@ -1516,7 +1516,7 @@ enum MailType : S32
 extern EnumInfo enumMailType;
 //=============================================================
 // enum HelpType
-enum HelpType : S32
+enum HelpType : int32_t
 {
 	HT_None,
 	HT_Money,
@@ -1532,7 +1532,7 @@ enum HelpType : S32
 extern EnumInfo enumHelpType;
 //=============================================================
 // enum GuildJob
-enum GuildJob : S32
+enum GuildJob : int32_t
 {
 	GJ_None,
 	GJ_People,
@@ -1545,7 +1545,7 @@ enum GuildJob : S32
 extern EnumInfo enumGuildJob;
 //=============================================================
 // enum ModifyListFlag
-enum ModifyListFlag : S32
+enum ModifyListFlag : int32_t
 {
 	MLF_Add,
 	MLF_Delete,
@@ -1560,7 +1560,7 @@ enum ModifyListFlag : S32
 extern EnumInfo enumModifyListFlag;
 //=============================================================
 // enum GuildBuildingType
-enum GuildBuildingType : S32
+enum GuildBuildingType : int32_t
 {
 	GBT_MIN,
 	GBT_Main,
@@ -1574,7 +1574,7 @@ enum GuildBuildingType : S32
 extern EnumInfo enumGuildBuildingType;
 //=============================================================
 // enum SellItemType
-enum SellItemType : S32
+enum SellItemType : int32_t
 {
 	SelIT_None,
 	SelIT_Max,
@@ -1582,7 +1582,7 @@ enum SellItemType : S32
 extern EnumInfo enumSellItemType;
 //=============================================================
 // enum DiamondConfigClass
-enum DiamondConfigClass : S32
+enum DiamondConfigClass : int32_t
 {
 	DBT_Type_None,
 	DBT_Type_Mine_Famu,
@@ -1593,7 +1593,7 @@ enum DiamondConfigClass : S32
 extern EnumInfo enumDiamondConfigClass;
 //=============================================================
 // enum DiamondConfigType
-enum DiamondConfigType : S32
+enum DiamondConfigType : int32_t
 {
 	DBT_None,
 	DBT_Day,
@@ -1604,7 +1604,7 @@ enum DiamondConfigType : S32
 extern EnumInfo enumDiamondConfigType;
 //=============================================================
 // enum FixType
-enum FixType : S32
+enum FixType : int32_t
 {
 	FT_None,
 	FT_Money,
@@ -1614,7 +1614,7 @@ enum FixType : S32
 extern EnumInfo enumFixType;
 //=============================================================
 // enum StorageType
-enum StorageType : S32
+enum StorageType : int32_t
 {
 	ST_Item,
 	ST_Baby,
@@ -1622,7 +1622,7 @@ enum StorageType : S32
 extern EnumInfo enumStorageType;
 //=============================================================
 // enum EmployeesBattleGroup
-enum EmployeesBattleGroup : S32
+enum EmployeesBattleGroup : int32_t
 {
 	EBG_None,
 	EBG_Free,
@@ -1633,7 +1633,7 @@ enum EmployeesBattleGroup : S32
 extern EnumInfo enumEmployeesBattleGroup;
 //=============================================================
 // enum GiftType
-enum GiftType : S32
+enum GiftType : int32_t
 {
 	GFT_Bug,
 	GFT_UC1,
@@ -1643,7 +1643,7 @@ enum GiftType : S32
 extern EnumInfo enumGiftType;
 //=============================================================
 // enum GMT_Protocol
-enum GMT_Protocol : S32
+enum GMT_Protocol : int32_t
 {
 	GMT_None,
 	GMT_GMCommand,
@@ -1677,7 +1677,7 @@ enum GMT_Protocol : S32
 extern EnumInfo enumGMT_Protocol;
 //=============================================================
 // enum GMCommandType
-enum GMCommandType : S32
+enum GMCommandType : int32_t
 {
 	GMCT_NoTalk,
 	GMCT_Freeze,
@@ -1697,7 +1697,7 @@ enum GMCommandType : S32
 extern EnumInfo enumGMCommandType;
 //=============================================================
 // enum NoticeSendType
-enum NoticeSendType : S32
+enum NoticeSendType : int32_t
 {
 	NST_Immediately,
 	NST_Timming,
@@ -1706,7 +1706,7 @@ enum NoticeSendType : S32
 extern EnumInfo enumNoticeSendType;
 //=============================================================
 // enum InsertMailType
-enum InsertMailType : S32
+enum InsertMailType : int32_t
 {
 	IGMT_PlayerId,
 	IGMT_AllOnline,
@@ -1715,7 +1715,7 @@ enum InsertMailType : S32
 extern EnumInfo enumInsertMailType;
 //=============================================================
 // enum ItemContainerType
-enum ItemContainerType : S32
+enum ItemContainerType : int32_t
 {
 	ICT_EquipContainer,
 	ICT_BagContainer,
@@ -1723,7 +1723,7 @@ enum ItemContainerType : S32
 extern EnumInfo enumItemContainerType;
 //=============================================================
 // enum UIBehaviorType
-enum UIBehaviorType : S32
+enum UIBehaviorType : int32_t
 {
 	UBT_None,
 	UBT_Bag,
@@ -1751,7 +1751,7 @@ enum UIBehaviorType : S32
 extern EnumInfo enumUIBehaviorType;
 //=============================================================
 // enum HelpRaiseType
-enum HelpRaiseType : S32
+enum HelpRaiseType : int32_t
 {
 	HRT_None,
 	HRT_PlayerAddProp,
@@ -1778,7 +1778,7 @@ enum HelpRaiseType : S32
 extern EnumInfo enumHelpRaiseType;
 //=============================================================
 // enum SceneFilterType
-enum SceneFilterType : S32
+enum SceneFilterType : int32_t
 {
 	SFT_None,
 	SFT_Team,
@@ -1790,7 +1790,7 @@ enum SceneFilterType : S32
 extern EnumInfo enumSceneFilterType;
 //=============================================================
 // enum GatherStateType
-enum GatherStateType : S32
+enum GatherStateType : int32_t
 {
 	GST_None,
 	GST_Vulgar,
@@ -1800,7 +1800,7 @@ enum GatherStateType : S32
 extern EnumInfo enumGatherStateType;
 //=============================================================
 // enum WishType
-enum WishType : S32
+enum WishType : int32_t
 {
 	WIT_None,
 	WIT_Exp,
@@ -1812,7 +1812,7 @@ enum WishType : S32
 extern EnumInfo enumWishType;
 //=============================================================
 // enum ADType
-enum ADType : S32
+enum ADType : int32_t
 {
 	ADT_None,
 	ADT_7Days,
@@ -1839,7 +1839,7 @@ enum ADType : S32
 extern EnumInfo enumADType;
 //=============================================================
 // enum EmployeeSkillType
-enum EmployeeSkillType : S32
+enum EmployeeSkillType : int32_t
 {
 	EKT_GroupDamage,
 	EKT_DeadlyDamage,
@@ -1854,7 +1854,7 @@ enum EmployeeSkillType : S32
 extern EnumInfo enumEmployeeSkillType;
 //=============================================================
 // enum EmployeeQuestColor
-enum EmployeeQuestColor : S32
+enum EmployeeQuestColor : int32_t
 {
 	EQC_White,
 	EQC_Blue,
@@ -1864,7 +1864,7 @@ enum EmployeeQuestColor : S32
 extern EnumInfo enumEmployeeQuestColor;
 //=============================================================
 // enum EmployeeQuestStatus
-enum EmployeeQuestStatus : S32
+enum EmployeeQuestStatus : int32_t
 {
 	EQS_None,
 	EQS_Running,
@@ -1873,7 +1873,7 @@ enum EmployeeQuestStatus : S32
 extern EnumInfo enumEmployeeQuestStatus;
 //=============================================================
 // enum RobotActionType
-enum RobotActionType : S32
+enum RobotActionType : int32_t
 {
 	RAT_None,
 	RAT_Resting,

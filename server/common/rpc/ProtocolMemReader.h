@@ -28,26 +28,26 @@ public:
 	bool readVector(std::vector<T>& vOut)
 	{
 		if (0==length_) return true;
-		U32 size=0;
+		std::uint32_t size=0;
 		readDynSize(size);
 		if (0==size) return true;
 		vOut.resize(size);
-		for(U32 i=0;i<size;i++)
+		for(std::uint32_t i=0;i<size;i++)
 		{
 			vOut[i].deserialize(this);
 		}
 		return true;
 	}
 	
-	bool readVector(std::vector<S32>& vOut){
+	bool readVector(std::vector<std::int32_t>& vOut){
 		if (0==length_) return true;
-		U32 size=0;
+		std::uint32_t size=0;
 		readDynSize(size);
 		if (0==size) return true;
 		vOut.resize(size);
-		for(U32 i=0;i<size;i++)
+		for(std::uint32_t i=0;i<size;i++)
 		{
-			if(!read(&vOut[i],sizeof(S32)))
+			if(!read(&vOut[i],sizeof(std::int32_t)))
 				return false;
 		}
 		return true;
