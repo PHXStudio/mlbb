@@ -1,0 +1,302 @@
+==> 准备输出目录: /Volumes/ssd2/mlbb/server/image
+==> 使用 Docker 编译可执行文件...
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  13.11MB
+Step 1/10 : FROM ubuntu:20.04
+ ---> 8feb4d8ca535
+Step 2/10 : ENV DEBIAN_FRONTEND=noninteractive
+ ---> Using cache
+ ---> 773b5f0c180b
+Step 3/10 : ENV TZ=Asia/Shanghai
+ ---> Using cache
+ ---> fb04c888315e
+Step 4/10 : RUN apt-get update && apt-get install -y     build-essential     cmake     clang     git     wget     pkg-config     libboost-dev     libboost-system-dev     libboost-filesystem-dev     zlib1g-dev     libcurl4-openssl-dev     libace-dev     libmysqlcppconn-dev     libmysqlclient-dev     libsqlite3-dev     && rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> 5c826fe09475
+Step 5/10 : WORKDIR /server
+ ---> Using cache
+ ---> 40508a992b3d
+Step 6/10 : COPY . /server/
+ ---> 57a49d7c94ee
+Step 7/10 : RUN mkdir -p build && cd build && cmake .. && make -j$(nproc) install
+ ---> Running in bfa61769ccb2
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using linux cmake toolchain 
+-- Found ZLIB: /usr/lib/aarch64-linux-gnu/libz.so (found version "1.2.11") 
+-- Found CURL: /usr/lib/aarch64-linux-gnu/libcurl.so (found version "7.68.0")  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /server/build
+Scanning dependencies of target tables
+Scanning dependencies of target common
+[  0%] Building CXX object tables/CMakeFiles/tables.dir/ArtifactConfigTable.cpp.o
+[  0%] Building CXX object tables/CMakeFiles/tables.dir/Activities.cpp.o
+[  1%] Building CXX object tables/CMakeFiles/tables.dir/ArtifactChangeData.cpp.o
+[  1%] Building C object common/CMakeFiles/common.dir/lua/lapi.c.o
+[  1%] Building C object common/CMakeFiles/common.dir/lua/lauxlib.c.o
+[91m/server/common/lua/lauxlib.c[0m[91m:[0m[91m577[0m[91m:61: [0m[91mwarning: while loop has empty body [-Wempty-body][0m[91m
+[0m[91m   while ((c = getc(lf.f)) != EOF && c != LUA_SIGNATURE[0]) ;
+[0m[91m                                                            ^
+/server/common/lua/lauxlib.c:577:[0m[91m61: note: put the semicolon on a separate line to silence this warning
+[0m[91m1 warning generated.
+[0m[  2%] Building C object common/CMakeFiles/common.dir/lua/lbaselib.c.o
+[  2%] Building C object common/CMakeFiles/common.dir/lua/lcode.c.o
+[  3%] Building C object common/CMakeFiles/common.dir/lua/ldblib.c.o
+[  3%] Building C object common/CMakeFiles/common.dir/lua/ldebug.c.o
+[  4%] Building CXX object tables/CMakeFiles/tables.dir/ArtifactLevelTable.cpp.o
+[  4%] Building C object common/CMakeFiles/common.dir/lua/ldo.c.o
+[  5%] Building C object common/CMakeFiles/common.dir/lua/ldump.c.o
+[  5%] Building CXX object tables/CMakeFiles/tables.dir/BattleData.cpp.o
+[  5%] Building CXX object tables/CMakeFiles/tables.dir/DailyReward.cpp.o
+[  5%] Building C object common/CMakeFiles/common.dir/lua/lfunc.c.o
+[  6%] Building C object common/CMakeFiles/common.dir/lua/lgc.c.o
+[  6%] Building C object common/CMakeFiles/common.dir/lua/linit.c.o
+[  6%] Building C object common/CMakeFiles/common.dir/lua/liolib.c.o
+[  7%] Building C object common/CMakeFiles/common.dir/lua/llex.c.o
+[  7%] Building C object common/CMakeFiles/common.dir/lua/lmathlib.c.o
+[  8%] Building C object common/CMakeFiles/common.dir/lua/lmem.c.o
+[  8%] Building C object common/CMakeFiles/common.dir/lua/loadlib.c.o
+[  8%] Building C object common/CMakeFiles/common.dir/lua/lobject.c.o
+[  9%] Building C object common/CMakeFiles/common.dir/lua/lopcodes.c.o
+[  9%] Building C object common/CMakeFiles/common.dir/lua/loslib.c.o
+[ 10%] Building C object common/CMakeFiles/common.dir/lua/lparser.c.o
+[ 10%] Building C object common/CMakeFiles/common.dir/lua/lstate.c.o
+[ 10%] Building C object common/CMakeFiles/common.dir/lua/lstring.c.o
+[ 11%] Building CXX object tables/CMakeFiles/tables.dir/DebrisTable.cpp.o
+[ 11%] Building CXX object tables/CMakeFiles/tables.dir/DropTable.cpp.o
+[ 12%] Building C object common/CMakeFiles/common.dir/lua/lstrlib.c.o
+[ 13%] Building CXX object tables/CMakeFiles/tables.dir/EmployeeConfig.cpp.o
+[ 13%] Building C object common/CMakeFiles/common.dir/lua/ltable.c.o
+[ 14%] Building C object common/CMakeFiles/common.dir/lua/ltablib.c.o
+[91m/server/common/lua/ltablib.c:140:5: warning: [0m[91mmisleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+    luaL_addvalue(b);
+    ^
+/server/common/lua/ltablib.c:137:3: note: previous statement is here
+  if (!lua_isstring(L, -1))
+  ^
+[0m[91m1 warning generated.
+[0m[ 14%] Building C object common/CMakeFiles/common.dir/lua/ltm.c.o
+[ 14%] Building C object common/CMakeFiles/common.dir/lua/lua.c.o
+[ 15%] Building C object common/CMakeFiles/common.dir/lua/luac.c.o
+[ 15%] Building C object common/CMakeFiles/common.dir/lua/lundump.c.o
+[ 16%] Building C object common/CMakeFiles/common.dir/lua/lvm.c.o
+[ 16%] Building CXX object tables/CMakeFiles/tables.dir/EmployeeQuestTable.cpp.o
+[ 16%] Building C object common/CMakeFiles/common.dir/lua/lzio.c.o
+[ 16%] Building CXX object tables/CMakeFiles/tables.dir/FilterWord.cpp.o
+[ 16%] Building C object common/CMakeFiles/common.dir/lua/print.c.o
+[ 17%] Building CXX object tables/CMakeFiles/tables.dir/GameEvent.cpp.o
+[ 18%] Building CXX object common/CMakeFiles/common.dir/json/json_reader.cpp.o
+[91m/server/common/json/json_reader.cpp[0m[91m:[0m[91m566[0m[91m:[0m[91m65[0m[91m:[0m[91m warning: overlapping comparisons always evaluate to false [-Wtautological-overlap-compare]
+[0m[91m      bool badTokenType = ( token.type_ == tokenArraySeparator  &&  
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[0m[91m1[0m[91m warning[0m[91m generated[0m[91m.
+[0m[ 18%] Building CXX object common/CMakeFiles/common.dir/json/json_value.cpp.o
+[ 19%] Building CXX object common/CMakeFiles/common.dir/json/json_writer.cpp.o
+[ 19%] Building CXX object common/CMakeFiles/common.dir/tinyxml/tinystr.cpp.o
+[ 19%] Building CXX object tables/CMakeFiles/tables.dir/GuildData.cpp.o
+[ 20%] Building CXX object tables/CMakeFiles/tables.dir/LiveSkilltable.cpp.o
+[ 20%] Building CXX object tables/CMakeFiles/tables.dir/LotteryTable.cpp.o
+[ 20%] Building CXX object common/CMakeFiles/common.dir/tinyxml/tinyxml.cpp.o
+[91m/server/tables/LiveSkilltable.cpp[0m[91m:[0m[91m137[0m[91m:[0m[91m8[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91munused variable 'idx' [-Wunused-variable][0m[91m
+[0m[91m                        int idx = 0;[0m[91m
+[0m[91m                            ^[0m[91m
+[0m[91m/server/tables/LiveSkilltable.cpp[0m[91m:[0m[91m149[0m[91m:[0m[91m8[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91munused variable 'idx' [-Wunused-variable][0m[91m
+[0m[91m                        int idx = 0;[0m[91m
+[0m[91m                            ^[0m[91m
+[0m[ 21%] Building CXX object common/CMakeFiles/common.dir/tinyxml/tinyxmlerror.cpp.o
+[ 21%] Building CXX object common/CMakeFiles/common.dir/tinyxml/tinyxmlparser.cpp.o
+[91m2[0m[91m warning[0m[91ms[0m[91m generated[0m[91m.
+[0m[ 22%] Building CXX object common/CMakeFiles/common.dir/nedmalloc/nedmalloc.cc.o
+[ 22%] Building CXX object tables/CMakeFiles/tables.dir/PVPrunkTable.cpp.o
+[91m/server/common/nedmalloc/nedmalloc.cc[0m[91m:[0m[91m326[0m[91m:[0m[91m8[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91maddress of array 'p->caches' will always evaluate to 'true' [-Wpointer-bool-conversion][0m[91m
+[0m[91m        if(p->caches)[0m[91m
+[0m[91m        ~~ ~~~^~~~~~[0m[91m
+[0m[91m/server/common/nedmalloc/nedmalloc.cc[0m[91m:[0m[91m952[0m[91m:[0m[91m2[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91mmisleading indentation; statement is not part of the previous 'for' [-Wmisleading-indentation][0m[91m
+[0m[91m        GetThreadCache(&p, &tc, &mymspace, 0);[0m[91m
+[0m[91m        ^[0m[91m
+[0m[91m/server/common/nedmalloc/nedmalloc.cc[0m[91m:[0m[91m950[0m[91m:[0m[91m5[0m[91m:[0m[91m [0m[91mnote[0m[91m: [0m[91mprevious statement is here[0m[91m
+[0m[91m    for(i=0; i<elems; i++)[0m[91m
+[0m[91m    ^[0m[91m
+[0m[ 23%] Building CXX object tables/CMakeFiles/tables.dir/Quest.cpp.o
+[ 23%] Building CXX object common/CMakeFiles/common.dir/Base64.cpp.o
+[91m/server/common/Base64.cpp:113:5: [0m[91mwarning: 'register' storage class specifier is deprecated and incompatible with C++17 [-Wdeprecated-register]
+    register const unsigned char *bufin;
+    ^~~~~~~~~[0m[91m
+[0m[91m/server/common/Base64.cpp:114:5:[0m[91m warning[0m[91m: [0m[91m'register' storage class specifier is deprecated and incompatible with C++17 [-Wdeprecated-register]
+    register int nprbytes;[0m[91m
+    ^~~~~~~~~[0m[91m
+[0m[91m/server/common/Base64.cpp:[0m[91m128[0m[91m:5[0m[91m:[0m[91m [0m[91mwarning: 'register' storage class specifier is deprecated and incompatible with C++17 [-Wdeprecated-register]
+[0m[91m    register const unsigned char *bufin;
+[0m[91m    ^~~~~~~~~[0m[91m
+[0m[91m/server/common/Base64.cpp:[0m[91m129[0m[91m:[0m[91m5[0m[91m:[0m[91m [0m[91mwarning: 'register' storage class specifier is deprecated and incompatible with C++17 [-Wdeprecated-register]
+[0m[91m    register unsigned char *bufout;
+    ^~~~~~~~~
+[0m[91m/server/common/Base64.cpp:130[0m[91m:[0m[91m5[0m[91m:[0m[91m [0m[91mwarning: [0m[91m'register' storage class specifier is deprecated and incompatible with C++17 [-Wdeprecated-register][0m[91m
+[0m[91m    register int nprbytes;
+    ^~~~~~~~~[0m[91m
+[0m[91m5 warnings generated[0m[91m.
+[0m[ 23%] Building CXX object tables/CMakeFiles/tables.dir/Shop.cpp.o
+[91m2 warnings generated.
+[0m[ 23%] Building CXX object common/CMakeFiles/common.dir/CSVParser.cpp.o
+[ 24%] Building CXX object common/CMakeFiles/common.dir/ComEnv.cpp.o
+[ 24%] Building CXX object common/CMakeFiles/common.dir/ComGlobal.cpp.o
+[91m/server/common/CSVParser.cpp[0m[91m:[0m[91m71[0m[91m:[0m[91m9[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91munused variable 'temp_index' [-Wunused-variable][0m[91m
+[0m[91m        size_t temp_index = 0;[0m[91m
+[0m[91m               ^[0m[91m
+[0m[ 25%] Building CXX object tables/CMakeFiles/tables.dir/TableSystem.cpp.o
+[91m1[0m[91m warning[0m[91m generated[0m[91m.
+[0m[ 25%] Building CXX object tables/CMakeFiles/tables.dir/achievementTable.cpp.o
+[ 25%] Building CXX object tables/CMakeFiles/tables.dir/challengeTable.cpp.o
+[ 26%] Building CXX object common/CMakeFiles/common.dir/ComScriptApi.cpp.o
+[ 26%] Building CXX object common/CMakeFiles/common.dir/ComScriptEvn.cpp.o
+[ 26%] Building CXX object common/CMakeFiles/common.dir/CppSQLite3.cpp.o
+[ 27%] Building CXX object tables/CMakeFiles/tables.dir/copyscene.cpp.o
+[ 27%] Building CXX object tables/CMakeFiles/tables.dir/employeeTable.cpp.o
+[91m/server/common/ComScriptEvn.cpp[0m[91m:[0m[91m727[0m[91m:[0m[91m10[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91menumeration values 'GEP_STR' and 'GEP_PTR' not handled in switch [-Wswitch][0m[91m
+[0m[91m                switch(params[i].type_)[0m[91m
+[0m[91m                       ^[0m[91m
+[0m[91m/server/common/ComScriptEvn.cpp[0m[91m:[0m[91m800[0m[91m:[0m[91m10[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91menumeration values 'GEP_STR' and 'GEP_PTR' not handled in switch [-Wswitch][0m[91m
+[0m[91m                switch(params[i].type_)[0m[91m
+[0m[91m                       ^[0m[91m
+[0m[91m/server/common/ComScriptEvn.cpp[0m[91m:[0m[91m884[0m[91m:[0m[91m10: warning: enumeration values 'GEP_PTR' and 'GEP_POS_TABLE' not handled in switch [-Wswitch]
+[0m[91m                switch(params[i].type_)
+                       ^
+[0m[91m/server/common/CppSQLite3.cpp[0m[91m:[0m[91m210[0m[91m:[0m[91m9[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91mISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings][0m[91m
+[0m[91m                                                                "Cannot allocate memory",[0m[91m
+[0m[91m                                                                ^[0m[91m
+[0m[91m/server/common/CppSQLite3.cpp[0m[91m:[0m[91m244[0m[91m:[0m[91m10[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91mISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings][0m[91m
+[0m[91m                                                                        "Cannot decode binary",[0m[91m
+[0m[91m                                                                        ^[0m[91m
+[0m[91m/server/common/CppSQLite3.cpp[0m[91m:[0m[91m277[0m[91m:[0m[91m9[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91mISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings][0m[91m
+[0m[91m                                                                "Cannot allocate memory",[0m[91m
+[0m[91m                                                                ^[0m[91m
+[0m[91m/server/common/CppSQLite3.cpp[0m[91m:[0m[91m379[0m[91m:[0m[91m9[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91mISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings][0m[91m
+[0m[91m                                                                "Invalid field index requested",[0m[91m
+[0m[91m                                                                ^[0m[91m
+[0m[91m/server/common/CppSQLite3.cpp[0m[91m:[0m[91m414[0m[91m:[0m[91m31[0m[91m:[0m[91m [0m[91merror[0m[91m: [0m[91mout-of-line definition of 'getInt64Field' does not match any declaration in 'CppSQLite3Query'[0m[91m
+[0m[91msqlite_int64 CppSQLite3Query::getInt64Field(int nField, sqlite_int64 nNullValue/*=0*/)[0m[91m
+[0m[91m                              ^~~~~~~~~~~~~[0m[91m
+[0m[91m/server/common/CppSQLite3.cpp[0m[91m:[0m[91m427[0m[91m:[0m[91m31[0m[91m:[0m[91m [0m[91merror[0m[91m: [0m[91mout-of-line definition of 'getInt64Field' does not match any declaration in 'CppSQLite3Query'[0m[91m
+[0m[91msqlite_int64 CppSQLite3Query::getInt64Field(const char* szField, sqlite_int64 nNullValue/*=0*/)[0m[91m
+[0m[91m                              ^~~~~~~~~~~~~[0m[91m
+[0m[91m/server/common/CppSQLite3.cpp[0m[91m:[0m[91m481[0m[91m:[0m[91m9[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91mISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings][0m[91m
+[0m[91m                                                                "Invalid field index requested",[0m[91m
+[0m[91m                                                                ^[0m[91m
+[0m[91m/server/common/CppSQLite3.cpp[0m[91m:[0m[91m528[0m[91m:[0m[91m8[0m[91m:[0m[91m [0m[91mwarning[0m[91m: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                        "Invalid field name requested",
+                                                        ^
+/server/common/CppSQLite3.cpp:540:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Invalid field index requested",
+                                                                ^
+/server/common/CppSQLite3.cpp:555:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Invalid field index requested",
+                                                                ^
+/server/common/CppSQLite3.cpp:570:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Invalid field index requested",
+                                                                ^
+/server/common/CppSQLite3.cpp:632:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Null Virtual Machine pointer",
+                                                                ^
+/server/common/CppSQLite3.cpp:731:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Invalid field index requested",
+                                                                ^
+/server/common/CppSQLite3.cpp:757:8: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                        "Invalid field name requested",
+                                                        ^
+/server/common/CppSQLite3.cpp:861:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Invalid field index requested",
+                                                                ^
+/server/common/CppSQLite3.cpp:876:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Invalid row index requested",
+                                                                ^
+/server/common/CppSQLite3.cpp:889:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Null Results pointer",
+                                                                ^
+/server/common/CppSQLite3.cpp:1008:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Error binding string param",
+                                                                ^
+/server/common/CppSQLite3.cpp:1022:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Error binding int param",
+                                                                ^
+/server/common/CppSQLite3.cpp:1036:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Error binding double param",
+                                                                ^
+/server/common/CppSQLite3.cpp:1051:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Error binding blob param",
+                                                                ^
+/server/common/CppSQLite3.cpp:1063:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Error binding blob param",
+                                                                ^
+/server/common/CppSQLite3.cpp:1078:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Error binding NULL param",
+                                                                ^
+/server/common/CppSQLite3.cpp:1092:13: warning: unused variable 'sz2' [-Wunused-variable]
+const char* sz2 = sqlite3_bind_parameter_name(mpVM, 2);
+            ^
+/server/common/CppSQLite3.cpp:1091:13: warning: unused variable 'sz1' [-Wunused-variable]
+const char* sz1 = sqlite3_bind_parameter_name(mpVM, 1);
+            ^
+/server/common/CppSQLite3.cpp:1090:5: warning: unused variable 'nn' [-Wunused-variable]
+int nn = sqlite3_bind_parameter_count(mpVM);
+    ^
+/server/common/CppSQLite3.cpp:1179:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Database not open",
+                                                                ^
+/server/common/CppSQLite3.cpp:1190:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Null Virtual Machine pointer",
+                                                                ^
+/server/common/CppSQLite3.cpp:1257:10: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                        "Unable to close database",
+                                                                        ^
+/server/common/CppSQLite3.cpp:1337:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Invalid scalar query",
+                                                                ^
+/server/common/CppSQLite3.cpp:1386:9: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                                                                "Database not open",
+                                                                ^
+[0m[91m29 warnings and 2 errors generated.
+[0m[91mmake[2]: *** [common/CMakeFiles/common.dir/build.make:661: common/CMakeFiles/common.dir/CppSQLite3.cpp.o] Error 1
+[0m[91mmake[2]: *** Waiting for unfinished jobs....
+[0m[91m3[0m[91m warning[0m[91ms[0m[91m generated[0m[91m.
+[0m[ 28%] Building CXX object tables/CMakeFiles/tables.dir/itemtable.cpp.o
+[91mmake[1]: *** [CMakeFiles/Makefile2:290: common/CMakeFiles/common.dir/all] Error 2
+[0m[91mmake[1]: *** Waiting for unfinished jobs....
+[0m[ 28%] Building CXX object tables/CMakeFiles/tables.dir/lastOrder.cpp.o
+[ 29%] Building CXX object tables/CMakeFiles/tables.dir/monstertable.cpp.o
+[ 29%] Building CXX object tables/CMakeFiles/tables.dir/npctable.cpp.o
+[91m/server/tables/itemtable.cpp[0m[91m:[0m[91m153[0m[91m:[0m[91m37[0m[91m:[0m[91m [0m[91mwarning[0m[91m: [0m[91mconverting the enum constant to a boolean [-Wint-in-bool-context][0m[91m
+[0m[91m                if(pCore->mainType_  == IMT_Equip || IMT_EmployeeEquip)[0m[91m
+[0m[91m                                                  ^[0m[91m
+[0m[ 29%] Building CXX object tables/CMakeFiles/tables.dir/profession.cpp.o
+[91m/server/tables/monstertable.cpp:233:8: warning: unused function 'randInitDelta' [-Wunused-function]
+static randInitDelta(std::vector<S8> &out)
+       ^
+[0m[ 30%] Building CXX object tables/CMakeFiles/tables.dir/randName.cpp.o
+[ 30%] Building CXX object tables/CMakeFiles/tables.dir/robotTable.cpp.o
+[91m1[0m[91m warning[0m[91m generated[0m[91m.
+[0m[ 31%] Building CXX object tables/CMakeFiles/tables.dir/scenetable.cpp.o
+[91m1 warning generated.
+[0m[ 31%] Building CXX object tables/CMakeFiles/tables.dir/skilltable.cpp.o
+[ 31%] Building CXX object tables/CMakeFiles/tables.dir/sttable.cpp.o
+[ 32%] Building CXX object tables/CMakeFiles/tables.dir/titleTable.cpp.o
+[ 32%] Building CXX object tables/CMakeFiles/tables.dir/tmptable.cpp.o
+[ 33%] Linking CXX static library libtables.a
+[ 33%] Built target tables
+[91mmake: *** [Makefile:130: all] Error 2
+[0mThe command '/bin/sh -c mkdir -p build && cd build && cmake .. && make -j$(nproc) install' returned a non-zero code: 2

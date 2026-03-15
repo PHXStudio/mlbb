@@ -1,0 +1,40 @@
+# SConstruct 文件内容
+import os
+import sys
+
+# 检查环境变量或默认路径
+# 确保 godot-cpp 文件夹在你的项目根目录下
+if not os.path.exists("godot-cpp"):
+    print("错误: 找不到 godot-cpp 文件夹。请确保你已将其克隆为子模块。")
+    Exit(1)
+
+# 引入 godot-cpp 的 SConscript
+env = SConscript("godot-cpp/SConstruct")
+# 设置目标平台和架构（SCons 会自动从命令行参数获取，如 platform=windows）
+env.Append(CPPPATH=["src/", "godot-cpp/gen/include/", "godot-cpp/include/", "godot-cpp/gdextension/"])
+
+# 寻找 src 目录下的所有 .cpp 源文件
+sources = Glob("src/*.cpp")
+
+# 设置生成文件的名称（可以自定义，例如 my_extension）
+lib_name = "proto"
+
+# 根据平台定义输出路径和文件名
+# 最终文件会生成到 godot/bin/ 目录下
+if env["platform"] == "windows":
+    library = env.SharedLibrary(
+        "godot/bin/{}{}{}".format(lib_name, env["suffix"], env["SHLIBSUFFIX"]),
+        source=sources,
+    )
+elif env["platform"] == "macos":
+    library = env.SharedLibrary(
+        "godot/bin/{}{}{}".format(lib_name, env["suffix"], env["SHLIBSUFFIX"]),
+        source=sources,
+    )
+else: # Linux
+    library = env.SharedLibrary(
+        "godot/bin/{}{}{}".format(lib_name, env["suffix"], env["SHLIBSUFFIX"]),
+        source=sources,
+    )
+
+Default(library)
