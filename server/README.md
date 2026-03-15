@@ -85,6 +85,21 @@ docker run -d \
 docker logs -f mlbb-server-runner
 ```
 
+### 4. 停止服务
+
+当需要关闭服务器或数据库容器时：
+
+```bash
+# 停止游戏服务器容器，但不删除（可通过 docker start 再次启动）
+docker stop mlbb-server-runner
+
+# 如果需要彻底删除服务器容器
+docker rm -f mlbb-server-runner
+
+# 停止并清理 MySQL 数据库容器
+docker-compose down
+```
+
 ## 手动构建
 
 ### Ubuntu 20.04+
