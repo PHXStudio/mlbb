@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -y \
     libmysqlcppconn-dev \
     libmysqlclient-dev \
     libsqlite3-dev \
+    net-tools \
+    iproute2 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /server

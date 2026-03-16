@@ -67,6 +67,8 @@ RUN apt-get update && apt-get install -y \
     libcurl4 \
     zlib1g \
     libace-6.4.5 \
+    net-tools \
+    iproute2 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /server
