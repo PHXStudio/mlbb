@@ -70,19 +70,15 @@ chmod +x ./build_image.sh
 （如果你希望自行搭建数据库，请在 `bin/env.lua` 中调整您的 `V_MysqlHost` 等参数。）
 
 ```bash
-# 1. 启动 MySQL 基础数据库（会自动创建数据库并导入结构表）
+# 一键启动所有服务 (MySQL + 游戏服务器)
+# 编排会自动等待数据库处于健康状态后再启动游戏服务器，并自动映射 21000 端口
 docker-compose up -d
 
-# 2. 启动刚才打包的服务器运行容器
-# 这里映射了网络，并分配了所需的持久运行内存
-docker run -d \
-  --name mlbb-server-runner \
-  --network mlbb-network \
-  -m 8g \
-  mlbb-server-runtime:latest
+# 检查服务状态
+docker-compose ps
 
-# 3. 检查控制台输出，确认服务进程正常
-docker logs -f mlbb-server-runner
+# 查看服务器启动实时日志
+docker-compose logs -f mlbb-server
 ```
 
 ### 4. MySQL 容器操作与检查（常用）
@@ -121,77 +117,4 @@ docker rm -f mlbb-server-runner
 
 # 停止并清理 MySQL 数据库容器
 docker-compose down
-```
-
-## 手动构建
-
-### Ubuntu 20.04+
-
-```bash
-# 安装依赖
-sudo apt-get install -y \
-    build-essential cmake clang \
-    libace-dev \
-    libmysqlcppconn-dev libmysqlclient-dev \
-    libcurl4-openssl-dev \
-    zlib1g-dev
-
-# 编译
-mkdir build && cd build
-cmake ..
-make -j$(nproc)
-```
-
-### CentOS 7+
-
-```bash
-# 安装基础工具
-yum -y groupinstall "Development tools"
-yum -y install epel-release
-yum -y install zlib-devel libcurl-devel cmake clang
-
-# 需手动编译安装 ACE 和 MySQL Connector/C++
-# ACE: https://www.dre.vanderbilt.edu/~schmidt/ACE.html
-# MySQL Connector/C++: https://dev.mysql.com/downloads/connector/cpp/
-```
-
-## 生产环境部署
-
-### 系统配置（CentOS/Ubuntu）
-
-```bash
-# /etc/security/limits.conf
-* soft core    unlimited
-* hard core    unlimited
-* soft nofile  65535
-* hard nofile  65535
-
-# /etc/sysctl.conf
-kernel.core_pattern=core.%e.%s.%t
-```
-
-### MySQL 配置
-
-使用 MySQL 5.6+，InnoDB 引擎。在 `my.cnf` 中添加：
-
-```ini
-skip-name-resolve
-long_query_time=1
-log_queries_not_using_indexes
-slow_query_log=ON
-```
-
-## 构建产物
-
-编译成功后在 `build/` 目录下生成以下可执行文件：
-
-```
-build/
-├── gateway/gateway    # 网关服务器
-├── world/world        # 世界服务器（核心）
-├── login/login        # 登录服务器
-├── db/db              # 数据库服务器
-├── scene/scene        # 场景服务器
-├── mall/mall          # 商城服务器
-└── gmtool/gmtool      # GM工具
 ```
