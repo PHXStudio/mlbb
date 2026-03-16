@@ -67,4 +67,21 @@
 
 ## 总结
 
-Server 的修改主要是：把协议和生成代码里的整数/字符串类型统一成 C++ 标准类型（`stdint` + `std::string`/`bool`），把项目内用的 S64/U32 等定义集中到 `config.h`，并顺带整理了 `config.h` 的格式和头文件顺序，以及让 CppSQLite3 使用统一的 `S64` 类型。
+Server 的修改主要是：把协议和生成代码里的整数/字符串类型统一成 C++ 标准类型（`stdint` + `std::string`/`bool`），把项目内用的 S64/U32 等定义集中到 `config.h`，并顺带整理了 `config.h` 的格式 and 头文件顺序，以及让 CppSQLite3 使用统一的 `S64` 类型。
+
+---
+
+## 6. 数据库兼容性与字段调整
+
+- **MySQL 8.0 兼容性修复**：
+  - 由于 MySQL 8.0 将 `Rank` 设为保留关键字，导致原有的 `EndlessStair` 表 DDL 和相关 SQL 语句报错。
+  - **字段重命名**：将 `EndlessStair` 表中的 `Rank` 字段统一重命名为 **`RankId`**。
+  - **DDL 更新**：修改了 `sql/DDL.sql` 以及 `server/db/routine.cpp` 中的内存 DDL 定义。
+  - **代码同步**：
+    - `server/db/routine/InsertEndlessStair.cpp`：更新 INSERT 语句，使用 `RankId` 替代 `` `Rank` ``。
+    - `server/db/routine/UpdataEndlessStair.cpp`：更新 UPDATE 语句，使用 `RankId` 替代 `` `Rank` ``。
+    - `server/db/routine/QueryEndlessAllDate.cpp`：更新 SELECT 语句，使用 `RankId` 替代 `Rank`。
+
+- **Docker 启动脚本优化**：
+  - 修改 `server/bin/server_start.sh`，取消了直接使用 `-d` 参数（避免部分环境下后台化失败），改为通过 Shell 重定向日志并使用 `&` 后台运行，更符合 Docker 容器化的日志收集习惯。
+  - 日志统一路径：`server/bin/log/`。

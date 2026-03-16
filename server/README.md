@@ -85,7 +85,30 @@ docker run -d \
 docker logs -f mlbb-server-runner
 ```
 
-### 4. 停止服务
+### 4. MySQL 容器操作与检查（常用）
+
+如果遇到数据库连接问题，可以使用以下命令进行操作：
+
+```bash
+# 查看 MySQL 容器状态
+docker ps | grep mysql
+
+# 查看数据库实时日志
+docker logs -f mlbb-mysql
+
+# 手动进入数据库导入 SQL (如果自动导入失败)
+# 先拷贝 DDL 到容器内，再执行 mysql 命令导入
+docker cp ../sql/DDL.sql mlbb-mysql:/tmp/DDL.sql
+docker exec -it mlbb-mysql mysql -uroot -proot -e "USE \`8000_game\`; source /tmp/DDL.sql;"
+
+# 验证表结构是否正确（特别是 RankId 字段）
+docker exec -it mlbb-mysql mysql -uxysk -pxysk_password -e "USE 8000_game; DESC EndlessStair;"
+
+# 重启数据库服务
+docker restart mlbb-mysql
+```
+
+### 5. 停止服务
 
 当需要关闭服务器或数据库容器时：
 
