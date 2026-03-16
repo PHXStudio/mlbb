@@ -15,24 +15,24 @@
 
 start()
 {
-	`pwd`/world -d
+	./world -d
 	echo "Wait for world server......"
 	sleep 10
 	echo "World server start"
-	`pwd`/scene -d
+	./scene -d
 	echo "Scene server start"
-	`pwd`/login -d
+	./login -d
 	echo "Login server start"
-	`pwd`/db -d
+	./db -d
 	echo "DB server start"
-	`pwd`/gateway -d
+	./gateway -d
 	echo "Gateway server start"
-	`pwd`/mall -d
-	echo "Mall server start"
-	`pwd`/logser -d
-	echo "logser server start"
-	`pwd`/gmtool -d
-	echo "gmtool server start"
+	#./mall -d
+	#echo "Mall server start"
+#	./logser -d
+#	echo "logser server start"
+	#/gmtool -d
+	#echo "gmtool server start"
 	#sleep 30
 	#`pwd`/test -d
 	#echo "test server start"

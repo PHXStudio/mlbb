@@ -15,7 +15,7 @@ Env.setString(V_GatewayHost,"127.0.0.1:20001"); --//机器人配置 需要和V_G
 
 Env.setString(V_GatewayListenClientMultiIndoor,"1,21000"); --//网关监听客户端  
 
-Env.setString(V_MysqlHost,		"mysql-db:3306");
+Env.setString(V_MysqlHost,		"mlbb-mysql:3306");
 Env.setString(V_MysqlUser,		"xysk");
 Env.setString(V_MysqlPassword,	"xysk_password");
 Env.setString(V_DatabaseName,	"8000_game");

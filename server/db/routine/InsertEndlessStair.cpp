@@ -8,7 +8,7 @@ InsertEndless::go(SQLTask *pTask)
 {
 	ACE_DEBUG((LM_DEBUG,ACE_TEXT("Insert EndlessStair %s \n"),playerName_.c_str()));
 	static const char * pCode =
-		"INSERT INTO EndlessStair(PlayerName,Rank)"
+		"INSERT INTO EndlessStair(PlayerName,RankId)"
 		"VALUES(?,?);";
 
 	DBC *dbc = pTask->getDBC();

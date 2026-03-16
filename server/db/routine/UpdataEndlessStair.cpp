@@ -7,7 +7,7 @@ U32
 UpdateEndlsee::go(SQLTask *pTask)
 {
 	static const char * pCode =
-		"UPDATE EndlessStair SET Rank=? WHERE PlayerName=?;";
+		"UPDATE EndlessStair SET RankId=? WHERE PlayerName=?;";
 
 	DBC *dbc = pTask->getDBC();
 	SRV_ASSERT(dbc);
