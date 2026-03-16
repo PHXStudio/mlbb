@@ -1,10 +1,20 @@
 #include "register_types.h"
 
-#include "gdexample.h" // 引入你的自定义类
+#include "gdexample.h"
+#include "net/Connection.h"
+#include "net/Server2ClientProxy.h"
+
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
+
+
+#include "rpc_gen/proto_godot.h"
+#include "rpc_gen/global_godot.h"
+
+#include "rpc_gen/proto_godot_reg.h"
+#include "rpc_gen/global_godot_reg.h"
 
 using namespace godot;
 
@@ -15,8 +25,16 @@ void initialize_my_module(ModuleInitializationLevel p_level) {
     return;
   }
 
-  // 注册你的类，这样它才会出现在 Godot 的节点列表中
-  GDREGISTER_CLASS(GDExample);
+  ClassDB::register_class<GDExample>();
+  ClassDB::register_class<Connection>();
+  ClassDB::register_class<Server2ClientProxy>();
+
+
+#define GDREGISTER_CLASS(m_class) ClassDB::register_class<m_class>()
+  REGISTER_global_CLASSES;
+  REGISTER_proto_CLASSES;
+#undef GDREGISTER_CLASS
+
 }
 
 void uninitialize_my_module(ModuleInitializationLevel p_level) {
