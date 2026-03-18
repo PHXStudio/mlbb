@@ -106,8 +106,8 @@ int ClientHandler::handleReceived(void* data, size_t size){
 		channel->fillBegin();
 		channel->fill(p,l);
 		channel->fillEnd();
-		//ACE_DEBUG((LM_DEBUG," %s send to world.\n",infomation().c_str()));
-		//ACE_DEBUG((LM_INFO,ACE_TEXT("One message size = %d\n"),l));
+		ACE_DEBUG((LM_DEBUG," %s send to world.\n",infomation().c_str()));
+		ACE_DEBUG((LM_INFO,ACE_TEXT("One message size = %d\n"),l));
 		p = p + l;
 	}
 	return (p-m);

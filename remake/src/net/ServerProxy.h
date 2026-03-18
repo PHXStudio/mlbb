@@ -1,21 +1,33 @@
-#ifndef __SERVER2CLIENT_PROXY_H__
-#define __SERVER2CLIENT_PROXY_H__
+#ifndef __GODOT_SERVER_PROXY_H__
+#define __GODOT_SERVER_PROXY_H__
 
+#include <godot_cpp/variant/packed_byte_array.hpp>
 #include "../rpc_gen/proto_godot.h"
-#include <godot_cpp/classes/object.hpp>
-#include <godot_cpp/core/class_db.hpp>
+#include "../rpc/ProtocolWriter.h"
 
 namespace godot {
 
-class Server2ClientProxy : public Object, public Server2Client_Proxy {
-  GDCLASS(Server2ClientProxy, Object)
-
+/**
+ * 服务器端代理类。
+ * 继承 Client2Server_Stub 用于发送消息到服务器。
+ * 通过组合关系被 ServerAgent 使用。
+ */
+class ServerProxy 
+    :public Resource ,
+    public Server2Client_Proxy {
+    GDCLASS(ServerProxy, Resource)
 public:
-  Server2ClientProxy();
-  virtual ~Server2ClientProxy();
+  ServerProxy();
+  ~ServerProxy();
+
+  static void _bind_methods();
+
 
   bool dispatch(ProtocolReader *r);
-
+  /**
+   * 设置发送数据的回调函数
+   * @param send_func 发送数据的函数回调
+   */
   virtual void pong() override;
   virtual void errorno(uint16_t e) override;
   virtual void teamerrorno(String name, uint16_t e) override;
@@ -255,7 +267,8 @@ public:
   virtual void levelupGuildSkillOk(Ref<COM_Skill> skInst) override;
   virtual void presentGuildItemOk(int32_t val) override;
   virtual void progenitusAddExpOk(Ref<COM_GuildProgen> mInst) override;
-  virtual void setProgenitusPositionOk(TypedArray<int32_t> positions) override;
+  virtual void setProgenitusPositionOk(
+      TypedArray<int32_t> positions) override;
   virtual void updateGuildFundz(int32_t val) override;
   virtual void updateGuildMemberContribution(int32_t val) override;
   virtual void openGuildBattle(String otherName, int32_t playerNum,
@@ -336,10 +349,8 @@ public:
   virtual void updateRandSubmitQuestCount(int32_t submitCount) override;
   virtual void updateTeamMember(int32_t playerId, bool isMember) override;
 
-protected:
-  static void _bind_methods();
 };
 
 } // namespace godot
 
-#endif
+#endif // __GODOT_SERVER_PROXY_H__

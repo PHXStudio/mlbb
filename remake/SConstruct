@@ -11,10 +11,10 @@ if not os.path.exists("godot-cpp"):
 # 引入 godot-cpp 的 SConscript
 env = SConscript("godot-cpp/SConstruct")
 # 设置目标平台和架构（SCons 会自动从命令行参数获取，如 platform=windows）
-env.Append(CPPPATH=["src/", "godot-cpp/gen/include/", "godot-cpp/include/", "godot-cpp/gdextension/"])
+env.Append(CPPPATH=["src/", "src/rpc/" , "src/rpc_gen/", "src/net/", "godot-cpp/gen/include/", "godot-cpp/include/", "godot-cpp/gdextension/"])
 
-# 寻找 src 目录下的所有 .cpp 源文件
-sources = Glob("src/*.cpp")
+# 寻找 src 目录及子目录下的所有 .cpp 源文件
+sources = Glob("src/*.cpp") + Glob("src/rpc_gen/*.cpp") + Glob("src/net/*.cpp")
 
 # 设置生成文件的名称（可以自定义，例如 my_extension）
 lib_name = "proto"

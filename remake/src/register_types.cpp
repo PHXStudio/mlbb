@@ -1,8 +1,10 @@
 #include "register_types.h"
 
 #include "gdexample.h"
-#include "net/Connection.h"
-#include "net/Server2ClientProxy.h"
+#include "net/ServerAgent.h"
+#include "net/ServerProxy.h"
+#include "net/ServerStub.h"
+#include "net/NetConn.h"
 
 
 #include <gdextension_interface.h>
@@ -26,9 +28,10 @@ void initialize_my_module(ModuleInitializationLevel p_level) {
   }
 
   ClassDB::register_class<GDExample>();
-  ClassDB::register_class<Connection>();
-  ClassDB::register_class<Server2ClientProxy>();
-
+  ClassDB::register_class<ServerAgent>();
+  ClassDB::register_class<ServerProxy>();
+  ClassDB::register_class<ServerStub>();
+  ClassDB::register_class<NetConn>();
 
 #define GDREGISTER_CLASS(m_class) ClassDB::register_class<m_class>()
   REGISTER_global_CLASSES;
