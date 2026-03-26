@@ -830,7 +830,7 @@ bool SGE_PlayerInst_Old::deserialize(ProtocolReader* __r__)
 		gmActivities_.resize(__len__);
 		for(uint32_t i = 0; i < __len__; i++)
 		{
-			uint16_t __e__;
+			EnumSize __e__;
 			if(!__r__->readType(__e__) || __e__ >= 21) return false;
 			gmActivities_[i] = (ADType)__e__;
 		}
