@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c8g25rk1gvr5s"
+
+[deps]
+
+files=["res://config/EffectBehaviour.Desc.translation", "res://config/EffectBehaviour.WorkType.translation", "res://config/EffectBehaviour.MoveType.translation", "res://config/EffectBehaviour.moveTime.translation", "res://config/EffectBehaviour.Hit1Time.translation", "res://config/EffectBehaviour.Hit2Time.translation", "res://config/EffectBehaviour.BeattackEffTime.translation", "res://config/EffectBehaviour.PopValueTime.translation", "res://config/EffectBehaviour.EndTime.translation", "res://config/EffectBehaviour.DestoryTime.translation", "res://config/EffectBehaviour.CastType.translation", "res://config/EffectBehaviour.Count.translation", "res://config/EffectBehaviour.EffectPosition.translation", "res://config/EffectBehaviour.ShakeCameraTime.translation"]
+
+source_file="res://config/EffectBehaviour.csv"
+dest_files=["res://config/EffectBehaviour.Desc.translation", "res://config/EffectBehaviour.WorkType.translation", "res://config/EffectBehaviour.MoveType.translation", "res://config/EffectBehaviour.moveTime.translation", "res://config/EffectBehaviour.Hit1Time.translation", "res://config/EffectBehaviour.Hit2Time.translation", "res://config/EffectBehaviour.BeattackEffTime.translation", "res://config/EffectBehaviour.PopValueTime.translation", "res://config/EffectBehaviour.EndTime.translation", "res://config/EffectBehaviour.DestoryTime.translation", "res://config/EffectBehaviour.CastType.translation", "res://config/EffectBehaviour.Count.translation", "res://config/EffectBehaviour.EffectPosition.translation", "res://config/EffectBehaviour.ShakeCameraTime.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

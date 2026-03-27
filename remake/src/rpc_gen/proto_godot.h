@@ -10,1525 +10,2245 @@
 
 using namespace godot;
 
-enum MajorVersion {
-	Major_0,
-	MajorNumber,
-};
-enum MinorVersion {
-	Minor_0,
-	Minor_1,
-	Minor_2,
-	Minor_3,
-	Minor_4,
-	Minor_5,
-	Minor_6,
-	MinorNumber,
-};
-enum PatchVersion {
-	Patch_0,
-	Patch_1,
-	Patch_2,
-	Patch_3,
-	Patch_4,
-	Patch_5,
-	PatchNumber,
-};
-enum PetQuality {
-	PE_None,
-	PE_White,
-	PE_Green,
-	PE_Blue,
-	PE_Purple,
-	PE_Golden,
-	PE_Orange,
-	PE_Pink,
-};
-enum ErrorNo {
-	EN_None,
-	EN_VersionNotMatch,
-	EN_AccountNameSame,
-	EN_PlayerNameSame,
-	EN_FilterWord,
-	EN_CannotfindPlayer,
-	EN_AcceptQuestNotFound,
-	EN_AcceptQuestNoItem,
-	EN_AcceptSecendDaily,
-	EN_DailyNoNum,
-	EN_AcceptSecendProfession,
-	EN_Battle,
-	EN_MoneyLess,
-	EN_DiamondLess,
-	EN_NoSubSyste,
-	EN_InTeam,
-	EN_NoTeamLeader,
-	EN_TeamPassword,
-	EN_TeamIsFull,
-	EN_NoTeam,
-	EN_TeamIsRunning,
-	EN_TeamMemberLeaving,
-	EN_NoBackTeam,
-	EN_InTeamBlackList,
-	EN_EmployeeIsFull,
-	EN_NoUpSkill,
-	EN_PropisNull,
-	EN_DoubleExpTimeFull,
-	EN_DoubleExpTimeNULL,
-	EN_NoTeamNoTongji,
-	EN_TongjiTimesMax,
-	EN_TongjiTeamMemberTimesMax,
-	EN_NoTeamLeaderNoTongji,
-	EN_TeamSizeTongjiError,
-	EN_GetPoisonMushroom,
-	EN_GetMushroom,
-	EN_TongjiTeamLevelTooLow,
-	EN_PlayerIsInTeam,
-	EN_AcceptQuestBagMax,
-	EN_SubmitQuestBagMax,
-	EN_GuildNameSame,
-	EN_PlayerGoldLess,
-	EN_PlayerHasGuild,
-	EN_InRequestErr,
-	EN_RequestListFull,
-	EN_joinGuildRequestOk,
-	EN_JoinOtherGuild,
-	EN_PremierQuitError,
-	EN_CommandPositionLess,
-	EN_PositionUpMax,
-	EN_MallBuyOk,
-	EN_MallBuyFailBagFull,
-	EN_MallBuyFailBabyFull,
-	EN_MallBuyFailDiamondLess,
-	EN_MallBuyFailSelled,
-	EN_OpenBaoXiangBagFull,
-	EN_NoBaby,
-	EN_BagFull,
-	EN_BagSizeMax,
-	EN_BabyStorageFull,
-	EN_BabyFullToStorage,
-	EN_NewItemError,
-	EN_BabyFull,
-	EN_RemouldBabyLevel,
-	EN_SkillSoltFull,
-	EN_WorldChatPayError,
-	EN_DontTalk,
-	EN_BadMushroom,
-	EN_ItemMushroom,
-	EN_GetMailItemBagFull,
-	EN_Materialless,
-	EN_OpenGatherlose,
-	EN_OpenGatherRepetition,
-	EN_GatherLevelLess,
-	EN_GatherTimesLess,
-	EN_OpenBaoXiangLevel,
-	EN_NoBattleBaby,
-	EN_NoThisPoint,
-	EN_BabyLevelHigh,
-	EN_AddMoney1W,
-	EN_AddDionmand100,
-	EN_AddMoney2W,
-	EN_AddDionmand200,
-	EN_AddMoney3W,
-	EN_AddDionmand300,
-	EN_AddMoney4W,
-	EN_AddDionmand400,
-	EN_AddMoney5W,
-	EN_AddDionmand500,
-	EN_AddMoney6W,
-	EN_AddDionmand600,
-	EN_DelBaby1000,
-	EN_DelBaby30,
-	EN_DelBaby54,
-	EN_DelBaby10030,
-	EN_DelBaby10015,
-	EN_DelBaby10157,
-	EN_DelDefaultSkill,
-	EN_GreenBoxFreeNum,
-	EM_NotNormalVip,
-	EN_NotSuperVip,
-	EN_FirendNotOpen,
-	EN_BlackCannotFriend,
-	EN_HasFriend,
-	EN_HunderdNoNum,
-	EN_HunderdTier,
-	EN_HunderdLevel,
-	EN_SkillExperr,
-	EN_TimeMushroom,
-	EN_TimeTongji,
-	EN_TimeXiji,
-	EN_Storefull,
-	EN_HasBattleTime,
-	EN_HourLess24,
-	EN_HourLess24_Join,
-	EN_TeamMemberHourLess24,
-	EN_GuildBattleJoinSceneMoveValue,
-	EN_IdgenNull,
-	EN_Idgenhas,
-	EN_Gifthas,
-	EN_UseMakeRepeat,
-	EN_WishNull,
-	EN_NoGuild,
-	EN_GuildMemberMax,
-	EN_LevelupGuildBuilding,
-	EN_LevelupGuildBuildingLevelMax,
-	EN_LevelupGuildBuildingMoneyLess,
-	EN_LevelupGuildBuildingHallBuildLevelLess,
-	EN_AddGuildMoneyMax,
-	EN_PresentGuildOk,
-	EN_RefreshShopTimeLess,
-	EN_TeamMemberNoGuild,
-	EN_MagicCurrencyLess,
-	EN_DisShopLimitLess,
-	EN_FamilyPremierCanntDelete,
-	EN_MyFamilyMonster,
-	EN_NoBattleTime,
-	EN_OtherNoBattleTime,
-	EN_GuildBattleTimeout2,
-	EN_GuildBattleHasTeam,
-	EN_AccountIsSeal,
-	EN_PlayerNoOnline,
-	EN_ActivityNoTime,
-	EN_NoTeamExist,
-	EN_GuildNoMember,
-	EN_MallSellTimeLess,
-	EN_GuildMemberLess24,
-	EN_InviteeLeaveGuildLess24,
-	EN_PboneNumberSuccess,
-	EN_PhoneNumberError,
-	EN_OtherPlayerInBattle,
-	EN_GuildBattleNotMatch,
-	EN_GuildBattleIsStart,
-	EN_GuileBattleIsClose,
-	EN_GuildBattleTeamNoSameGuild,
-	EN_BackTeamCommandLeaderInGuildHomeSceneAndYouAreNotSameGuild,
-	EN_AccecptRandQuestSizeLimitError,
-	EN_Max,
-};
-enum OperateType {
-	OT_0,
-	OT_P1,
-	OT_P2,
-	OT_B,
-};
-enum BindType {
-	BIT_None,
-	BIT_Bag,
-	BIT_Use,
-	BIT_Max,
-};
-enum ReconnectType {
-	RECT_None,
-	RECT_LoginOk,
-	RECT_EnterGameOk,
-	RECT_JoinTeamOk,
-	RECT_EnterSceneOk,
-	RECT_EnterBattleOk,
-	RECT_Max,
-};
-enum SexType {
-	ST_Unknown,
-	ST_Male,
-	ST_Female,
-};
-enum BattleType {
-	BT_None,
-	BT_PVE,
-	BT_PVR,
-	BT_PVP,
-	BT_PVH,
-	BT_PET,
-	BT_PK1,
-	BT_PK2,
-	BT_Guild,
-	BT_MAX,
-};
-enum EntityType {
-	ET_None,
-	ET_Player,
-	ET_Baby,
-	ET_Monster,
-	ET_Boss,
-	ET_Emplyee,
-	ET_Max,
-};
-enum MineType {
-	MT_None,
-	MT_JinShu,
-	MT_MuCai,
-	MT_BuLiao,
-	MT_Max,
-};
-enum GroupType {
-	GT_None,
-	GT_Up,
-	GT_Down,
-};
-enum SkillTargetType {
-	STT_None,
-	STT_Self,
-	STT_Team,
-	STT_TeamDead,
-	STT_TeamNoSelf,
-	STT_All,
-	STT_AllNoSelf,
-	STT_Max,
-};
-enum SkillType {
-	SKT_None,
-	SKT_DefaultSecActive,
-	SKT_DefaultSecPassive,
-	SKT_DefaultActive,
-	SKT_DefaultPassive,
-	SKT_Active,
-	SKT_Passive,
-	SKT_Gather,
-	SKT_Make,
-	SKT_CannotUse,
-	SKT_GuildPlayerSkill,
-	SKT_GuildBabySkill,
-	SKT_Max,
-};
-enum PassiveType {
-	PAT_None,
-	PAT_Buff,
-	PAT_Deference,
-	PAT_Dodge,
-	PAT_Counter,
-	PAT_Change,
-	PAT_Guard,
-	PAT_Runaway,
-	PAT_BabyInnout,
-	PAT_SecKill,
-};
-enum PlayerStatus {
-	PS_Idle,
-	PS_Login,
-	PS_Game,
-	PS_Logout,
-	PS_Illegal,
-};
-enum OccupationType {
-	OT_None,
-	OT_HeavyArmor,
-	OT_LightArmor,
-	OT_Spell,
-	OT_Max,
-};
-enum PeriodType {
-	PT_Daily,
-	PT_Weekly,
-	PT_Customly,
-};
-enum JobType {
-	JT_None,
-	JT_Newbie,
-	JT_Axe,
-	JT_Sword,
-	JT_Knight,
-	JT_Archer,
-	JT_Fighter,
-	JT_Ninja,
-	JT_Mage,
-	JT_Sage,
-	JT_Wizard,
-	JT_Word,
-};
-enum RaceType {
-	RT_None,
-	RT_Human,
-	RT_Insect,
-	RT_Plant,
-	RT_Extra,
-	RT_Dragon,
-	RT_Animal,
-	RT_Fly,
-	RT_Undead,
-	RT_Metal,
-	RT_Max,
-};
-enum BabyInitGear {
-	BIG_None,
-	BIG_Stama,
-	BIG_Strength,
-	BIG_Power,
-	BIG_Speed,
-	BIG_Magic,
-	BIG_Max,
-};
-enum QualityColor {
-	QC_None,
-	QC_White,
-	QC_Green,
-	QC_Blue,
-	QC_Blue1,
-	QC_Purple,
-	QC_Purple1,
-	QC_Purple2,
-	QC_Golden,
-	QC_Golden1,
-	QC_Golden2,
-	QC_Orange,
-	QC_Orange1,
-	QC_Orange2,
-	QC_Pink,
-	QC_Max,
-};
-enum PropertyType {
-	PT_None,
-	PT_NoSleep,
-	PT_NoPetrifaction,
-	PT_NoDrunk,
-	PT_NoChaos,
-	PT_NoForget,
-	PT_NoPoison,
-	PT_Assassinate,
-	PT_Money,
-	PT_Diamond,
-	PT_MagicCurrency,
-	PT_EmployeeCurrency,
-	PT_Gather,
-	PT_Level,
-	PT_Exp,
-	PT_ConvertExp,
-	PT_OneDayReputation,
-	PT_Reputation,
-	PT_TableId,
-	PT_AssetId,
-	PT_Sex,
-	PT_BagNum,
-	PT_Race,
-	PT_Profession,
-	PT_ProfessionLevel,
-	PT_Stama,
-	PT_Strength,
-	PT_Power,
-	PT_Speed,
-	PT_Magic,
-	PT_Durability,
-	PT_HpCurr,
-	PT_MpCurr,
-	PT_HpMax,
-	PT_MpMax,
-	PT_Attack,
-	PT_Defense,
-	PT_Agile,
-	PT_Spirit,
-	PT_Reply,
-	PT_Magicattack,
-	PT_Magicdefense,
-	PT_Damage,
-	PT_SneakAttack,
-	PT_Hit,
-	PT_Dodge,
-	PT_Crit,
-	PT_counterpunch,
-	PT_Front,
-	PT_Wind,
-	PT_Land,
-	PT_Water,
-	PT_Fire,
-	PT_Free,
-	PT_Title,
-	PT_GuildID,
-	PT_Glamour,
-	PT_DoubleExp,
-	PT_TongjiComplateTimes,
-	PT_VipLevel,
-	PT_VipTime,
-	PT_FightingForce,
-	PT_Max,
-};
-enum VipLevel {
-	VL_None,
-	VL_1,
-	VL_2,
-	VL_Max,
-};
-enum ItemMainType {
-	IMT_None,
-	IMT_Quest,
-	IMT_Consumables,
-	IMT_Equip,
-	IMT_Employee,
-	IMT_EmployeeEquip,
-	IMT_Debris,
-	IMT_FuWen,
-	IMT_BabyEquip,
-	IMT_Max,
-};
-enum ItemSubType {
-	IST_None,
-	IST_Axe,
-	IST_Sword,
-	IST_Spear,
-	IST_Bow,
-	IST_Stick,
-	IST_Knife,
-	IST_Hat,
-	IST_Helmet,
-	IST_Clothes,
-	IST_Robe,
-	IST_Armor,
-	IST_Boot,
-	IST_Shoes,
-	IST_Shield,
-	IST_Crystal,
-	IST_Charm,
-	IST_Earrings,
-	IST_Bracelet,
-	IST_Ring,
-	IST_Necklace,
-	IST_Headband,
-	IST_Instruments,
-	IST_EquipMax,
-	IST_Ornament,
-	IST_Lottery,
-	IST_Coupun,
-	IST_OpenGird,
-	IST_ConsBegin,
-	IST_Consumables,
-	IST_Blood,
-	IST_Buff,
-	IST_Gem,
-	IST_Material,
-	IST_ItemDebris,
-	IST_BabyDebris,
-	IST_EmployeeDebris,
-	IST_BabyExp,
-	IST_SkillExp,
-	IST_ConsEnd,
-	IST_Gloves,
-	IST_EmployeeEquip,
-	IST_PVP,
-	IST_Fashion,
-	IST_FuWenAttack,
-	IST_FuWenDefense,
-	IST_FuWenAssist,
-	IST_Max,
-};
-enum ItemUseFlag {
-	IUF_None,
-	IUF_Battle,
-	IUF_Scene,
-	IUF_All,
-};
-enum EquipmentSlot {
-	ES_None,
-	ES_Boot,
-	ES_SingleHand,
-	ES_Ornament_0,
-	ES_Head,
-	ES_Ornament_1,
-	ES_Body,
-	ES_DoubleHand,
-	ES_Crystal,
-	ES_Fashion,
-	ES_Max,
-};
-enum WeaponType {
-	WT_None,
-	WT_Axe,
-	WT_Sword,
-	WT_Spear,
-	WT_Bow,
-	WT_Stick,
-	WT_Knife,
-	WT_Hoe,
-	WT_Pickax,
-	WT_Lumberaxe,
-	WT_Gloves,
-	WT_Max,
-};
-enum ChatKind {
-	CK_None,
-	CK_World,
-	CK_Team,
-	CK_System,
-	CK_Friend,
-	CK_GM,
-	CK_Guild,
-	CK_Max,
-};
-enum BattlePosition {
-	BP_None,
-	BP_Down0,
-	BP_Down1,
-	BP_Down2,
-	BP_Down3,
-	BP_Down4,
-	BP_Down5,
-	BP_Down6,
-	BP_Down7,
-	BP_Down8,
-	BP_Down9,
-	BP_Up0,
-	BP_Up1,
-	BP_Up2,
-	BP_Up3,
-	BP_Up4,
-	BP_Up5,
-	BP_Up6,
-	BP_Up7,
-	BP_Up8,
-	BP_Up9,
-	BP_Max,
-};
-enum BattleJudgeType {
-	BJT_None,
-	BJT_Continue,
-	BJT_Win,
-	BJT_Lose,
-};
-enum OrderParamType {
-	OPT_None,
-	OPT_BabyId,
-	OPT_Unite,
-	OPT_Huwei,
-	OPT_IsNo,
-	OPT_Max,
-};
-enum OrderStatus {
-	OS_None,
-	OS_ActiveOk,
-	OS_RunawayOk,
-	OS_FangBaobao,
-	OS_ShouBaobao,
-	OS_Weapon,
-	OS_Zhuachong,
-	OS_Flee,
-	OS_Summon,
-};
-enum AIEvent {
-	ME_None,
-	ME_Born,
-	ME_Deadth,
-	ME_AttackGo,
-	ME_SkillGO,
-	ME_Update,
-	ME_Max,
-};
-enum SyncIPropType {
-	SPT_None,
-	SPT_Player,
-	SPT_Baby,
-	SPT_Employee,
-	SPT_Max,
-};
-enum BoxType {
-	BX_None,
-	BX_Normal,
-	BX_Blue,
-	BX_Glod,
-};
-enum QuestKind {
-	QK_None,
-	QK_Main,
-	QK_Daily,
-	QK_Profession,
-	QK_Sub,
-	QK_Tongji,
-	QK_Copy,
-	QK_Wishing,
-	QK_Guild,
-	QK_Rand,
-	QK_Sub1,
-	QK_Max,
-};
-enum QuestType {
-	QT_None,
-	QT_Dialog,
-	QT_Battle,
-	QT_Kill,
-	QT_KillAI,
-	QT_Item,
-	QT_Profession,
-	QT_Other,
-	QT_GiveItem,
-	QT_GiveBaby,
-	QT_Max,
-};
-enum RequireType {
-	RT_Nil,
-};
-enum TeamType {
-	TT_None,
-	TT_MainQuest,
-	TT_TongjiQuest,
-	TT_Daochang,
-	TT_CaoMoGu,
-	TT_Zhanchang,
-	TT_Hero,
-	TT_Pet,
-	TT_JJC,
-	TT_ShuaGuai,
-	TT_Copy,
-	TT_Max,
-};
-enum StateType {
-	ST_None,
-	ST_Normal,
-	ST_Defense,
-	ST_Dodge,
-	ST_ActionAbsorb,
-	ST_MagicAbsorb,
-	ST_Shield,
-	ST_ActionBounce,
-	ST_MagicBounce,
-	ST_ActionInvalid,
-	ST_MagicInvalid,
-	ST_Defend,
-	ST_NoDodge,
-	ST_Poison,
-	ST_Basilisk,
-	ST_Sleep,
-	ST_Chaos,
-	ST_Drunk,
-	ST_Forget,
-	ST_BeatBack,
-	ST_Recover,
-	ST_StrongRecover,
-	ST_GroupRecover,
-	ST_MagicDef,
-	ST_Max,
-};
-enum SceneType {
-	SCT_None,
-	SCT_New,
-	SCT_Home,
-	SCT_Scene,
-	SCT_City,
-	SCT_Bairen,
-	SCT_Instance,
-	SCT_AlonePK,
-	SCT_TeamPK,
-	SCT_GuildHome,
-	SCT_GuildBattleScene,
-	SCT_Max,
-};
-enum BornType {
-	BOT_None,
-	BOT_BornPos,
-	BOT_Cached,
-	BOT_FromSceneEntry,
-	BOT_FromMazeEntry,
-	BOT_NormalMazeEntry,
-	BOT_Max,
-};
-enum WeaponActionType {
-	WAT_None,
-	WAT_Chop,
-	WAT_Stab,
-	WAT_Bow,
-	WAT_Throw,
-	WAT_Max,
-};
-enum SceneOutpuType {
-	SOT_None,
-	SOT_PVE,
-	SOT_PVP,
-	SOT_Max,
-};
-enum TogetherStateType {
-	TST_None,
-	TST_Self,
-	TST_Enemy,
-	TST_Max,
-};
-enum GuideAimType {
-	GAT_None,
-	GAT_FirstAchievement,
-	GAT_FirstSkill,
-	GAT_FirstLevelSkill,
-	GAT_FirstQuest,
-	GAT_DialogUI,
-	GAT_MainTeamBtn,
-	GAT_MainTaskBtn,
-	GAT_QuestMiniFirst,
-	GAT_QuestMiniSecond,
-	GAT_QuestMiniThird,
-	GAT_MainCrystal,
-	GAT_MainCastle,
-	GAT_MainJJC,
-	GAT_OfflineJJC,
-	GAT_OfflineJJC4,
-	GAT_WorldMapER,
-	GAT_WorldMapFL,
-	GAT_WorldMapWorldBtn,
-	GAT_MiniMap,
-	GAT_TeamCreateBtn,
-	GAT_TeamWorldMapBtn,
-	GAT_FirstPartner_PosUI,
-	GAT_FreeLootPartner,
-	GAT_FriendAddBtn,
-	GAT_PartnerShowCancel,
-	GAT_PartnerPositionTab,
-	GAT_PartnerDetailBaseTab,
-	GAT_PartnerDetailBodySlot,
-	GAT_PartnerDetailEquipBtn,
-	GAT_PartnerDetailBaseFirstSkill,
-	GAT_PartnerDetailBaseSkillLvUpBtn,
-	GAT_LearnSkillAttackSkillTab,
-	GAT_LearnSkillAttackMagicTab,
-	GAT_LearnSkillStatusMagicTab,
-	GAT_LearnSkillAidSkillTab,
-	GAT_LearnSkillBtn,
-	GAT_FirstLearningBabySkill,
-	GAT_FirstLearningBabySkill_BabyList,
-	GAT_ThirdLearningBabySkill_SkillSlot,
-	GAT_BabySkillLearningBtn,
-	GAT_MessageBoxOkBtn,
-	GAT_MainReturn,
-	GAT_MainBag,
-	GAT_MainBagTipUseItem,
-	GAT_MainbagTipEquip,
-	GAT_MainBagFuwenTab,
-	GAT_MainBagFuwenFirstItem,
-	GAT_MainBagFuwenTipsCombieBtn,
-	GAT_MainBagFuwenTipsInsertBtn,
-	GAT_MainFuwenUICombieBtn,
-	GAT_MainFuwenCloseBtn,
-	GAT_MainSkill,
-	GAT_MainMake,
-	GAT_MainMakeSword,
-	GAT_MainMakeAxe,
-	GAT_MainMakeStick,
-	GAT_MainMakeBow,
-	GAT_MainMakeCompoundBtn,
-	GAT_MainMakeLevel10,
-	GAT_MainMakeSubFirst,
-	GAT_MainMakeSubSecond,
-	GAT_MainMakeSubThird,
-	GAT_MainMakeGemBtn,
-	GAT_MainMakeGemClose,
-	GAT_MainMakeGemFirst,
-	GAT_MainBaby,
-	GAT_MainBabyStatusBtn,
-	GAT_MainBabyPropertyBtn,
-	GAT_MainBabyPropertyContainer,
-	GAT_MainBabyPropertyConfirm,
-	GAT_MainBabyClose,
-	GAT_MainMagic,
-	GAT_MainMagicLevelFirst,
-	GAT_MainMagicLevelBtn,
-	GAT_MainFriend,
-	GAT_MainPartner,
-	GAT_MainSetting,
-	GAT_MainRecharge,
-	GAT_MainActivity,
-	GAT_MainPlayerInfo,
-	GAT_MainPlayerInfoStatusBtn,
-	GAT_MainPlayerInfoPropertyBtn,
-	GAT_MainPlayerInfoPropertyContainer,
-	GAT_MainPlayerInfoPropertyConfirm,
-	GAT_MainPlayerInfoClose,
-	GAT_MainJiubaHouse,
-	GAT_MainStick,
-	GAT_MainAchievement,
-	GAT_MainRaise,
-	GAT_MainFamily,
-	GAT_BattleAttack,
-	GAT_BattleSkill,
-	GAT_BattleBabySkill,
-	GAT_BattleDeference,
-	GAT_BattleChangePosition,
-	GAT_BattleAuto,
-	GAT_BattleBag,
-	GAT_BattleCatch,
-	GAT_BattleBaby,
-	GAT_BattleRunaway,
-	GAT_BattlePlayerInfo,
-	GAT_BattleRewardClose,
-	GAT_FirstAutoSkill,
-	GAT_PlayerAuto,
-	GAT_Max,
-};
-enum ScriptGameEvent {
-	SGE_None,
-	SGE_MainPanelOpen,
-	SGE_FirstEnterMainScene,
-	SGE_EnterScene,
-	SGE_EnterMainScene,
-	SGE_Talk_FirstEnterMainScene,
-	SGE_Talk_BattleReady,
-	SGE_Talk_ActorReady,
-	SGE_Talk_BattleOver,
-	SGE_WorldMapOpen,
-	SGE_WorldMapToWorld,
-	SGE_MiniMapOpen,
-	SGE_TeamUIOpen,
-	SGE_AchievementUIOpen,
-	SGE_AchievementReceived,
-	SGE_TeamUISelectMapOpen,
-	SGE_PartnerForBattle,
-	SGE_PartnerPositionTabShow,
-	SGE_PartnerListTabShow,
-	SGE_PartnerDetailUIOpen,
-	SGE_PartnerDetailBaseOpen,
-	SGE_PartnerDetailEquipClick,
-	SGE_PartnerDetailEquipSucc,
-	SGE_PartnerDetailBaseSkillOpen,
-	SGE_ParnterDetailBaseSkillLvUpSucc,
-	SGE_MainMakeSub,
-	SGE_MainMakeSubDetail,
-	SGE_MainMakeItemOk,
-	SGE_MainMakeGemUI,
-	SGE_MainMakeGemOk,
-	SGE_MainMakeGemUIClose,
-	SGE_MainTeamUI,
-	SGE_MainTaskUI,
-	SGE_MainTaskFlushOk,
-	SGE_JJCEntryUI,
-	SGE_OfflineJJCUI,
-	SGE_BagItemDoubleClick,
-	SGE_BagFuwenOpen,
-	SGE_BagFuwenCombieUI,
-	SGE_BagFuwenCombieSuccess,
-	SGE_BagFuwenClickTipsInsertBtn,
-	SGE_FuwenUIClose,
-	SGE_NpcDialogBegin,
-	SGE_NpcRenwuUIOpen,
-	SGE_NpcRenwuPreAccept,
-	SGE_NpcRenwuAccept,
-	SGE_NpcRenwuSubmit,
-	SGE_EnterNPCBattle,
-	SGE_EnterBattle,
-	SGE_MessageBoxOpen,
-	SGE_BeforeEnterBattle,
-	SGE_PlayerLevelUp,
-	SGE_PlayerUIOpen,
-	SGE_PlayerUIStatusSwitch,
-	SGE_PlayerUIPropertySwitch,
-	SGE_PlayerUIAddPoint,
-	SGE_PlayerUIPropertyConfirmClick,
-	SGE_PlayerUIClose,
-	SGE_BabyLevelUp,
-	SGE_BabyUIOpen,
-	SGE_BabyUIStatusSwitch,
-	SGE_BabyUIPropertySwitch,
-	SGE_BabyUIAddPoint,
-	SGE_BabyUIPropertyConfirmClick,
-	SGE_BabyUIClose,
-	SGE_BattleTurn,
-	SGE_ExitBattle,
-	SGE_SelectTarget,
-	SGE_SelectTargetOk,
-	SGE_BabySelectSkill,
-	SGE_SelectSkill,
-	SGE_SelectSkillLevel,
-	SGE_StickDisplay,
-	SGE_StickTouchDown,
-	SGE_StickTouchMove,
-	SGE_StickTouchUp,
-	SGE_BattleOverRewardOpen,
-	SGE_BattleOverRewardClose,
-	SGE_CheckState,
-	SGE_TogetherState,
-	SGE_BagTipOpen,
-	SGE_UseItem,
-	SGE_GainItem,
-	SGE_EquipItem,
-	SGE_MainLearningUI,
-	SGE_MainLearningClickTab,
-	SGE_MainLearningOneSkillClick,
-	SGE_MainLearningSkillOk,
-	SGE_MainMakeUIOpen,
-	SGE_MainMagicTipClose,
-	SGE_MainMagicUIOpen,
-	SGE_MainMagicLevelUp,
-	SGE_MainMagicFirstClick,
-	SGE_PartnerShowUI,
-	SGE_PartnerHideUI,
-	SGE_BabyLearningSkillUI,
-	SGE_BabyLearningSkill_BabyListUI,
-	SGE_BabyLearningSkill_BabySkillUI,
-	SGE_BabyLearningSkillOk,
-	SGE_ClickBabyLearningSkill,
-	SGE_ClickMiniQuest,
-	SGE_ClickMainBag,
-	SGE_ClickMainSkill,
-	SGE_ClickMainBaby,
-	SGE_ClickMainFriend,
-	SGE_ClickMainPartner,
-	SGE_ClickMainSetting,
-	SGE_ClickMainRecharge,
-	SGE_ClickMainActivity,
-	SGE_ClickMainInfo,
-	SGE_ClickBattleAttack,
-	SGE_ClickBattleSkill,
-	SGE_ClickBattleBabySkill,
-	SGE_ClickBattleDeference,
-	SGE_ClickBattleChangePosition,
-	SGE_ClickBattleAuto,
-	SGE_ClickBattleBag,
-	SGE_ClickBattleBaby,
-	SGE_ClickBattleRunaway,
-	SGE_ClickBattleInfo,
-	SGE_ClickAddFriendBtn,
-	SGE_ClickMainFamily,
-	SGE_ClickRaiseUpBtn,
-	SGE_UseItemOk,
-	SGE_CheckBuff,
-	SGE_PlayerPropUpdate,
-	SGE_NpcTalked,
-	SGE_EnterCopy,
-	SGE_PlayerAutoOrder,
-	SGE_OpenAutoPanel,
-	SGE_SenseEnter2,
-	SGE_WaitTalk,
-	SGE_SenseTalked,
-	SGE_ExitSense,
-	SGE_Max,
-};
-enum SenseActorType {
-	SAT_Guard,
-	SAT_Ambassdor,
-	SAT_King,
-	SAT_Yingzi,
-	SAT_VillageKing,
-	SAT_Archor,
-	SAT_Axe,
-	SAT_Sage,
-	SAT_Mage,
-	SAT_Girl,
-	SAT_AllMonster,
-};
-enum GameEventType {
-	GET_None,
-	GET_Online,
-	GET_Offline,
-	GET_CreatePlayerOK,
-	GET_Kill,
-	GET_Die,
-	GET_LevelUp,
-	GET_Flee,
-	GET_LearnSkill,
-	GET_SkillLevelUp,
-	GET_UseSkill,
-	GET_EnterJJC,
-	GET_MakeEquip,
-	GET_RecruitEmp,
-	GET_EmployeeEvolve,
-	GET_AddBaby,
-	GET_DelBaby,
-	GET_CatchBaby,
-	GET_DepositBaby,
-	GET_BabyLevelUp,
-	GET_ResetBaby,
-	GET_BabyNo,
-	GET_BabyLearnSkill,
-	GET_AddSkillExp,
-	GET_HalfHourAgo,
-	GET_Sign,
-	GET_BattleChangeProp,
-	GET_BattleOver,
-	GET_TalkNpc,
-	GET_Activity,
-	GET_PvR,
-	GET_JJC,
-	GET_Challenge,
-	GET_Zhuanpan,
-	GET_Richang,
-	GET_Pet,
-	GET_Tongji,
-	GET_Babyintensify,
-	GET_CreateGuild,
-	GET_JoinGuild,
-	GET_GuildBattleWin,
-	GET_GuildBattleLose,
-	GET_OpenGuildBattle,
-	GET_CloseGuildBattle,
-	GET_OpenGuildDemonInvaded,
-	GET_CloseGuildDemonInvaded,
-	GET_OpenGuildLeaderInvaded,
-	GET_CloseGuildLeaderInvaded,
-	GET_Exam,
-	GET_Wish,
-	GET_ChangeMoney,
-	GET_ChangeDiamond,
-	GET_ChangeMagicCurrency,
-	GET_WearEquip,
-	GET_AddFleeProp,
-	GET_Gather,
-	GET_AddFriend,
-	GET_ExtendStorage,
-	GET_FinishAch,
-	GET_AddTeamMemberCondition,
-	GET_Shenqishengji,
-	GET_NewServer,
-	GET_Recharge,
-	GET_PhoneNumber,
-	GET_ChangeProfession,
-	GET_BagFullSendMail,
-	GET_WearFuwen,
-	GET_Max,
-};
-enum SneakAttackType {
-	SAT_None,
-	SAT_SneakAttack,
-	SAT_SurpriseAttack,
-	SAT_Max,
-};
-enum ShopType {
-	SIT_None,
-	SIT_FirstRecharge,
-	SIT_Recharge,
-	SIT_Shop,
-	SIT_EmployeeShop,
-	SIT_VIP,
-	SIT_Fund,
-	SIT_Giftbag,
-	SIT_CourseGiftBag,
-	SIT_Equip,
-	SIT_Max,
-};
-enum ShopPayType {
-	SPT_Nil,
-	SPT_RMB,
-	SPT_Diamond,
-	SPT_MagicCurrency,
-	SPT_Gold,
-};
-enum GuidePointerRotateType {
-	GPRT_None,
-	GPRT_R45,
-	GPRT_R90,
-	GPRT_R135,
-	GPRT_R180,
-	GPRT_R225,
-	GPRT_R270,
-	GPRT_R315,
-	GPRT_Max,
-};
-enum NpcType {
-	NT_None,
-	NT_Normal,
-	NT_Tongji,
-	NT_SinglePK,
-	NT_TeamPK,
-	NT_Mogu,
-	NT_Xiji,
-	NT_Caiji1,
-	NT_Caiji2,
-	NT_Caiji3,
-	NT_Max,
-};
-enum OpenSubSystemFlag {
-	OSSF_None,
-	OSSF_Skill,
-	OSSF_Baby,
-	OSSF_Friend,
-	OSSF_EmployeeGet,
-	OSSF_EmployeeList,
-	OSSF_EmployeePosition,
-	OSSF_EmployeeEquip,
-	OSSF_Bar,
-	OSSF_Castle,
-	OSSF_JJC,
-	OSSF_PVPJJC,
-	OSSF_Make,
-	OSSF_Hundred,
-	OSSF_Activity,
-	OSSF_Handbook,
-	OSSF_EveryTask,
-	OSSF_Achieve,
-	OSSF_Rank,
-	OSSF_OnKyTalk,
-	OSSF_Setting,
-	OSSF_Shop,
-	OSSF_DoubleExp,
-	OSSF_Family,
-	OSSF_AuctionHouse,
-	OSSF_BabyLeranSkill,
-	OSSF_MagicItem,
-	OSSF_EmployeePos10,
-	OSSF_EmployeePos15,
-	OSSF_EmployeePos20,
-	OSSF_Guid,
-	OSSF_Team,
-	OSSF_choujiang,
-	OSSF_Cystal,
-	OSSF_PetEquip,
-	OSSF_Max,
-};
-enum AchievementType {
-	AT_None,
-	AT_EarnConis,
-	AT_SpendMoney,
-	AT_SpendDiamond,
-	AT_Recharge,
-	AT_RoleLevel,
-	AT_PetLevel,
-	AT_AttackLevel,
-	AT_DefenseLevel,
-	AT_AgileLevel,
-	AT_WearCrystal,
-	AT_WearAccessories,
-	AT_TotalDamage,
-	AT_TotalTreatment,
-	AT_HasSkillNum,
-	AT_BabySkill,
-	AT_CatchPet,
-	AT_RecruitPartner,
-	AT_PartnerCard,
-	AT_PartnersUpgradeGreen,
-	AT_PartnersUpgradeBlue,
-	AT_PartnersUpgradePurple,
-	AT_PartnersUpgradeGold,
-	AT_PartnersUpgradeOrangle,
-	AT_PartnersUpgradePink,
-	AT_QualifyingAdvanced,
-	AT_ArenaWin,
-	AT_KillMonster,
-	AT_KillBoss,
-	AT_KillPlayer,
-	AT_MakeEquipment,
-	AT_Reward50,
-	AT_EverydayActivities,
-	AT_Sign,
-	AT_Wanted,
-	AT_Copy30,
-	AT_Copy40,
-	AT_Blood,
-	AT_Magic,
-	AT_Bag,
-	AT_PetBag,
-	AT_GoodMake,
-	AT_PetIntensive,
-	AT_PetHuman,
-	AT_PetInsect,
-	AT_PetPlant,
-	AT_PetExtra,
-	AT_PetDragon,
-	AT_PetAnimal,
-	AT_PetFly,
-	AT_PetUndead,
-	AT_PetMetal,
-	AT_Home,
-	AT_CollectMaterial,
-	AT_Friend,
-	AT_Billboard,
-	AT_OwnConis,
-	AT_MagicEquip,
-	AT_RunesLevel,
-	AT_Max,
-};
-enum CategoryType {
-	ACH_All,
-	ACH_Growup,
-	ACH_Battle,
-	ACH_Pet,
-	ACH_Partner,
-	ACH_Illustrations,
-	ACH_Max,
-};
-enum ClassifyType {
-	SD_Debris,
-	SD_Data,
-	SD_Pet,
-	SD_Fashion,
-	SD_Diamond,
-	SD_1Ji,
-	SD_2Ji,
-};
-enum FunctionalPointType {
-	FPT_None,
-	FPT_Tongji,
-	FPT_Mogu,
-	FPT_Xiji,
-	FPT_Npc,
-	FPT_Max,
-};
-enum ActivityType {
-	ACT_None,
-	ACT_Tongji,
-	ACT_Mogu,
-	ACT_Richang,
-	ACT_Pet,
-	ACT_AlonePK,
-	ACT_TeamPK,
-	ACT_JJC,
-	ACT_Challenge,
-	ACT_Exam,
-	ACT_Copy,
-	ACT_Xuyuan,
-	ACT_Family_0,
-	ACT_Family_1,
-	ACT_Family_2,
-	ACT_Family_3,
-	ACT_Family_4,
-	ACT_Warrior,
-	ACT_Money,
-	ACT_Rand,
-	ACT_Max,
-};
-enum MailType {
-	MT_Normal,
-	MT_System,
-};
-enum HelpType {
-	HT_None,
-	HT_Money,
-	HT_Diamond,
-	HT_Role,
-	HT_Baby,
-	HT_Employee,
-	HT_Skill,
-	HT_Exp,
-	HT_Magic,
-	HT_Equip,
-};
-enum GuildJob {
-	GJ_None,
-	GJ_People,
-	GJ_Minister,
-	GJ_SecretaryHead,
-	GJ_VicePremier,
-	GJ_Premier,
-	GJ_Max,
-};
-enum ModifyListFlag {
-	MLF_Add,
-	MLF_Delete,
-	MLF_ChangeOnline,
-	MLF_ChangeOffline,
-	MLF_ChangePosition,
-	MLF_ChangeContribution,
-	MLF_ChangeLevel,
-	MLF_ChangeProfession,
-	MLF_ChangeGuuildBattleCon,
-};
-enum GuildBuildingType {
-	GBT_MIN,
-	GBT_Main,
-	GBT_Bank,
-	GBT_Shop,
-	GBT_Collection,
-	GBT_Goddess,
-	GBT_Progenitus,
-	GBT_MAX,
-};
-enum SellItemType {
-	SelIT_None,
-	SelIT_Max,
-};
-enum DiamondConfigClass {
-	DBT_Type_None,
-	DBT_Type_Mine_Famu,
-	DBT_Type_Mine_Caikuang,
-	DBT_Type_Mine_Zhibu,
-	DBT_Type_Max,
-};
-enum DiamondConfigType {
-	DBT_None,
-	DBT_Day,
-	DBT_Week,
-	DBT_Month,
-	DBT_Max,
-};
-enum FixType {
-	FT_None,
-	FT_Money,
-	FT_Diamond,
-	FT_Max,
-};
-enum StorageType {
-	ST_Item,
-	ST_Baby,
-};
-enum EmployeesBattleGroup {
-	EBG_None,
-	EBG_Free,
-	EBG_GroupOne,
-	EBG_GroupTwo,
-	EBG_Max,
-};
-enum GiftType {
-	GFT_Bug,
-	GFT_UC1,
-	GFT_UC2,
-	GFT_Group,
-};
-enum GMT_Protocol {
-	GMT_None,
-	GMT_GMCommand,
-	GMT_Notice,
-	GMT_InsertMail,
-	GMT_QueryPlayer,
-	GMT_LoginActivity,
-	GMT_7Days,
-	GMT_Cards,
-	GMT_ExtractEmployee,
-	GMT_ChargeTotal,
-	GMT_ChargeEvery,
-	GMT_DiscountStore,
-	GMT_Foundation,
-	GMT_LoginTotal,
-	GMT_OnlineReward,
-	GMT_HotRole,
-	GMT_SelfChargeTotal,
-	GMT_SelfChargeEvery,
-	GMT_MinGiftBag,
-	GMT_DoScript,
-	GNT_MakeOrder,
-	GMT_Zhuanpan,
-	GMT_IntegralShop,
-	GMT_QueryRoleList,
-	GMT_QueryRMB,
-	GMT_QueryDia,
-	GMT_QueryMoney,
-	GMT_MAX,
-};
-enum GMCommandType {
-	GMCT_NoTalk,
-	GMCT_Freeze,
-	GMCT_Seal,
-	GMCT_Kick,
-	GMCT_OpenTalk,
-	GMCT_Unseal,
-	GMCT_SkipGuide,
-	GMCT_AddMoney,
-	GMCT_AddDiamond,
-	GMCT_AddExp,
-	GMCT_OpenGM,
-	GMCT_CloseGM,
-	GMCT_DoScript,
-	GMCT_Max,
-};
-enum NoticeSendType {
-	NST_Immediately,
-	NST_Timming,
-	NST_Loop,
-};
-enum InsertMailType {
-	IGMT_PlayerId,
-	IGMT_AllOnline,
-	IGMT_AllRegist,
-};
-enum ItemContainerType {
-	ICT_EquipContainer,
-	ICT_BagContainer,
-};
-enum UIBehaviorType {
-	UBT_None,
-	UBT_Bag,
-	UBT_Baby,
-	UBT_Employee,
-	UBT_SkillView,
-	UBT_SkillLearn,
-	UBT_Task,
-	UBT_Make,
-	UBT_Gather,
-	UBT_MagicItem,
-	UBT_Store,
-	UBT_Help,
-	UBT_Friend,
-	UBT_Email,
-	UBT_Auction,
-	UBT_Activity,
-	UBT_SignUp,
-	UBT_EmployessList,
-	UBT_EmployessPos,
-	UBT_EmployessTavern,
-	UBT_PlayerProperty,
-	UBT_Max,
-};
-enum HelpRaiseType {
-	HRT_None,
-	HRT_PlayerAddProp,
-	HRT_PlayerResetProp,
-	HRT_PlayerAddEvolve,
-	HRT_BabyAddProp,
-	HRT_BabyReset,
-	HRT_BabyStr,
-	HRT_BabySkill,
-	HRT_BabyChange,
-	HRT_SkillAuto,
-	HRT_SkillItem,
-	HRT_EquipCompound,
-	HRT_EquipGem,
-	HRT_EmployeeBuy,
-	HRT_EmployeePos,
-	HRT_EmployeeSkill,
-	HRT_EmployeeEquip,
-	HRT_EmployeeEvolve,
-	HRT_MagicLevelUp,
-	HRT_MagicEvolve,
-	HRT_Max,
-};
-enum SceneFilterType {
-	SFT_None,
-	SFT_Team,
-	SFT_Friend,
-	SFT_Guild,
-	SFT_All,
-	SFT_Max,
-};
-enum GatherStateType {
-	GST_None,
-	GST_Vulgar,
-	GST_Advanced,
-	GST_Max,
-};
-enum WishType {
-	WIT_None,
-	WIT_Exp,
-	WIT_Money,
-	WIT_Baby,
-	WIT_Employee,
-	WIT_Max,
-};
-enum ADType {
-	ADT_None,
-	ADT_7Days,
-	ADT_Cards,
-	ADT_ChargeTotal,
-	ADT_ChargeEvery,
-	ADT_DiscountStore,
-	ADT_Foundation,
-	ADT_LoginTotal,
-	ADT_OnlineReward,
-	ADT_HotRole,
-	ADT_SelfChargeTotal,
-	ADT_SelfChargeEvery,
-	ADT_SelfDiscountStore,
-	ADT_BuyEmployee,
-	ADT_PhoneNumber,
-	ADT_Level,
-	ADT_Sign,
-	ADT_GiftBag,
-	ADT_Zhuanpan,
-	ADT_IntegralShop,
-	ADT_Max,
-};
-enum EmployeeSkillType {
-	EKT_GroupDamage,
-	EKT_DeadlyDamage,
-	EKT_BattleTimeLimit,
-	EKT_Thump,
-	EKT_SiegeDamage,
-	EKT_SuperMagic,
-	EKT_Debuff,
-	EKT_PhysicalDefense,
-	EKT_Max,
-};
-enum EmployeeQuestColor {
-	EQC_White,
-	EQC_Blue,
-	EQC_Purple,
-	EQC_Max,
-};
-enum EmployeeQuestStatus {
-	EQS_None,
-	EQS_Running,
-	EQS_Complate,
-};
-enum RobotActionType {
-	RAT_None,
-	RAT_Resting,
-	RAT_Move,
-	RAT_QuestMove,
-	RAT_TeamMove,
-	RAT_Max,
-};
+// Enum wrapper for GDScript access
+class MajorVersion : public Object{
+	GDCLASS(MajorVersion, Object);
+public:
+	enum Id : int32_t{
+		Major_0,
+		MajorNumber,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(MajorVersion::Id); 
+
+// Enum wrapper for GDScript access
+class MinorVersion : public Object{
+	GDCLASS(MinorVersion, Object);
+public:
+	enum Id : int32_t{
+		Minor_0,
+		Minor_1,
+		Minor_2,
+		Minor_3,
+		Minor_4,
+		Minor_5,
+		Minor_6,
+		MinorNumber,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(MinorVersion::Id); 
+
+// Enum wrapper for GDScript access
+class PatchVersion : public Object{
+	GDCLASS(PatchVersion, Object);
+public:
+	enum Id : int32_t{
+		Patch_0,
+		Patch_1,
+		Patch_2,
+		Patch_3,
+		Patch_4,
+		Patch_5,
+		PatchNumber,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(PatchVersion::Id); 
+
+// Enum wrapper for GDScript access
+class PetQuality : public Object{
+	GDCLASS(PetQuality, Object);
+public:
+	enum Id : int32_t{
+		PE_None,
+		PE_White,
+		PE_Green,
+		PE_Blue,
+		PE_Purple,
+		PE_Golden,
+		PE_Orange,
+		PE_Pink,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(PetQuality::Id); 
+
+// Enum wrapper for GDScript access
+class ErrorNo : public Object{
+	GDCLASS(ErrorNo, Object);
+public:
+	enum Id : int32_t{
+		EN_None,
+		EN_VersionNotMatch,
+		EN_AccountNameSame,
+		EN_PlayerNameSame,
+		EN_FilterWord,
+		EN_CannotfindPlayer,
+		EN_AcceptQuestNotFound,
+		EN_AcceptQuestNoItem,
+		EN_AcceptSecendDaily,
+		EN_DailyNoNum,
+		EN_AcceptSecendProfession,
+		EN_Battle,
+		EN_MoneyLess,
+		EN_DiamondLess,
+		EN_NoSubSyste,
+		EN_InTeam,
+		EN_NoTeamLeader,
+		EN_TeamPassword,
+		EN_TeamIsFull,
+		EN_NoTeam,
+		EN_TeamIsRunning,
+		EN_TeamMemberLeaving,
+		EN_NoBackTeam,
+		EN_InTeamBlackList,
+		EN_EmployeeIsFull,
+		EN_NoUpSkill,
+		EN_PropisNull,
+		EN_DoubleExpTimeFull,
+		EN_DoubleExpTimeNULL,
+		EN_NoTeamNoTongji,
+		EN_TongjiTimesMax,
+		EN_TongjiTeamMemberTimesMax,
+		EN_NoTeamLeaderNoTongji,
+		EN_TeamSizeTongjiError,
+		EN_GetPoisonMushroom,
+		EN_GetMushroom,
+		EN_TongjiTeamLevelTooLow,
+		EN_PlayerIsInTeam,
+		EN_AcceptQuestBagMax,
+		EN_SubmitQuestBagMax,
+		EN_GuildNameSame,
+		EN_PlayerGoldLess,
+		EN_PlayerHasGuild,
+		EN_InRequestErr,
+		EN_RequestListFull,
+		EN_joinGuildRequestOk,
+		EN_JoinOtherGuild,
+		EN_PremierQuitError,
+		EN_CommandPositionLess,
+		EN_PositionUpMax,
+		EN_MallBuyOk,
+		EN_MallBuyFailBagFull,
+		EN_MallBuyFailBabyFull,
+		EN_MallBuyFailDiamondLess,
+		EN_MallBuyFailSelled,
+		EN_OpenBaoXiangBagFull,
+		EN_NoBaby,
+		EN_BagFull,
+		EN_BagSizeMax,
+		EN_BabyStorageFull,
+		EN_BabyFullToStorage,
+		EN_NewItemError,
+		EN_BabyFull,
+		EN_RemouldBabyLevel,
+		EN_SkillSoltFull,
+		EN_WorldChatPayError,
+		EN_DontTalk,
+		EN_BadMushroom,
+		EN_ItemMushroom,
+		EN_GetMailItemBagFull,
+		EN_Materialless,
+		EN_OpenGatherlose,
+		EN_OpenGatherRepetition,
+		EN_GatherLevelLess,
+		EN_GatherTimesLess,
+		EN_OpenBaoXiangLevel,
+		EN_NoBattleBaby,
+		EN_NoThisPoint,
+		EN_BabyLevelHigh,
+		EN_AddMoney1W,
+		EN_AddDionmand100,
+		EN_AddMoney2W,
+		EN_AddDionmand200,
+		EN_AddMoney3W,
+		EN_AddDionmand300,
+		EN_AddMoney4W,
+		EN_AddDionmand400,
+		EN_AddMoney5W,
+		EN_AddDionmand500,
+		EN_AddMoney6W,
+		EN_AddDionmand600,
+		EN_DelBaby1000,
+		EN_DelBaby30,
+		EN_DelBaby54,
+		EN_DelBaby10030,
+		EN_DelBaby10015,
+		EN_DelBaby10157,
+		EN_DelDefaultSkill,
+		EN_GreenBoxFreeNum,
+		EM_NotNormalVip,
+		EN_NotSuperVip,
+		EN_FirendNotOpen,
+		EN_BlackCannotFriend,
+		EN_HasFriend,
+		EN_HunderdNoNum,
+		EN_HunderdTier,
+		EN_HunderdLevel,
+		EN_SkillExperr,
+		EN_TimeMushroom,
+		EN_TimeTongji,
+		EN_TimeXiji,
+		EN_Storefull,
+		EN_HasBattleTime,
+		EN_HourLess24,
+		EN_HourLess24_Join,
+		EN_TeamMemberHourLess24,
+		EN_GuildBattleJoinSceneMoveValue,
+		EN_IdgenNull,
+		EN_Idgenhas,
+		EN_Gifthas,
+		EN_UseMakeRepeat,
+		EN_WishNull,
+		EN_NoGuild,
+		EN_GuildMemberMax,
+		EN_LevelupGuildBuilding,
+		EN_LevelupGuildBuildingLevelMax,
+		EN_LevelupGuildBuildingMoneyLess,
+		EN_LevelupGuildBuildingHallBuildLevelLess,
+		EN_AddGuildMoneyMax,
+		EN_PresentGuildOk,
+		EN_RefreshShopTimeLess,
+		EN_TeamMemberNoGuild,
+		EN_MagicCurrencyLess,
+		EN_DisShopLimitLess,
+		EN_FamilyPremierCanntDelete,
+		EN_MyFamilyMonster,
+		EN_NoBattleTime,
+		EN_OtherNoBattleTime,
+		EN_GuildBattleTimeout2,
+		EN_GuildBattleHasTeam,
+		EN_AccountIsSeal,
+		EN_PlayerNoOnline,
+		EN_ActivityNoTime,
+		EN_NoTeamExist,
+		EN_GuildNoMember,
+		EN_MallSellTimeLess,
+		EN_GuildMemberLess24,
+		EN_InviteeLeaveGuildLess24,
+		EN_PboneNumberSuccess,
+		EN_PhoneNumberError,
+		EN_OtherPlayerInBattle,
+		EN_GuildBattleNotMatch,
+		EN_GuildBattleIsStart,
+		EN_GuileBattleIsClose,
+		EN_GuildBattleTeamNoSameGuild,
+		EN_BackTeamCommandLeaderInGuildHomeSceneAndYouAreNotSameGuild,
+		EN_AccecptRandQuestSizeLimitError,
+		EN_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ErrorNo::Id); 
+
+// Enum wrapper for GDScript access
+class OperateType : public Object{
+	GDCLASS(OperateType, Object);
+public:
+	enum Id : int32_t{
+		OT_0,
+		OT_P1,
+		OT_P2,
+		OT_B,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(OperateType::Id); 
+
+// Enum wrapper for GDScript access
+class BindType : public Object{
+	GDCLASS(BindType, Object);
+public:
+	enum Id : int32_t{
+		BIT_None,
+		BIT_Bag,
+		BIT_Use,
+		BIT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(BindType::Id); 
+
+// Enum wrapper for GDScript access
+class ReconnectType : public Object{
+	GDCLASS(ReconnectType, Object);
+public:
+	enum Id : int32_t{
+		RECT_None,
+		RECT_LoginOk,
+		RECT_EnterGameOk,
+		RECT_JoinTeamOk,
+		RECT_EnterSceneOk,
+		RECT_EnterBattleOk,
+		RECT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ReconnectType::Id); 
+
+// Enum wrapper for GDScript access
+class SexType : public Object{
+	GDCLASS(SexType, Object);
+public:
+	enum Id : int32_t{
+		ST_Unknown,
+		ST_Male,
+		ST_Female,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(SexType::Id); 
+
+// Enum wrapper for GDScript access
+class BattleType : public Object{
+	GDCLASS(BattleType, Object);
+public:
+	enum Id : int32_t{
+		BT_None,
+		BT_PVE,
+		BT_PVR,
+		BT_PVP,
+		BT_PVH,
+		BT_PET,
+		BT_PK1,
+		BT_PK2,
+		BT_Guild,
+		BT_MAX,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(BattleType::Id); 
+
+// Enum wrapper for GDScript access
+class EntityType : public Object{
+	GDCLASS(EntityType, Object);
+public:
+	enum Id : int32_t{
+		ET_None,
+		ET_Player,
+		ET_Baby,
+		ET_Monster,
+		ET_Boss,
+		ET_Emplyee,
+		ET_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(EntityType::Id); 
+
+// Enum wrapper for GDScript access
+class MineType : public Object{
+	GDCLASS(MineType, Object);
+public:
+	enum Id : int32_t{
+		MT_None,
+		MT_JinShu,
+		MT_MuCai,
+		MT_BuLiao,
+		MT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(MineType::Id); 
+
+// Enum wrapper for GDScript access
+class GroupType : public Object{
+	GDCLASS(GroupType, Object);
+public:
+	enum Id : int32_t{
+		GT_None,
+		GT_Up,
+		GT_Down,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(GroupType::Id); 
+
+// Enum wrapper for GDScript access
+class SkillTargetType : public Object{
+	GDCLASS(SkillTargetType, Object);
+public:
+	enum Id : int32_t{
+		STT_None,
+		STT_Self,
+		STT_Team,
+		STT_TeamDead,
+		STT_TeamNoSelf,
+		STT_All,
+		STT_AllNoSelf,
+		STT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(SkillTargetType::Id); 
+
+// Enum wrapper for GDScript access
+class SkillType : public Object{
+	GDCLASS(SkillType, Object);
+public:
+	enum Id : int32_t{
+		SKT_None,
+		SKT_DefaultSecActive,
+		SKT_DefaultSecPassive,
+		SKT_DefaultActive,
+		SKT_DefaultPassive,
+		SKT_Active,
+		SKT_Passive,
+		SKT_Gather,
+		SKT_Make,
+		SKT_CannotUse,
+		SKT_GuildPlayerSkill,
+		SKT_GuildBabySkill,
+		SKT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(SkillType::Id); 
+
+// Enum wrapper for GDScript access
+class PassiveType : public Object{
+	GDCLASS(PassiveType, Object);
+public:
+	enum Id : int32_t{
+		PAT_None,
+		PAT_Buff,
+		PAT_Deference,
+		PAT_Dodge,
+		PAT_Counter,
+		PAT_Change,
+		PAT_Guard,
+		PAT_Runaway,
+		PAT_BabyInnout,
+		PAT_SecKill,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(PassiveType::Id); 
+
+// Enum wrapper for GDScript access
+class PlayerStatus : public Object{
+	GDCLASS(PlayerStatus, Object);
+public:
+	enum Id : int32_t{
+		PS_Idle,
+		PS_Login,
+		PS_Game,
+		PS_Logout,
+		PS_Illegal,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(PlayerStatus::Id); 
+
+// Enum wrapper for GDScript access
+class OccupationType : public Object{
+	GDCLASS(OccupationType, Object);
+public:
+	enum Id : int32_t{
+		OT_None,
+		OT_HeavyArmor,
+		OT_LightArmor,
+		OT_Spell,
+		OT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(OccupationType::Id); 
+
+// Enum wrapper for GDScript access
+class PeriodType : public Object{
+	GDCLASS(PeriodType, Object);
+public:
+	enum Id : int32_t{
+		PT_Daily,
+		PT_Weekly,
+		PT_Customly,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(PeriodType::Id); 
+
+// Enum wrapper for GDScript access
+class JobType : public Object{
+	GDCLASS(JobType, Object);
+public:
+	enum Id : int32_t{
+		JT_None,
+		JT_Newbie,
+		JT_Axe,
+		JT_Sword,
+		JT_Knight,
+		JT_Archer,
+		JT_Fighter,
+		JT_Ninja,
+		JT_Mage,
+		JT_Sage,
+		JT_Wizard,
+		JT_Word,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(JobType::Id); 
+
+// Enum wrapper for GDScript access
+class RaceType : public Object{
+	GDCLASS(RaceType, Object);
+public:
+	enum Id : int32_t{
+		RT_None,
+		RT_Human,
+		RT_Insect,
+		RT_Plant,
+		RT_Extra,
+		RT_Dragon,
+		RT_Animal,
+		RT_Fly,
+		RT_Undead,
+		RT_Metal,
+		RT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(RaceType::Id); 
+
+// Enum wrapper for GDScript access
+class BabyInitGear : public Object{
+	GDCLASS(BabyInitGear, Object);
+public:
+	enum Id : int32_t{
+		BIG_None,
+		BIG_Stama,
+		BIG_Strength,
+		BIG_Power,
+		BIG_Speed,
+		BIG_Magic,
+		BIG_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(BabyInitGear::Id); 
+
+// Enum wrapper for GDScript access
+class QualityColor : public Object{
+	GDCLASS(QualityColor, Object);
+public:
+	enum Id : int32_t{
+		QC_None,
+		QC_White,
+		QC_Green,
+		QC_Blue,
+		QC_Blue1,
+		QC_Purple,
+		QC_Purple1,
+		QC_Purple2,
+		QC_Golden,
+		QC_Golden1,
+		QC_Golden2,
+		QC_Orange,
+		QC_Orange1,
+		QC_Orange2,
+		QC_Pink,
+		QC_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(QualityColor::Id); 
+
+// Enum wrapper for GDScript access
+class PropertyType : public Object{
+	GDCLASS(PropertyType, Object);
+public:
+	enum Id : int32_t{
+		PT_None,
+		PT_NoSleep,
+		PT_NoPetrifaction,
+		PT_NoDrunk,
+		PT_NoChaos,
+		PT_NoForget,
+		PT_NoPoison,
+		PT_Assassinate,
+		PT_Money,
+		PT_Diamond,
+		PT_MagicCurrency,
+		PT_EmployeeCurrency,
+		PT_Gather,
+		PT_Level,
+		PT_Exp,
+		PT_ConvertExp,
+		PT_OneDayReputation,
+		PT_Reputation,
+		PT_TableId,
+		PT_AssetId,
+		PT_Sex,
+		PT_BagNum,
+		PT_Race,
+		PT_Profession,
+		PT_ProfessionLevel,
+		PT_Stama,
+		PT_Strength,
+		PT_Power,
+		PT_Speed,
+		PT_Magic,
+		PT_Durability,
+		PT_HpCurr,
+		PT_MpCurr,
+		PT_HpMax,
+		PT_MpMax,
+		PT_Attack,
+		PT_Defense,
+		PT_Agile,
+		PT_Spirit,
+		PT_Reply,
+		PT_Magicattack,
+		PT_Magicdefense,
+		PT_Damage,
+		PT_SneakAttack,
+		PT_Hit,
+		PT_Dodge,
+		PT_Crit,
+		PT_counterpunch,
+		PT_Front,
+		PT_Wind,
+		PT_Land,
+		PT_Water,
+		PT_Fire,
+		PT_Free,
+		PT_Title,
+		PT_GuildID,
+		PT_Glamour,
+		PT_DoubleExp,
+		PT_TongjiComplateTimes,
+		PT_VipLevel,
+		PT_VipTime,
+		PT_FightingForce,
+		PT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(PropertyType::Id); 
+
+// Enum wrapper for GDScript access
+class VipLevel : public Object{
+	GDCLASS(VipLevel, Object);
+public:
+	enum Id : int32_t{
+		VL_None,
+		VL_1,
+		VL_2,
+		VL_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(VipLevel::Id); 
+
+// Enum wrapper for GDScript access
+class ItemMainType : public Object{
+	GDCLASS(ItemMainType, Object);
+public:
+	enum Id : int32_t{
+		IMT_None,
+		IMT_Quest,
+		IMT_Consumables,
+		IMT_Equip,
+		IMT_Employee,
+		IMT_EmployeeEquip,
+		IMT_Debris,
+		IMT_FuWen,
+		IMT_BabyEquip,
+		IMT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ItemMainType::Id); 
+
+// Enum wrapper for GDScript access
+class ItemSubType : public Object{
+	GDCLASS(ItemSubType, Object);
+public:
+	enum Id : int32_t{
+		IST_None,
+		IST_Axe,
+		IST_Sword,
+		IST_Spear,
+		IST_Bow,
+		IST_Stick,
+		IST_Knife,
+		IST_Hat,
+		IST_Helmet,
+		IST_Clothes,
+		IST_Robe,
+		IST_Armor,
+		IST_Boot,
+		IST_Shoes,
+		IST_Shield,
+		IST_Crystal,
+		IST_Charm,
+		IST_Earrings,
+		IST_Bracelet,
+		IST_Ring,
+		IST_Necklace,
+		IST_Headband,
+		IST_Instruments,
+		IST_EquipMax,
+		IST_Ornament,
+		IST_Lottery,
+		IST_Coupun,
+		IST_OpenGird,
+		IST_ConsBegin,
+		IST_Consumables,
+		IST_Blood,
+		IST_Buff,
+		IST_Gem,
+		IST_Material,
+		IST_ItemDebris,
+		IST_BabyDebris,
+		IST_EmployeeDebris,
+		IST_BabyExp,
+		IST_SkillExp,
+		IST_ConsEnd,
+		IST_Gloves,
+		IST_EmployeeEquip,
+		IST_PVP,
+		IST_Fashion,
+		IST_FuWenAttack,
+		IST_FuWenDefense,
+		IST_FuWenAssist,
+		IST_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ItemSubType::Id); 
+
+// Enum wrapper for GDScript access
+class ItemUseFlag : public Object{
+	GDCLASS(ItemUseFlag, Object);
+public:
+	enum Id : int32_t{
+		IUF_None,
+		IUF_Battle,
+		IUF_Scene,
+		IUF_All,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ItemUseFlag::Id); 
+
+// Enum wrapper for GDScript access
+class EquipmentSlot : public Object{
+	GDCLASS(EquipmentSlot, Object);
+public:
+	enum Id : int32_t{
+		ES_None,
+		ES_Boot,
+		ES_SingleHand,
+		ES_Ornament_0,
+		ES_Head,
+		ES_Ornament_1,
+		ES_Body,
+		ES_DoubleHand,
+		ES_Crystal,
+		ES_Fashion,
+		ES_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(EquipmentSlot::Id); 
+
+// Enum wrapper for GDScript access
+class WeaponType : public Object{
+	GDCLASS(WeaponType, Object);
+public:
+	enum Id : int32_t{
+		WT_None,
+		WT_Axe,
+		WT_Sword,
+		WT_Spear,
+		WT_Bow,
+		WT_Stick,
+		WT_Knife,
+		WT_Hoe,
+		WT_Pickax,
+		WT_Lumberaxe,
+		WT_Gloves,
+		WT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(WeaponType::Id); 
+
+// Enum wrapper for GDScript access
+class ChatKind : public Object{
+	GDCLASS(ChatKind, Object);
+public:
+	enum Id : int32_t{
+		CK_None,
+		CK_World,
+		CK_Team,
+		CK_System,
+		CK_Friend,
+		CK_GM,
+		CK_Guild,
+		CK_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ChatKind::Id); 
+
+// Enum wrapper for GDScript access
+class BattlePosition : public Object{
+	GDCLASS(BattlePosition, Object);
+public:
+	enum Id : int32_t{
+		BP_None,
+		BP_Down0,
+		BP_Down1,
+		BP_Down2,
+		BP_Down3,
+		BP_Down4,
+		BP_Down5,
+		BP_Down6,
+		BP_Down7,
+		BP_Down8,
+		BP_Down9,
+		BP_Up0,
+		BP_Up1,
+		BP_Up2,
+		BP_Up3,
+		BP_Up4,
+		BP_Up5,
+		BP_Up6,
+		BP_Up7,
+		BP_Up8,
+		BP_Up9,
+		BP_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(BattlePosition::Id); 
+
+// Enum wrapper for GDScript access
+class BattleJudgeType : public Object{
+	GDCLASS(BattleJudgeType, Object);
+public:
+	enum Id : int32_t{
+		BJT_None,
+		BJT_Continue,
+		BJT_Win,
+		BJT_Lose,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(BattleJudgeType::Id); 
+
+// Enum wrapper for GDScript access
+class OrderParamType : public Object{
+	GDCLASS(OrderParamType, Object);
+public:
+	enum Id : int32_t{
+		OPT_None,
+		OPT_BabyId,
+		OPT_Unite,
+		OPT_Huwei,
+		OPT_IsNo,
+		OPT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(OrderParamType::Id); 
+
+// Enum wrapper for GDScript access
+class OrderStatus : public Object{
+	GDCLASS(OrderStatus, Object);
+public:
+	enum Id : int32_t{
+		OS_None,
+		OS_ActiveOk,
+		OS_RunawayOk,
+		OS_FangBaobao,
+		OS_ShouBaobao,
+		OS_Weapon,
+		OS_Zhuachong,
+		OS_Flee,
+		OS_Summon,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(OrderStatus::Id); 
+
+// Enum wrapper for GDScript access
+class AIEvent : public Object{
+	GDCLASS(AIEvent, Object);
+public:
+	enum Id : int32_t{
+		ME_None,
+		ME_Born,
+		ME_Deadth,
+		ME_AttackGo,
+		ME_SkillGO,
+		ME_Update,
+		ME_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(AIEvent::Id); 
+
+// Enum wrapper for GDScript access
+class SyncIPropType : public Object{
+	GDCLASS(SyncIPropType, Object);
+public:
+	enum Id : int32_t{
+		SPT_None,
+		SPT_Player,
+		SPT_Baby,
+		SPT_Employee,
+		SPT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(SyncIPropType::Id); 
+
+// Enum wrapper for GDScript access
+class BoxType : public Object{
+	GDCLASS(BoxType, Object);
+public:
+	enum Id : int32_t{
+		BX_None,
+		BX_Normal,
+		BX_Blue,
+		BX_Glod,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(BoxType::Id); 
+
+// Enum wrapper for GDScript access
+class QuestKind : public Object{
+	GDCLASS(QuestKind, Object);
+public:
+	enum Id : int32_t{
+		QK_None,
+		QK_Main,
+		QK_Daily,
+		QK_Profession,
+		QK_Sub,
+		QK_Tongji,
+		QK_Copy,
+		QK_Wishing,
+		QK_Guild,
+		QK_Rand,
+		QK_Sub1,
+		QK_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(QuestKind::Id); 
+
+// Enum wrapper for GDScript access
+class QuestType : public Object{
+	GDCLASS(QuestType, Object);
+public:
+	enum Id : int32_t{
+		QT_None,
+		QT_Dialog,
+		QT_Battle,
+		QT_Kill,
+		QT_KillAI,
+		QT_Item,
+		QT_Profession,
+		QT_Other,
+		QT_GiveItem,
+		QT_GiveBaby,
+		QT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(QuestType::Id); 
+
+// Enum wrapper for GDScript access
+class RequireType : public Object{
+	GDCLASS(RequireType, Object);
+public:
+	enum Id : int32_t{
+		RT_Nil,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(RequireType::Id); 
+
+// Enum wrapper for GDScript access
+class TeamType : public Object{
+	GDCLASS(TeamType, Object);
+public:
+	enum Id : int32_t{
+		TT_None,
+		TT_MainQuest,
+		TT_TongjiQuest,
+		TT_Daochang,
+		TT_CaoMoGu,
+		TT_Zhanchang,
+		TT_Hero,
+		TT_Pet,
+		TT_JJC,
+		TT_ShuaGuai,
+		TT_Copy,
+		TT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(TeamType::Id); 
+
+// Enum wrapper for GDScript access
+class StateType : public Object{
+	GDCLASS(StateType, Object);
+public:
+	enum Id : int32_t{
+		ST_None,
+		ST_Normal,
+		ST_Defense,
+		ST_Dodge,
+		ST_ActionAbsorb,
+		ST_MagicAbsorb,
+		ST_Shield,
+		ST_ActionBounce,
+		ST_MagicBounce,
+		ST_ActionInvalid,
+		ST_MagicInvalid,
+		ST_Defend,
+		ST_NoDodge,
+		ST_Poison,
+		ST_Basilisk,
+		ST_Sleep,
+		ST_Chaos,
+		ST_Drunk,
+		ST_Forget,
+		ST_BeatBack,
+		ST_Recover,
+		ST_StrongRecover,
+		ST_GroupRecover,
+		ST_MagicDef,
+		ST_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(StateType::Id); 
+
+// Enum wrapper for GDScript access
+class SceneType : public Object{
+	GDCLASS(SceneType, Object);
+public:
+	enum Id : int32_t{
+		SCT_None,
+		SCT_New,
+		SCT_Home,
+		SCT_Scene,
+		SCT_City,
+		SCT_Bairen,
+		SCT_Instance,
+		SCT_AlonePK,
+		SCT_TeamPK,
+		SCT_GuildHome,
+		SCT_GuildBattleScene,
+		SCT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(SceneType::Id); 
+
+// Enum wrapper for GDScript access
+class BornType : public Object{
+	GDCLASS(BornType, Object);
+public:
+	enum Id : int32_t{
+		BOT_None,
+		BOT_BornPos,
+		BOT_Cached,
+		BOT_FromSceneEntry,
+		BOT_FromMazeEntry,
+		BOT_NormalMazeEntry,
+		BOT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(BornType::Id); 
+
+// Enum wrapper for GDScript access
+class WeaponActionType : public Object{
+	GDCLASS(WeaponActionType, Object);
+public:
+	enum Id : int32_t{
+		WAT_None,
+		WAT_Chop,
+		WAT_Stab,
+		WAT_Bow,
+		WAT_Throw,
+		WAT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(WeaponActionType::Id); 
+
+// Enum wrapper for GDScript access
+class SceneOutpuType : public Object{
+	GDCLASS(SceneOutpuType, Object);
+public:
+	enum Id : int32_t{
+		SOT_None,
+		SOT_PVE,
+		SOT_PVP,
+		SOT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(SceneOutpuType::Id); 
+
+// Enum wrapper for GDScript access
+class TogetherStateType : public Object{
+	GDCLASS(TogetherStateType, Object);
+public:
+	enum Id : int32_t{
+		TST_None,
+		TST_Self,
+		TST_Enemy,
+		TST_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(TogetherStateType::Id); 
+
+// Enum wrapper for GDScript access
+class GuideAimType : public Object{
+	GDCLASS(GuideAimType, Object);
+public:
+	enum Id : int32_t{
+		GAT_None,
+		GAT_FirstAchievement,
+		GAT_FirstSkill,
+		GAT_FirstLevelSkill,
+		GAT_FirstQuest,
+		GAT_DialogUI,
+		GAT_MainTeamBtn,
+		GAT_MainTaskBtn,
+		GAT_QuestMiniFirst,
+		GAT_QuestMiniSecond,
+		GAT_QuestMiniThird,
+		GAT_MainCrystal,
+		GAT_MainCastle,
+		GAT_MainJJC,
+		GAT_OfflineJJC,
+		GAT_OfflineJJC4,
+		GAT_WorldMapER,
+		GAT_WorldMapFL,
+		GAT_WorldMapWorldBtn,
+		GAT_MiniMap,
+		GAT_TeamCreateBtn,
+		GAT_TeamWorldMapBtn,
+		GAT_FirstPartner_PosUI,
+		GAT_FreeLootPartner,
+		GAT_FriendAddBtn,
+		GAT_PartnerShowCancel,
+		GAT_PartnerPositionTab,
+		GAT_PartnerDetailBaseTab,
+		GAT_PartnerDetailBodySlot,
+		GAT_PartnerDetailEquipBtn,
+		GAT_PartnerDetailBaseFirstSkill,
+		GAT_PartnerDetailBaseSkillLvUpBtn,
+		GAT_LearnSkillAttackSkillTab,
+		GAT_LearnSkillAttackMagicTab,
+		GAT_LearnSkillStatusMagicTab,
+		GAT_LearnSkillAidSkillTab,
+		GAT_LearnSkillBtn,
+		GAT_FirstLearningBabySkill,
+		GAT_FirstLearningBabySkill_BabyList,
+		GAT_ThirdLearningBabySkill_SkillSlot,
+		GAT_BabySkillLearningBtn,
+		GAT_MessageBoxOkBtn,
+		GAT_MainReturn,
+		GAT_MainBag,
+		GAT_MainBagTipUseItem,
+		GAT_MainbagTipEquip,
+		GAT_MainBagFuwenTab,
+		GAT_MainBagFuwenFirstItem,
+		GAT_MainBagFuwenTipsCombieBtn,
+		GAT_MainBagFuwenTipsInsertBtn,
+		GAT_MainFuwenUICombieBtn,
+		GAT_MainFuwenCloseBtn,
+		GAT_MainSkill,
+		GAT_MainMake,
+		GAT_MainMakeSword,
+		GAT_MainMakeAxe,
+		GAT_MainMakeStick,
+		GAT_MainMakeBow,
+		GAT_MainMakeCompoundBtn,
+		GAT_MainMakeLevel10,
+		GAT_MainMakeSubFirst,
+		GAT_MainMakeSubSecond,
+		GAT_MainMakeSubThird,
+		GAT_MainMakeGemBtn,
+		GAT_MainMakeGemClose,
+		GAT_MainMakeGemFirst,
+		GAT_MainBaby,
+		GAT_MainBabyStatusBtn,
+		GAT_MainBabyPropertyBtn,
+		GAT_MainBabyPropertyContainer,
+		GAT_MainBabyPropertyConfirm,
+		GAT_MainBabyClose,
+		GAT_MainMagic,
+		GAT_MainMagicLevelFirst,
+		GAT_MainMagicLevelBtn,
+		GAT_MainFriend,
+		GAT_MainPartner,
+		GAT_MainSetting,
+		GAT_MainRecharge,
+		GAT_MainActivity,
+		GAT_MainPlayerInfo,
+		GAT_MainPlayerInfoStatusBtn,
+		GAT_MainPlayerInfoPropertyBtn,
+		GAT_MainPlayerInfoPropertyContainer,
+		GAT_MainPlayerInfoPropertyConfirm,
+		GAT_MainPlayerInfoClose,
+		GAT_MainJiubaHouse,
+		GAT_MainStick,
+		GAT_MainAchievement,
+		GAT_MainRaise,
+		GAT_MainFamily,
+		GAT_BattleAttack,
+		GAT_BattleSkill,
+		GAT_BattleBabySkill,
+		GAT_BattleDeference,
+		GAT_BattleChangePosition,
+		GAT_BattleAuto,
+		GAT_BattleBag,
+		GAT_BattleCatch,
+		GAT_BattleBaby,
+		GAT_BattleRunaway,
+		GAT_BattlePlayerInfo,
+		GAT_BattleRewardClose,
+		GAT_FirstAutoSkill,
+		GAT_PlayerAuto,
+		GAT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(GuideAimType::Id); 
+
+// Enum wrapper for GDScript access
+class ScriptGameEvent : public Object{
+	GDCLASS(ScriptGameEvent, Object);
+public:
+	enum Id : int32_t{
+		SGE_None,
+		SGE_MainPanelOpen,
+		SGE_FirstEnterMainScene,
+		SGE_EnterScene,
+		SGE_EnterMainScene,
+		SGE_Talk_FirstEnterMainScene,
+		SGE_Talk_BattleReady,
+		SGE_Talk_ActorReady,
+		SGE_Talk_BattleOver,
+		SGE_WorldMapOpen,
+		SGE_WorldMapToWorld,
+		SGE_MiniMapOpen,
+		SGE_TeamUIOpen,
+		SGE_AchievementUIOpen,
+		SGE_AchievementReceived,
+		SGE_TeamUISelectMapOpen,
+		SGE_PartnerForBattle,
+		SGE_PartnerPositionTabShow,
+		SGE_PartnerListTabShow,
+		SGE_PartnerDetailUIOpen,
+		SGE_PartnerDetailBaseOpen,
+		SGE_PartnerDetailEquipClick,
+		SGE_PartnerDetailEquipSucc,
+		SGE_PartnerDetailBaseSkillOpen,
+		SGE_ParnterDetailBaseSkillLvUpSucc,
+		SGE_MainMakeSub,
+		SGE_MainMakeSubDetail,
+		SGE_MainMakeItemOk,
+		SGE_MainMakeGemUI,
+		SGE_MainMakeGemOk,
+		SGE_MainMakeGemUIClose,
+		SGE_MainTeamUI,
+		SGE_MainTaskUI,
+		SGE_MainTaskFlushOk,
+		SGE_JJCEntryUI,
+		SGE_OfflineJJCUI,
+		SGE_BagItemDoubleClick,
+		SGE_BagFuwenOpen,
+		SGE_BagFuwenCombieUI,
+		SGE_BagFuwenCombieSuccess,
+		SGE_BagFuwenClickTipsInsertBtn,
+		SGE_FuwenUIClose,
+		SGE_NpcDialogBegin,
+		SGE_NpcRenwuUIOpen,
+		SGE_NpcRenwuPreAccept,
+		SGE_NpcRenwuAccept,
+		SGE_NpcRenwuSubmit,
+		SGE_EnterNPCBattle,
+		SGE_EnterBattle,
+		SGE_MessageBoxOpen,
+		SGE_BeforeEnterBattle,
+		SGE_PlayerLevelUp,
+		SGE_PlayerUIOpen,
+		SGE_PlayerUIStatusSwitch,
+		SGE_PlayerUIPropertySwitch,
+		SGE_PlayerUIAddPoint,
+		SGE_PlayerUIPropertyConfirmClick,
+		SGE_PlayerUIClose,
+		SGE_BabyLevelUp,
+		SGE_BabyUIOpen,
+		SGE_BabyUIStatusSwitch,
+		SGE_BabyUIPropertySwitch,
+		SGE_BabyUIAddPoint,
+		SGE_BabyUIPropertyConfirmClick,
+		SGE_BabyUIClose,
+		SGE_BattleTurn,
+		SGE_ExitBattle,
+		SGE_SelectTarget,
+		SGE_SelectTargetOk,
+		SGE_BabySelectSkill,
+		SGE_SelectSkill,
+		SGE_SelectSkillLevel,
+		SGE_StickDisplay,
+		SGE_StickTouchDown,
+		SGE_StickTouchMove,
+		SGE_StickTouchUp,
+		SGE_BattleOverRewardOpen,
+		SGE_BattleOverRewardClose,
+		SGE_CheckState,
+		SGE_TogetherState,
+		SGE_BagTipOpen,
+		SGE_UseItem,
+		SGE_GainItem,
+		SGE_EquipItem,
+		SGE_MainLearningUI,
+		SGE_MainLearningClickTab,
+		SGE_MainLearningOneSkillClick,
+		SGE_MainLearningSkillOk,
+		SGE_MainMakeUIOpen,
+		SGE_MainMagicTipClose,
+		SGE_MainMagicUIOpen,
+		SGE_MainMagicLevelUp,
+		SGE_MainMagicFirstClick,
+		SGE_PartnerShowUI,
+		SGE_PartnerHideUI,
+		SGE_BabyLearningSkillUI,
+		SGE_BabyLearningSkill_BabyListUI,
+		SGE_BabyLearningSkill_BabySkillUI,
+		SGE_BabyLearningSkillOk,
+		SGE_ClickBabyLearningSkill,
+		SGE_ClickMiniQuest,
+		SGE_ClickMainBag,
+		SGE_ClickMainSkill,
+		SGE_ClickMainBaby,
+		SGE_ClickMainFriend,
+		SGE_ClickMainPartner,
+		SGE_ClickMainSetting,
+		SGE_ClickMainRecharge,
+		SGE_ClickMainActivity,
+		SGE_ClickMainInfo,
+		SGE_ClickBattleAttack,
+		SGE_ClickBattleSkill,
+		SGE_ClickBattleBabySkill,
+		SGE_ClickBattleDeference,
+		SGE_ClickBattleChangePosition,
+		SGE_ClickBattleAuto,
+		SGE_ClickBattleBag,
+		SGE_ClickBattleBaby,
+		SGE_ClickBattleRunaway,
+		SGE_ClickBattleInfo,
+		SGE_ClickAddFriendBtn,
+		SGE_ClickMainFamily,
+		SGE_ClickRaiseUpBtn,
+		SGE_UseItemOk,
+		SGE_CheckBuff,
+		SGE_PlayerPropUpdate,
+		SGE_NpcTalked,
+		SGE_EnterCopy,
+		SGE_PlayerAutoOrder,
+		SGE_OpenAutoPanel,
+		SGE_SenseEnter2,
+		SGE_WaitTalk,
+		SGE_SenseTalked,
+		SGE_ExitSense,
+		SGE_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ScriptGameEvent::Id); 
+
+// Enum wrapper for GDScript access
+class SenseActorType : public Object{
+	GDCLASS(SenseActorType, Object);
+public:
+	enum Id : int32_t{
+		SAT_Guard,
+		SAT_Ambassdor,
+		SAT_King,
+		SAT_Yingzi,
+		SAT_VillageKing,
+		SAT_Archor,
+		SAT_Axe,
+		SAT_Sage,
+		SAT_Mage,
+		SAT_Girl,
+		SAT_AllMonster,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(SenseActorType::Id); 
+
+// Enum wrapper for GDScript access
+class GameEventType : public Object{
+	GDCLASS(GameEventType, Object);
+public:
+	enum Id : int32_t{
+		GET_None,
+		GET_Online,
+		GET_Offline,
+		GET_CreatePlayerOK,
+		GET_Kill,
+		GET_Die,
+		GET_LevelUp,
+		GET_Flee,
+		GET_LearnSkill,
+		GET_SkillLevelUp,
+		GET_UseSkill,
+		GET_EnterJJC,
+		GET_MakeEquip,
+		GET_RecruitEmp,
+		GET_EmployeeEvolve,
+		GET_AddBaby,
+		GET_DelBaby,
+		GET_CatchBaby,
+		GET_DepositBaby,
+		GET_BabyLevelUp,
+		GET_ResetBaby,
+		GET_BabyNo,
+		GET_BabyLearnSkill,
+		GET_AddSkillExp,
+		GET_HalfHourAgo,
+		GET_Sign,
+		GET_BattleChangeProp,
+		GET_BattleOver,
+		GET_TalkNpc,
+		GET_Activity,
+		GET_PvR,
+		GET_JJC,
+		GET_Challenge,
+		GET_Zhuanpan,
+		GET_Richang,
+		GET_Pet,
+		GET_Tongji,
+		GET_Babyintensify,
+		GET_CreateGuild,
+		GET_JoinGuild,
+		GET_GuildBattleWin,
+		GET_GuildBattleLose,
+		GET_OpenGuildBattle,
+		GET_CloseGuildBattle,
+		GET_OpenGuildDemonInvaded,
+		GET_CloseGuildDemonInvaded,
+		GET_OpenGuildLeaderInvaded,
+		GET_CloseGuildLeaderInvaded,
+		GET_Exam,
+		GET_Wish,
+		GET_ChangeMoney,
+		GET_ChangeDiamond,
+		GET_ChangeMagicCurrency,
+		GET_WearEquip,
+		GET_AddFleeProp,
+		GET_Gather,
+		GET_AddFriend,
+		GET_ExtendStorage,
+		GET_FinishAch,
+		GET_AddTeamMemberCondition,
+		GET_Shenqishengji,
+		GET_NewServer,
+		GET_Recharge,
+		GET_PhoneNumber,
+		GET_ChangeProfession,
+		GET_BagFullSendMail,
+		GET_WearFuwen,
+		GET_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(GameEventType::Id); 
+
+// Enum wrapper for GDScript access
+class SneakAttackType : public Object{
+	GDCLASS(SneakAttackType, Object);
+public:
+	enum Id : int32_t{
+		SAT_None,
+		SAT_SneakAttack,
+		SAT_SurpriseAttack,
+		SAT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(SneakAttackType::Id); 
+
+// Enum wrapper for GDScript access
+class ShopType : public Object{
+	GDCLASS(ShopType, Object);
+public:
+	enum Id : int32_t{
+		SIT_None,
+		SIT_FirstRecharge,
+		SIT_Recharge,
+		SIT_Shop,
+		SIT_EmployeeShop,
+		SIT_VIP,
+		SIT_Fund,
+		SIT_Giftbag,
+		SIT_CourseGiftBag,
+		SIT_Equip,
+		SIT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ShopType::Id); 
+
+// Enum wrapper for GDScript access
+class ShopPayType : public Object{
+	GDCLASS(ShopPayType, Object);
+public:
+	enum Id : int32_t{
+		SPT_Nil,
+		SPT_RMB,
+		SPT_Diamond,
+		SPT_MagicCurrency,
+		SPT_Gold,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ShopPayType::Id); 
+
+// Enum wrapper for GDScript access
+class GuidePointerRotateType : public Object{
+	GDCLASS(GuidePointerRotateType, Object);
+public:
+	enum Id : int32_t{
+		GPRT_None,
+		GPRT_R45,
+		GPRT_R90,
+		GPRT_R135,
+		GPRT_R180,
+		GPRT_R225,
+		GPRT_R270,
+		GPRT_R315,
+		GPRT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(GuidePointerRotateType::Id); 
+
+// Enum wrapper for GDScript access
+class NpcType : public Object{
+	GDCLASS(NpcType, Object);
+public:
+	enum Id : int32_t{
+		NT_None,
+		NT_Normal,
+		NT_Tongji,
+		NT_SinglePK,
+		NT_TeamPK,
+		NT_Mogu,
+		NT_Xiji,
+		NT_Caiji1,
+		NT_Caiji2,
+		NT_Caiji3,
+		NT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(NpcType::Id); 
+
+// Enum wrapper for GDScript access
+class OpenSubSystemFlag : public Object{
+	GDCLASS(OpenSubSystemFlag, Object);
+public:
+	enum Id : int32_t{
+		OSSF_None,
+		OSSF_Skill,
+		OSSF_Baby,
+		OSSF_Friend,
+		OSSF_EmployeeGet,
+		OSSF_EmployeeList,
+		OSSF_EmployeePosition,
+		OSSF_EmployeeEquip,
+		OSSF_Bar,
+		OSSF_Castle,
+		OSSF_JJC,
+		OSSF_PVPJJC,
+		OSSF_Make,
+		OSSF_Hundred,
+		OSSF_Activity,
+		OSSF_Handbook,
+		OSSF_EveryTask,
+		OSSF_Achieve,
+		OSSF_Rank,
+		OSSF_OnKyTalk,
+		OSSF_Setting,
+		OSSF_Shop,
+		OSSF_DoubleExp,
+		OSSF_Family,
+		OSSF_AuctionHouse,
+		OSSF_BabyLeranSkill,
+		OSSF_MagicItem,
+		OSSF_EmployeePos10,
+		OSSF_EmployeePos15,
+		OSSF_EmployeePos20,
+		OSSF_Guid,
+		OSSF_Team,
+		OSSF_choujiang,
+		OSSF_Cystal,
+		OSSF_PetEquip,
+		OSSF_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(OpenSubSystemFlag::Id); 
+
+// Enum wrapper for GDScript access
+class AchievementType : public Object{
+	GDCLASS(AchievementType, Object);
+public:
+	enum Id : int32_t{
+		AT_None,
+		AT_EarnConis,
+		AT_SpendMoney,
+		AT_SpendDiamond,
+		AT_Recharge,
+		AT_RoleLevel,
+		AT_PetLevel,
+		AT_AttackLevel,
+		AT_DefenseLevel,
+		AT_AgileLevel,
+		AT_WearCrystal,
+		AT_WearAccessories,
+		AT_TotalDamage,
+		AT_TotalTreatment,
+		AT_HasSkillNum,
+		AT_BabySkill,
+		AT_CatchPet,
+		AT_RecruitPartner,
+		AT_PartnerCard,
+		AT_PartnersUpgradeGreen,
+		AT_PartnersUpgradeBlue,
+		AT_PartnersUpgradePurple,
+		AT_PartnersUpgradeGold,
+		AT_PartnersUpgradeOrangle,
+		AT_PartnersUpgradePink,
+		AT_QualifyingAdvanced,
+		AT_ArenaWin,
+		AT_KillMonster,
+		AT_KillBoss,
+		AT_KillPlayer,
+		AT_MakeEquipment,
+		AT_Reward50,
+		AT_EverydayActivities,
+		AT_Sign,
+		AT_Wanted,
+		AT_Copy30,
+		AT_Copy40,
+		AT_Blood,
+		AT_Magic,
+		AT_Bag,
+		AT_PetBag,
+		AT_GoodMake,
+		AT_PetIntensive,
+		AT_PetHuman,
+		AT_PetInsect,
+		AT_PetPlant,
+		AT_PetExtra,
+		AT_PetDragon,
+		AT_PetAnimal,
+		AT_PetFly,
+		AT_PetUndead,
+		AT_PetMetal,
+		AT_Home,
+		AT_CollectMaterial,
+		AT_Friend,
+		AT_Billboard,
+		AT_OwnConis,
+		AT_MagicEquip,
+		AT_RunesLevel,
+		AT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(AchievementType::Id); 
+
+// Enum wrapper for GDScript access
+class CategoryType : public Object{
+	GDCLASS(CategoryType, Object);
+public:
+	enum Id : int32_t{
+		ACH_All,
+		ACH_Growup,
+		ACH_Battle,
+		ACH_Pet,
+		ACH_Partner,
+		ACH_Illustrations,
+		ACH_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(CategoryType::Id); 
+
+// Enum wrapper for GDScript access
+class ClassifyType : public Object{
+	GDCLASS(ClassifyType, Object);
+public:
+	enum Id : int32_t{
+		SD_Debris,
+		SD_Data,
+		SD_Pet,
+		SD_Fashion,
+		SD_Diamond,
+		SD_1Ji,
+		SD_2Ji,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ClassifyType::Id); 
+
+// Enum wrapper for GDScript access
+class FunctionalPointType : public Object{
+	GDCLASS(FunctionalPointType, Object);
+public:
+	enum Id : int32_t{
+		FPT_None,
+		FPT_Tongji,
+		FPT_Mogu,
+		FPT_Xiji,
+		FPT_Npc,
+		FPT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(FunctionalPointType::Id); 
+
+// Enum wrapper for GDScript access
+class ActivityType : public Object{
+	GDCLASS(ActivityType, Object);
+public:
+	enum Id : int32_t{
+		ACT_None,
+		ACT_Tongji,
+		ACT_Mogu,
+		ACT_Richang,
+		ACT_Pet,
+		ACT_AlonePK,
+		ACT_TeamPK,
+		ACT_JJC,
+		ACT_Challenge,
+		ACT_Exam,
+		ACT_Copy,
+		ACT_Xuyuan,
+		ACT_Family_0,
+		ACT_Family_1,
+		ACT_Family_2,
+		ACT_Family_3,
+		ACT_Family_4,
+		ACT_Warrior,
+		ACT_Money,
+		ACT_Rand,
+		ACT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ActivityType::Id); 
+
+// Enum wrapper for GDScript access
+class MailType : public Object{
+	GDCLASS(MailType, Object);
+public:
+	enum Id : int32_t{
+		MT_Normal,
+		MT_System,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(MailType::Id); 
+
+// Enum wrapper for GDScript access
+class HelpType : public Object{
+	GDCLASS(HelpType, Object);
+public:
+	enum Id : int32_t{
+		HT_None,
+		HT_Money,
+		HT_Diamond,
+		HT_Role,
+		HT_Baby,
+		HT_Employee,
+		HT_Skill,
+		HT_Exp,
+		HT_Magic,
+		HT_Equip,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(HelpType::Id); 
+
+// Enum wrapper for GDScript access
+class GuildJob : public Object{
+	GDCLASS(GuildJob, Object);
+public:
+	enum Id : int32_t{
+		GJ_None,
+		GJ_People,
+		GJ_Minister,
+		GJ_SecretaryHead,
+		GJ_VicePremier,
+		GJ_Premier,
+		GJ_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(GuildJob::Id); 
+
+// Enum wrapper for GDScript access
+class ModifyListFlag : public Object{
+	GDCLASS(ModifyListFlag, Object);
+public:
+	enum Id : int32_t{
+		MLF_Add,
+		MLF_Delete,
+		MLF_ChangeOnline,
+		MLF_ChangeOffline,
+		MLF_ChangePosition,
+		MLF_ChangeContribution,
+		MLF_ChangeLevel,
+		MLF_ChangeProfession,
+		MLF_ChangeGuuildBattleCon,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ModifyListFlag::Id); 
+
+// Enum wrapper for GDScript access
+class GuildBuildingType : public Object{
+	GDCLASS(GuildBuildingType, Object);
+public:
+	enum Id : int32_t{
+		GBT_MIN,
+		GBT_Main,
+		GBT_Bank,
+		GBT_Shop,
+		GBT_Collection,
+		GBT_Goddess,
+		GBT_Progenitus,
+		GBT_MAX,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(GuildBuildingType::Id); 
+
+// Enum wrapper for GDScript access
+class SellItemType : public Object{
+	GDCLASS(SellItemType, Object);
+public:
+	enum Id : int32_t{
+		SelIT_None,
+		SelIT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(SellItemType::Id); 
+
+// Enum wrapper for GDScript access
+class DiamondConfigClass : public Object{
+	GDCLASS(DiamondConfigClass, Object);
+public:
+	enum Id : int32_t{
+		DBT_Type_None,
+		DBT_Type_Mine_Famu,
+		DBT_Type_Mine_Caikuang,
+		DBT_Type_Mine_Zhibu,
+		DBT_Type_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(DiamondConfigClass::Id); 
+
+// Enum wrapper for GDScript access
+class DiamondConfigType : public Object{
+	GDCLASS(DiamondConfigType, Object);
+public:
+	enum Id : int32_t{
+		DBT_None,
+		DBT_Day,
+		DBT_Week,
+		DBT_Month,
+		DBT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(DiamondConfigType::Id); 
+
+// Enum wrapper for GDScript access
+class FixType : public Object{
+	GDCLASS(FixType, Object);
+public:
+	enum Id : int32_t{
+		FT_None,
+		FT_Money,
+		FT_Diamond,
+		FT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(FixType::Id); 
+
+// Enum wrapper for GDScript access
+class StorageType : public Object{
+	GDCLASS(StorageType, Object);
+public:
+	enum Id : int32_t{
+		ST_Item,
+		ST_Baby,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(StorageType::Id); 
+
+// Enum wrapper for GDScript access
+class EmployeesBattleGroup : public Object{
+	GDCLASS(EmployeesBattleGroup, Object);
+public:
+	enum Id : int32_t{
+		EBG_None,
+		EBG_Free,
+		EBG_GroupOne,
+		EBG_GroupTwo,
+		EBG_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(EmployeesBattleGroup::Id); 
+
+// Enum wrapper for GDScript access
+class GiftType : public Object{
+	GDCLASS(GiftType, Object);
+public:
+	enum Id : int32_t{
+		GFT_Bug,
+		GFT_UC1,
+		GFT_UC2,
+		GFT_Group,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(GiftType::Id); 
+
+// Enum wrapper for GDScript access
+class GMT_Protocol : public Object{
+	GDCLASS(GMT_Protocol, Object);
+public:
+	enum Id : int32_t{
+		GMT_None,
+		GMT_GMCommand,
+		GMT_Notice,
+		GMT_InsertMail,
+		GMT_QueryPlayer,
+		GMT_LoginActivity,
+		GMT_7Days,
+		GMT_Cards,
+		GMT_ExtractEmployee,
+		GMT_ChargeTotal,
+		GMT_ChargeEvery,
+		GMT_DiscountStore,
+		GMT_Foundation,
+		GMT_LoginTotal,
+		GMT_OnlineReward,
+		GMT_HotRole,
+		GMT_SelfChargeTotal,
+		GMT_SelfChargeEvery,
+		GMT_MinGiftBag,
+		GMT_DoScript,
+		GNT_MakeOrder,
+		GMT_Zhuanpan,
+		GMT_IntegralShop,
+		GMT_QueryRoleList,
+		GMT_QueryRMB,
+		GMT_QueryDia,
+		GMT_QueryMoney,
+		GMT_MAX,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(GMT_Protocol::Id); 
+
+// Enum wrapper for GDScript access
+class GMCommandType : public Object{
+	GDCLASS(GMCommandType, Object);
+public:
+	enum Id : int32_t{
+		GMCT_NoTalk,
+		GMCT_Freeze,
+		GMCT_Seal,
+		GMCT_Kick,
+		GMCT_OpenTalk,
+		GMCT_Unseal,
+		GMCT_SkipGuide,
+		GMCT_AddMoney,
+		GMCT_AddDiamond,
+		GMCT_AddExp,
+		GMCT_OpenGM,
+		GMCT_CloseGM,
+		GMCT_DoScript,
+		GMCT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(GMCommandType::Id); 
+
+// Enum wrapper for GDScript access
+class NoticeSendType : public Object{
+	GDCLASS(NoticeSendType, Object);
+public:
+	enum Id : int32_t{
+		NST_Immediately,
+		NST_Timming,
+		NST_Loop,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(NoticeSendType::Id); 
+
+// Enum wrapper for GDScript access
+class InsertMailType : public Object{
+	GDCLASS(InsertMailType, Object);
+public:
+	enum Id : int32_t{
+		IGMT_PlayerId,
+		IGMT_AllOnline,
+		IGMT_AllRegist,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(InsertMailType::Id); 
+
+// Enum wrapper for GDScript access
+class ItemContainerType : public Object{
+	GDCLASS(ItemContainerType, Object);
+public:
+	enum Id : int32_t{
+		ICT_EquipContainer,
+		ICT_BagContainer,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ItemContainerType::Id); 
+
+// Enum wrapper for GDScript access
+class UIBehaviorType : public Object{
+	GDCLASS(UIBehaviorType, Object);
+public:
+	enum Id : int32_t{
+		UBT_None,
+		UBT_Bag,
+		UBT_Baby,
+		UBT_Employee,
+		UBT_SkillView,
+		UBT_SkillLearn,
+		UBT_Task,
+		UBT_Make,
+		UBT_Gather,
+		UBT_MagicItem,
+		UBT_Store,
+		UBT_Help,
+		UBT_Friend,
+		UBT_Email,
+		UBT_Auction,
+		UBT_Activity,
+		UBT_SignUp,
+		UBT_EmployessList,
+		UBT_EmployessPos,
+		UBT_EmployessTavern,
+		UBT_PlayerProperty,
+		UBT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(UIBehaviorType::Id); 
+
+// Enum wrapper for GDScript access
+class HelpRaiseType : public Object{
+	GDCLASS(HelpRaiseType, Object);
+public:
+	enum Id : int32_t{
+		HRT_None,
+		HRT_PlayerAddProp,
+		HRT_PlayerResetProp,
+		HRT_PlayerAddEvolve,
+		HRT_BabyAddProp,
+		HRT_BabyReset,
+		HRT_BabyStr,
+		HRT_BabySkill,
+		HRT_BabyChange,
+		HRT_SkillAuto,
+		HRT_SkillItem,
+		HRT_EquipCompound,
+		HRT_EquipGem,
+		HRT_EmployeeBuy,
+		HRT_EmployeePos,
+		HRT_EmployeeSkill,
+		HRT_EmployeeEquip,
+		HRT_EmployeeEvolve,
+		HRT_MagicLevelUp,
+		HRT_MagicEvolve,
+		HRT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(HelpRaiseType::Id); 
+
+// Enum wrapper for GDScript access
+class SceneFilterType : public Object{
+	GDCLASS(SceneFilterType, Object);
+public:
+	enum Id : int32_t{
+		SFT_None,
+		SFT_Team,
+		SFT_Friend,
+		SFT_Guild,
+		SFT_All,
+		SFT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(SceneFilterType::Id); 
+
+// Enum wrapper for GDScript access
+class GatherStateType : public Object{
+	GDCLASS(GatherStateType, Object);
+public:
+	enum Id : int32_t{
+		GST_None,
+		GST_Vulgar,
+		GST_Advanced,
+		GST_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(GatherStateType::Id); 
+
+// Enum wrapper for GDScript access
+class WishType : public Object{
+	GDCLASS(WishType, Object);
+public:
+	enum Id : int32_t{
+		WIT_None,
+		WIT_Exp,
+		WIT_Money,
+		WIT_Baby,
+		WIT_Employee,
+		WIT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(WishType::Id); 
+
+// Enum wrapper for GDScript access
+class ADType : public Object{
+	GDCLASS(ADType, Object);
+public:
+	enum Id : int32_t{
+		ADT_None,
+		ADT_7Days,
+		ADT_Cards,
+		ADT_ChargeTotal,
+		ADT_ChargeEvery,
+		ADT_DiscountStore,
+		ADT_Foundation,
+		ADT_LoginTotal,
+		ADT_OnlineReward,
+		ADT_HotRole,
+		ADT_SelfChargeTotal,
+		ADT_SelfChargeEvery,
+		ADT_SelfDiscountStore,
+		ADT_BuyEmployee,
+		ADT_PhoneNumber,
+		ADT_Level,
+		ADT_Sign,
+		ADT_GiftBag,
+		ADT_Zhuanpan,
+		ADT_IntegralShop,
+		ADT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(ADType::Id); 
+
+// Enum wrapper for GDScript access
+class EmployeeSkillType : public Object{
+	GDCLASS(EmployeeSkillType, Object);
+public:
+	enum Id : int32_t{
+		EKT_GroupDamage,
+		EKT_DeadlyDamage,
+		EKT_BattleTimeLimit,
+		EKT_Thump,
+		EKT_SiegeDamage,
+		EKT_SuperMagic,
+		EKT_Debuff,
+		EKT_PhysicalDefense,
+		EKT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(EmployeeSkillType::Id); 
+
+// Enum wrapper for GDScript access
+class EmployeeQuestColor : public Object{
+	GDCLASS(EmployeeQuestColor, Object);
+public:
+	enum Id : int32_t{
+		EQC_White,
+		EQC_Blue,
+		EQC_Purple,
+		EQC_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(EmployeeQuestColor::Id); 
+
+// Enum wrapper for GDScript access
+class EmployeeQuestStatus : public Object{
+	GDCLASS(EmployeeQuestStatus, Object);
+public:
+	enum Id : int32_t{
+		EQS_None,
+		EQS_Running,
+		EQS_Complate,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(EmployeeQuestStatus::Id); 
+
+// Enum wrapper for GDScript access
+class RobotActionType : public Object{
+	GDCLASS(RobotActionType, Object);
+public:
+	enum Id : int32_t{
+		RAT_None,
+		RAT_Resting,
+		RAT_Move,
+		RAT_QuestMove,
+		RAT_TeamMove,
+		RAT_Max,
+	};
+	static void _bind_methods();
+};
+VARIANT_ENUM_CAST(RobotActionType::Id); 
+
 // struct SGE_OrderInfo
 class SGE_OrderInfo : public Resource {
 	GDCLASS(SGE_OrderInfo, Resource);
@@ -1769,13 +2489,13 @@ public:
 class COM_ADHotRoleContent : public Resource {
 	GDCLASS(COM_ADHotRoleContent, Resource);
 protected:
-	uint16_t type_ = (EntityType)0;
+	int32_t type_ = 0;
 	uint32_t buyNum_ = 0;
 	uint32_t roleId_ = 0;
 	uint32_t price_ = 0;
 public:
-	void set_type_(uint16_t p_val) { type_ = p_val; }
-	uint16_t get_type_() const { return type_; }
+	void set_type_(int32_t p_val) { type_ = p_val; }
+	int32_t get_type_() const { return type_; }
 	void set_buyNum_(uint32_t p_val) { buyNum_ = p_val; }
 	uint32_t get_buyNum_() const { return buyNum_; }
 	void set_roleId_(uint32_t p_val) { roleId_ = p_val; }
@@ -1899,15 +2619,15 @@ class COM_Sevenday : public Resource {
 	GDCLASS(COM_Sevenday, Resource);
 protected:
 	uint32_t quest_ = 0;
-	uint16_t stype_ = (AchievementType)0;
+	int32_t stype_ = 0;
 	uint32_t qvalue_ = 0;
 	bool isfinish_ = false;
 	bool isreward_ = false;
 public:
 	void set_quest_(uint32_t p_val) { quest_ = p_val; }
 	uint32_t get_quest_() const { return quest_; }
-	void set_stype_(uint16_t p_val) { stype_ = p_val; }
-	uint16_t get_stype_() const { return stype_; }
+	void set_stype_(int32_t p_val) { stype_ = p_val; }
+	int32_t get_stype_() const { return stype_; }
 	void set_qvalue_(uint32_t p_val) { qvalue_ = p_val; }
 	uint32_t get_qvalue_() const { return qvalue_; }
 	void set_isfinish_(bool p_val) { isfinish_ = p_val; }
@@ -2143,8 +2863,8 @@ protected:
 	int32_t title_ = 0;
 	String instName_ = "";
 	String guildeName_ = "";
-	uint16_t jt_ = (JobType)0;
-	uint16_t type_ = (EntityType)0;
+	int32_t jt_ = 0;
+	int32_t type_ = 0;
 	Ref<COM_FPosition> originPos_ = Ref<COM_FPosition>();
 	int32_t showBabyTableId_ = 0;
 	String showBabyName_ = "";
@@ -2189,10 +2909,10 @@ public:
 	String get_instName_() const { return instName_; }
 	void set_guildeName_(String p_val) { guildeName_ = p_val; }
 	String get_guildeName_() const { return guildeName_; }
-	void set_jt_(uint16_t p_val) { jt_ = p_val; }
-	uint16_t get_jt_() const { return jt_; }
-	void set_type_(uint16_t p_val) { type_ = p_val; }
-	uint16_t get_type_() const { return type_; }
+	void set_jt_(int32_t p_val) { jt_ = p_val; }
+	int32_t get_jt_() const { return jt_; }
+	void set_type_(int32_t p_val) { type_ = p_val; }
+	int32_t get_type_() const { return type_; }
 	void set_originPos_(Ref<COM_FPosition> p_val) { originPos_ = p_val; }
 	Ref<COM_FPosition> get_originPos_() const { return originPos_; }
 	void set_showBabyTableId_(int32_t p_val) { showBabyTableId_ = p_val; }
@@ -2208,13 +2928,13 @@ public:
 class COM_BattleEntityInformation : public Resource {
 	GDCLASS(COM_BattleEntityInformation, Resource);
 protected:
-	uint16_t type_ = (EntityType)0;
+	int32_t type_ = 0;
 	String instName_ = "";
 	int32_t instId_ = 0;
 	int32_t tableId_ = 0;
 	int32_t assetId_ = 0;
-	uint16_t jt_ = (JobType)0;
-	uint16_t battlePosition_ = (BattlePosition)0;
+	int32_t jt_ = 0;
+	int32_t battlePosition_ = 0;
 	int32_t weaponItemId_ = 0;
 	int32_t fashionId_ = 0;
 	int32_t hpMax_ = 0;
@@ -2223,8 +2943,8 @@ protected:
 	int32_t mpCrt_ = 0;
 	int32_t level_ = 0;
 public:
-	void set_type_(uint16_t p_val) { type_ = p_val; }
-	uint16_t get_type_() const { return type_; }
+	void set_type_(int32_t p_val) { type_ = p_val; }
+	int32_t get_type_() const { return type_; }
 	void set_instName_(String p_val) { instName_ = p_val; }
 	String get_instName_() const { return instName_; }
 	void set_instId_(int32_t p_val) { instId_ = p_val; }
@@ -2233,10 +2953,10 @@ public:
 	int32_t get_tableId_() const { return tableId_; }
 	void set_assetId_(int32_t p_val) { assetId_ = p_val; }
 	int32_t get_assetId_() const { return assetId_; }
-	void set_jt_(uint16_t p_val) { jt_ = p_val; }
-	uint16_t get_jt_() const { return jt_; }
-	void set_battlePosition_(uint16_t p_val) { battlePosition_ = p_val; }
-	uint16_t get_battlePosition_() const { return battlePosition_; }
+	void set_jt_(int32_t p_val) { jt_ = p_val; }
+	int32_t get_jt_() const { return jt_; }
+	void set_battlePosition_(int32_t p_val) { battlePosition_ = p_val; }
+	int32_t get_battlePosition_() const { return battlePosition_; }
 	void set_weaponItemId_(int32_t p_val) { weaponItemId_ = p_val; }
 	int32_t get_weaponItemId_() const { return weaponItemId_; }
 	void set_fashionId_(int32_t p_val) { fashionId_ = p_val; }
@@ -2267,7 +2987,7 @@ protected:
 	int32_t weaponItemId_ = 0;
 	int32_t fashionId_ = 0;
 	uint32_t section_ = 0;
-	uint16_t jt_ = (JobType)0;
+	int32_t jt_ = 0;
 	int32_t jl_ = 0;
 public:
 	void set_instId_(int32_t p_val) { instId_ = p_val; }
@@ -2284,8 +3004,8 @@ public:
 	int32_t get_fashionId_() const { return fashionId_; }
 	void set_section_(uint32_t p_val) { section_ = p_val; }
 	uint32_t get_section_() const { return section_; }
-	void set_jt_(uint16_t p_val) { jt_ = p_val; }
-	uint16_t get_jt_() const { return jt_; }
+	void set_jt_(int32_t p_val) { jt_ = p_val; }
+	int32_t get_jt_() const { return jt_; }
 	void set_jl_(int32_t p_val) { jl_ = p_val; }
 	int32_t get_jl_() const { return jl_; }
 	static void _bind_methods();
@@ -2322,11 +3042,11 @@ public:
 class COM_PropValue : public Resource {
 	GDCLASS(COM_PropValue, Resource);
 protected:
-	uint16_t type_ = (PropertyType)0;
+	int32_t type_ = 0;
 	float value_ = 0.0;
 public:
-	void set_type_(uint16_t p_val) { type_ = p_val; }
-	uint16_t get_type_() const { return type_; }
+	void set_type_(int32_t p_val) { type_ = p_val; }
+	int32_t get_type_() const { return type_; }
 	void set_value_(float p_val) { value_ = p_val; }
 	float get_value_() const { return value_; }
 	static void _bind_methods();
@@ -2404,13 +3124,13 @@ class COM_CrystalProp : public Resource {
 	GDCLASS(COM_CrystalProp, Resource);
 protected:
 	uint32_t level_ = 0;
-	uint16_t type_ = (PropertyType)0;
+	int32_t type_ = 0;
 	uint32_t val_ = 0;
 public:
 	void set_level_(uint32_t p_val) { level_ = p_val; }
 	uint32_t get_level_() const { return level_; }
-	void set_type_(uint16_t p_val) { type_ = p_val; }
-	uint16_t get_type_() const { return type_; }
+	void set_type_(int32_t p_val) { type_ = p_val; }
+	int32_t get_type_() const { return type_; }
 	void set_val_(uint32_t p_val) { val_ = p_val; }
 	uint32_t get_val_() const { return val_; }
 	static void _bind_methods();
@@ -2517,23 +3237,23 @@ public:
 class COM_Entity : public Resource {
 	GDCLASS(COM_Entity, Resource);
 protected:
-	uint16_t type_ = (EntityType)0;
+	int32_t type_ = 0;
 	String instName_ = "";
 	uint32_t instId_ = 0;
-	uint16_t battlePosition_ = (BattlePosition)0;
+	int32_t battlePosition_ = 0;
 	TypedArray<float> properties_ = {};
 	TypedArray<COM_Skill> skill_ = {};
 	TypedArray<COM_Item> equips_ = {};
 	TypedArray<COM_State> states_ = {};
 public:
-	void set_type_(uint16_t p_val) { type_ = p_val; }
-	uint16_t get_type_() const { return type_; }
+	void set_type_(int32_t p_val) { type_ = p_val; }
+	int32_t get_type_() const { return type_; }
 	void set_instName_(String p_val) { instName_ = p_val; }
 	String get_instName_() const { return instName_; }
 	void set_instId_(uint32_t p_val) { instId_ = p_val; }
 	uint32_t get_instId_() const { return instId_; }
-	void set_battlePosition_(uint16_t p_val) { battlePosition_ = p_val; }
-	uint16_t get_battlePosition_() const { return battlePosition_; }
+	void set_battlePosition_(int32_t p_val) { battlePosition_ = p_val; }
+	int32_t get_battlePosition_() const { return battlePosition_; }
 	void set_properties_(TypedArray<float> p_val) { properties_ = p_val; }
 	TypedArray<float> get_properties_() const { return properties_; }
 	void set_skill_(TypedArray<COM_Skill> p_val) { skill_ = p_val; }
@@ -2600,7 +3320,7 @@ protected:
 	String ownerName_ = "";
 	bool isBattle_ = false;
 	uint32_t weaponId_ = 0;
-	uint16_t quality_ = (QualityColor)0;
+	int32_t quality_ = 0;
 	uint32_t star_ = 0;
 	uint32_t soul_ = 0;
 public:
@@ -2610,8 +3330,8 @@ public:
 	bool get_isBattle_() const { return isBattle_; }
 	void set_weaponId_(uint32_t p_val) { weaponId_ = p_val; }
 	uint32_t get_weaponId_() const { return weaponId_; }
-	void set_quality_(uint16_t p_val) { quality_ = p_val; }
-	uint16_t get_quality_() const { return quality_; }
+	void set_quality_(int32_t p_val) { quality_ = p_val; }
+	int32_t get_quality_() const { return quality_; }
 	void set_star_(uint32_t p_val) { star_ = p_val; }
 	uint32_t get_star_() const { return star_; }
 	void set_soul_(uint32_t p_val) { soul_ = p_val; }
@@ -2629,10 +3349,10 @@ protected:
 	String name_ = "";
 	uint32_t level_ = 0;
 	float exp_ = 0.0;
-	uint16_t job_ = (JobType)0;
+	int32_t job_ = 0;
 	uint32_t assetId_ = 0;
 	uint32_t jobLevel_ = 0;
-	uint16_t vip_ = (VipLevel)0;
+	int32_t vip_ = 0;
 	uint32_t ff_ = 0;
 	uint32_t rank_ = 0;
 	int32_t section_ = 0;
@@ -2647,14 +3367,14 @@ public:
 	uint32_t get_level_() const { return level_; }
 	void set_exp_(float p_val) { exp_ = p_val; }
 	float get_exp_() const { return exp_; }
-	void set_job_(uint16_t p_val) { job_ = p_val; }
-	uint16_t get_job_() const { return job_; }
+	void set_job_(int32_t p_val) { job_ = p_val; }
+	int32_t get_job_() const { return job_; }
 	void set_assetId_(uint32_t p_val) { assetId_ = p_val; }
 	uint32_t get_assetId_() const { return assetId_; }
 	void set_jobLevel_(uint32_t p_val) { jobLevel_ = p_val; }
 	uint32_t get_jobLevel_() const { return jobLevel_; }
-	void set_vip_(uint16_t p_val) { vip_ = p_val; }
-	uint16_t get_vip_() const { return vip_; }
+	void set_vip_(int32_t p_val) { vip_ = p_val; }
+	int32_t get_vip_() const { return vip_; }
 	void set_ff_(uint32_t p_val) { ff_ = p_val; }
 	uint32_t get_ff_() const { return ff_; }
 	void set_rank_(uint32_t p_val) { rank_ = p_val; }
@@ -2721,15 +3441,15 @@ class COM_Achievement : public Resource {
 	GDCLASS(COM_Achievement, Resource);
 protected:
 	uint32_t achId_ = 0;
-	uint16_t achType_ = (AchievementType)0;
+	int32_t achType_ = 0;
 	uint32_t achValue_ = 0;
 	bool isAch_ = false;
 	bool isAward_ = false;
 public:
 	void set_achId_(uint32_t p_val) { achId_ = p_val; }
 	uint32_t get_achId_() const { return achId_; }
-	void set_achType_(uint16_t p_val) { achType_ = p_val; }
-	uint16_t get_achType_() const { return achType_; }
+	void set_achType_(int32_t p_val) { achType_ = p_val; }
+	int32_t get_achType_() const { return achType_; }
 	void set_achValue_(uint32_t p_val) { achValue_ = p_val; }
 	uint32_t get_achValue_() const { return achValue_; }
 	void set_isAch_(bool p_val) { isAch_ = p_val; }
@@ -2939,7 +3659,7 @@ protected:
 	TypedArray<uint32_t> copyNum_ = {};
 	int32_t magicItemLevel_ = 0;
 	int32_t magicItemeExp_ = 0;
-	uint16_t magicItemeJob_ = (JobType)0;
+	int32_t magicItemeJob_ = 0;
 	int32_t magicTupoLevel_ = 0;
 	TypedArray<int32_t> cachedNpcs_ = {};
 	TypedArray<String> gft_ = {};
@@ -2949,7 +3669,7 @@ protected:
 	uint32_t exitGuildTime_ = 0;
 	TypedArray<COM_Skill> guildSkills_ = {};
 	// enum array is stored as uint16_t array
-	TypedArray<uint16_t> gmActivities_ = {};
+	TypedArray<int32_t> gmActivities_ = {};
 	Ref<COM_ADLoginTotal> festival_ = Ref<COM_ADLoginTotal>();
 	Ref<COM_ADChargeTotal> selfRecharge_ = Ref<COM_ADChargeTotal>();
 	Ref<COM_ADChargeTotal> sysRecharge_ = Ref<COM_ADChargeTotal>();
@@ -3050,8 +3770,8 @@ public:
 	int32_t get_magicItemLevel_() const { return magicItemLevel_; }
 	void set_magicItemeExp_(int32_t p_val) { magicItemeExp_ = p_val; }
 	int32_t get_magicItemeExp_() const { return magicItemeExp_; }
-	void set_magicItemeJob_(uint16_t p_val) { magicItemeJob_ = p_val; }
-	uint16_t get_magicItemeJob_() const { return magicItemeJob_; }
+	void set_magicItemeJob_(int32_t p_val) { magicItemeJob_ = p_val; }
+	int32_t get_magicItemeJob_() const { return magicItemeJob_; }
 	void set_magicTupoLevel_(int32_t p_val) { magicTupoLevel_ = p_val; }
 	int32_t get_magicTupoLevel_() const { return magicTupoLevel_; }
 	void set_cachedNpcs_(TypedArray<int32_t> p_val) { cachedNpcs_ = p_val; }
@@ -3068,8 +3788,8 @@ public:
 	uint32_t get_exitGuildTime_() const { return exitGuildTime_; }
 	void set_guildSkills_(TypedArray<COM_Skill> p_val) { guildSkills_ = p_val; }
 	TypedArray<COM_Skill> get_guildSkills_() const { return guildSkills_; }
-	void set_gmActivities_(TypedArray<uint16_t> p_val) { gmActivities_ = p_val; }
-	TypedArray<uint16_t> get_gmActivities_() const { return gmActivities_; }
+	void set_gmActivities_(TypedArray<int32_t> p_val) { gmActivities_ = p_val; }
+	TypedArray<int32_t> get_gmActivities_() const { return gmActivities_; }
 	void set_festival_(Ref<COM_ADLoginTotal> p_val) { festival_ = p_val; }
 	Ref<COM_ADLoginTotal> get_festival_() const { return festival_; }
 	void set_selfRecharge_(Ref<COM_ADChargeTotal> p_val) { selfRecharge_ = p_val; }
@@ -3157,13 +3877,13 @@ public:
 class COM_ReportTargetBase : public Resource {
 	GDCLASS(COM_ReportTargetBase, Resource);
 protected:
-	uint16_t position_ = (BattlePosition)0;
+	int32_t position_ = 0;
 	Ref<COM_PropValue> prop_ = Ref<COM_PropValue>();
 	bool bao_ = false;
 	bool fly_ = false;
 public:
-	void set_position_(uint16_t p_val) { position_ = p_val; }
-	uint16_t get_position_() const { return position_; }
+	void set_position_(int32_t p_val) { position_ = p_val; }
+	int32_t get_position_() const { return position_; }
 	void set_prop_(Ref<COM_PropValue> p_val) { prop_ = p_val; }
 	Ref<COM_PropValue> get_prop_() const { return prop_; }
 	void set_bao_(bool p_val) { bao_ = p_val; }
@@ -3192,7 +3912,7 @@ public:
 class COM_Order : public Resource {
 	GDCLASS(COM_Order, Resource);
 protected:
-	uint16_t status_ = (OrderStatus)0;
+	int32_t status_ = 0;
 	int32_t casterId_ = 0;
 	int32_t target_ = 0;
 	int32_t skill_ = 0;
@@ -3204,8 +3924,8 @@ protected:
 	int32_t uniteNum_ = 0;
 	bool isNo_ = false;
 public:
-	void set_status_(uint16_t p_val) { status_ = p_val; }
-	uint16_t get_status_() const { return status_; }
+	void set_status_(int32_t p_val) { status_ = p_val; }
+	int32_t get_status_() const { return status_; }
 	void set_casterId_(int32_t p_val) { casterId_ = p_val; }
 	int32_t get_casterId_() const { return casterId_; }
 	void set_target_(int32_t p_val) { target_ = p_val; }
@@ -3260,8 +3980,8 @@ protected:
 	bool zhuachongOk_ = false;
 	uint8_t skillLevel_ = 0;
 	uint8_t huweiPosition_ = 0;
-	uint16_t bp0_ = (BattlePosition)0;
-	uint16_t bp1_ = (BattlePosition)0;
+	int32_t bp0_ = 0;
+	int32_t bp1_ = 0;
 	Ref<COM_BattleEntityInformation> baby_ = Ref<COM_BattleEntityInformation>();
 	TypedArray<int32_t> eraseEntities_ = {};
 	TypedArray<COM_ReportTarget> targets_ = {};
@@ -3275,10 +3995,10 @@ public:
 	uint8_t get_skillLevel_() const { return skillLevel_; }
 	void set_huweiPosition_(uint8_t p_val) { huweiPosition_ = p_val; }
 	uint8_t get_huweiPosition_() const { return huweiPosition_; }
-	void set_bp0_(uint16_t p_val) { bp0_ = p_val; }
-	uint16_t get_bp0_() const { return bp0_; }
-	void set_bp1_(uint16_t p_val) { bp1_ = p_val; }
-	uint16_t get_bp1_() const { return bp1_; }
+	void set_bp0_(int32_t p_val) { bp0_ = p_val; }
+	int32_t get_bp0_() const { return bp0_; }
+	void set_bp1_(int32_t p_val) { bp1_ = p_val; }
+	int32_t get_bp1_() const { return bp1_; }
 	void set_baby_(Ref<COM_BattleEntityInformation> p_val) { baby_ = p_val; }
 	Ref<COM_BattleEntityInformation> get_baby_() const { return baby_; }
 	void set_eraseEntities_(TypedArray<int32_t> p_val) { eraseEntities_ = p_val; }
@@ -3323,22 +4043,22 @@ class COM_InitBattle : public Resource {
 	GDCLASS(COM_InitBattle, Resource);
 protected:
 	uint32_t battleId_ = 0;
-	uint16_t bt_ = (BattleType)0;
+	int32_t bt_ = 0;
 	uint32_t roundCount_ = 0;
-	uint16_t opType_ = (OperateType)0;
-	uint16_t sneakAttack_ = (SneakAttackType)0;
+	int32_t opType_ = 0;
+	int32_t sneakAttack_ = 0;
 	TypedArray<COM_BattleEntityInformation> actors_ = {};
 public:
 	void set_battleId_(uint32_t p_val) { battleId_ = p_val; }
 	uint32_t get_battleId_() const { return battleId_; }
-	void set_bt_(uint16_t p_val) { bt_ = p_val; }
-	uint16_t get_bt_() const { return bt_; }
+	void set_bt_(int32_t p_val) { bt_ = p_val; }
+	int32_t get_bt_() const { return bt_; }
 	void set_roundCount_(uint32_t p_val) { roundCount_ = p_val; }
 	uint32_t get_roundCount_() const { return roundCount_; }
-	void set_opType_(uint16_t p_val) { opType_ = p_val; }
-	uint16_t get_opType_() const { return opType_; }
-	void set_sneakAttack_(uint16_t p_val) { sneakAttack_ = p_val; }
-	uint16_t get_sneakAttack_() const { return sneakAttack_; }
+	void set_opType_(int32_t p_val) { opType_ = p_val; }
+	int32_t get_opType_() const { return opType_; }
+	void set_sneakAttack_(int32_t p_val) { sneakAttack_ = p_val; }
+	int32_t get_sneakAttack_() const { return sneakAttack_; }
 	void set_actors_(TypedArray<COM_BattleEntityInformation> p_val) { actors_ = p_val; }
 	TypedArray<COM_BattleEntityInformation> get_actors_() const { return actors_; }
 	static void _bind_methods();
@@ -3350,15 +4070,15 @@ public:
 class COM_CreateTeamInfo : public Resource {
 	GDCLASS(COM_CreateTeamInfo, Resource);
 protected:
-	uint16_t type_ = (TeamType)0;
+	int32_t type_ = 0;
 	uint8_t maxMemberSize_ = 0;
 	String name_ = "";
 	String pwd_ = "";
 	uint16_t minLevel_ = 0;
 	uint16_t maxLevel_ = 0;
 public:
-	void set_type_(uint16_t p_val) { type_ = p_val; }
-	uint16_t get_type_() const { return type_; }
+	void set_type_(int32_t p_val) { type_ = p_val; }
+	int32_t get_type_() const { return type_; }
 	void set_maxMemberSize_(uint8_t p_val) { maxMemberSize_ = p_val; }
 	uint8_t get_maxMemberSize_() const { return maxMemberSize_; }
 	void set_name_(String p_val) { name_ = p_val; }
@@ -3381,7 +4101,7 @@ protected:
 	uint32_t teamId_ = 0;
 	uint8_t curMemberSize_ = 0;
 	String leaderName_ = "";
-	uint16_t job_ = (JobType)0;
+	int32_t job_ = 0;
 	uint32_t joblevel_ = 0;
 	bool needPassword_ = false;
 	bool isRunning_ = false;
@@ -3393,8 +4113,8 @@ public:
 	uint8_t get_curMemberSize_() const { return curMemberSize_; }
 	void set_leaderName_(String p_val) { leaderName_ = p_val; }
 	String get_leaderName_() const { return leaderName_; }
-	void set_job_(uint16_t p_val) { job_ = p_val; }
-	uint16_t get_job_() const { return job_; }
+	void set_job_(int32_t p_val) { job_ = p_val; }
+	int32_t get_job_() const { return job_; }
 	void set_joblevel_(uint32_t p_val) { joblevel_ = p_val; }
 	uint32_t get_joblevel_() const { return joblevel_; }
 	void set_needPassword_(bool p_val) { needPassword_ = p_val; }
@@ -3450,12 +4170,12 @@ public:
 class COM_BattleEmp : public Resource {
 	GDCLASS(COM_BattleEmp, Resource);
 protected:
-	uint16_t empBattleGroup_ = (EmployeesBattleGroup)0;
+	int32_t empBattleGroup_ = 0;
 	TypedArray<uint32_t> employeeGroup1_ = {};
 	TypedArray<uint32_t> employeeGroup2_ = {};
 public:
-	void set_empBattleGroup_(uint16_t p_val) { empBattleGroup_ = p_val; }
-	uint16_t get_empBattleGroup_() const { return empBattleGroup_; }
+	void set_empBattleGroup_(int32_t p_val) { empBattleGroup_ = p_val; }
+	int32_t get_empBattleGroup_() const { return empBattleGroup_; }
 	void set_employeeGroup1_(TypedArray<uint32_t> p_val) { employeeGroup1_ = p_val; }
 	TypedArray<uint32_t> get_employeeGroup1_() const { return employeeGroup1_; }
 	void set_employeeGroup2_(TypedArray<uint32_t> p_val) { employeeGroup2_ = p_val; }
@@ -3470,13 +4190,13 @@ class COM_Gather : public Resource {
 	GDCLASS(COM_Gather, Resource);
 protected:
 	uint32_t gatherId_ = 0;
-	uint16_t flag_ = (GatherStateType)0;
+	int32_t flag_ = 0;
 	uint32_t num_ = 0;
 public:
 	void set_gatherId_(uint32_t p_val) { gatherId_ = p_val; }
 	uint32_t get_gatherId_() const { return gatherId_; }
-	void set_flag_(uint16_t p_val) { flag_ = p_val; }
-	uint16_t get_flag_() const { return flag_; }
+	void set_flag_(int32_t p_val) { flag_ = p_val; }
+	int32_t get_flag_() const { return flag_; }
 	void set_num_(uint32_t p_val) { num_ = p_val; }
 	uint32_t get_num_() const { return num_; }
 	static void _bind_methods();
@@ -3519,7 +4239,7 @@ protected:
 	TypedArray<COM_ContactInfo> blacklist_ = {};
 	TypedArray<int32_t> achValues_ = {};
 	TypedArray<COM_Achievement> achievement_ = {};
-	uint16_t empBattleGroup_ = (EmployeesBattleGroup)0;
+	int32_t empBattleGroup_ = 0;
 	TypedArray<uint32_t> employeeGroup1_ = {};
 	TypedArray<uint32_t> employeeGroup2_ = {};
 	TypedArray<COM_Gather> gatherData_ = {};
@@ -3587,8 +4307,8 @@ public:
 	TypedArray<int32_t> get_achValues_() const { return achValues_; }
 	void set_achievement_(TypedArray<COM_Achievement> p_val) { achievement_ = p_val; }
 	TypedArray<COM_Achievement> get_achievement_() const { return achievement_; }
-	void set_empBattleGroup_(uint16_t p_val) { empBattleGroup_ = p_val; }
-	uint16_t get_empBattleGroup_() const { return empBattleGroup_; }
+	void set_empBattleGroup_(int32_t p_val) { empBattleGroup_ = p_val; }
+	int32_t get_empBattleGroup_() const { return empBattleGroup_; }
 	void set_employeeGroup1_(TypedArray<uint32_t> p_val) { employeeGroup1_ = p_val; }
 	TypedArray<uint32_t> get_employeeGroup1_() const { return employeeGroup1_; }
 	void set_employeeGroup2_(TypedArray<uint32_t> p_val) { employeeGroup2_ = p_val; }
@@ -3646,11 +4366,11 @@ public:
 class COM_Addprop : public Resource {
 	GDCLASS(COM_Addprop, Resource);
 protected:
-	uint16_t type_ = (PropertyType)0;
+	int32_t type_ = 0;
 	uint32_t uVal_ = 0;
 public:
-	void set_type_(uint16_t p_val) { type_ = p_val; }
-	uint16_t get_type_() const { return type_; }
+	void set_type_(int32_t p_val) { type_ = p_val; }
+	int32_t get_type_() const { return type_; }
 	void set_uVal_(uint32_t p_val) { uVal_ = p_val; }
 	uint32_t get_uVal_() const { return uVal_; }
 	static void _bind_methods();
@@ -3678,20 +4398,20 @@ public:
 class COM_Chat : public Resource {
 	GDCLASS(COM_Chat, Resource);
 protected:
-	uint16_t ck_ = (ChatKind)0;
+	int32_t ck_ = 0;
 	bool isAudio_ = false;
 	String content_ = "";
 	int32_t audioTime_ = 0;
 	TypedArray<uint8_t> audio_ = {};
 	bool isMe = false;
 	int32_t teamId_ = 0;
-	uint16_t teamType_ = (TeamType)0;
+	int32_t teamType_ = 0;
 	int16_t teamMinLevel_ = 0;
 	int16_t teamMaxLevel_ = 0;
 	String teamName_ = "";
 public:
-	void set_ck_(uint16_t p_val) { ck_ = p_val; }
-	uint16_t get_ck_() const { return ck_; }
+	void set_ck_(int32_t p_val) { ck_ = p_val; }
+	int32_t get_ck_() const { return ck_; }
 	void set_isAudio_(bool p_val) { isAudio_ = p_val; }
 	bool get_isAudio_() const { return isAudio_; }
 	void set_content_(String p_val) { content_ = p_val; }
@@ -3704,8 +4424,8 @@ public:
 	bool get_isMe() const { return isMe; }
 	void set_teamId_(int32_t p_val) { teamId_ = p_val; }
 	int32_t get_teamId_() const { return teamId_; }
-	void set_teamType_(uint16_t p_val) { teamType_ = p_val; }
-	uint16_t get_teamType_() const { return teamType_; }
+	void set_teamType_(int32_t p_val) { teamType_ = p_val; }
+	int32_t get_teamType_() const { return teamType_; }
 	void set_teamMinLevel_(int16_t p_val) { teamMinLevel_ = p_val; }
 	int16_t get_teamMinLevel_() const { return teamMinLevel_; }
 	void set_teamMaxLevel_(int16_t p_val) { teamMaxLevel_ = p_val; }
@@ -3748,7 +4468,7 @@ class COM_EndlessStair : public Resource {
 protected:
 	uint32_t rank_ = 0;
 	String name_ = "";
-	uint16_t job_ = (JobType)0;
+	int32_t job_ = 0;
 	uint32_t joblevel_ = 0;
 	int32_t assetId_ = 0;
 	uint32_t level_ = 0;
@@ -3759,8 +4479,8 @@ public:
 	uint32_t get_rank_() const { return rank_; }
 	void set_name_(String p_val) { name_ = p_val; }
 	String get_name_() const { return name_; }
-	void set_job_(uint16_t p_val) { job_ = p_val; }
-	uint16_t get_job_() const { return job_; }
+	void set_job_(int32_t p_val) { job_ = p_val; }
+	int32_t get_job_() const { return job_; }
 	void set_joblevel_(uint32_t p_val) { joblevel_ = p_val; }
 	uint32_t get_joblevel_() const { return joblevel_; }
 	void set_assetId_(int32_t p_val) { assetId_ = p_val; }
@@ -3847,7 +4567,7 @@ class COM_Mail : public Resource {
 	GDCLASS(COM_Mail, Resource);
 protected:
 	int32_t mailId_ = 0;
-	uint16_t mailType_ = (MailType)0;
+	int32_t mailType_ = 0;
 	int64_t timestamp_ = 0;
 	String sendPlayerName_ = "";
 	String recvPlayerName_ = "";
@@ -3860,8 +4580,8 @@ protected:
 public:
 	void set_mailId_(int32_t p_val) { mailId_ = p_val; }
 	int32_t get_mailId_() const { return mailId_; }
-	void set_mailType_(uint16_t p_val) { mailType_ = p_val; }
-	uint16_t get_mailType_() const { return mailType_; }
+	void set_mailType_(int32_t p_val) { mailType_ = p_val; }
+	int32_t get_mailType_() const { return mailType_; }
 	void set_timestamp_(int64_t p_val) { timestamp_ = p_val; }
 	int64_t get_timestamp_() const { return timestamp_; }
 	void set_sendPlayerName_(String p_val) { sendPlayerName_ = p_val; }
@@ -4107,8 +4827,8 @@ class COM_SearchContext : public Resource {
 	GDCLASS(COM_SearchContext, Resource);
 protected:
 	String title_ = "";
-	uint16_t ist_ = (ItemSubType)0;
-	uint16_t rt_ = (RaceType)0;
+	int32_t ist_ = 0;
+	int32_t rt_ = 0;
 	int32_t itemId_ = 0;
 	int32_t babyId_ = 0;
 	int32_t begin_ = 0;
@@ -4116,10 +4836,10 @@ protected:
 public:
 	void set_title_(String p_val) { title_ = p_val; }
 	String get_title_() const { return title_; }
-	void set_ist_(uint16_t p_val) { ist_ = p_val; }
-	uint16_t get_ist_() const { return ist_; }
-	void set_rt_(uint16_t p_val) { rt_ = p_val; }
-	uint16_t get_rt_() const { return rt_; }
+	void set_ist_(int32_t p_val) { ist_ = p_val; }
+	int32_t get_ist_() const { return ist_; }
+	void set_rt_(int32_t p_val) { rt_ = p_val; }
+	int32_t get_rt_() const { return rt_; }
 	void set_itemId_(int32_t p_val) { itemId_ = p_val; }
 	int32_t get_itemId_() const { return itemId_; }
 	void set_babyId_(int32_t p_val) { babyId_ = p_val; }
@@ -4141,8 +4861,8 @@ protected:
 	int32_t sellPlayerId_ = 0;
 	int32_t sellPrice = 0;
 	String title_ = "";
-	uint16_t ist_ = (ItemSubType)0;
-	uint16_t rt_ = (RaceType)0;
+	int32_t ist_ = 0;
+	int32_t rt_ = 0;
 	Ref<COM_Item> item_ = Ref<COM_Item>();
 	Ref<COM_BabyInst> baby_ = Ref<COM_BabyInst>();
 	int32_t time_ = 0;
@@ -4155,10 +4875,10 @@ public:
 	int32_t get_sellPrice() const { return sellPrice; }
 	void set_title_(String p_val) { title_ = p_val; }
 	String get_title_() const { return title_; }
-	void set_ist_(uint16_t p_val) { ist_ = p_val; }
-	uint16_t get_ist_() const { return ist_; }
-	void set_rt_(uint16_t p_val) { rt_ = p_val; }
-	uint16_t get_rt_() const { return rt_; }
+	void set_ist_(int32_t p_val) { ist_ = p_val; }
+	int32_t get_ist_() const { return ist_; }
+	void set_rt_(int32_t p_val) { rt_ = p_val; }
+	int32_t get_rt_() const { return rt_; }
 	void set_item_(Ref<COM_Item> p_val) { item_ = p_val; }
 	Ref<COM_Item> get_item_() const { return item_; }
 	void set_baby_(Ref<COM_BabyInst> p_val) { baby_ = p_val; }
@@ -4292,7 +5012,7 @@ public:
 class COM_ReconnectInfo : public Resource {
 	GDCLASS(COM_ReconnectInfo, Resource);
 protected:
-	uint16_t reconnectProcess_ = (ReconnectType)0;
+	int32_t reconnectProcess_ = 0;
 	String sessionKey_ = "";
 	TypedArray<COM_SimpleInformation> roles_ = {};
 	Ref<COM_PlayerInst> playerInst_ = Ref<COM_PlayerInst>();
@@ -4300,8 +5020,8 @@ protected:
 	Ref<COM_TeamInfo> team_ = Ref<COM_TeamInfo>();
 	Ref<COM_InitBattle> initBattle_ = Ref<COM_InitBattle>();
 public:
-	void set_reconnectProcess_(uint16_t p_val) { reconnectProcess_ = p_val; }
-	uint16_t get_reconnectProcess_() const { return reconnectProcess_; }
+	void set_reconnectProcess_(int32_t p_val) { reconnectProcess_ = p_val; }
+	int32_t get_reconnectProcess_() const { return reconnectProcess_; }
 	void set_sessionKey_(String p_val) { sessionKey_ = p_val; }
 	String get_sessionKey_() const { return sessionKey_; }
 	void set_roles_(TypedArray<COM_SimpleInformation> p_val) { roles_ = p_val; }
@@ -4323,7 +5043,7 @@ public:
 class COM_Notice : public Resource {
 	GDCLASS(COM_Notice, Resource);
 protected:
-	uint16_t SendType_ = (NoticeSendType)0;
+	int32_t SendType_ = 0;
 	String note_ = "";
 	float accumulate_ = 0.0;
 	float startTime_ = 0.0;
@@ -4331,8 +5051,8 @@ protected:
 	float interval_ = 0.0;
 	bool validate_ = false;
 public:
-	void set_SendType_(uint16_t p_val) { SendType_ = p_val; }
-	uint16_t get_SendType_() const { return SendType_; }
+	void set_SendType_(int32_t p_val) { SendType_ = p_val; }
+	int32_t get_SendType_() const { return SendType_; }
 	void set_note_(String p_val) { note_ = p_val; }
 	String get_note_() const { return note_; }
 	void set_accumulate_(float p_val) { accumulate_ = p_val; }
@@ -4564,7 +5284,7 @@ protected:
 	uint32_t playerGuid_ = 0;
 	String playerName_ = "";
 	String clientIp_ = "";
-	uint16_t type_ = (UIBehaviorType)0;
+	int32_t type_ = 0;
 public:
 	void set_accountGuid_(uint32_t p_val) { accountGuid_ = p_val; }
 	uint32_t get_accountGuid_() const { return accountGuid_; }
@@ -4576,8 +5296,8 @@ public:
 	String get_playerName_() const { return playerName_; }
 	void set_clientIp_(String p_val) { clientIp_ = p_val; }
 	String get_clientIp_() const { return clientIp_; }
-	void set_type_(uint16_t p_val) { type_ = p_val; }
-	uint16_t get_type_() const { return type_; }
+	void set_type_(int32_t p_val) { type_ = p_val; }
+	int32_t get_type_() const { return type_; }
 	static void _bind_methods();
 	
 	void serialize(ProtocolWriter* s) const;
@@ -4741,11 +5461,11 @@ public:
 class COM_Wishing : public Resource {
 	GDCLASS(COM_Wishing, Resource);
 protected:
-	uint16_t wt_ = (WishType)0;
+	int32_t wt_ = 0;
 	String wish_ = "";
 public:
-	void set_wt_(uint16_t p_val) { wt_ = p_val; }
-	uint16_t get_wt_() const { return wt_; }
+	void set_wt_(int32_t p_val) { wt_ = p_val; }
+	int32_t get_wt_() const { return wt_; }
 	void set_wish_(String p_val) { wish_ = p_val; }
 	String get_wish_() const { return wish_; }
 	static void _bind_methods();
@@ -4823,13 +5543,13 @@ public:
 class COM_EmployeeQuestInst : public Resource {
 	GDCLASS(COM_EmployeeQuestInst, Resource);
 protected:
-	uint16_t status_ = (EmployeeQuestStatus)0;
+	int32_t status_ = 0;
 	int32_t questId_ = 0;
 	int32_t timeout_ = 0;
 	TypedArray<int32_t> usedEmployees_ = {};
 public:
-	void set_status_(uint16_t p_val) { status_ = p_val; }
-	uint16_t get_status_() const { return status_; }
+	void set_status_(int32_t p_val) { status_ = p_val; }
+	int32_t get_status_() const { return status_; }
 	void set_questId_(int32_t p_val) { questId_ = p_val; }
 	int32_t get_questId_() const { return questId_; }
 	void set_timeout_(int32_t p_val) { timeout_ = p_val; }
@@ -4889,239 +5609,244 @@ public:
 	void serialize(ProtocolWriter* s) const;
 	bool deserialize(ProtocolReader* r);
 };
-class Client2Server_Proxy {
+class Client2Server_Proxy : public Resource {
+	GDCLASS(Client2Server_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~Client2Server_Proxy() {}
-	virtual void openvip(uint16_t vl) = 0;
-	virtual void requestPhoto() = 0;
-	virtual void ping() = 0;
-	virtual void sessionlogin(Ref<COM_LoginInfo> info) = 0;
-	virtual void login(Ref<COM_LoginInfo> info) = 0;
-	virtual void createPlayer(String playername, uint8_t playerTmpId) = 0;
-	virtual void deletePlayer(String playername) = 0;
-	virtual void enterGame(uint32_t playerInstId) = 0;
-	virtual void requestBag() = 0;
-	virtual void requestEmployees() = 0;
-	virtual void requestStorage(uint16_t tp) = 0;
-	virtual void requestAchievement() = 0;
-	virtual void initminig() = 0;
-	virtual void requestCompound() = 0;
-	virtual void move(float x, float z) = 0;
-	virtual void moveToNpc(int32_t npcid) = 0;
-	virtual void moveToNpc2(uint16_t type) = 0;
-	virtual void moveToZone(int32_t sceneId, int32_t zoneId) = 0;
-	virtual void autoBattle() = 0;
-	virtual void stopAutoBattle() = 0;
-	virtual void stopMove() = 0;
-	virtual void exitCopy() = 0;
-	virtual void transforScene(int32_t sceneId) = 0;
-	virtual void sceneLoaded() = 0;
-	virtual void querySimplePlayerInst(uint32_t instId) = 0;
-	virtual void logout() = 0;
-	virtual void changProp(uint32_t guid, TypedArray<COM_Addprop> props) = 0;
-	virtual void learnSkill(uint32_t skid) = 0;
-	virtual void babyLearnSkill(uint32_t instId, uint32_t oldSkId, uint32_t newSkId, uint32_t newSkLv) = 0;
-	virtual void forgetSkill(uint32_t skid) = 0;
-	virtual void syncOrder(Ref<COM_Order> order) = 0;
-	virtual void syncOrderTimeout() = 0;
-	virtual void sendChat(Ref<COM_Chat> content, String targetName) = 0;
-	virtual void requestAudio(int32_t audioId) = 0;
-	virtual void publishItemInst(uint16_t type, uint32_t itemInstId, uint16_t chatType, String playerName) = 0;
-	virtual void queryItemInst(int32_t showId) = 0;
-	virtual void publishbabyInst(uint16_t type, uint32_t babyInstId, String playerName) = 0;
-	virtual void querybabyInst(int32_t showId) = 0;
-	virtual void useItem(uint32_t slot, uint32_t target, uint32_t stack) = 0;
-	virtual void wearEquipment(uint32_t target, uint32_t itemInstId) = 0;
-	virtual void delEquipment(uint32_t target, uint32_t itemInstId) = 0;
-	virtual void setPlayerFront(bool isFront) = 0;
-	virtual void setBattlebaby(uint32_t babyID, bool isBattle) = 0;
-	virtual void changeBabyName(uint32_t babyID, String name) = 0;
-	virtual void intensifyBaby(uint32_t babyid) = 0;
-	virtual void setBattleEmp(uint32_t empID, uint16_t group, bool isBattle) = 0;
-	virtual void changeEmpBattleGroup(uint16_t group) = 0;
-	virtual void requestEvolve(uint32_t empInstId) = 0;
-	virtual void requestUpStar(uint32_t empInstId) = 0;
-	virtual void requestDelEmp(uint32_t empInstId) = 0;
-	virtual void delEmployee(TypedArray<uint32_t> emps) = 0;
-	virtual void onekeyDelEmp() = 0;
-	virtual void delEmployeeSoul(uint32_t instid, uint32_t soulNum) = 0;
-	virtual void sortBagItem() = 0;
-	virtual void sellBagItem(uint32_t instId, uint32_t stack) = 0;
-	virtual void depositItemToStorage(uint32_t instid) = 0;
-	virtual void depositBabyToStorage(uint32_t instid) = 0;
-	virtual void storageItemToBag(uint32_t instid) = 0;
-	virtual void storageBabyToPlayer(uint32_t instid) = 0;
-	virtual void sortStorage(uint16_t tp) = 0;
-	virtual void delStorageBaby(uint32_t instid) = 0;
-	virtual void jointLobby() = 0;
-	virtual void exitLobby() = 0;
-	virtual void createTeam(Ref<COM_CreateTeamInfo> cti) = 0;
-	virtual void changeTeam(Ref<COM_CreateTeamInfo> info) = 0;
-	virtual void kickTeamMember(uint32_t uuid) = 0;
-	virtual void changeTeamLeader(uint32_t uuid) = 0;
-	virtual void joinTeam(uint32_t teamId, String pwd) = 0;
-	virtual void exitTeam() = 0;
-	virtual void changeTeamPassword(String pwd) = 0;
-	virtual void joinTeamRoom() = 0;
-	virtual void inviteTeamMember(String name) = 0;
-	virtual void isjoinTeam(uint32_t teamId, bool isFlag) = 0;
-	virtual void leaveTeam() = 0;
-	virtual void backTeam() = 0;
-	virtual void refuseBackTeam() = 0;
-	virtual void teamCallMember(int32_t playerId) = 0;
-	virtual void requestJoinTeam(String targetName) = 0;
-	virtual void ratifyJoinTeam(String sendName) = 0;
-	virtual void drawLotteryBox(uint16_t type, bool isFree) = 0;
-	virtual void acceptQuest(int32_t questId) = 0;
-	virtual void submitQuest(int32_t npcId, int32_t questId) = 0;
-	virtual void giveupQuest(int32_t questId) = 0;
-	virtual void requestContactInfoById(uint32_t instId) = 0;
-	virtual void requestContactInfoByName(String instName) = 0;
-	virtual void requestFriendList() = 0;
-	virtual void addFriend(uint32_t instId) = 0;
-	virtual void delFriend(uint32_t instId) = 0;
-	virtual void addBlacklist(uint32_t instId) = 0;
-	virtual void delBlacklist(uint32_t instId) = 0;
-	virtual void requestReferrFriend() = 0;
-	virtual void mining(int32_t gatherId, int32_t times) = 0;
-	virtual void compoundItem(int32_t itemId, int32_t gemId) = 0;
-	virtual void bagItemSplit(int32_t instId, int32_t splitNum) = 0;
-	virtual void requestChallenge(String name) = 0;
-	virtual void requestRival() = 0;
-	virtual void requestMySelfJJCData() = 0;
-	virtual void requestCheckMsg(String name) = 0;
-	virtual void requestMyAllbattleMsg() = 0;
-	virtual void requestJJCRank() = 0;
-	virtual void requestLevelRank() = 0;
-	virtual void requestBabyRank() = 0;
-	virtual void requestEmpRank() = 0;
-	virtual void requestPlayerFFRank() = 0;
-	virtual void queryOnlinePlayerbyName(String name) = 0;
-	virtual void queryPlayerbyName(String name) = 0;
-	virtual void queryBaby(uint32_t instId) = 0;
-	virtual void queryEmployee(uint32_t instId) = 0;
-	virtual void guideFinish(uint64_t guideIdx) = 0;
-	virtual void enterBattle(int32_t battleId) = 0;
-	virtual void shopBuyItem(int32_t id, int32_t num) = 0;
-	virtual void getFirstRechargeItem() = 0;
-	virtual void requestLevelGift(int32_t level) = 0;
-	virtual void setCurrentTitle(int32_t title) = 0;
-	virtual void openBuyBox() = 0;
-	virtual void requestAchaward(int32_t achId) = 0;
-	virtual void sign(int32_t index) = 0;
-	virtual void requestSignupReward7() = 0;
-	virtual void requestSignupReward14() = 0;
-	virtual void requestSignupReward28() = 0;
-	virtual void requestActivityReward(int32_t index) = 0;
-	virtual void resetHundredTier() = 0;
-	virtual void enterHundredScene(int32_t level) = 0;
-	virtual void delBaby(int32_t instId) = 0;
-	virtual void resetBaby(int32_t instId) = 0;
-	virtual void resetBabyProp(int32_t instId) = 0;
-	virtual void remouldBaby(int32_t instid) = 0;
-	virtual void empSkillLevelUp(uint32_t empId, int32_t skillId) = 0;
-	virtual void setOpenDoubleTimeFlag(bool isFlag) = 0;
-	virtual void talkedNpc(int32_t npcId) = 0;
-	virtual void jjcBattleGo(uint32_t id) = 0;
-	virtual void requestMyJJCTeamMsg() = 0;
-	virtual void startMatching() = 0;
-	virtual void stopMatching() = 0;
-	virtual void exitPvpJJC() = 0;
-	virtual void joinPvpLobby() = 0;
-	virtual void exitPvpLobby() = 0;
-	virtual void requestpvprank() = 0;
-	virtual void joinWarriorchoose() = 0;
-	virtual void warriorStart() = 0;
-	virtual void warriorStop() = 0;
-	virtual void sendMail(String playername, String title, String content) = 0;
-	virtual void readMail(int32_t mailId) = 0;
-	virtual void delMail(int32_t mailId) = 0;
-	virtual void getMailItem(int32_t mailId) = 0;
-	virtual void requestState() = 0;
-	virtual void createGuild(String guildName) = 0;
-	virtual void delGuild(uint32_t guildId) = 0;
-	virtual void requestJoinGuild(uint32_t guid) = 0;
-	virtual void leaveGuild() = 0;
-	virtual void kickOut(int32_t guid) = 0;
-	virtual void acceptRequestGuild(int32_t playerId) = 0;
-	virtual void refuseRequestGuild(int32_t playerId) = 0;
-	virtual void changeMemberPosition(int32_t targetId, uint16_t job) = 0;
-	virtual void transferPremier(int32_t targetId) = 0;
-	virtual void changeGuildNotice(String notice) = 0;
-	virtual void queryGuildList(int16_t page) = 0;
-	virtual void inviteJoinGuild(String playerName) = 0;
-	virtual void respondInviteJoinGuild(String sendName) = 0;
-	virtual void buyGuildItem(int32_t tableId, int32_t times) = 0;
-	virtual void entryGuildBattle() = 0;
-	virtual void transforGuildBattleScene() = 0;
-	virtual void addGuildMoney(int32_t money) = 0;
-	virtual void updateGuildBuiling(uint16_t gbt) = 0;
-	virtual void refreshGuildShop() = 0;
-	virtual void levelupGuildSkill(int32_t skId) = 0;
-	virtual void presentGuildItem(int32_t num) = 0;
-	virtual void progenitusAddExp(int32_t monsterId, bool isSuper) = 0;
-	virtual void setProgenitusPosition(int32_t mId, int32_t pos) = 0;
-	virtual void guildsign() = 0;
-	virtual void fetchSelling(Ref<COM_SearchContext> context) = 0;
-	virtual void fetchSelling2(Ref<COM_SearchContext> context) = 0;
-	virtual void selling(int32_t iteminstid, int32_t babyinstid, int32_t price) = 0;
-	virtual void unselling(int32_t sellid) = 0;
-	virtual void buy(int32_t sellid) = 0;
-	virtual void fixItem(int32_t instId, uint16_t type) = 0;
-	virtual void fixAllItem(TypedArray<uint32_t> items, uint16_t type) = 0;
-	virtual void makeDebirsItem(int32_t instId, int32_t num) = 0;
-	virtual void levelUpMagicItem(TypedArray<uint32_t> items) = 0;
-	virtual void tupoMagicItem(int32_t level) = 0;
-	virtual void changeMagicJob(uint16_t job) = 0;
-	virtual void requestPk(uint32_t playerId) = 0;
-	virtual void uiBehavior(uint16_t type) = 0;
-	virtual void openZhuanpan() = 0;
-	virtual void zhuanpanGo(uint32_t counter) = 0;
-	virtual void redemptionSpree(String code) = 0;
-	virtual void sceneFilter(TypedArray<uint16_t> sfType) = 0;
-	virtual void sendExamAnswer(uint32_t questionId, uint8_t answer) = 0;
-	virtual void sendwishing(Ref<COM_Wishing> wish) = 0;
-	virtual void requestWish() = 0;
-	virtual void leaderCloseDialog() = 0;
-	virtual void requestOnlineReward(uint32_t index) = 0;
-	virtual void requestFundReward(uint32_t level) = 0;
-	virtual void openCard(uint16_t index) = 0;
-	virtual void resetCard() = 0;
-	virtual void hotRoleBuy() = 0;
-	virtual void requestSevenReward(uint32_t qid) = 0;
-	virtual void vipreward() = 0;
-	virtual void requestChargeTotalSingleReward(uint32_t index) = 0;
-	virtual void requestChargeTotalReward(uint32_t index) = 0;
-	virtual void requestChargeEverySingleReward(uint32_t index) = 0;
-	virtual void requestChargeEveryReward(uint32_t index) = 0;
-	virtual void requestLoginTotal(uint32_t index) = 0;
-	virtual void buyDiscountStoreSingle(int32_t itemId, int32_t itemStack) = 0;
-	virtual void buyDiscountStore(int32_t itemId, int32_t itemStack) = 0;
-	virtual void requestEmployeeActivityReward(uint32_t index) = 0;
-	virtual void requestmyselfrechargeleReward(uint32_t index) = 0;
-	virtual void requestEverydayIntegral() = 0;
-	virtual void buyIntegralItem(uint32_t id, uint32_t num) = 0;
-	virtual void familyLoseLeader() = 0;
-	virtual void verificationSMS(String phoneNumber, String code) = 0;
-	virtual void lockItem(int32_t instId, bool isLock) = 0;
-	virtual void lockBaby(int32_t instId, bool isLock) = 0;
-	virtual void showBaby(int32_t instId) = 0;
-	virtual void wearFuwen(int32_t itemInstId) = 0;
-	virtual void takeoffFuwen(int32_t slotId) = 0;
-	virtual void compFuwen(int32_t itemInstId) = 0;
-	virtual void requestEmployeeQuest() = 0;
-	virtual void acceptEmployeeQuest(int32_t questId, TypedArray<int32_t> employees) = 0;
-	virtual void submitEmployeeQuest(int32_t questId) = 0;
-	virtual void crystalUpLevel() = 0;
-	virtual void resetCrystalProp(TypedArray<int32_t> locklist) = 0;
-	virtual void magicItemOneKeyLevel() = 0;
-	virtual void submitQuest2(int32_t npcId, int32_t questId, int32_t instId) = 0;
+	virtual void openvip(int32_t vl);
+	virtual void requestPhoto();
+	virtual void ping();
+	virtual void sessionlogin(Ref<COM_LoginInfo> info);
+	virtual void login(Ref<COM_LoginInfo> info);
+	virtual void createPlayer(String playername, uint8_t playerTmpId);
+	virtual void deletePlayer(String playername);
+	virtual void enterGame(uint32_t playerInstId);
+	virtual void requestBag();
+	virtual void requestEmployees();
+	virtual void requestStorage(int32_t tp);
+	virtual void requestAchievement();
+	virtual void initminig();
+	virtual void requestCompound();
+	virtual void move(float x, float z);
+	virtual void moveToNpc(int32_t npcid);
+	virtual void moveToNpc2(int32_t type);
+	virtual void moveToZone(int32_t sceneId, int32_t zoneId);
+	virtual void autoBattle();
+	virtual void stopAutoBattle();
+	virtual void stopMove();
+	virtual void exitCopy();
+	virtual void transforScene(int32_t sceneId);
+	virtual void sceneLoaded();
+	virtual void querySimplePlayerInst(uint32_t instId);
+	virtual void logout();
+	virtual void changProp(uint32_t guid, TypedArray<COM_Addprop> props);
+	virtual void learnSkill(uint32_t skid);
+	virtual void babyLearnSkill(uint32_t instId, uint32_t oldSkId, uint32_t newSkId, uint32_t newSkLv);
+	virtual void forgetSkill(uint32_t skid);
+	virtual void syncOrder(Ref<COM_Order> order);
+	virtual void syncOrderTimeout();
+	virtual void sendChat(Ref<COM_Chat> content, String targetName);
+	virtual void requestAudio(int32_t audioId);
+	virtual void publishItemInst(int32_t type, uint32_t itemInstId, int32_t chatType, String playerName);
+	virtual void queryItemInst(int32_t showId);
+	virtual void publishbabyInst(int32_t type, uint32_t babyInstId, String playerName);
+	virtual void querybabyInst(int32_t showId);
+	virtual void useItem(uint32_t slot, uint32_t target, uint32_t stack);
+	virtual void wearEquipment(uint32_t target, uint32_t itemInstId);
+	virtual void delEquipment(uint32_t target, uint32_t itemInstId);
+	virtual void setPlayerFront(bool isFront);
+	virtual void setBattlebaby(uint32_t babyID, bool isBattle);
+	virtual void changeBabyName(uint32_t babyID, String name);
+	virtual void intensifyBaby(uint32_t babyid);
+	virtual void setBattleEmp(uint32_t empID, int32_t group, bool isBattle);
+	virtual void changeEmpBattleGroup(int32_t group);
+	virtual void requestEvolve(uint32_t empInstId);
+	virtual void requestUpStar(uint32_t empInstId);
+	virtual void requestDelEmp(uint32_t empInstId);
+	virtual void delEmployee(TypedArray<uint32_t> emps);
+	virtual void onekeyDelEmp();
+	virtual void delEmployeeSoul(uint32_t instid, uint32_t soulNum);
+	virtual void sortBagItem();
+	virtual void sellBagItem(uint32_t instId, uint32_t stack);
+	virtual void depositItemToStorage(uint32_t instid);
+	virtual void depositBabyToStorage(uint32_t instid);
+	virtual void storageItemToBag(uint32_t instid);
+	virtual void storageBabyToPlayer(uint32_t instid);
+	virtual void sortStorage(int32_t tp);
+	virtual void delStorageBaby(uint32_t instid);
+	virtual void jointLobby();
+	virtual void exitLobby();
+	virtual void createTeam(Ref<COM_CreateTeamInfo> cti);
+	virtual void changeTeam(Ref<COM_CreateTeamInfo> info);
+	virtual void kickTeamMember(uint32_t uuid);
+	virtual void changeTeamLeader(uint32_t uuid);
+	virtual void joinTeam(uint32_t teamId, String pwd);
+	virtual void exitTeam();
+	virtual void changeTeamPassword(String pwd);
+	virtual void joinTeamRoom();
+	virtual void inviteTeamMember(String name);
+	virtual void isjoinTeam(uint32_t teamId, bool isFlag);
+	virtual void leaveTeam();
+	virtual void backTeam();
+	virtual void refuseBackTeam();
+	virtual void teamCallMember(int32_t playerId);
+	virtual void requestJoinTeam(String targetName);
+	virtual void ratifyJoinTeam(String sendName);
+	virtual void drawLotteryBox(int32_t type, bool isFree);
+	virtual void acceptQuest(int32_t questId);
+	virtual void submitQuest(int32_t npcId, int32_t questId);
+	virtual void giveupQuest(int32_t questId);
+	virtual void requestContactInfoById(uint32_t instId);
+	virtual void requestContactInfoByName(String instName);
+	virtual void requestFriendList();
+	virtual void addFriend(uint32_t instId);
+	virtual void delFriend(uint32_t instId);
+	virtual void addBlacklist(uint32_t instId);
+	virtual void delBlacklist(uint32_t instId);
+	virtual void requestReferrFriend();
+	virtual void mining(int32_t gatherId, int32_t times);
+	virtual void compoundItem(int32_t itemId, int32_t gemId);
+	virtual void bagItemSplit(int32_t instId, int32_t splitNum);
+	virtual void requestChallenge(String name);
+	virtual void requestRival();
+	virtual void requestMySelfJJCData();
+	virtual void requestCheckMsg(String name);
+	virtual void requestMyAllbattleMsg();
+	virtual void requestJJCRank();
+	virtual void requestLevelRank();
+	virtual void requestBabyRank();
+	virtual void requestEmpRank();
+	virtual void requestPlayerFFRank();
+	virtual void queryOnlinePlayerbyName(String name);
+	virtual void queryPlayerbyName(String name);
+	virtual void queryBaby(uint32_t instId);
+	virtual void queryEmployee(uint32_t instId);
+	virtual void guideFinish(uint64_t guideIdx);
+	virtual void enterBattle(int32_t battleId);
+	virtual void shopBuyItem(int32_t id, int32_t num);
+	virtual void getFirstRechargeItem();
+	virtual void requestLevelGift(int32_t level);
+	virtual void setCurrentTitle(int32_t title);
+	virtual void openBuyBox();
+	virtual void requestAchaward(int32_t achId);
+	virtual void sign(int32_t index);
+	virtual void requestSignupReward7();
+	virtual void requestSignupReward14();
+	virtual void requestSignupReward28();
+	virtual void requestActivityReward(int32_t index);
+	virtual void resetHundredTier();
+	virtual void enterHundredScene(int32_t level);
+	virtual void delBaby(int32_t instId);
+	virtual void resetBaby(int32_t instId);
+	virtual void resetBabyProp(int32_t instId);
+	virtual void remouldBaby(int32_t instid);
+	virtual void empSkillLevelUp(uint32_t empId, int32_t skillId);
+	virtual void setOpenDoubleTimeFlag(bool isFlag);
+	virtual void talkedNpc(int32_t npcId);
+	virtual void jjcBattleGo(uint32_t id);
+	virtual void requestMyJJCTeamMsg();
+	virtual void startMatching();
+	virtual void stopMatching();
+	virtual void exitPvpJJC();
+	virtual void joinPvpLobby();
+	virtual void exitPvpLobby();
+	virtual void requestpvprank();
+	virtual void joinWarriorchoose();
+	virtual void warriorStart();
+	virtual void warriorStop();
+	virtual void sendMail(String playername, String title, String content);
+	virtual void readMail(int32_t mailId);
+	virtual void delMail(int32_t mailId);
+	virtual void getMailItem(int32_t mailId);
+	virtual void requestState();
+	virtual void createGuild(String guildName);
+	virtual void delGuild(uint32_t guildId);
+	virtual void requestJoinGuild(uint32_t guid);
+	virtual void leaveGuild();
+	virtual void kickOut(int32_t guid);
+	virtual void acceptRequestGuild(int32_t playerId);
+	virtual void refuseRequestGuild(int32_t playerId);
+	virtual void changeMemberPosition(int32_t targetId, int32_t job);
+	virtual void transferPremier(int32_t targetId);
+	virtual void changeGuildNotice(String notice);
+	virtual void queryGuildList(int16_t page);
+	virtual void inviteJoinGuild(String playerName);
+	virtual void respondInviteJoinGuild(String sendName);
+	virtual void buyGuildItem(int32_t tableId, int32_t times);
+	virtual void entryGuildBattle();
+	virtual void transforGuildBattleScene();
+	virtual void addGuildMoney(int32_t money);
+	virtual void updateGuildBuiling(int32_t gbt);
+	virtual void refreshGuildShop();
+	virtual void levelupGuildSkill(int32_t skId);
+	virtual void presentGuildItem(int32_t num);
+	virtual void progenitusAddExp(int32_t monsterId, bool isSuper);
+	virtual void setProgenitusPosition(int32_t mId, int32_t pos);
+	virtual void guildsign();
+	virtual void fetchSelling(Ref<COM_SearchContext> context);
+	virtual void fetchSelling2(Ref<COM_SearchContext> context);
+	virtual void selling(int32_t iteminstid, int32_t babyinstid, int32_t price);
+	virtual void unselling(int32_t sellid);
+	virtual void buy(int32_t sellid);
+	virtual void fixItem(int32_t instId, int32_t type);
+	virtual void fixAllItem(TypedArray<uint32_t> items, int32_t type);
+	virtual void makeDebirsItem(int32_t instId, int32_t num);
+	virtual void levelUpMagicItem(TypedArray<uint32_t> items);
+	virtual void tupoMagicItem(int32_t level);
+	virtual void changeMagicJob(int32_t job);
+	virtual void requestPk(uint32_t playerId);
+	virtual void uiBehavior(int32_t type);
+	virtual void openZhuanpan();
+	virtual void zhuanpanGo(uint32_t counter);
+	virtual void redemptionSpree(String code);
+	virtual void sceneFilter(TypedArray<int32_t> sfType);
+	virtual void sendExamAnswer(uint32_t questionId, uint8_t answer);
+	virtual void sendwishing(Ref<COM_Wishing> wish);
+	virtual void requestWish();
+	virtual void leaderCloseDialog();
+	virtual void requestOnlineReward(uint32_t index);
+	virtual void requestFundReward(uint32_t level);
+	virtual void openCard(uint16_t index);
+	virtual void resetCard();
+	virtual void hotRoleBuy();
+	virtual void requestSevenReward(uint32_t qid);
+	virtual void vipreward();
+	virtual void requestChargeTotalSingleReward(uint32_t index);
+	virtual void requestChargeTotalReward(uint32_t index);
+	virtual void requestChargeEverySingleReward(uint32_t index);
+	virtual void requestChargeEveryReward(uint32_t index);
+	virtual void requestLoginTotal(uint32_t index);
+	virtual void buyDiscountStoreSingle(int32_t itemId, int32_t itemStack);
+	virtual void buyDiscountStore(int32_t itemId, int32_t itemStack);
+	virtual void requestEmployeeActivityReward(uint32_t index);
+	virtual void requestmyselfrechargeleReward(uint32_t index);
+	virtual void requestEverydayIntegral();
+	virtual void buyIntegralItem(uint32_t id, uint32_t num);
+	virtual void familyLoseLeader();
+	virtual void verificationSMS(String phoneNumber, String code);
+	virtual void lockItem(int32_t instId, bool isLock);
+	virtual void lockBaby(int32_t instId, bool isLock);
+	virtual void showBaby(int32_t instId);
+	virtual void wearFuwen(int32_t itemInstId);
+	virtual void takeoffFuwen(int32_t slotId);
+	virtual void compFuwen(int32_t itemInstId);
+	virtual void requestEmployeeQuest();
+	virtual void acceptEmployeeQuest(int32_t questId, TypedArray<int32_t> employees);
+	virtual void submitEmployeeQuest(int32_t questId);
+	virtual void crystalUpLevel();
+	virtual void resetCrystalProp(TypedArray<int32_t> locklist);
+	virtual void magicItemOneKeyLevel();
+	virtual void submitQuest2(int32_t npcId, int32_t questId, int32_t instId);
+	bool dispatch(ProtocolReader *r);
 };
 
-class Client2Server_Stub {
+class Client2Server_Stub : public Resource {
+	GDCLASS(Client2Server_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~Client2Server_Stub() {}
-	void openvip(uint16_t vl);
+	void openvip(int32_t vl);
 	void requestPhoto();
 	void ping();
 	void sessionlogin(Ref<COM_LoginInfo> info);
@@ -5131,13 +5856,13 @@ public:
 	void enterGame(uint32_t playerInstId);
 	void requestBag();
 	void requestEmployees();
-	void requestStorage(uint16_t tp);
+	void requestStorage(int32_t tp);
 	void requestAchievement();
 	void initminig();
 	void requestCompound();
 	void move(float x, float z);
 	void moveToNpc(int32_t npcid);
-	void moveToNpc2(uint16_t type);
+	void moveToNpc2(int32_t type);
 	void moveToZone(int32_t sceneId, int32_t zoneId);
 	void autoBattle();
 	void stopAutoBattle();
@@ -5155,9 +5880,9 @@ public:
 	void syncOrderTimeout();
 	void sendChat(Ref<COM_Chat> content, String targetName);
 	void requestAudio(int32_t audioId);
-	void publishItemInst(uint16_t type, uint32_t itemInstId, uint16_t chatType, String playerName);
+	void publishItemInst(int32_t type, uint32_t itemInstId, int32_t chatType, String playerName);
 	void queryItemInst(int32_t showId);
-	void publishbabyInst(uint16_t type, uint32_t babyInstId, String playerName);
+	void publishbabyInst(int32_t type, uint32_t babyInstId, String playerName);
 	void querybabyInst(int32_t showId);
 	void useItem(uint32_t slot, uint32_t target, uint32_t stack);
 	void wearEquipment(uint32_t target, uint32_t itemInstId);
@@ -5166,8 +5891,8 @@ public:
 	void setBattlebaby(uint32_t babyID, bool isBattle);
 	void changeBabyName(uint32_t babyID, String name);
 	void intensifyBaby(uint32_t babyid);
-	void setBattleEmp(uint32_t empID, uint16_t group, bool isBattle);
-	void changeEmpBattleGroup(uint16_t group);
+	void setBattleEmp(uint32_t empID, int32_t group, bool isBattle);
+	void changeEmpBattleGroup(int32_t group);
 	void requestEvolve(uint32_t empInstId);
 	void requestUpStar(uint32_t empInstId);
 	void requestDelEmp(uint32_t empInstId);
@@ -5180,7 +5905,7 @@ public:
 	void depositBabyToStorage(uint32_t instid);
 	void storageItemToBag(uint32_t instid);
 	void storageBabyToPlayer(uint32_t instid);
-	void sortStorage(uint16_t tp);
+	void sortStorage(int32_t tp);
 	void delStorageBaby(uint32_t instid);
 	void jointLobby();
 	void exitLobby();
@@ -5200,7 +5925,7 @@ public:
 	void teamCallMember(int32_t playerId);
 	void requestJoinTeam(String targetName);
 	void ratifyJoinTeam(String sendName);
-	void drawLotteryBox(uint16_t type, bool isFree);
+	void drawLotteryBox(int32_t type, bool isFree);
 	void acceptQuest(int32_t questId);
 	void submitQuest(int32_t npcId, int32_t questId);
 	void giveupQuest(int32_t questId);
@@ -5274,7 +5999,7 @@ public:
 	void kickOut(int32_t guid);
 	void acceptRequestGuild(int32_t playerId);
 	void refuseRequestGuild(int32_t playerId);
-	void changeMemberPosition(int32_t targetId, uint16_t job);
+	void changeMemberPosition(int32_t targetId, int32_t job);
 	void transferPremier(int32_t targetId);
 	void changeGuildNotice(String notice);
 	void queryGuildList(int16_t page);
@@ -5284,7 +6009,7 @@ public:
 	void entryGuildBattle();
 	void transforGuildBattleScene();
 	void addGuildMoney(int32_t money);
-	void updateGuildBuiling(uint16_t gbt);
+	void updateGuildBuiling(int32_t gbt);
 	void refreshGuildShop();
 	void levelupGuildSkill(int32_t skId);
 	void presentGuildItem(int32_t num);
@@ -5296,18 +6021,18 @@ public:
 	void selling(int32_t iteminstid, int32_t babyinstid, int32_t price);
 	void unselling(int32_t sellid);
 	void buy(int32_t sellid);
-	void fixItem(int32_t instId, uint16_t type);
-	void fixAllItem(TypedArray<uint32_t> items, uint16_t type);
+	void fixItem(int32_t instId, int32_t type);
+	void fixAllItem(TypedArray<uint32_t> items, int32_t type);
 	void makeDebirsItem(int32_t instId, int32_t num);
 	void levelUpMagicItem(TypedArray<uint32_t> items);
 	void tupoMagicItem(int32_t level);
-	void changeMagicJob(uint16_t job);
+	void changeMagicJob(int32_t job);
 	void requestPk(uint32_t playerId);
-	void uiBehavior(uint16_t type);
+	void uiBehavior(int32_t type);
 	void openZhuanpan();
 	void zhuanpanGo(uint32_t counter);
 	void redemptionSpree(String code);
-	void sceneFilter(TypedArray<uint16_t> sfType);
+	void sceneFilter(TypedArray<int32_t> sfType);
 	void sendExamAnswer(uint32_t questionId, uint8_t answer);
 	void sendwishing(Ref<COM_Wishing> wish);
 	void requestWish();
@@ -5347,296 +6072,300 @@ public:
 	void submitQuest2(int32_t npcId, int32_t questId, int32_t instId);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class Client2Server_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, Client2Server_Proxy* proxy);
 };
-class Server2Client_Proxy {
+class Server2Client_Proxy : public Resource {
+	GDCLASS(Server2Client_Proxy, Resource);
 public:
-	virtual bool dispatch(ProtocolReader *r) = 0; 
+	static void _bind_methods();
 	virtual ~Server2Client_Proxy() {}
-	virtual void pong() = 0;
-	virtual void errorno(uint16_t e) = 0;
-	virtual void teamerrorno(String name, uint16_t e) = 0;
-	virtual void reconnection(Ref<COM_ReconnectInfo> recInfo) = 0;
-	virtual void sessionfailed() = 0;
-	virtual void loginok(String sessionkey, TypedArray<COM_SimpleInformation> players) = 0;
-	virtual void logoutOk() = 0;
-	virtual void createPlayerOk(Ref<COM_SimpleInformation> player) = 0;
-	virtual void deletePlayerOk(String name) = 0;
-	virtual void enterGameOk(Ref<COM_PlayerInst> inst) = 0;
-	virtual void initBabies(TypedArray<COM_BabyInst> insts) = 0;
-	virtual void initEmployees(TypedArray<COM_EmployeeInst> insts, bool isFlag) = 0;
-	virtual void initEmpBattleGroup(Ref<COM_BattleEmp> bep) = 0;
-	virtual void initNpc(TypedArray<int32_t> npcList) = 0;
-	virtual void initAchievement(TypedArray<COM_Achievement> actlist) = 0;
-	virtual void initGather(uint32_t allnum, TypedArray<COM_Gather> gathers) = 0;
-	virtual void initcompound(TypedArray<uint32_t> compounds) = 0;
-	virtual void addBaby(Ref<COM_BabyInst> inst) = 0;
-	virtual void refreshBaby(Ref<COM_BabyInst> inst) = 0;
-	virtual void delBabyOK(uint32_t babyInstId) = 0;
-	virtual void changeBabyNameOK(uint32_t babyId, String name) = 0;
-	virtual void remouldBabyOK(uint32_t instid) = 0;
-	virtual void intensifyBabyOK(uint32_t babyid, uint32_t intensifyLevel) = 0;
-	virtual void learnSkillOk(Ref<COM_Skill> inst) = 0;
-	virtual void forgetSkillOk(uint32_t skid) = 0;
-	virtual void addSkillExp(uint32_t skid, uint32_t uExp, uint16_t flag) = 0;
-	virtual void babyLearnSkillOK(uint32_t instId, uint32_t newSkId) = 0;
-	virtual void skillLevelUp(uint32_t instId, Ref<COM_Skill> inst) = 0;
-	virtual void joinScene(Ref<COM_SceneInfo> info) = 0;
-	virtual void joinCopySceneOK(int32_t secneid) = 0;
-	virtual void initCopyNums() = 0;
-	virtual void addToScene(Ref<COM_ScenePlayerInformation> inst) = 0;
-	virtual void delFormScene(int32_t instId) = 0;
-	virtual void move2(int32_t instId, Ref<COM_FPosition> pos) = 0;
-	virtual void cantMove() = 0;
-	virtual void querySimplePlayerInstOk(Ref<COM_SimplePlayerInst> player) = 0;
-	virtual void transfor2(int32_t instId, Ref<COM_FPosition> pos) = 0;
-	virtual void openScene(int32_t sceneId) = 0;
-	virtual void autoBattleResult(bool isOk) = 0;
-	virtual void talked2Npc(int32_t npcId) = 0;
-	virtual void talked2Player(int32_t playerId) = 0;
-	virtual void useItemOk(int32_t itemId, int32_t stack) = 0;
-	virtual void syncBattleStatus(int32_t playerId, bool inBattle) = 0;
-	virtual void enterBattleOk(Ref<COM_InitBattle> initBattle) = 0;
-	virtual void exitBattleOk(uint16_t bjt, Ref<COM_BattleOverClearing> init) = 0;
-	virtual void syncOrderOk(uint32_t uid) = 0;
-	virtual void syncOrderOkEX() = 0;
-	virtual void syncOneTurnAction(Ref<COM_BattleReport> reports) = 0;
-	virtual void syncProperties(uint32_t guid, TypedArray<COM_PropValue> props) = 0;
-	virtual void receiveChat(Ref<COM_ChatInfo> info, Ref<COM_ContactInfo> myinfo) = 0;
-	virtual void requestAudioOk(int32_t audioId, TypedArray<uint8_t> content) = 0;
-	virtual void publishItemInstRes(Ref<COM_ShowItemInstInfo> info, uint16_t type) = 0;
-	virtual void queryItemInstRes(Ref<COM_ShowItemInst> item) = 0;
-	virtual void publishBabyInstRes(Ref<COM_ShowbabyInstInfo> info, uint16_t type) = 0;
-	virtual void queryBabyInstRes(Ref<COM_ShowbabyInst> inst) = 0;
-	virtual void setNoTalkTime(float t) = 0;
-	virtual void addNpc(TypedArray<int32_t> npcList) = 0;
-	virtual void delNpc(TypedArray<int32_t> npcList) = 0;
-	virtual void setTeamLeader(int32_t playerId, bool isLeader) = 0;
-	virtual void initBag(TypedArray<COM_Item> items) = 0;
-	virtual void addBagItem(Ref<COM_Item> item) = 0;
-	virtual void delBagItem(uint16_t slot) = 0;
-	virtual void updateBagItem(Ref<COM_Item> item) = 0;
-	virtual void depositItemOK(Ref<COM_Item> item) = 0;
-	virtual void getoutItemOK(uint16_t slot) = 0;
-	virtual void depositBabyOK(Ref<COM_BabyInst> baby) = 0;
-	virtual void getoutBabyOK(uint16_t slot) = 0;
-	virtual void sortItemStorageOK(TypedArray<COM_Item> items) = 0;
-	virtual void sortBabyStorageOK(TypedArray<uint32_t> babys) = 0;
-	virtual void initItemStorage(uint16_t gridNum, TypedArray<COM_Item> items) = 0;
-	virtual void initBabyStorage(uint16_t gridNum, TypedArray<COM_BabyInst> babys) = 0;
-	virtual void openStorageGrid(uint16_t tp, uint16_t gridNum) = 0;
-	virtual void delStorageBabyOK(uint16_t slot) = 0;
-	virtual void initPlayerEquips(TypedArray<COM_Item> equips) = 0;
-	virtual void wearEquipmentOk(uint32_t target, Ref<COM_Item> equip) = 0;
-	virtual void scenePlayerWearEquipment(uint32_t target, uint32_t itemId) = 0;
-	virtual void delEquipmentOk(uint32_t target, uint32_t itemInstId) = 0;
-	virtual void scenePlayerDoffEquipment(uint32_t target, uint32_t itemId) = 0;
-	virtual void sortBagItemOk() = 0;
-	virtual void jointLobbyOk(TypedArray<COM_SimpleTeamInfo> infos) = 0;
-	virtual void exitLobbyOk() = 0;
-	virtual void syncDelLobbyTeam(uint32_t teamId) = 0;
-	virtual void syncUpdateLobbyTeam(Ref<COM_SimpleTeamInfo> info) = 0;
-	virtual void syncAddLobbyTeam(Ref<COM_SimpleTeamInfo> team) = 0;
-	virtual void createTeamOk(Ref<COM_TeamInfo> team) = 0;
-	virtual void changeTeamOk(Ref<COM_TeamInfo> team) = 0;
-	virtual void joinTeamOk(Ref<COM_TeamInfo> team) = 0;
-	virtual void addTeamMember(Ref<COM_SimplePlayerInst> info) = 0;
-	virtual void delTeamMember(int32_t instId) = 0;
-	virtual void changeTeamLeaderOk(int32_t uuid) = 0;
-	virtual void exitTeamOk(bool iskick) = 0;
-	virtual void updateTeam(Ref<COM_TeamInfo> team) = 0;
-	virtual void joinTeamRoomOK(Ref<COM_TeamInfo> team) = 0;
-	virtual void inviteJoinTeam(uint32_t teamId, String name) = 0;
-	virtual void syncTeamDirtyProp(int32_t guid, TypedArray<COM_PropValue> props) = 0;
-	virtual void leaveTeamOk(int32_t playerId) = 0;
-	virtual void backTeamOK(int32_t playerId) = 0;
-	virtual void teamCallMemberBack() = 0;
-	virtual void refuseBackTeamOk(int32_t playerId) = 0;
-	virtual void requestJoinTeamTranspond(String reqName) = 0;
-	virtual void drawLotteryBoxRep(TypedArray<COM_Item> items) = 0;
-	virtual void addEmployee(Ref<COM_EmployeeInst> employee) = 0;
-	virtual void battleEmployee(int32_t empId, uint16_t group, bool forbattle) = 0;
-	virtual void changeEmpBattleGroupOK(uint16_t group) = 0;
-	virtual void evolveOK(int32_t guid, uint16_t qc) = 0;
-	virtual void upStarOK(int32_t guid, int32_t star, Ref<COM_Skill> sk) = 0;
-	virtual void delEmployeeOK(TypedArray<uint32_t> instids) = 0;
-	virtual void sycnEmployeeSoul(int32_t guid, uint32_t soulNum) = 0;
-	virtual void initQuest(TypedArray<COM_QuestInst> qlist, TypedArray<int32_t> clist) = 0;
-	virtual void acceptQuestOk(Ref<COM_QuestInst> inst) = 0;
-	virtual void submitQuestOk(int32_t questId) = 0;
-	virtual void giveupQuestOk(int32_t questId) = 0;
-	virtual void updateQuestInst(Ref<COM_QuestInst> inst) = 0;
-	virtual void requestContactInfoOk(Ref<COM_ContactInfo> contact) = 0;
-	virtual void addFriendOK(Ref<COM_ContactInfo> inst) = 0;
-	virtual void delFriendOK(uint32_t instId) = 0;
-	virtual void addBlacklistOK(Ref<COM_ContactInfo> inst) = 0;
-	virtual void delBlacklistOK(uint32_t instId) = 0;
-	virtual void findFriendFail() = 0;
-	virtual void referrFriendOK(TypedArray<COM_ContactInfo> insts) = 0;
-	virtual void requestFriendListOK(TypedArray<COM_ContactInfo> insts) = 0;
-	virtual void lotteryOk(int32_t lotteryId, TypedArray<COM_DropItem> dropItem) = 0;
-	virtual void openGatherOK(Ref<COM_Gather> gather) = 0;
-	virtual void miningOk(TypedArray<COM_DropItem> items, Ref<COM_Gather> gather, uint32_t gatherNum) = 0;
-	virtual void openCompound(uint32_t compoundId) = 0;
-	virtual void compoundItemOk(Ref<COM_Item> item) = 0;
-	virtual void openBagGridOk(int32_t num) = 0;
-	virtual void requestChallengeOK(bool isOK) = 0;
-	virtual void requestMySelfJJCDataOK(Ref<COM_EndlessStair> info) = 0;
-	virtual void requestRivalOK(TypedArray<COM_EndlessStair> infos) = 0;
-	virtual void rivalTimeOK() = 0;
-	virtual void checkMsgOK(Ref<COM_SimplePlayerInst> inst) = 0;
-	virtual void requestMyAllbattleMsgOK(TypedArray<COM_JJCBattleMsg> infos) = 0;
-	virtual void myBattleMsgOK(Ref<COM_JJCBattleMsg> info) = 0;
-	virtual void requestJJCRankOK(uint32_t myRank, TypedArray<COM_EndlessStair> infos) = 0;
-	virtual void requestLevelRankOK(uint32_t myRank, TypedArray<COM_ContactInfo> infos) = 0;
-	virtual void requestBabyRankOK(uint32_t myRank, TypedArray<COM_BabyRankData> infos) = 0;
-	virtual void requestEmpRankOK(uint32_t myRank, TypedArray<COM_EmployeeRankData> infos) = 0;
-	virtual void requestPlayerFFRankOK(uint32_t myRank, TypedArray<COM_ContactInfo> infos) = 0;
-	virtual void queryOnlinePlayerOK(bool isOnline) = 0;
-	virtual void queryPlayerOK(Ref<COM_SimplePlayerInst> inst) = 0;
-	virtual void queryBabyOK(Ref<COM_BabyInst> inst) = 0;
-	virtual void queryEmployeeOK(Ref<COM_EmployeeInst> inst) = 0;
-	virtual void initGuide(uint32_t guideMask) = 0;
-	virtual void buyShopItemOk(int32_t id) = 0;
-	virtual void addPlayerTitle(int32_t title) = 0;
-	virtual void delPlayerTitle(int32_t title) = 0;
-	virtual void requestOpenBuyBox(float greenTime, float blueTime, int32_t greenFreeNum) = 0;
-	virtual void requestGreenBoxTimeOk() = 0;
-	virtual void requestBlueBoxTimeOk() = 0;
-	virtual void updateAchievementinfo(Ref<COM_Achievement> achs) = 0;
-	virtual void syncOpenSystemFlag(uint64_t flag) = 0;
-	virtual void requestActivityRewardOK(uint32_t ar) = 0;
-	virtual void syncActivity(Ref<COM_ActivityTable> table) = 0;
-	virtual void updateActivityStatus(uint16_t type, bool open) = 0;
-	virtual void updateActivityCounter(uint16_t type, int32_t counter, int32_t reward) = 0;
-	virtual void syncExam(Ref<COM_Exam> exam) = 0;
-	virtual void syncExamAnswer(Ref<COM_Answer> answer) = 0;
-	virtual void petActivityNoNum(String name) = 0;
-	virtual void syncHundredInfo(Ref<COM_HundredBattle> hb) = 0;
-	virtual void initSignUp(TypedArray<int32_t> info, int32_t process, bool sign7, bool sign14, bool sign28) = 0;
-	virtual void signUp(bool flag) = 0;
-	virtual void requestSignupRewardOk7() = 0;
-	virtual void requestSignupRewardOk14() = 0;
-	virtual void requestSignupRewardOk28() = 0;
-	virtual void sycnDoubleExpTime(bool isFlag, float times) = 0;
-	virtual void sycnStates(TypedArray<COM_State> states) = 0;
-	virtual void requestpvprankOK(TypedArray<COM_ContactInfo> infos) = 0;
-	virtual void syncMyJJCTeamMember() = 0;
-	virtual void startMatchingOK() = 0;
-	virtual void stopMatchingOK(float times) = 0;
-	virtual void updatePvpJJCinfo(Ref<COM_PlayerVsPlayer> info) = 0;
-	virtual void exitPvpJJCOk() = 0;
-	virtual void syncEnemyPvpJJCPlayerInfo(Ref<COM_SimpleInformation> info) = 0;
-	virtual void syncEnemyPvpJJCTeamInfo(TypedArray<COM_SimpleInformation> infos, uint32_t teamID_) = 0;
-	virtual void openWarriorchooseUI() = 0;
-	virtual void warriorStartOK() = 0;
-	virtual void warriorStopOK() = 0;
-	virtual void syncWarriorEnemyTeamInfo(TypedArray<COM_SimpleInformation> infos, uint32_t teamID_) = 0;
-	virtual void appendMail(TypedArray<COM_Mail> mails) = 0;
-	virtual void delMail(int32_t mailId) = 0;
-	virtual void updateMailOk(Ref<COM_Mail> mail) = 0;
-	virtual void boardcastNotice(String content, bool isGm) = 0;
-	virtual void createGuildOK() = 0;
-	virtual void delGuildOK() = 0;
-	virtual void leaveGuildOk(String who, bool isKick) = 0;
-	virtual void initGuildData(Ref<COM_Guild> guild) = 0;
-	virtual void initGuildMemberList(TypedArray<COM_GuildMember> member) = 0;
-	virtual void modifyGuildMemberList(Ref<COM_GuildMember> member, uint16_t flag) = 0;
-	virtual void modifyGuildList(Ref<COM_GuildViewerData> data, uint16_t flag) = 0;
-	virtual void queryGuildListResult(int16_t page, int16_t pageNum, TypedArray<COM_GuildViewerData> guildList) = 0;
-	virtual void inviteGuild(String sendName, String guildName) = 0;
-	virtual void updateGuildShopItems(TypedArray<COM_GuildShopItem> items) = 0;
-	virtual void updateGuildBuilding(uint16_t type, Ref<COM_GuildBuilding> building) = 0;
-	virtual void updateGuildMyMember(Ref<COM_GuildMember> member) = 0;
-	virtual void levelupGuildSkillOk(Ref<COM_Skill> skInst) = 0;
-	virtual void presentGuildItemOk(int32_t val) = 0;
-	virtual void progenitusAddExpOk(Ref<COM_GuildProgen> mInst) = 0;
-	virtual void setProgenitusPositionOk(TypedArray<int32_t> positions) = 0;
-	virtual void updateGuildFundz(int32_t val) = 0;
-	virtual void updateGuildMemberContribution(int32_t val) = 0;
-	virtual void openGuildBattle(String otherName, int32_t playerNum, int32_t level, bool isLeft, int32_t lstime) = 0;
-	virtual void startGuildBattle(String otherName, int32_t otherCon, int32_t selfCon) = 0;
-	virtual void closeGuildBattle(bool isWinner) = 0;
-	virtual void syncGuildBattleWinCount(int32_t myWin, int32_t otherWin) = 0;
-	virtual void initMySelling(TypedArray<COM_SellItem> items) = 0;
-	virtual void initMySelled(TypedArray<COM_SelledItem> items) = 0;
-	virtual void fetchSellingOk(TypedArray<COM_SellItem> items, int32_t total) = 0;
-	virtual void fetchSellingOk2(TypedArray<COM_SellItem> items, int32_t total) = 0;
-	virtual void sellingOk(Ref<COM_SellItem> item) = 0;
-	virtual void selledOk(Ref<COM_SelledItem> item) = 0;
-	virtual void unsellingOk(int32_t sellid) = 0;
-	virtual void redemptionSpreeOk() = 0;
-	virtual void insertState(Ref<COM_State> st) = 0;
-	virtual void updattState(Ref<COM_State> st) = 0;
-	virtual void removeState(uint32_t stid) = 0;
-	virtual void requestFixItemOk(Ref<COM_Item> item) = 0;
-	virtual void makeDebirsItemOK() = 0;
-	virtual void updateMagicItem(int32_t level, int32_t exp) = 0;
-	virtual void changeMagicJobOk(uint16_t job) = 0;
-	virtual void magicItemTupoOk(int32_t level) = 0;
-	virtual void zhuanpanOK(TypedArray<uint32_t> pond) = 0;
-	virtual void updateZhuanpanNotice(Ref<COM_Zhuanpan> zhuanp) = 0;
-	virtual void sycnZhuanpanData(Ref<COM_ZhuanpanData> data) = 0;
-	virtual void copynonum(String name) = 0;
-	virtual void sceneFilterOk(TypedArray<uint16_t> sfType) = 0;
-	virtual void wishingOK() = 0;
-	virtual void shareWishOK(Ref<COM_Wish> wish) = 0;
-	virtual void leaderCloseDialogOk() = 0;
-	virtual void startOnlineTime() = 0;
-	virtual void requestOnlineTimeRewardOK(uint32_t index) = 0;
-	virtual void sycnVipflag(bool flag) = 0;
-	virtual void buyFundOK(bool flag) = 0;
-	virtual void requestFundRewardOK(uint32_t level) = 0;
-	virtual void firstRechargeOK(bool isFlag) = 0;
-	virtual void firstRechargeGiftOK(bool isFlag) = 0;
-	virtual void agencyActivity(uint16_t type, bool isFlag) = 0;
-	virtual void updateFestival(Ref<COM_ADLoginTotal> festival) = 0;
-	virtual void updateSelfRecharge(Ref<COM_ADChargeTotal> val) = 0;
-	virtual void updateSysRecharge(Ref<COM_ADChargeTotal> val) = 0;
-	virtual void updateSelfDiscountStore(Ref<COM_ADDiscountStore> val) = 0;
-	virtual void updateSysDiscountStore(Ref<COM_ADDiscountStore> val) = 0;
-	virtual void updateSelfOnceRecharge(Ref<COM_ADChargeEvery> val) = 0;
-	virtual void updateSysOnceRecharge(Ref<COM_ADChargeEvery> val) = 0;
-	virtual void openCardOK(Ref<COM_ADCardsContent> data) = 0;
-	virtual void resetCardOK() = 0;
-	virtual void sycnHotRole(Ref<COM_ADHotRole> data) = 0;
-	virtual void hotRoleBuyOk(uint16_t buyNum) = 0;
-	virtual void updateSevenday(Ref<COM_Sevenday> data) = 0;
-	virtual void updateEmployeeActivity(Ref<COM_ADEmployeeTotal> data) = 0;
-	virtual void updateMinGiftActivity(Ref<COM_ADGiftBag> data) = 0;
-	virtual void updateIntegralShop(Ref<COM_IntegralData> data) = 0;
-	virtual void updateShowBaby(uint32_t playerId, uint32_t showBabyTableId, String showBabyName) = 0;
-	virtual void updateMySelfRecharge(Ref<COM_ADChargeTotal> val) = 0;
-	virtual void verificationSMSOk(String phoneNumber) = 0;
-	virtual void requestLevelGiftOK(int32_t level) = 0;
-	virtual void sycnConvertExp(int32_t val) = 0;
-	virtual void wearFuwenOk(Ref<COM_Item> inst) = 0;
-	virtual void takeoffFuwenOk(int32_t slot) = 0;
-	virtual void compFuwenOk() = 0;
-	virtual void requestEmployeeQuestOk(TypedArray<COM_EmployeeQuestInst> questList) = 0;
-	virtual void acceptEmployeeQuestOk(Ref<COM_EmployeeQuestInst> inst) = 0;
-	virtual void submitEmployeeQuestOk(int32_t questId, bool isSuccess) = 0;
-	virtual void sycnCrystal(Ref<COM_CrystalData> data) = 0;
-	virtual void crystalUpLeveResult(bool isOK) = 0;
-	virtual void resetCrystalPropOK() = 0;
-	virtual void sycnCourseGift(TypedArray<COM_CourseGift> data) = 0;
-	virtual void orderOk(String orderId, int32_t shopId) = 0;
-	virtual void updateRandSubmitQuestCount(int32_t submitCount) = 0;
-	virtual void updateTeamMember(int32_t playerId, bool isMember) = 0;
+	virtual void pong();
+	virtual void errorno(int32_t e);
+	virtual void teamerrorno(String name, int32_t e);
+	virtual void reconnection(Ref<COM_ReconnectInfo> recInfo);
+	virtual void sessionfailed();
+	virtual void loginok(String sessionkey, TypedArray<COM_SimpleInformation> players);
+	virtual void logoutOk();
+	virtual void createPlayerOk(Ref<COM_SimpleInformation> player);
+	virtual void deletePlayerOk(String name);
+	virtual void enterGameOk(Ref<COM_PlayerInst> inst);
+	virtual void initBabies(TypedArray<COM_BabyInst> insts);
+	virtual void initEmployees(TypedArray<COM_EmployeeInst> insts, bool isFlag);
+	virtual void initEmpBattleGroup(Ref<COM_BattleEmp> bep);
+	virtual void initNpc(TypedArray<int32_t> npcList);
+	virtual void initAchievement(TypedArray<COM_Achievement> actlist);
+	virtual void initGather(uint32_t allnum, TypedArray<COM_Gather> gathers);
+	virtual void initcompound(TypedArray<uint32_t> compounds);
+	virtual void addBaby(Ref<COM_BabyInst> inst);
+	virtual void refreshBaby(Ref<COM_BabyInst> inst);
+	virtual void delBabyOK(uint32_t babyInstId);
+	virtual void changeBabyNameOK(uint32_t babyId, String name);
+	virtual void remouldBabyOK(uint32_t instid);
+	virtual void intensifyBabyOK(uint32_t babyid, uint32_t intensifyLevel);
+	virtual void learnSkillOk(Ref<COM_Skill> inst);
+	virtual void forgetSkillOk(uint32_t skid);
+	virtual void addSkillExp(uint32_t skid, uint32_t uExp, int32_t flag);
+	virtual void babyLearnSkillOK(uint32_t instId, uint32_t newSkId);
+	virtual void skillLevelUp(uint32_t instId, Ref<COM_Skill> inst);
+	virtual void joinScene(Ref<COM_SceneInfo> info);
+	virtual void joinCopySceneOK(int32_t secneid);
+	virtual void initCopyNums();
+	virtual void addToScene(Ref<COM_ScenePlayerInformation> inst);
+	virtual void delFormScene(int32_t instId);
+	virtual void move2(int32_t instId, Ref<COM_FPosition> pos);
+	virtual void cantMove();
+	virtual void querySimplePlayerInstOk(Ref<COM_SimplePlayerInst> player);
+	virtual void transfor2(int32_t instId, Ref<COM_FPosition> pos);
+	virtual void openScene(int32_t sceneId);
+	virtual void autoBattleResult(bool isOk);
+	virtual void talked2Npc(int32_t npcId);
+	virtual void talked2Player(int32_t playerId);
+	virtual void useItemOk(int32_t itemId, int32_t stack);
+	virtual void syncBattleStatus(int32_t playerId, bool inBattle);
+	virtual void enterBattleOk(Ref<COM_InitBattle> initBattle);
+	virtual void exitBattleOk(int32_t bjt, Ref<COM_BattleOverClearing> init);
+	virtual void syncOrderOk(uint32_t uid);
+	virtual void syncOrderOkEX();
+	virtual void syncOneTurnAction(Ref<COM_BattleReport> reports);
+	virtual void syncProperties(uint32_t guid, TypedArray<COM_PropValue> props);
+	virtual void receiveChat(Ref<COM_ChatInfo> info, Ref<COM_ContactInfo> myinfo);
+	virtual void requestAudioOk(int32_t audioId, TypedArray<uint8_t> content);
+	virtual void publishItemInstRes(Ref<COM_ShowItemInstInfo> info, int32_t type);
+	virtual void queryItemInstRes(Ref<COM_ShowItemInst> item);
+	virtual void publishBabyInstRes(Ref<COM_ShowbabyInstInfo> info, int32_t type);
+	virtual void queryBabyInstRes(Ref<COM_ShowbabyInst> inst);
+	virtual void setNoTalkTime(float t);
+	virtual void addNpc(TypedArray<int32_t> npcList);
+	virtual void delNpc(TypedArray<int32_t> npcList);
+	virtual void setTeamLeader(int32_t playerId, bool isLeader);
+	virtual void initBag(TypedArray<COM_Item> items);
+	virtual void addBagItem(Ref<COM_Item> item);
+	virtual void delBagItem(uint16_t slot);
+	virtual void updateBagItem(Ref<COM_Item> item);
+	virtual void depositItemOK(Ref<COM_Item> item);
+	virtual void getoutItemOK(uint16_t slot);
+	virtual void depositBabyOK(Ref<COM_BabyInst> baby);
+	virtual void getoutBabyOK(uint16_t slot);
+	virtual void sortItemStorageOK(TypedArray<COM_Item> items);
+	virtual void sortBabyStorageOK(TypedArray<uint32_t> babys);
+	virtual void initItemStorage(uint16_t gridNum, TypedArray<COM_Item> items);
+	virtual void initBabyStorage(uint16_t gridNum, TypedArray<COM_BabyInst> babys);
+	virtual void openStorageGrid(int32_t tp, uint16_t gridNum);
+	virtual void delStorageBabyOK(uint16_t slot);
+	virtual void initPlayerEquips(TypedArray<COM_Item> equips);
+	virtual void wearEquipmentOk(uint32_t target, Ref<COM_Item> equip);
+	virtual void scenePlayerWearEquipment(uint32_t target, uint32_t itemId);
+	virtual void delEquipmentOk(uint32_t target, uint32_t itemInstId);
+	virtual void scenePlayerDoffEquipment(uint32_t target, uint32_t itemId);
+	virtual void sortBagItemOk();
+	virtual void jointLobbyOk(TypedArray<COM_SimpleTeamInfo> infos);
+	virtual void exitLobbyOk();
+	virtual void syncDelLobbyTeam(uint32_t teamId);
+	virtual void syncUpdateLobbyTeam(Ref<COM_SimpleTeamInfo> info);
+	virtual void syncAddLobbyTeam(Ref<COM_SimpleTeamInfo> team);
+	virtual void createTeamOk(Ref<COM_TeamInfo> team);
+	virtual void changeTeamOk(Ref<COM_TeamInfo> team);
+	virtual void joinTeamOk(Ref<COM_TeamInfo> team);
+	virtual void addTeamMember(Ref<COM_SimplePlayerInst> info);
+	virtual void delTeamMember(int32_t instId);
+	virtual void changeTeamLeaderOk(int32_t uuid);
+	virtual void exitTeamOk(bool iskick);
+	virtual void updateTeam(Ref<COM_TeamInfo> team);
+	virtual void joinTeamRoomOK(Ref<COM_TeamInfo> team);
+	virtual void inviteJoinTeam(uint32_t teamId, String name);
+	virtual void syncTeamDirtyProp(int32_t guid, TypedArray<COM_PropValue> props);
+	virtual void leaveTeamOk(int32_t playerId);
+	virtual void backTeamOK(int32_t playerId);
+	virtual void teamCallMemberBack();
+	virtual void refuseBackTeamOk(int32_t playerId);
+	virtual void requestJoinTeamTranspond(String reqName);
+	virtual void drawLotteryBoxRep(TypedArray<COM_Item> items);
+	virtual void addEmployee(Ref<COM_EmployeeInst> employee);
+	virtual void battleEmployee(int32_t empId, int32_t group, bool forbattle);
+	virtual void changeEmpBattleGroupOK(int32_t group);
+	virtual void evolveOK(int32_t guid, int32_t qc);
+	virtual void upStarOK(int32_t guid, int32_t star, Ref<COM_Skill> sk);
+	virtual void delEmployeeOK(TypedArray<uint32_t> instids);
+	virtual void sycnEmployeeSoul(int32_t guid, uint32_t soulNum);
+	virtual void initQuest(TypedArray<COM_QuestInst> qlist, TypedArray<int32_t> clist);
+	virtual void acceptQuestOk(Ref<COM_QuestInst> inst);
+	virtual void submitQuestOk(int32_t questId);
+	virtual void giveupQuestOk(int32_t questId);
+	virtual void updateQuestInst(Ref<COM_QuestInst> inst);
+	virtual void requestContactInfoOk(Ref<COM_ContactInfo> contact);
+	virtual void addFriendOK(Ref<COM_ContactInfo> inst);
+	virtual void delFriendOK(uint32_t instId);
+	virtual void addBlacklistOK(Ref<COM_ContactInfo> inst);
+	virtual void delBlacklistOK(uint32_t instId);
+	virtual void findFriendFail();
+	virtual void referrFriendOK(TypedArray<COM_ContactInfo> insts);
+	virtual void requestFriendListOK(TypedArray<COM_ContactInfo> insts);
+	virtual void lotteryOk(int32_t lotteryId, TypedArray<COM_DropItem> dropItem);
+	virtual void openGatherOK(Ref<COM_Gather> gather);
+	virtual void miningOk(TypedArray<COM_DropItem> items, Ref<COM_Gather> gather, uint32_t gatherNum);
+	virtual void openCompound(uint32_t compoundId);
+	virtual void compoundItemOk(Ref<COM_Item> item);
+	virtual void openBagGridOk(int32_t num);
+	virtual void requestChallengeOK(bool isOK);
+	virtual void requestMySelfJJCDataOK(Ref<COM_EndlessStair> info);
+	virtual void requestRivalOK(TypedArray<COM_EndlessStair> infos);
+	virtual void rivalTimeOK();
+	virtual void checkMsgOK(Ref<COM_SimplePlayerInst> inst);
+	virtual void requestMyAllbattleMsgOK(TypedArray<COM_JJCBattleMsg> infos);
+	virtual void myBattleMsgOK(Ref<COM_JJCBattleMsg> info);
+	virtual void requestJJCRankOK(uint32_t myRank, TypedArray<COM_EndlessStair> infos);
+	virtual void requestLevelRankOK(uint32_t myRank, TypedArray<COM_ContactInfo> infos);
+	virtual void requestBabyRankOK(uint32_t myRank, TypedArray<COM_BabyRankData> infos);
+	virtual void requestEmpRankOK(uint32_t myRank, TypedArray<COM_EmployeeRankData> infos);
+	virtual void requestPlayerFFRankOK(uint32_t myRank, TypedArray<COM_ContactInfo> infos);
+	virtual void queryOnlinePlayerOK(bool isOnline);
+	virtual void queryPlayerOK(Ref<COM_SimplePlayerInst> inst);
+	virtual void queryBabyOK(Ref<COM_BabyInst> inst);
+	virtual void queryEmployeeOK(Ref<COM_EmployeeInst> inst);
+	virtual void initGuide(uint32_t guideMask);
+	virtual void buyShopItemOk(int32_t id);
+	virtual void addPlayerTitle(int32_t title);
+	virtual void delPlayerTitle(int32_t title);
+	virtual void requestOpenBuyBox(float greenTime, float blueTime, int32_t greenFreeNum);
+	virtual void requestGreenBoxTimeOk();
+	virtual void requestBlueBoxTimeOk();
+	virtual void updateAchievementinfo(Ref<COM_Achievement> achs);
+	virtual void syncOpenSystemFlag(uint64_t flag);
+	virtual void requestActivityRewardOK(uint32_t ar);
+	virtual void syncActivity(Ref<COM_ActivityTable> table);
+	virtual void updateActivityStatus(int32_t type, bool open);
+	virtual void updateActivityCounter(int32_t type, int32_t counter, int32_t reward);
+	virtual void syncExam(Ref<COM_Exam> exam);
+	virtual void syncExamAnswer(Ref<COM_Answer> answer);
+	virtual void petActivityNoNum(String name);
+	virtual void syncHundredInfo(Ref<COM_HundredBattle> hb);
+	virtual void initSignUp(TypedArray<int32_t> info, int32_t process, bool sign7, bool sign14, bool sign28);
+	virtual void signUp(bool flag);
+	virtual void requestSignupRewardOk7();
+	virtual void requestSignupRewardOk14();
+	virtual void requestSignupRewardOk28();
+	virtual void sycnDoubleExpTime(bool isFlag, float times);
+	virtual void sycnStates(TypedArray<COM_State> states);
+	virtual void requestpvprankOK(TypedArray<COM_ContactInfo> infos);
+	virtual void syncMyJJCTeamMember();
+	virtual void startMatchingOK();
+	virtual void stopMatchingOK(float times);
+	virtual void updatePvpJJCinfo(Ref<COM_PlayerVsPlayer> info);
+	virtual void exitPvpJJCOk();
+	virtual void syncEnemyPvpJJCPlayerInfo(Ref<COM_SimpleInformation> info);
+	virtual void syncEnemyPvpJJCTeamInfo(TypedArray<COM_SimpleInformation> infos, uint32_t teamID_);
+	virtual void openWarriorchooseUI();
+	virtual void warriorStartOK();
+	virtual void warriorStopOK();
+	virtual void syncWarriorEnemyTeamInfo(TypedArray<COM_SimpleInformation> infos, uint32_t teamID_);
+	virtual void appendMail(TypedArray<COM_Mail> mails);
+	virtual void delMail(int32_t mailId);
+	virtual void updateMailOk(Ref<COM_Mail> mail);
+	virtual void boardcastNotice(String content, bool isGm);
+	virtual void createGuildOK();
+	virtual void delGuildOK();
+	virtual void leaveGuildOk(String who, bool isKick);
+	virtual void initGuildData(Ref<COM_Guild> guild);
+	virtual void initGuildMemberList(TypedArray<COM_GuildMember> member);
+	virtual void modifyGuildMemberList(Ref<COM_GuildMember> member, int32_t flag);
+	virtual void modifyGuildList(Ref<COM_GuildViewerData> data, int32_t flag);
+	virtual void queryGuildListResult(int16_t page, int16_t pageNum, TypedArray<COM_GuildViewerData> guildList);
+	virtual void inviteGuild(String sendName, String guildName);
+	virtual void updateGuildShopItems(TypedArray<COM_GuildShopItem> items);
+	virtual void updateGuildBuilding(int32_t type, Ref<COM_GuildBuilding> building);
+	virtual void updateGuildMyMember(Ref<COM_GuildMember> member);
+	virtual void levelupGuildSkillOk(Ref<COM_Skill> skInst);
+	virtual void presentGuildItemOk(int32_t val);
+	virtual void progenitusAddExpOk(Ref<COM_GuildProgen> mInst);
+	virtual void setProgenitusPositionOk(TypedArray<int32_t> positions);
+	virtual void updateGuildFundz(int32_t val);
+	virtual void updateGuildMemberContribution(int32_t val);
+	virtual void openGuildBattle(String otherName, int32_t playerNum, int32_t level, bool isLeft, int32_t lstime);
+	virtual void startGuildBattle(String otherName, int32_t otherCon, int32_t selfCon);
+	virtual void closeGuildBattle(bool isWinner);
+	virtual void syncGuildBattleWinCount(int32_t myWin, int32_t otherWin);
+	virtual void initMySelling(TypedArray<COM_SellItem> items);
+	virtual void initMySelled(TypedArray<COM_SelledItem> items);
+	virtual void fetchSellingOk(TypedArray<COM_SellItem> items, int32_t total);
+	virtual void fetchSellingOk2(TypedArray<COM_SellItem> items, int32_t total);
+	virtual void sellingOk(Ref<COM_SellItem> item);
+	virtual void selledOk(Ref<COM_SelledItem> item);
+	virtual void unsellingOk(int32_t sellid);
+	virtual void redemptionSpreeOk();
+	virtual void insertState(Ref<COM_State> st);
+	virtual void updattState(Ref<COM_State> st);
+	virtual void removeState(uint32_t stid);
+	virtual void requestFixItemOk(Ref<COM_Item> item);
+	virtual void makeDebirsItemOK();
+	virtual void updateMagicItem(int32_t level, int32_t exp);
+	virtual void changeMagicJobOk(int32_t job);
+	virtual void magicItemTupoOk(int32_t level);
+	virtual void zhuanpanOK(TypedArray<uint32_t> pond);
+	virtual void updateZhuanpanNotice(Ref<COM_Zhuanpan> zhuanp);
+	virtual void sycnZhuanpanData(Ref<COM_ZhuanpanData> data);
+	virtual void copynonum(String name);
+	virtual void sceneFilterOk(TypedArray<int32_t> sfType);
+	virtual void wishingOK();
+	virtual void shareWishOK(Ref<COM_Wish> wish);
+	virtual void leaderCloseDialogOk();
+	virtual void startOnlineTime();
+	virtual void requestOnlineTimeRewardOK(uint32_t index);
+	virtual void sycnVipflag(bool flag);
+	virtual void buyFundOK(bool flag);
+	virtual void requestFundRewardOK(uint32_t level);
+	virtual void firstRechargeOK(bool isFlag);
+	virtual void firstRechargeGiftOK(bool isFlag);
+	virtual void agencyActivity(int32_t type, bool isFlag);
+	virtual void updateFestival(Ref<COM_ADLoginTotal> festival);
+	virtual void updateSelfRecharge(Ref<COM_ADChargeTotal> val);
+	virtual void updateSysRecharge(Ref<COM_ADChargeTotal> val);
+	virtual void updateSelfDiscountStore(Ref<COM_ADDiscountStore> val);
+	virtual void updateSysDiscountStore(Ref<COM_ADDiscountStore> val);
+	virtual void updateSelfOnceRecharge(Ref<COM_ADChargeEvery> val);
+	virtual void updateSysOnceRecharge(Ref<COM_ADChargeEvery> val);
+	virtual void openCardOK(Ref<COM_ADCardsContent> data);
+	virtual void resetCardOK();
+	virtual void sycnHotRole(Ref<COM_ADHotRole> data);
+	virtual void hotRoleBuyOk(uint16_t buyNum);
+	virtual void updateSevenday(Ref<COM_Sevenday> data);
+	virtual void updateEmployeeActivity(Ref<COM_ADEmployeeTotal> data);
+	virtual void updateMinGiftActivity(Ref<COM_ADGiftBag> data);
+	virtual void updateIntegralShop(Ref<COM_IntegralData> data);
+	virtual void updateShowBaby(uint32_t playerId, uint32_t showBabyTableId, String showBabyName);
+	virtual void updateMySelfRecharge(Ref<COM_ADChargeTotal> val);
+	virtual void verificationSMSOk(String phoneNumber);
+	virtual void requestLevelGiftOK(int32_t level);
+	virtual void sycnConvertExp(int32_t val);
+	virtual void wearFuwenOk(Ref<COM_Item> inst);
+	virtual void takeoffFuwenOk(int32_t slot);
+	virtual void compFuwenOk();
+	virtual void requestEmployeeQuestOk(TypedArray<COM_EmployeeQuestInst> questList);
+	virtual void acceptEmployeeQuestOk(Ref<COM_EmployeeQuestInst> inst);
+	virtual void submitEmployeeQuestOk(int32_t questId, bool isSuccess);
+	virtual void sycnCrystal(Ref<COM_CrystalData> data);
+	virtual void crystalUpLeveResult(bool isOK);
+	virtual void resetCrystalPropOK();
+	virtual void sycnCourseGift(TypedArray<COM_CourseGift> data);
+	virtual void orderOk(String orderId, int32_t shopId);
+	virtual void updateRandSubmitQuestCount(int32_t submitCount);
+	virtual void updateTeamMember(int32_t playerId, bool isMember);
+	bool dispatch(ProtocolReader *r);
 };
 
-class Server2Client_Stub {
+class Server2Client_Stub : public Resource {
+	GDCLASS(Server2Client_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~Server2Client_Stub() {}
 	void pong();
-	void errorno(uint16_t e);
-	void teamerrorno(String name, uint16_t e);
+	void errorno(int32_t e);
+	void teamerrorno(String name, int32_t e);
 	void reconnection(Ref<COM_ReconnectInfo> recInfo);
 	void sessionfailed();
 	void loginok(String sessionkey, TypedArray<COM_SimpleInformation> players);
@@ -5659,7 +6388,7 @@ public:
 	void intensifyBabyOK(uint32_t babyid, uint32_t intensifyLevel);
 	void learnSkillOk(Ref<COM_Skill> inst);
 	void forgetSkillOk(uint32_t skid);
-	void addSkillExp(uint32_t skid, uint32_t uExp, uint16_t flag);
+	void addSkillExp(uint32_t skid, uint32_t uExp, int32_t flag);
 	void babyLearnSkillOK(uint32_t instId, uint32_t newSkId);
 	void skillLevelUp(uint32_t instId, Ref<COM_Skill> inst);
 	void joinScene(Ref<COM_SceneInfo> info);
@@ -5678,16 +6407,16 @@ public:
 	void useItemOk(int32_t itemId, int32_t stack);
 	void syncBattleStatus(int32_t playerId, bool inBattle);
 	void enterBattleOk(Ref<COM_InitBattle> initBattle);
-	void exitBattleOk(uint16_t bjt, Ref<COM_BattleOverClearing> init);
+	void exitBattleOk(int32_t bjt, Ref<COM_BattleOverClearing> init);
 	void syncOrderOk(uint32_t uid);
 	void syncOrderOkEX();
 	void syncOneTurnAction(Ref<COM_BattleReport> reports);
 	void syncProperties(uint32_t guid, TypedArray<COM_PropValue> props);
 	void receiveChat(Ref<COM_ChatInfo> info, Ref<COM_ContactInfo> myinfo);
 	void requestAudioOk(int32_t audioId, TypedArray<uint8_t> content);
-	void publishItemInstRes(Ref<COM_ShowItemInstInfo> info, uint16_t type);
+	void publishItemInstRes(Ref<COM_ShowItemInstInfo> info, int32_t type);
 	void queryItemInstRes(Ref<COM_ShowItemInst> item);
-	void publishBabyInstRes(Ref<COM_ShowbabyInstInfo> info, uint16_t type);
+	void publishBabyInstRes(Ref<COM_ShowbabyInstInfo> info, int32_t type);
 	void queryBabyInstRes(Ref<COM_ShowbabyInst> inst);
 	void setNoTalkTime(float t);
 	void addNpc(TypedArray<int32_t> npcList);
@@ -5705,7 +6434,7 @@ public:
 	void sortBabyStorageOK(TypedArray<uint32_t> babys);
 	void initItemStorage(uint16_t gridNum, TypedArray<COM_Item> items);
 	void initBabyStorage(uint16_t gridNum, TypedArray<COM_BabyInst> babys);
-	void openStorageGrid(uint16_t tp, uint16_t gridNum);
+	void openStorageGrid(int32_t tp, uint16_t gridNum);
 	void delStorageBabyOK(uint16_t slot);
 	void initPlayerEquips(TypedArray<COM_Item> equips);
 	void wearEquipmentOk(uint32_t target, Ref<COM_Item> equip);
@@ -5736,9 +6465,9 @@ public:
 	void requestJoinTeamTranspond(String reqName);
 	void drawLotteryBoxRep(TypedArray<COM_Item> items);
 	void addEmployee(Ref<COM_EmployeeInst> employee);
-	void battleEmployee(int32_t empId, uint16_t group, bool forbattle);
-	void changeEmpBattleGroupOK(uint16_t group);
-	void evolveOK(int32_t guid, uint16_t qc);
+	void battleEmployee(int32_t empId, int32_t group, bool forbattle);
+	void changeEmpBattleGroupOK(int32_t group);
+	void evolveOK(int32_t guid, int32_t qc);
 	void upStarOK(int32_t guid, int32_t star, Ref<COM_Skill> sk);
 	void delEmployeeOK(TypedArray<uint32_t> instids);
 	void sycnEmployeeSoul(int32_t guid, uint32_t soulNum);
@@ -5788,8 +6517,8 @@ public:
 	void syncOpenSystemFlag(uint64_t flag);
 	void requestActivityRewardOK(uint32_t ar);
 	void syncActivity(Ref<COM_ActivityTable> table);
-	void updateActivityStatus(uint16_t type, bool open);
-	void updateActivityCounter(uint16_t type, int32_t counter, int32_t reward);
+	void updateActivityStatus(int32_t type, bool open);
+	void updateActivityCounter(int32_t type, int32_t counter, int32_t reward);
 	void syncExam(Ref<COM_Exam> exam);
 	void syncExamAnswer(Ref<COM_Answer> answer);
 	void petActivityNoNum(String name);
@@ -5822,12 +6551,12 @@ public:
 	void leaveGuildOk(String who, bool isKick);
 	void initGuildData(Ref<COM_Guild> guild);
 	void initGuildMemberList(TypedArray<COM_GuildMember> member);
-	void modifyGuildMemberList(Ref<COM_GuildMember> member, uint16_t flag);
-	void modifyGuildList(Ref<COM_GuildViewerData> data, uint16_t flag);
+	void modifyGuildMemberList(Ref<COM_GuildMember> member, int32_t flag);
+	void modifyGuildList(Ref<COM_GuildViewerData> data, int32_t flag);
 	void queryGuildListResult(int16_t page, int16_t pageNum, TypedArray<COM_GuildViewerData> guildList);
 	void inviteGuild(String sendName, String guildName);
 	void updateGuildShopItems(TypedArray<COM_GuildShopItem> items);
-	void updateGuildBuilding(uint16_t type, Ref<COM_GuildBuilding> building);
+	void updateGuildBuilding(int32_t type, Ref<COM_GuildBuilding> building);
 	void updateGuildMyMember(Ref<COM_GuildMember> member);
 	void levelupGuildSkillOk(Ref<COM_Skill> skInst);
 	void presentGuildItemOk(int32_t val);
@@ -5853,13 +6582,13 @@ public:
 	void requestFixItemOk(Ref<COM_Item> item);
 	void makeDebirsItemOK();
 	void updateMagicItem(int32_t level, int32_t exp);
-	void changeMagicJobOk(uint16_t job);
+	void changeMagicJobOk(int32_t job);
 	void magicItemTupoOk(int32_t level);
 	void zhuanpanOK(TypedArray<uint32_t> pond);
 	void updateZhuanpanNotice(Ref<COM_Zhuanpan> zhuanp);
 	void sycnZhuanpanData(Ref<COM_ZhuanpanData> data);
 	void copynonum(String name);
-	void sceneFilterOk(TypedArray<uint16_t> sfType);
+	void sceneFilterOk(TypedArray<int32_t> sfType);
 	void wishingOK();
 	void shareWishOK(Ref<COM_Wish> wish);
 	void leaderCloseDialogOk();
@@ -5870,7 +6599,7 @@ public:
 	void requestFundRewardOK(uint32_t level);
 	void firstRechargeOK(bool isFlag);
 	void firstRechargeGiftOK(bool isFlag);
-	void agencyActivity(uint16_t type, bool isFlag);
+	void agencyActivity(int32_t type, bool isFlag);
 	void updateFestival(Ref<COM_ADLoginTotal> festival);
 	void updateSelfRecharge(Ref<COM_ADChargeTotal> val);
 	void updateSysRecharge(Ref<COM_ADChargeTotal> val);
@@ -5906,125 +6635,145 @@ public:
 	void updateTeamMember(int32_t playerId, bool isMember);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class Server2Client_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, Server2Client_Proxy* proxy);
 };
-class SGE_World2Login_Proxy {
+class SGE_World2Login_Proxy : public Resource {
+	GDCLASS(SGE_World2Login_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_World2Login_Proxy() {}
-	virtual void queryAccount(Ref<COM_LoginInfo> info) = 0;
-	virtual void setAccountSeal(String accountname, bool val) = 0;
-	virtual void setPhoneNumber(String accountname, String phoneNumber) = 0;
+	virtual void queryAccount(Ref<COM_LoginInfo> info);
+	virtual void setAccountSeal(String accountname, bool val);
+	virtual void setPhoneNumber(String accountname, String phoneNumber);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_World2Login_Stub {
+class SGE_World2Login_Stub : public Resource {
+	GDCLASS(SGE_World2Login_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_World2Login_Stub() {}
 	void queryAccount(Ref<COM_LoginInfo> info);
 	void setAccountSeal(String accountname, bool val);
 	void setPhoneNumber(String accountname, String phoneNumber);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_World2Login_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_World2Login_Proxy* proxy);
 };
-class SGE_Login2World_Proxy {
+class SGE_Login2World_Proxy : public Resource {
+	GDCLASS(SGE_Login2World_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Login2World_Proxy() {}
-	virtual void queryAccountOk(Ref<COM_AccountInfo> info, bool isNew, bool isSeal) = 0;
-	virtual void setAccountSealOk(String accountname) = 0;
+	virtual void queryAccountOk(Ref<COM_AccountInfo> info, bool isNew, bool isSeal);
+	virtual void setAccountSealOk(String accountname);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_Login2World_Stub {
+class SGE_Login2World_Stub : public Resource {
+	GDCLASS(SGE_Login2World_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Login2World_Stub() {}
 	void queryAccountOk(Ref<COM_AccountInfo> info, bool isNew, bool isSeal);
 	void setAccountSealOk(String accountname);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_Login2World_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_Login2World_Proxy* proxy);
 };
-class SGE_Gateway2World_Proxy {
+class SGE_Gateway2World_Proxy : public Resource {
+	GDCLASS(SGE_Gateway2World_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Gateway2World_Proxy() {}
-	virtual void syncConnectInfo(int32_t indoor, String ip) = 0;
+	virtual void syncConnectInfo(int32_t indoor, String ip);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_Gateway2World_Stub {
+class SGE_Gateway2World_Stub : public Resource {
+	GDCLASS(SGE_Gateway2World_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Gateway2World_Stub() {}
 	void syncConnectInfo(int32_t indoor, String ip);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_Gateway2World_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_Gateway2World_Proxy* proxy);
 };
-class SGE_World2DB_Proxy {
+class SGE_World2DB_Proxy : public Resource {
+	GDCLASS(SGE_World2DB_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_World2DB_Proxy() {}
-	virtual void queryPlayerSimpleInformation(String username, int32_t serverId) = 0;
-	virtual void queryPlayer(String username, int32_t playerId) = 0;
-	virtual void createPlayer(String username, Ref<SGE_DBPlayerData> inst, int32_t serverId) = 0;
-	virtual void updatePlayer(String username, Ref<SGE_DBPlayerData> inst) = 0;
-	virtual void deletePlayer(String playername) = 0;
-	virtual void queryPlayerById(String name, int32_t instId, int32_t where) = 0;
-	virtual void insertEndlessStair(int32_t rank, String name) = 0;
-	virtual void updateEndlessStair(int32_t rank, String name) = 0;
-	virtual void createBaby(String playername, Ref<COM_BabyInst> inst, bool isToStorage) = 0;
-	virtual void deleteBaby(String playername, int32_t babyInstId) = 0;
-	virtual void updateBaby(Ref<COM_BabyInst> inst) = 0;
-	virtual void updateBabys(String playername, TypedArray<COM_BabyInst> babys) = 0;
-	virtual void queryBabyById(String name, uint32_t instid) = 0;
-	virtual void createEmployee(String playername, Ref<COM_EmployeeInst> inst) = 0;
-	virtual void deleteEmployee(String playername, TypedArray<uint32_t> instIds) = 0;
-	virtual void updateEmployee(Ref<COM_EmployeeInst> inst) = 0;
-	virtual void queryEmployeeById(String name, uint32_t instid) = 0;
-	virtual void insertMail(Ref<COM_Mail> mail) = 0;
-	virtual void insertMailAll(Ref<COM_Mail> mail) = 0;
-	virtual void insertMailByRecvs(Ref<COM_Mail> mail, TypedArray<String> recvs) = 0;
-	virtual void fatchMail(String recvName, int32_t mailId) = 0;
-	virtual void delMail(String recvName, int32_t mailId) = 0;
-	virtual void updateMail(Ref<COM_Mail> mail) = 0;
-	virtual void insertGuild(Ref<COM_Guild> guild, Ref<COM_GuildMember> guildMember) = 0;
-	virtual void updateGuildRequestList(uint32_t guildId, TypedArray<COM_GuildRequestData> data) = 0;
-	virtual void createGuildMember(Ref<COM_GuildMember> guildMember) = 0;
-	virtual void delGuild(int32_t guildId) = 0;
-	virtual void updateGuildNotice(uint32_t guildId, String notice) = 0;
-	virtual void updateGuild(Ref<COM_Guild> guild) = 0;
-	virtual void updateMemberPosition(int32_t roleId, uint16_t job) = 0;
-	virtual void updateMemberContribution(int32_t roleId, int32_t contribution) = 0;
-	virtual void updateGuildStruction(uint32_t guildId, int8_t level, int32_t struction) = 0;
-	virtual void deleteGuildMember(int32_t playerId) = 0;
-	virtual void insertActivity(uint16_t adt, Ref<SGE_SysActivity> date) = 0;
-	virtual void insertLoseCharge(int32_t playerId, Ref<SGE_OrderInfo> order) = 0;
-	virtual void insertEmployeeQuest(uint32_t playerId, Ref<SGE_PlayerEmployeeQuest> data) = 0;
-	virtual void delEmployeeQuest(uint32_t playerId) = 0;
-	virtual void deleteEndlessStair(String name) = 0;
+	virtual void queryPlayerSimpleInformation(String username, int32_t serverId);
+	virtual void queryPlayer(String username, int32_t playerId);
+	virtual void createPlayer(String username, Ref<SGE_DBPlayerData> inst, int32_t serverId);
+	virtual void updatePlayer(String username, Ref<SGE_DBPlayerData> inst);
+	virtual void deletePlayer(String playername);
+	virtual void queryPlayerById(String name, int32_t instId, int32_t where);
+	virtual void insertEndlessStair(int32_t rank, String name);
+	virtual void updateEndlessStair(int32_t rank, String name);
+	virtual void createBaby(String playername, Ref<COM_BabyInst> inst, bool isToStorage);
+	virtual void deleteBaby(String playername, int32_t babyInstId);
+	virtual void updateBaby(Ref<COM_BabyInst> inst);
+	virtual void updateBabys(String playername, TypedArray<COM_BabyInst> babys);
+	virtual void queryBabyById(String name, uint32_t instid);
+	virtual void createEmployee(String playername, Ref<COM_EmployeeInst> inst);
+	virtual void deleteEmployee(String playername, TypedArray<uint32_t> instIds);
+	virtual void updateEmployee(Ref<COM_EmployeeInst> inst);
+	virtual void queryEmployeeById(String name, uint32_t instid);
+	virtual void insertMail(Ref<COM_Mail> mail);
+	virtual void insertMailAll(Ref<COM_Mail> mail);
+	virtual void insertMailByRecvs(Ref<COM_Mail> mail, TypedArray<String> recvs);
+	virtual void fatchMail(String recvName, int32_t mailId);
+	virtual void delMail(String recvName, int32_t mailId);
+	virtual void updateMail(Ref<COM_Mail> mail);
+	virtual void insertGuild(Ref<COM_Guild> guild, Ref<COM_GuildMember> guildMember);
+	virtual void updateGuildRequestList(uint32_t guildId, TypedArray<COM_GuildRequestData> data);
+	virtual void createGuildMember(Ref<COM_GuildMember> guildMember);
+	virtual void delGuild(int32_t guildId);
+	virtual void updateGuildNotice(uint32_t guildId, String notice);
+	virtual void updateGuild(Ref<COM_Guild> guild);
+	virtual void updateMemberPosition(int32_t roleId, int32_t job);
+	virtual void updateMemberContribution(int32_t roleId, int32_t contribution);
+	virtual void updateGuildStruction(uint32_t guildId, int8_t level, int32_t struction);
+	virtual void deleteGuildMember(int32_t playerId);
+	virtual void insertActivity(int32_t adt, Ref<SGE_SysActivity> date);
+	virtual void insertLoseCharge(int32_t playerId, Ref<SGE_OrderInfo> order);
+	virtual void insertEmployeeQuest(uint32_t playerId, Ref<SGE_PlayerEmployeeQuest> data);
+	virtual void delEmployeeQuest(uint32_t playerId);
+	virtual void deleteEndlessStair(String name);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_World2DB_Stub {
+class SGE_World2DB_Stub : public Resource {
+	GDCLASS(SGE_World2DB_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_World2DB_Stub() {}
 	void queryPlayerSimpleInformation(String username, int32_t serverId);
 	void queryPlayer(String username, int32_t playerId);
@@ -6055,58 +6804,63 @@ public:
 	void delGuild(int32_t guildId);
 	void updateGuildNotice(uint32_t guildId, String notice);
 	void updateGuild(Ref<COM_Guild> guild);
-	void updateMemberPosition(int32_t roleId, uint16_t job);
+	void updateMemberPosition(int32_t roleId, int32_t job);
 	void updateMemberContribution(int32_t roleId, int32_t contribution);
 	void updateGuildStruction(uint32_t guildId, int8_t level, int32_t struction);
 	void deleteGuildMember(int32_t playerId);
-	void insertActivity(uint16_t adt, Ref<SGE_SysActivity> date);
+	void insertActivity(int32_t adt, Ref<SGE_SysActivity> date);
 	void insertLoseCharge(int32_t playerId, Ref<SGE_OrderInfo> order);
 	void insertEmployeeQuest(uint32_t playerId, Ref<SGE_PlayerEmployeeQuest> data);
 	void delEmployeeQuest(uint32_t playerId);
 	void deleteEndlessStair(String name);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_World2DB_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_World2DB_Proxy* proxy);
 };
-class SGE_DB2World_Proxy {
+class SGE_DB2World_Proxy : public Resource {
+	GDCLASS(SGE_DB2World_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_DB2World_Proxy() {}
-	virtual void syncGlobalGuid(uint32_t id) = 0;
-	virtual void syncContactInfo(TypedArray<SGE_ContactInfoExt> info) = 0;
-	virtual void queryPlayerSimpleInformationOk(String username, TypedArray<COM_SimpleInformation> insts, int32_t serverId) = 0;
-	virtual void queryPlayerOk(String username, Ref<SGE_DBPlayerData> player) = 0;
-	virtual void createPlayerOk(String username, Ref<SGE_DBPlayerData> inst, int32_t inDoorId) = 0;
-	virtual void createPlayerSameName(String username) = 0;
-	virtual void queryPlayerByIdOK(String playername, Ref<SGE_DBPlayerData> inst, int32_t where) = 0;
-	virtual void queryEndlessStairAllDateOK(TypedArray<String> name) = 0;
-	virtual void queryPlayerByLevelOK(TypedArray<COM_ContactInfo> info) = 0;
-	virtual void queryPlayerByFFOK(TypedArray<COM_ContactInfo> info) = 0;
-	virtual void createBabyOK(String playername, Ref<COM_BabyInst> inst, bool isToStorage) = 0;
-	virtual void deleteBabyOK(String playername, int32_t babyInstId) = 0;
-	virtual void queryBabyByFFOK(TypedArray<COM_BabyRankData> infos) = 0;
-	virtual void queryBabyByIdOK(String name, Ref<COM_BabyInst> inst) = 0;
-	virtual void UpdateBabysOK(String playername) = 0;
-	virtual void createEmployeeOK(String playername, Ref<COM_EmployeeInst> inst) = 0;
-	virtual void deleteEmployeeOK(String playername, TypedArray<uint32_t> instIds) = 0;
-	virtual void queryEmployeeByFFOK(TypedArray<COM_EmployeeRankData> infos) = 0;
-	virtual void queryEmployeeByIdOK(String name, Ref<COM_EmployeeInst> inst) = 0;
-	virtual void appendMail(String playerName, TypedArray<COM_Mail> mails) = 0;
-	virtual void insertGuildOK(Ref<COM_Guild> guild, Ref<COM_GuildMember> guildMember) = 0;
-	virtual void updateMemberJobOk(int32_t roleId, uint16_t job) = 0;
-	virtual void syncGuild(TypedArray<COM_Guild> guilds) = 0;
-	virtual void syncGuildMember(TypedArray<COM_GuildMember> guildMember) = 0;
-	virtual void fatchActivity(Ref<SGE_SysActivity> date) = 0;
-	virtual void syncEmployeeQuest(TypedArray<SGE_PlayerEmployeeQuest> info) = 0;
+	virtual void syncGlobalGuid(uint32_t id);
+	virtual void syncContactInfo(TypedArray<SGE_ContactInfoExt> info);
+	virtual void queryPlayerSimpleInformationOk(String username, TypedArray<COM_SimpleInformation> insts, int32_t serverId);
+	virtual void queryPlayerOk(String username, Ref<SGE_DBPlayerData> player);
+	virtual void createPlayerOk(String username, Ref<SGE_DBPlayerData> inst, int32_t inDoorId);
+	virtual void createPlayerSameName(String username);
+	virtual void queryPlayerByIdOK(String playername, Ref<SGE_DBPlayerData> inst, int32_t where);
+	virtual void queryEndlessStairAllDateOK(TypedArray<String> name);
+	virtual void queryPlayerByLevelOK(TypedArray<COM_ContactInfo> info);
+	virtual void queryPlayerByFFOK(TypedArray<COM_ContactInfo> info);
+	virtual void createBabyOK(String playername, Ref<COM_BabyInst> inst, bool isToStorage);
+	virtual void deleteBabyOK(String playername, int32_t babyInstId);
+	virtual void queryBabyByFFOK(TypedArray<COM_BabyRankData> infos);
+	virtual void queryBabyByIdOK(String name, Ref<COM_BabyInst> inst);
+	virtual void UpdateBabysOK(String playername);
+	virtual void createEmployeeOK(String playername, Ref<COM_EmployeeInst> inst);
+	virtual void deleteEmployeeOK(String playername, TypedArray<uint32_t> instIds);
+	virtual void queryEmployeeByFFOK(TypedArray<COM_EmployeeRankData> infos);
+	virtual void queryEmployeeByIdOK(String name, Ref<COM_EmployeeInst> inst);
+	virtual void appendMail(String playerName, TypedArray<COM_Mail> mails);
+	virtual void insertGuildOK(Ref<COM_Guild> guild, Ref<COM_GuildMember> guildMember);
+	virtual void updateMemberJobOk(int32_t roleId, int32_t job);
+	virtual void syncGuild(TypedArray<COM_Guild> guilds);
+	virtual void syncGuildMember(TypedArray<COM_GuildMember> guildMember);
+	virtual void fatchActivity(Ref<SGE_SysActivity> date);
+	virtual void syncEmployeeQuest(TypedArray<SGE_PlayerEmployeeQuest> info);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_DB2World_Stub {
+class SGE_DB2World_Stub : public Resource {
+	GDCLASS(SGE_DB2World_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_DB2World_Stub() {}
 	void syncGlobalGuid(uint32_t id);
 	void syncContactInfo(TypedArray<SGE_ContactInfoExt> info);
@@ -6129,58 +6883,68 @@ public:
 	void queryEmployeeByIdOK(String name, Ref<COM_EmployeeInst> inst);
 	void appendMail(String playerName, TypedArray<COM_Mail> mails);
 	void insertGuildOK(Ref<COM_Guild> guild, Ref<COM_GuildMember> guildMember);
-	void updateMemberJobOk(int32_t roleId, uint16_t job);
+	void updateMemberJobOk(int32_t roleId, int32_t job);
 	void syncGuild(TypedArray<COM_Guild> guilds);
 	void syncGuildMember(TypedArray<COM_GuildMember> guildMember);
 	void fatchActivity(Ref<SGE_SysActivity> date);
 	void syncEmployeeQuest(TypedArray<SGE_PlayerEmployeeQuest> info);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_DB2World_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_DB2World_Proxy* proxy);
 };
-class SGE_Scene2World_Proxy {
+class SGE_Scene2World_Proxy : public Resource {
+	GDCLASS(SGE_Scene2World_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Scene2World_Proxy() {}
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_Scene2World_Stub {
+class SGE_Scene2World_Stub : public Resource {
+	GDCLASS(SGE_Scene2World_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Scene2World_Stub() {}
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_Scene2World_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_Scene2World_Proxy* proxy);
 };
-class SGE_World2Scene_Proxy {
+class SGE_World2Scene_Proxy : public Resource {
+	GDCLASS(SGE_World2Scene_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_World2Scene_Proxy() {}
-	virtual void initDynamicNpcs(uint16_t type, int32_t count) = 0;
-	virtual void refreshDynamicNpcs(uint16_t type, int32_t count) = 0;
-	virtual void finiDynamicNpcs(uint16_t type) = 0;
-	virtual void addDynamicNpcs(int32_t sceneId, TypedArray<int32_t> npcs) = 0;
-	virtual void delDynamicNpc(int32_t npcId) = 0;
-	virtual void delDynamicNpc2(int32_t sceneId, int32_t npcId) = 0;
-	virtual void openSceneCopy(int32_t instId) = 0;
-	virtual void closeSceneCopy(int32_t instId) = 0;
+	virtual void initDynamicNpcs(int32_t type, int32_t count);
+	virtual void refreshDynamicNpcs(int32_t type, int32_t count);
+	virtual void finiDynamicNpcs(int32_t type);
+	virtual void addDynamicNpcs(int32_t sceneId, TypedArray<int32_t> npcs);
+	virtual void delDynamicNpc(int32_t npcId);
+	virtual void delDynamicNpc2(int32_t sceneId, int32_t npcId);
+	virtual void openSceneCopy(int32_t instId);
+	virtual void closeSceneCopy(int32_t instId);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_World2Scene_Stub {
+class SGE_World2Scene_Stub : public Resource {
+	GDCLASS(SGE_World2Scene_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_World2Scene_Stub() {}
-	void initDynamicNpcs(uint16_t type, int32_t count);
-	void refreshDynamicNpcs(uint16_t type, int32_t count);
-	void finiDynamicNpcs(uint16_t type);
+	void initDynamicNpcs(int32_t type, int32_t count);
+	void refreshDynamicNpcs(int32_t type, int32_t count);
+	void finiDynamicNpcs(int32_t type);
 	void addDynamicNpcs(int32_t sceneId, TypedArray<int32_t> npcs);
 	void delDynamicNpc(int32_t npcId);
 	void delDynamicNpc2(int32_t sceneId, int32_t npcId);
@@ -6188,31 +6952,36 @@ public:
 	void closeSceneCopy(int32_t instId);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_World2Scene_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_World2Scene_Proxy* proxy);
 };
-class SGE_Player_Scene2World_Proxy {
+class SGE_Player_Scene2World_Proxy : public Resource {
+	GDCLASS(SGE_Player_Scene2World_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Player_Scene2World_Proxy() {}
-	virtual void joinScene(Ref<COM_SceneInfo> info) = 0;
-	virtual void move2(Ref<COM_FPosition> pos) = 0;
-	virtual void cantMove() = 0;
-	virtual void transfor2(Ref<COM_FPosition> pos) = 0;
-	virtual void autoBattleResult(bool isOk) = 0;
-	virtual void zoneJoinBattle(int32_t zoneId) = 0;
-	virtual void playerAddNpc(TypedArray<int32_t> npcs) = 0;
-	virtual void playerDelNpc(TypedArray<int32_t> npcs) = 0;
-	virtual void talkedNpc(int32_t npcid) = 0;
-	virtual void findDynamicNpcOK(int32_t npcid, bool hasnpc) = 0;
+	virtual void joinScene(Ref<COM_SceneInfo> info);
+	virtual void move2(Ref<COM_FPosition> pos);
+	virtual void cantMove();
+	virtual void transfor2(Ref<COM_FPosition> pos);
+	virtual void autoBattleResult(bool isOk);
+	virtual void zoneJoinBattle(int32_t zoneId);
+	virtual void playerAddNpc(TypedArray<int32_t> npcs);
+	virtual void playerDelNpc(TypedArray<int32_t> npcs);
+	virtual void talkedNpc(int32_t npcid);
+	virtual void findDynamicNpcOK(int32_t npcid, bool hasnpc);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_Player_Scene2World_Stub {
+class SGE_Player_Scene2World_Stub : public Resource {
+	GDCLASS(SGE_Player_Scene2World_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Player_Scene2World_Stub() {}
 	void joinScene(Ref<COM_SceneInfo> info);
 	void move2(Ref<COM_FPosition> pos);
@@ -6226,48 +6995,53 @@ public:
 	void findDynamicNpcOK(int32_t npcid, bool hasnpc);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_Player_Scene2World_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_Player_Scene2World_Proxy* proxy);
 };
-class SGE_Player_World2Scene_Proxy {
+class SGE_Player_World2Scene_Proxy : public Resource {
+	GDCLASS(SGE_Player_World2Scene_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Player_World2Scene_Proxy() {}
-	virtual void initScenePlayer(Ref<SGE_ScenePlayerInfo> info) = 0;
-	virtual void scenePlayerUpLevel(int32_t level) = 0;
-	virtual void scenePlayerAddCurrentQuest(int32_t questId) = 0;
-	virtual void scenePlayerDelCurrentQuest(int32_t questId) = 0;
-	virtual void scenePlayerAddAcceptableQuest(int32_t questId) = 0;
-	virtual void scenePlayerDelAcceptableQuest(int32_t questId) = 0;
-	virtual void openScene(int32_t sceneId) = 0;
-	virtual void joinBattle() = 0;
-	virtual void finishBattle() = 0;
-	virtual void transforScene(int32_t sceneId) = 0;
-	virtual void transforSceneByEntry(int32_t sceneId, int32_t entryId) = 0;
-	virtual void backHomeScene() = 0;
-	virtual void sceneLoaded() = 0;
-	virtual void move(Ref<COM_FPosition> pos) = 0;
-	virtual void moveToNpc(int32_t npcid) = 0;
-	virtual void moveToNpc2(uint16_t type) = 0;
-	virtual void moveToZone(int32_t sceneId, int32_t zoneId) = 0;
-	virtual void autoBattle() = 0;
-	virtual void stopMove() = 0;
-	virtual void addFollow(int32_t scenePlayerId) = 0;
-	virtual void delFollow(int32_t scenePlayerId) = 0;
-	virtual void delFollows() = 0;
-	virtual void addFollows(TypedArray<int32_t> scenePlayers) = 0;
-	virtual void setEntryFlag(int32_t scenePlayerId, bool isFlag) = 0;
-	virtual void addNpc(int32_t npcid) = 0;
-	virtual void delNpc(int32_t npcid) = 0;
-	virtual void findDynamicNpc(int32_t npcId) = 0;
+	virtual void initScenePlayer(Ref<SGE_ScenePlayerInfo> info);
+	virtual void scenePlayerUpLevel(int32_t level);
+	virtual void scenePlayerAddCurrentQuest(int32_t questId);
+	virtual void scenePlayerDelCurrentQuest(int32_t questId);
+	virtual void scenePlayerAddAcceptableQuest(int32_t questId);
+	virtual void scenePlayerDelAcceptableQuest(int32_t questId);
+	virtual void openScene(int32_t sceneId);
+	virtual void joinBattle();
+	virtual void finishBattle();
+	virtual void transforScene(int32_t sceneId);
+	virtual void transforSceneByEntry(int32_t sceneId, int32_t entryId);
+	virtual void backHomeScene();
+	virtual void sceneLoaded();
+	virtual void move(Ref<COM_FPosition> pos);
+	virtual void moveToNpc(int32_t npcid);
+	virtual void moveToNpc2(int32_t type);
+	virtual void moveToZone(int32_t sceneId, int32_t zoneId);
+	virtual void autoBattle();
+	virtual void stopMove();
+	virtual void addFollow(int32_t scenePlayerId);
+	virtual void delFollow(int32_t scenePlayerId);
+	virtual void delFollows();
+	virtual void addFollows(TypedArray<int32_t> scenePlayers);
+	virtual void setEntryFlag(int32_t scenePlayerId, bool isFlag);
+	virtual void addNpc(int32_t npcid);
+	virtual void delNpc(int32_t npcid);
+	virtual void findDynamicNpc(int32_t npcId);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_Player_World2Scene_Stub {
+class SGE_Player_World2Scene_Stub : public Resource {
+	GDCLASS(SGE_Player_World2Scene_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Player_World2Scene_Stub() {}
 	void initScenePlayer(Ref<SGE_ScenePlayerInfo> info);
 	void scenePlayerUpLevel(int32_t level);
@@ -6284,7 +7058,7 @@ public:
 	void sceneLoaded();
 	void move(Ref<COM_FPosition> pos);
 	void moveToNpc(int32_t npcid);
-	void moveToNpc2(uint16_t type);
+	void moveToNpc2(int32_t type);
 	void moveToZone(int32_t sceneId, int32_t zoneId);
 	void autoBattle();
 	void stopMove();
@@ -6298,63 +7072,73 @@ public:
 	void findDynamicNpc(int32_t npcId);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_Player_World2Scene_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_Player_World2Scene_Proxy* proxy);
 };
-class SGE_World2GMT_Proxy {
+class SGE_World2GMT_Proxy : public Resource {
+	GDCLASS(SGE_World2GMT_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_World2GMT_Proxy() {}
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_World2GMT_Stub {
+class SGE_World2GMT_Stub : public Resource {
+	GDCLASS(SGE_World2GMT_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_World2GMT_Stub() {}
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_World2GMT_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_World2GMT_Proxy* proxy);
 };
-class SGE_GMT2World_Proxy {
+class SGE_GMT2World_Proxy : public Resource {
+	GDCLASS(SGE_GMT2World_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_GMT2World_Proxy() {}
-	virtual void addExp(uint32_t playerId, uint32_t exp) = 0;
-	virtual void addMoney(uint32_t playerId, int32_t money) = 0;
-	virtual void addDiamond(uint32_t playerId, int32_t diamond) = 0;
-	virtual void openGM(uint32_t playerId) = 0;
-	virtual void closeGM(uint32_t playerId) = 0;
-	virtual void noTalkPlayer(uint32_t playerId, uint32_t time) = 0;
-	virtual void sealPlayer(uint32_t playerId) = 0;
-	virtual void kickPlayer(uint32_t playerId) = 0;
-	virtual void openTalkPlayer(uint32_t playerId) = 0;
-	virtual void unsealPlayer(uint32_t playerId) = 0;
-	virtual void sendMailAllOnline(Ref<COM_Mail> mail, int32_t lowLevel, int32_t highLevel, int64_t lowRegTime, int64_t highRegTime) = 0;
-	virtual void gmtNotice(uint16_t bType, String note, uint64_t thetime, int64_t itvtime) = 0;
-	virtual void setChargeTotal(Ref<COM_ADChargeTotal> data) = 0;
-	virtual void setChargeEvery(Ref<COM_ADChargeEvery> data) = 0;
-	virtual void setDiscountStore(Ref<COM_ADDiscountStore> data) = 0;
-	virtual void setLoginTotal(Ref<COM_ADLoginTotal> data) = 0;
-	virtual void setHotRole(Ref<COM_ADHotRole> data) = 0;
-	virtual void setEmployeeActivity(Ref<COM_ADEmployeeTotal> data) = 0;
-	virtual void setMinGiftBagActivity(Ref<COM_ADGiftBag> data) = 0;
-	virtual void setZhuanpanActivity(Ref<COM_ZhuanpanData> data) = 0;
-	virtual void setIntegralshop(Ref<COM_IntegralData> data) = 0;
-	virtual void makeOrder(uint32_t playerId, Ref<SGE_GmtOrder> order) = 0;
-	virtual void doScript(String script) = 0;
-	virtual void playerDoScript(uint32_t playerId, String script) = 0;
+	virtual void addExp(uint32_t playerId, uint32_t exp);
+	virtual void addMoney(uint32_t playerId, int32_t money);
+	virtual void addDiamond(uint32_t playerId, int32_t diamond);
+	virtual void openGM(uint32_t playerId);
+	virtual void closeGM(uint32_t playerId);
+	virtual void noTalkPlayer(uint32_t playerId, uint32_t time);
+	virtual void sealPlayer(uint32_t playerId);
+	virtual void kickPlayer(uint32_t playerId);
+	virtual void openTalkPlayer(uint32_t playerId);
+	virtual void unsealPlayer(uint32_t playerId);
+	virtual void sendMailAllOnline(Ref<COM_Mail> mail, int32_t lowLevel, int32_t highLevel, int64_t lowRegTime, int64_t highRegTime);
+	virtual void gmtNotice(int32_t bType, String note, uint64_t thetime, int64_t itvtime);
+	virtual void setChargeTotal(Ref<COM_ADChargeTotal> data);
+	virtual void setChargeEvery(Ref<COM_ADChargeEvery> data);
+	virtual void setDiscountStore(Ref<COM_ADDiscountStore> data);
+	virtual void setLoginTotal(Ref<COM_ADLoginTotal> data);
+	virtual void setHotRole(Ref<COM_ADHotRole> data);
+	virtual void setEmployeeActivity(Ref<COM_ADEmployeeTotal> data);
+	virtual void setMinGiftBagActivity(Ref<COM_ADGiftBag> data);
+	virtual void setZhuanpanActivity(Ref<COM_ZhuanpanData> data);
+	virtual void setIntegralshop(Ref<COM_IntegralData> data);
+	virtual void makeOrder(uint32_t playerId, Ref<SGE_GmtOrder> order);
+	virtual void doScript(String script);
+	virtual void playerDoScript(uint32_t playerId, String script);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_GMT2World_Stub {
+class SGE_GMT2World_Stub : public Resource {
+	GDCLASS(SGE_GMT2World_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_GMT2World_Stub() {}
 	void addExp(uint32_t playerId, uint32_t exp);
 	void addMoney(uint32_t playerId, int32_t money);
@@ -6367,7 +7151,7 @@ public:
 	void openTalkPlayer(uint32_t playerId);
 	void unsealPlayer(uint32_t playerId);
 	void sendMailAllOnline(Ref<COM_Mail> mail, int32_t lowLevel, int32_t highLevel, int64_t lowRegTime, int64_t highRegTime);
-	void gmtNotice(uint16_t bType, String note, uint64_t thetime, int64_t itvtime);
+	void gmtNotice(int32_t bType, String note, uint64_t thetime, int64_t itvtime);
 	void setChargeTotal(Ref<COM_ADChargeTotal> data);
 	void setChargeEvery(Ref<COM_ADChargeEvery> data);
 	void setDiscountStore(Ref<COM_ADDiscountStore> data);
@@ -6382,28 +7166,33 @@ public:
 	void playerDoScript(uint32_t playerId, String script);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_GMT2World_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_GMT2World_Proxy* proxy);
 };
-class SGE_World2Mall_Proxy {
+class SGE_World2Mall_Proxy : public Resource {
+	GDCLASS(SGE_World2Mall_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_World2Mall_Proxy() {}
-	virtual void fetchSell(int32_t playerid, Ref<COM_SearchContext> context) = 0;
-	virtual void fetchMySell(int32_t playerid) = 0;
-	virtual void fetchSelledItem(int32_t playerId) = 0;
-	virtual void sell(Ref<COM_SellItem> item) = 0;
-	virtual void unSell(int32_t playerid, int32_t sellid) = 0;
-	virtual void buy(Ref<SGE_BuyContent> content) = 0;
-	virtual void insertSelledItem(Ref<COM_SelledItem> item) = 0;
+	virtual void fetchSell(int32_t playerid, Ref<COM_SearchContext> context);
+	virtual void fetchMySell(int32_t playerid);
+	virtual void fetchSelledItem(int32_t playerId);
+	virtual void sell(Ref<COM_SellItem> item);
+	virtual void unSell(int32_t playerid, int32_t sellid);
+	virtual void buy(Ref<SGE_BuyContent> content);
+	virtual void insertSelledItem(Ref<COM_SelledItem> item);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_World2Mall_Stub {
+class SGE_World2Mall_Stub : public Resource {
+	GDCLASS(SGE_World2Mall_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_World2Mall_Stub() {}
 	void fetchSell(int32_t playerid, Ref<COM_SearchContext> context);
 	void fetchMySell(int32_t playerid);
@@ -6414,28 +7203,33 @@ public:
 	void insertSelledItem(Ref<COM_SelledItem> item);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_World2Mall_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_World2Mall_Proxy* proxy);
 };
-class SGE_Mall2World_Proxy {
+class SGE_Mall2World_Proxy : public Resource {
+	GDCLASS(SGE_Mall2World_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Mall2World_Proxy() {}
-	virtual void fetchSellOk(int32_t playerid, TypedArray<COM_SellItem> items, int32_t totalSize) = 0;
-	virtual void fetchMySellOk(int32_t playerid, TypedArray<COM_SellItem> items) = 0;
-	virtual void fetchSelledItemOk(int32_t playerId, TypedArray<COM_SelledItem> items) = 0;
-	virtual void sellOk(int32_t playerid, Ref<COM_SellItem> item) = 0;
-	virtual void unSellOk(int32_t playerid, int32_t sellid) = 0;
-	virtual void buyOk(int32_t playerid, Ref<COM_SellItem> item) = 0;
-	virtual void buyFail(int32_t playerid, uint16_t errorno) = 0;
+	virtual void fetchSellOk(int32_t playerid, TypedArray<COM_SellItem> items, int32_t totalSize);
+	virtual void fetchMySellOk(int32_t playerid, TypedArray<COM_SellItem> items);
+	virtual void fetchSelledItemOk(int32_t playerId, TypedArray<COM_SelledItem> items);
+	virtual void sellOk(int32_t playerid, Ref<COM_SellItem> item);
+	virtual void unSellOk(int32_t playerid, int32_t sellid);
+	virtual void buyOk(int32_t playerid, Ref<COM_SellItem> item);
+	virtual void buyFail(int32_t playerid, int32_t errorno);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_Mall2World_Stub {
+class SGE_Mall2World_Stub : public Resource {
+	GDCLASS(SGE_Mall2World_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Mall2World_Stub() {}
 	void fetchSellOk(int32_t playerid, TypedArray<COM_SellItem> items, int32_t totalSize);
 	void fetchMySellOk(int32_t playerid, TypedArray<COM_SellItem> items);
@@ -6443,51 +7237,61 @@ public:
 	void sellOk(int32_t playerid, Ref<COM_SellItem> item);
 	void unSellOk(int32_t playerid, int32_t sellid);
 	void buyOk(int32_t playerid, Ref<COM_SellItem> item);
-	void buyFail(int32_t playerid, uint16_t errorno);
+	void buyFail(int32_t playerid, int32_t errorno);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_Mall2World_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, SGE_Mall2World_Proxy* proxy);
 };
-class Backlog_Proxy {
+class Backlog_Proxy : public Resource {
+	GDCLASS(Backlog_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~Backlog_Proxy() {}
-	virtual void log(String key, String msg, String stack, String version) = 0;
+	virtual void log(String key, String msg, String stack, String version);
+	bool dispatch(ProtocolReader *r);
 };
 
-class Backlog_Stub {
+class Backlog_Stub : public Resource {
+	GDCLASS(Backlog_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~Backlog_Stub() {}
 	void log(String key, String msg, String stack, String version);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class Backlog_Dispatcher {
 public:
 	static bool dispatch(ProtocolReader* r, Backlog_Proxy* proxy);
 };
-class SGE_Log_Proxy {
+class SGE_Log_Proxy : public Resource {
+	GDCLASS(SGE_Log_Proxy, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Log_Proxy() {}
-	virtual void account(Ref<SGE_Account> data) = 0;
-	virtual void login(Ref<SGE_Login> data) = 0;
-	virtual void order(Ref<SGE_Order> data) = 0;
-	virtual void role(Ref<SGE_LogRole> data) = 0;
-	virtual void playersay(uint32_t senderId, String senderName, Ref<COM_Chat> chat) = 0;
-	virtual void playerTrack(Ref<SGE_LogProduceTrack> data) = 0;
-	virtual void playerUIBehavior(Ref<SGE_LogUIBehavior> core) = 0;
+	virtual void account(Ref<SGE_Account> data);
+	virtual void login(Ref<SGE_Login> data);
+	virtual void order(Ref<SGE_Order> data);
+	virtual void role(Ref<SGE_LogRole> data);
+	virtual void playersay(uint32_t senderId, String senderName, Ref<COM_Chat> chat);
+	virtual void playerTrack(Ref<SGE_LogProduceTrack> data);
+	virtual void playerUIBehavior(Ref<SGE_LogUIBehavior> core);
+	bool dispatch(ProtocolReader *r);
 };
 
-class SGE_Log_Stub {
+class SGE_Log_Stub : public Resource {
+	GDCLASS(SGE_Log_Stub, Resource);
 public:
+	static void _bind_methods();
 	virtual ~SGE_Log_Stub() {}
 	void account(Ref<SGE_Account> data);
 	void login(Ref<SGE_Login> data);
@@ -6498,8 +7302,8 @@ public:
 	void playerUIBehavior(Ref<SGE_LogUIBehavior> core);
 protected:
 	// events to be processed.
-	virtual ProtocolWriter* methodBegin() = 0;
-	virtual void methodEnd() = 0;
+	virtual ProtocolWriter* methodBegin() { return nullptr; };
+	virtual void methodEnd() {};
 };
 
 class SGE_Log_Dispatcher {

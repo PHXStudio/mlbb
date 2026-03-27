@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c4hdqxj2nk18v"
+
+[deps]
+
+files=["res://config/Monster.AssetsID.translation", "res://config/Monster.monster.translation", "res://config/Monster.monsterLevel.translation", "res://config/Monster.Type.translation", "res://config/Monster.TwiceAction.translation", "res://config/Monster.BindType.translation", "res://config/Monster.Name.translation", "res://config/Monster.Desc.translation", "res://config/Monster.Location.translation", "res://config/Monster.Icon.translation", "res://config/Monster.BIG.translation", "res://config/Monster.BIG.translation", "res://config/Monster.BIG.translation", "res://config/Monster.BIG.translation", "res://config/Monster.BIG.translation", "res://config/Monster.DefalutSkill.translation", "res://config/Monster.Race.translation", "res://config/Monster.RaceIcon.translation", "res://config/Monster.SkillNum.translation", "res://config/Monster.Fire.translation", "res://config/Monster.Water.translation", "res://config/Monster.Ground.translation", "res://config/Monster.Wind.translation", "res://config/Monster.Pet.translation", "res://config/Monster.PetProbability.translation", "res://config/Monster.ReformMonster.translation", "res://config/Monster.ReformItem.translation", "res://config/Monster.PT.translation", "res://config/Monster.PT.translation", "res://config/Monster.PT.translation", "res://config/Monster.PT.translation", "res://config/Monster.PT.translation", "res://config/Monster.PetQuality.translation"]
+
+source_file="res://config/Monster.csv"
+dest_files=["res://config/Monster.AssetsID.translation", "res://config/Monster.monster.translation", "res://config/Monster.monsterLevel.translation", "res://config/Monster.Type.translation", "res://config/Monster.TwiceAction.translation", "res://config/Monster.BindType.translation", "res://config/Monster.Name.translation", "res://config/Monster.Desc.translation", "res://config/Monster.Location.translation", "res://config/Monster.Icon.translation", "res://config/Monster.BIG.translation", "res://config/Monster.BIG.translation", "res://config/Monster.BIG.translation", "res://config/Monster.BIG.translation", "res://config/Monster.BIG.translation", "res://config/Monster.DefalutSkill.translation", "res://config/Monster.Race.translation", "res://config/Monster.RaceIcon.translation", "res://config/Monster.SkillNum.translation", "res://config/Monster.Fire.translation", "res://config/Monster.Water.translation", "res://config/Monster.Ground.translation", "res://config/Monster.Wind.translation", "res://config/Monster.Pet.translation", "res://config/Monster.PetProbability.translation", "res://config/Monster.ReformMonster.translation", "res://config/Monster.ReformItem.translation", "res://config/Monster.PT.translation", "res://config/Monster.PT.translation", "res://config/Monster.PT.translation", "res://config/Monster.PT.translation", "res://config/Monster.PT.translation", "res://config/Monster.PetQuality.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

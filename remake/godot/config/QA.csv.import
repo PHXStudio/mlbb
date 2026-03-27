@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b4nu8q0ph8ij2"
+
+[deps]
+
+files=["res://config/QA.type.translation", "res://config/QA.name.translation", "res://config/QA.icon.translation", "res://config/QA.question.translation", "res://config/QA.answer.translation"]
+
+source_file="res://config/QA.csv"
+dest_files=["res://config/QA.type.translation", "res://config/QA.name.translation", "res://config/QA.icon.translation", "res://config/QA.question.translation", "res://config/QA.answer.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

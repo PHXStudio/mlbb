@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bxkwoxsdw2i3x"
+
+[deps]
+
+files=["res://config/helpLevel.name.translation", "res://config/helpLevel.icon.translation", "res://config/helpLevel.desc.translation", "res://config/helpLevel.level.translation", "res://config/helpLevel.en.translation", "res://config/helpLevel.npc.translation"]
+
+source_file="res://config/helpLevel.csv"
+dest_files=["res://config/helpLevel.name.translation", "res://config/helpLevel.icon.translation", "res://config/helpLevel.desc.translation", "res://config/helpLevel.level.translation", "res://config/helpLevel.en.translation", "res://config/helpLevel.npc.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

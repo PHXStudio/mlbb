@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://snqwpf3olemt"
+
+[deps]
+
+files=["res://config/ChallengeData.SenceName.translation", "res://config/ChallengeData.BattleID.translation", "res://config/ChallengeData.Reward.translation", "res://config/ChallengeData.Exp.translation", "res://config/ChallengeData.AssetID.translation"]
+
+source_file="res://config/ChallengeData.csv"
+dest_files=["res://config/ChallengeData.SenceName.translation", "res://config/ChallengeData.BattleID.translation", "res://config/ChallengeData.Reward.translation", "res://config/ChallengeData.Exp.translation", "res://config/ChallengeData.AssetID.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

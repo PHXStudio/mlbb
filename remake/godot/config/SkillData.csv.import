@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c7y80tstopg7n"
+
+[deps]
+
+files=["res://config/SkillData.SkillName.translation", "res://config/SkillData.NameEffectID.translation", "res://config/SkillData.SkillDesc.translation", "res://config/SkillData.SkillType.translation", "res://config/SkillData.SelectedTarget.translation", "res://config/SkillData.Pr.translation", "res://config/SkillData.Lv.translation", "res://config/SkillData.CastEffectAssetID.translation", "res://config/SkillData.EffectAssetID.translation", "res://config/SkillData.BeAttackAssetID.translation", "res://config/SkillData.StateIDs.translation", "res://config/SkillData.isMelee.translation", "res://config/SkillData.isPhysic.translation", "res://config/SkillData.GroupID.translation", "res://config/SkillData.LearnGroup.translation", "res://config/SkillData.cost.translation", "res://config/SkillData.SkillTargetType.translation", "res://config/SkillData.PassiveName.translation", "res://config/SkillData.resIconName.translation", "res://config/SkillData.resTextName.translation", "res://config/SkillData.GloAction.translation", "res://config/SkillData.GloCondition.translation", "res://config/SkillData.Actions.translation", "res://config/SkillData.Conditions.translation", "res://config/SkillData.ImpactPropType.translation", "res://config/SkillData.ImpactPropNum.translation", "res://config/SkillData.en.translation", "res://config/SkillData.LearnCoin.translation", "res://config/SkillData.LevelUpNeedItem.translation", "res://config/SkillData.exp.translation", "res://config/SkillData.DontCare.translation", "res://config/SkillData.LearnLv.translation", "res://config/SkillData.SkillBack.translation", "res://config/SkillData.SkillIconTex.translation"]
+
+source_file="res://config/SkillData.csv"
+dest_files=["res://config/SkillData.SkillName.translation", "res://config/SkillData.NameEffectID.translation", "res://config/SkillData.SkillDesc.translation", "res://config/SkillData.SkillType.translation", "res://config/SkillData.SelectedTarget.translation", "res://config/SkillData.Pr.translation", "res://config/SkillData.Lv.translation", "res://config/SkillData.CastEffectAssetID.translation", "res://config/SkillData.EffectAssetID.translation", "res://config/SkillData.BeAttackAssetID.translation", "res://config/SkillData.StateIDs.translation", "res://config/SkillData.isMelee.translation", "res://config/SkillData.isPhysic.translation", "res://config/SkillData.GroupID.translation", "res://config/SkillData.LearnGroup.translation", "res://config/SkillData.cost.translation", "res://config/SkillData.SkillTargetType.translation", "res://config/SkillData.PassiveName.translation", "res://config/SkillData.resIconName.translation", "res://config/SkillData.resTextName.translation", "res://config/SkillData.GloAction.translation", "res://config/SkillData.GloCondition.translation", "res://config/SkillData.Actions.translation", "res://config/SkillData.Conditions.translation", "res://config/SkillData.ImpactPropType.translation", "res://config/SkillData.ImpactPropNum.translation", "res://config/SkillData.en.translation", "res://config/SkillData.LearnCoin.translation", "res://config/SkillData.LevelUpNeedItem.translation", "res://config/SkillData.exp.translation", "res://config/SkillData.DontCare.translation", "res://config/SkillData.LearnLv.translation", "res://config/SkillData.SkillBack.translation", "res://config/SkillData.SkillIconTex.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

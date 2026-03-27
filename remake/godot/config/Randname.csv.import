@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dpw6e5sdckpcw"
+
+[deps]
+
+files=["res://config/Randname.name.translation", "res://config/Randname.namesex.translation"]
+
+source_file="res://config/Randname.csv"
+dest_files=["res://config/Randname.name.translation", "res://config/Randname.namesex.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

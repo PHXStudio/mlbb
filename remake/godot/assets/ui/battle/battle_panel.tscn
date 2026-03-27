@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://cw8tumomr7laa"]
+
+[ext_resource type="Script" uid="uid://8e250nqe3jrx" path="res://assets/ui/battle/battle_panel.gd" id="1"]
+
+[node name="BattlePanel" type="Control" unique_id=269644940]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1044980503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="RoundInfo" type="Label" parent="." unique_id=1973997351]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "回合: 1/20"
+horizontal_alignment = 1
+
+[node name="BattleSceneArea" type="Control" parent="." unique_id=273808534]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 50.0
+offset_right = -20.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyTeam" type="VBoxContainer" parent="BattleSceneArea" unique_id=183072195]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="MyTeam" type="VBoxContainer" parent="BattleSceneArea" unique_id=2084697525]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="ActionLog" type="ScrollContainer" parent="." unique_id=302593378]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -140.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LogText" type="RichTextLabel" parent="ActionLog" unique_id=592567209]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "战斗开始..."
+
+[node name="BattleResultPanel" type="Control" parent="." unique_id=1540716511]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="BattleResultPanel" unique_id=1824645704]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.9)
+
+[node name="ResultTitle" type="Label" parent="BattleResultPanel" unique_id=788330452]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "战斗胜利"
+horizontal_alignment = 1
+
+[node name="ExpLabel" type="Label" parent="BattleResultPanel" unique_id=1317020]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 60.0
+offset_right = 100.0
+offset_bottom = 85.0
+grow_horizontal = 2
+text = "经验: +500"
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="BattleResultPanel" unique_id=19415467]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 95.0
+offset_right = 100.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "金币: +100"
+horizontal_alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="BattleResultPanel" unique_id=171760689]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -45.0
+offset_right = 50.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "确认"

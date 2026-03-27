@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dfhvqc0skju65"
+
+[deps]
+
+files=["res://config/recharge_all.reward.translation", "res://config/recharge_all.renum.translation", "res://config/recharge_all.picname.translation"]
+
+source_file="res://config/recharge_all.csv"
+dest_files=["res://config/recharge_all.reward.translation", "res://config/recharge_all.renum.translation", "res://config/recharge_all.picname.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

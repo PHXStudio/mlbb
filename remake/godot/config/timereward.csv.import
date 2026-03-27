@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://brcfx7vq36wgs"
+
+[deps]
+
+files=["res://config/timereward.time.translation", "res://config/timereward.reward.translation", "res://config/timereward.renum.translation"]
+
+source_file="res://config/timereward.csv"
+dest_files=["res://config/timereward.time.translation", "res://config/timereward.reward.translation", "res://config/timereward.renum.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

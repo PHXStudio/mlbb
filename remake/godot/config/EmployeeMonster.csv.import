@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://eabb28rsb5xc"
+
+[deps]
+
+files=["res://config/EmployeeMonster.Name.translation", "res://config/EmployeeMonster.AssetsID.translation", "res://config/EmployeeMonster.Skill.translation", "res://config/EmployeeMonster.Icon.translation"]
+
+source_file="res://config/EmployeeMonster.csv"
+dest_files=["res://config/EmployeeMonster.Name.translation", "res://config/EmployeeMonster.AssetsID.translation", "res://config/EmployeeMonster.Skill.translation", "res://config/EmployeeMonster.Icon.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

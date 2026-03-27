@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://kw8jcsqb63wm"
+
+[deps]
+
+files=["res://config/ACT_Reward.itemID.translation", "res://config/ACT_Reward.price.translation"]
+
+source_file="res://config/ACT_Reward.csv"
+dest_files=["res://config/ACT_Reward.itemID.translation", "res://config/ACT_Reward.price.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

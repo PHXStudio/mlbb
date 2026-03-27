@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://rt5vnafrq2bh"
+
+[deps]
+
+files=["res://config/ZhuanpanConfig.Item.translation", "res://config/ZhuanpanConfig.Number.translation", "res://config/ZhuanpanConfig.Probability.translation", "res://config/ZhuanpanConfig.DailyOutput.translation"]
+
+source_file="res://config/ZhuanpanConfig.csv"
+dest_files=["res://config/ZhuanpanConfig.Item.translation", "res://config/ZhuanpanConfig.Number.translation", "res://config/ZhuanpanConfig.Probability.translation", "res://config/ZhuanpanConfig.DailyOutput.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dd4xsknoquwmn"
+
+[deps]
+
+files=["res://config/Lifeskill.skill.translation", "res://config/Lifeskill.skill.translation", "res://config/Lifeskill.skill.translation", "res://config/Lifeskill.skill.translation", "res://config/Lifeskill.en.translation", "res://config/Lifeskill.skill.translation"]
+
+source_file="res://config/Lifeskill.csv"
+dest_files=["res://config/Lifeskill.skill.translation", "res://config/Lifeskill.skill.translation", "res://config/Lifeskill.skill.translation", "res://config/Lifeskill.skill.translation", "res://config/Lifeskill.en.translation", "res://config/Lifeskill.skill.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

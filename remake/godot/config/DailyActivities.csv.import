@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dcnk7yj2dug34"
+
+[deps]
+
+files=["res://config/DailyActivities.ActivityName.translation", "res://config/DailyActivities.ActivitiesType.translation", "res://config/DailyActivities.Join.translation", "res://config/DailyActivities.JoinGrade.translation", "res://config/DailyActivities.ActivityTime.translation", "res://config/DailyActivities.ActivityForm.translation", "res://config/DailyActivities.Desc.translation", "res://config/DailyActivities.Award.translation", "res://config/DailyActivities.ActivitiesKind.translation", "res://config/DailyActivities.StartTime.translation", "res://config/DailyActivities.ItemId.translation", "res://config/DailyActivities.maxtime.translation", "res://config/DailyActivities.Active.translation", "res://config/DailyActivities.Icon.translation"]
+
+source_file="res://config/DailyActivities.csv"
+dest_files=["res://config/DailyActivities.ActivityName.translation", "res://config/DailyActivities.ActivitiesType.translation", "res://config/DailyActivities.Join.translation", "res://config/DailyActivities.JoinGrade.translation", "res://config/DailyActivities.ActivityTime.translation", "res://config/DailyActivities.ActivityForm.translation", "res://config/DailyActivities.Desc.translation", "res://config/DailyActivities.Award.translation", "res://config/DailyActivities.ActivitiesKind.translation", "res://config/DailyActivities.StartTime.translation", "res://config/DailyActivities.ItemId.translation", "res://config/DailyActivities.maxtime.translation", "res://config/DailyActivities.Active.translation", "res://config/DailyActivities.Icon.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

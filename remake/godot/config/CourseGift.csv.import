@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://jdywvwpf3glq"
+
+[deps]
+
+files=["res://config/CourseGift.ShopID.translation", "res://config/CourseGift.Lv.translation", "res://config/CourseGift.Time.translation", "res://config/CourseGift.ItemID.translation", "res://config/CourseGift.Price.translation", "res://config/CourseGift.Oldprice.translation"]
+
+source_file="res://config/CourseGift.csv"
+dest_files=["res://config/CourseGift.ShopID.translation", "res://config/CourseGift.Lv.translation", "res://config/CourseGift.Time.translation", "res://config/CourseGift.ItemID.translation", "res://config/CourseGift.Price.translation", "res://config/CourseGift.Oldprice.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

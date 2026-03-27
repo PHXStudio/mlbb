@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cf2ndvt7jpb32"
+
+[deps]
+
+files=["res://config/State.BattleDelete.translation", "res://config/State.Level.translation", "res://config/State.Type.translation", "res://config/State.Turn.translation", "res://config/State.Tick.translation", "res://config/State.Desc.translation", "res://config/State.WorkEffect.translation", "res://config/State.WorkEffectId.translation", "res://config/State.BeattackAnimation.translation", "res://config/State.BeattackEffectId.translation", "res://config/State.ActionEffectId.translation", "res://config/State.ActionAnimation.translation", "res://config/State.Update.translation", "res://config/State.en.translation", "res://config/State.Icon.translation"]
+
+source_file="res://config/State.csv"
+dest_files=["res://config/State.BattleDelete.translation", "res://config/State.Level.translation", "res://config/State.Type.translation", "res://config/State.Turn.translation", "res://config/State.Tick.translation", "res://config/State.Desc.translation", "res://config/State.WorkEffect.translation", "res://config/State.WorkEffectId.translation", "res://config/State.BeattackAnimation.translation", "res://config/State.BeattackEffectId.translation", "res://config/State.ActionEffectId.translation", "res://config/State.ActionAnimation.translation", "res://config/State.Update.translation", "res://config/State.en.translation", "res://config/State.Icon.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

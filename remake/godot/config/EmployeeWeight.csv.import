@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b5lfmyemoular"
+
+[deps]
+
+files=["res://config/EmployeeWeight.Name.translation", "res://config/EmployeeWeight.Quality.translation", "res://config/EmployeeWeight.GoldWeight.translation", "res://config/EmployeeWeight.DiamondWeight.translation"]
+
+source_file="res://config/EmployeeWeight.csv"
+dest_files=["res://config/EmployeeWeight.Name.translation", "res://config/EmployeeWeight.Quality.translation", "res://config/EmployeeWeight.GoldWeight.translation", "res://config/EmployeeWeight.DiamondWeight.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

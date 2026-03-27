@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dnkjkopfo5odk"
+
+[deps]
+
+files=["res://config/PetIntensive.item.translation", "res://config/PetIntensive.itemnum.translation", "res://config/PetIntensive.probability.translation", "res://config/PetIntensive.maxtime.translation", "res://config/PetIntensive.grow.translation"]
+
+source_file="res://config/PetIntensive.csv"
+dest_files=["res://config/PetIntensive.item.translation", "res://config/PetIntensive.itemnum.translation", "res://config/PetIntensive.probability.translation", "res://config/PetIntensive.maxtime.translation", "res://config/PetIntensive.grow.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

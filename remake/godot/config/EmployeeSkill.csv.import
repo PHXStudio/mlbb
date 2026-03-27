@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ecpl4q4uo7tn"
+
+[deps]
+
+files=["res://config/EmployeeSkill.SkillName.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation"]
+
+source_file="res://config/EmployeeSkill.csv"
+dest_files=["res://config/EmployeeSkill.SkillName.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation", "res://config/EmployeeSkill.EKT.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

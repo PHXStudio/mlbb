@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ov0yg35bgcjj"
+
+[deps]
+
+files=["res://config/Activity.type.translation", "res://config/Activity.target.translation", "res://config/Activity.desc.translation", "res://config/Activity.reward.translation"]
+
+source_file="res://config/Activity.csv"
+dest_files=["res://config/Activity.type.translation", "res://config/Activity.target.translation", "res://config/Activity.desc.translation", "res://config/Activity.reward.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

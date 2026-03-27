@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dca4pvqub0bcw"
+
+[deps]
+
+files=["res://config/Gather.Type.translation", "res://config/Gather.Position.translation", "res://config/Gather.Level.translation", "res://config/Gather.Show.translation", "res://config/Gather.dropID.translation", "res://config/Gather.seniordropID.translation", "res://config/Gather.Title.translation", "res://config/Gather.Icon.translation", "res://config/Gather.money.translation", "res://config/Gather.addvalue.translation"]
+
+source_file="res://config/Gather.csv"
+dest_files=["res://config/Gather.Type.translation", "res://config/Gather.Position.translation", "res://config/Gather.Level.translation", "res://config/Gather.Show.translation", "res://config/Gather.dropID.translation", "res://config/Gather.seniordropID.translation", "res://config/Gather.Title.translation", "res://config/Gather.Icon.translation", "res://config/Gather.money.translation", "res://config/Gather.addvalue.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

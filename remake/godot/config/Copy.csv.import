@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://3bn33pe2khm6"
+
+[deps]
+
+files=["res://config/Copy.SceneID.translation", "res://config/Copy.NextSceneID.translation", "res://config/Copy.StartTaskID.translation", "res://config/Copy.EndID.translation", "res://config/Copy.RefreshFrequency.translation", "res://config/Copy.picname.translation", "res://config/Copy.reward.translation"]
+
+source_file="res://config/Copy.csv"
+dest_files=["res://config/Copy.SceneID.translation", "res://config/Copy.NextSceneID.translation", "res://config/Copy.StartTaskID.translation", "res://config/Copy.EndID.translation", "res://config/Copy.RefreshFrequency.translation", "res://config/Copy.picname.translation", "res://config/Copy.reward.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

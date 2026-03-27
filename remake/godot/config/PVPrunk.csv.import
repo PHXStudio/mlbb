@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://fakcvt51hgof"
+
+[deps]
+
+files=["res://config/PVPrunk.min.translation", "res://config/PVPrunk.max.translation", "res://config/PVPrunk.dropID.translation", "res://config/PVPrunk.dropID.translation", "res://config/PVPrunk.dropID.translation", "res://config/PVPrunk.rankName.translation"]
+
+source_file="res://config/PVPrunk.csv"
+dest_files=["res://config/PVPrunk.min.translation", "res://config/PVPrunk.max.translation", "res://config/PVPrunk.dropID.translation", "res://config/PVPrunk.dropID.translation", "res://config/PVPrunk.dropID.translation", "res://config/PVPrunk.rankName.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

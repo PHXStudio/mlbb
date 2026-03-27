@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c346dtahtmm8y"
+
+[deps]
+
+files=["res://config/Diamondsconfig.Class.translation", "res://config/Diamondsconfig.Type.translation", "res://config/Diamondsconfig.vol.translation", "res://config/Diamondsconfig.en.translation", "res://config/Diamondsconfig.diamonds.translation"]
+
+source_file="res://config/Diamondsconfig.csv"
+dest_files=["res://config/Diamondsconfig.Class.translation", "res://config/Diamondsconfig.Type.translation", "res://config/Diamondsconfig.vol.translation", "res://config/Diamondsconfig.en.translation", "res://config/Diamondsconfig.diamonds.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -7,7 +7,7 @@ ServerAgent::ServerAgent() {
   conn.instantiate();
   proxy.instantiate();
   stub.instantiate();
-  stub->stub = this;
+  stub->conn = conn;
   conn->set_proxy(proxy.ptr());
 }
 
@@ -19,14 +19,10 @@ void ServerAgent::_bind_methods() {
   ClassDB::bind_method(D_METHOD("get_net_conn"),&ServerAgent::get_net_conn);
   ClassDB::bind_method(D_METHOD("get_server_proxy"), &ServerAgent::get_server_proxy);
   ClassDB::bind_method(D_METHOD("get_server_stub"), &ServerAgent::get_server_stub);
+  ClassDB::bind_method(D_METHOD("tick_frame"), &ServerAgent::tick_frame);
 }
 
-
-void ServerAgent::_notification(int p_what) {
-  // 处理 Godot 内部通知
-}
-
-void ServerAgent::_process(double delta) {
+void ServerAgent::tick_frame() {
 
   //UtilityFunctions::print("void ServerAgent::_process(double delta) {");
 
@@ -45,14 +41,7 @@ Ref<ServerProxy> ServerAgent::get_server_proxy(){
 Ref<ServerStub> ServerAgent::get_server_stub(){
   return stub;
 }
-ProtocolWriter* ServerAgent::methodBegin(){
-  conn->initSendingData();
-  return conn.ptr();
-}
 
-void ServerAgent::methodEnd() {
-  conn->flushSendingData();
-}
 
 ////////
 

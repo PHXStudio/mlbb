@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://vy2y38m7r143"
+
+[deps]
+
+files=["res://config/PetActivityData.MonsterID.translation", "res://config/PetActivityData.Skills.translation", "res://config/PetActivityData.OpenTimeDesc.translation", "res://config/PetActivityData.Difficults.translation", "res://config/PetActivityData.Levels.translation"]
+
+source_file="res://config/PetActivityData.csv"
+dest_files=["res://config/PetActivityData.MonsterID.translation", "res://config/PetActivityData.Skills.translation", "res://config/PetActivityData.OpenTimeDesc.translation", "res://config/PetActivityData.Difficults.translation", "res://config/PetActivityData.Levels.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

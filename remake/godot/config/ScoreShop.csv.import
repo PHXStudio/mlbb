@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c7yd6cg0pvebr"
+
+[deps]
+
+files=["res://config/ScoreShop.ItemID.translation", "res://config/ScoreShop.ItemName.translation", "res://config/ScoreShop.Times.translation", "res://config/ScoreShop.Cost.translation"]
+
+source_file="res://config/ScoreShop.csv"
+dest_files=["res://config/ScoreShop.ItemID.translation", "res://config/ScoreShop.ItemName.translation", "res://config/ScoreShop.Times.translation", "res://config/ScoreShop.Cost.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

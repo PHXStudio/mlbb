@@ -11,8 +11,27 @@ config_version=5
 [application]
 
 config/name="remake"
+run/main_scene="uid://po2kcgq8oxbo"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://ccjnuhesu4t5b"
+Player="*uid://1qovt683buwu"
+PlayerSystem="*res://scripts/systems/player_system.gd"
+BabySystem="*res://scripts/systems/baby_system.gd"
+EmployeeSystem="*res://scripts/systems/employee_system.gd"
+ItemSystem="*res://scripts/systems/item_system.gd"
+BattleSystem="*res://scripts/systems/battle_system.gd"
+ProfessionData="*res://scripts/data/profession_data.gd"
+PlayerTemplateData="*res://scripts/data/player_template_data.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/scale=2.0
 
 [physics]
 

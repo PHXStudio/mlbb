@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ui4f4saxr5y0"
+
+[deps]
+
+files=["res://config/ArenaAiData.Profession.translation", "res://config/ArenaAiData.ProfessionAI.translation", "res://config/ArenaAiData.BabyAI.translation"]
+
+source_file="res://config/ArenaAiData.csv"
+dest_files=["res://config/ArenaAiData.Profession.translation", "res://config/ArenaAiData.ProfessionAI.translation", "res://config/ArenaAiData.BabyAI.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cxg0wdvw12pap"
+
+[deps]
+
+files=["res://config/EmployeeActivity.reward.translation", "res://config/EmployeeActivity.renum.translation"]
+
+source_file="res://config/EmployeeActivity.csv"
+dest_files=["res://config/EmployeeActivity.reward.translation", "res://config/EmployeeActivity.renum.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

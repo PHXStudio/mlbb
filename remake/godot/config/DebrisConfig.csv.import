@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://uho4410ba6yn"
+
+[deps]
+
+files=["res://config/DebrisConfig.ItemSubType.translation", "res://config/DebrisConfig.Number.translation", "res://config/DebrisConfig.Item.translation", "res://config/DebrisConfig.ItemNumber.translation"]
+
+source_file="res://config/DebrisConfig.csv"
+dest_files=["res://config/DebrisConfig.ItemSubType.translation", "res://config/DebrisConfig.Number.translation", "res://config/DebrisConfig.Item.translation", "res://config/DebrisConfig.ItemNumber.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ydd7gfe7t3fw"
+
+[deps]
+
+files=["res://config/sale.price.translation", "res://config/sale.sale.translation", "res://config/sale.buytimes.translation"]
+
+source_file="res://config/sale.csv"
+dest_files=["res://config/sale.price.translation", "res://config/sale.sale.translation", "res://config/sale.buytimes.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

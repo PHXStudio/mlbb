@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://edsrja8li317"
+
+[deps]
+
+files=["res://config/QualityWeight.GoldWeight.translation", "res://config/QualityWeight.DiamondWeight.translation"]
+
+source_file="res://config/QualityWeight.csv"
+dest_files=["res://config/QualityWeight.GoldWeight.translation", "res://config/QualityWeight.DiamondWeight.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

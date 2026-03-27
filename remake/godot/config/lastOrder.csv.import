@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cvolleev0k6pn"
+
+[deps]
+
+files=["res://config/lastOrder.PFNAME.translation", "res://config/lastOrder.ORDERID.translation", "res://config/lastOrder.ACCOUNTID.translation", "res://config/lastOrder.PAYMENT.translation"]
+
+source_file="res://config/lastOrder.csv"
+dest_files=["res://config/lastOrder.PFNAME.translation", "res://config/lastOrder.ORDERID.translation", "res://config/lastOrder.ACCOUNTID.translation", "res://config/lastOrder.PAYMENT.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

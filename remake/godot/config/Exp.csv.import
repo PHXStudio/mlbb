@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://xc76ocsy4pt7"
+
+[deps]
+
+files=["res://config/Exp.Exp.translation", "res://config/Exp.PetExp.translation"]
+
+source_file="res://config/Exp.csv"
+dest_files=["res://config/Exp.Exp.translation", "res://config/Exp.PetExp.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

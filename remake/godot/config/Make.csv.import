@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://btt8cilcy72g8"
+
+[deps]
+
+files=["res://config/Make.type.translation", "res://config/Make.skill.translation", "res://config/Make.skill.translation", "res://config/Make.gain.translation", "res://config/Make.cost.translation", "res://config/Make.cost.translation", "res://config/Make.need.translation", "res://config/Make.need.translation", "res://config/Make.en.translation", "res://config/Make.need.translation", "res://config/Make.need.translation", "res://config/Make.Chance.translation", "res://config/Make.SpecialID.translation"]
+
+source_file="res://config/Make.csv"
+dest_files=["res://config/Make.type.translation", "res://config/Make.skill.translation", "res://config/Make.skill.translation", "res://config/Make.gain.translation", "res://config/Make.cost.translation", "res://config/Make.cost.translation", "res://config/Make.need.translation", "res://config/Make.need.translation", "res://config/Make.en.translation", "res://config/Make.need.translation", "res://config/Make.need.translation", "res://config/Make.Chance.translation", "res://config/Make.SpecialID.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

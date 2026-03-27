@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b4ik1128ipjxl"
+
+[deps]
+
+files=["res://config/festival.reward.translation", "res://config/festival.renum.translation"]
+
+source_file="res://config/festival.csv"
+dest_files=["res://config/festival.reward.translation", "res://config/festival.renum.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://27xvwpnqj1yc"
+
+[deps]
+
+files=["res://config/Cheats.Name.translation", "res://config/Cheats.Type.translation", "res://config/Cheats.Level.translation", "res://config/Cheats.en.translation", "res://config/Cheats.Desc.translation", "res://config/Cheats.en.translation", "res://config/Cheats.Find.translation", "res://config/Cheats.UI.translation"]
+
+source_file="res://config/Cheats.csv"
+dest_files=["res://config/Cheats.Name.translation", "res://config/Cheats.Type.translation", "res://config/Cheats.Level.translation", "res://config/Cheats.en.translation", "res://config/Cheats.Desc.translation", "res://config/Cheats.en.translation", "res://config/Cheats.Find.translation", "res://config/Cheats.UI.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

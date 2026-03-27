@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://darsp2586hylt"
+
+[deps]
+
+files=["res://config/Title.Desc.translation", "res://config/Title.MinReputation.translation", "res://config/Title.MaxReputation.translation"]
+
+source_file="res://config/Title.csv"
+dest_files=["res://config/Title.Desc.translation", "res://config/Title.MinReputation.translation", "res://config/Title.MaxReputation.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

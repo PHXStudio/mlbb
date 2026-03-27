@@ -27,16 +27,18 @@ void initialize_my_module(ModuleInitializationLevel p_level) {
     return;
   }
 
-  ClassDB::register_class<GDExample>();
-  ClassDB::register_class<ServerAgent>();
-  ClassDB::register_class<ServerProxy>();
-  ClassDB::register_class<ServerStub>();
-  ClassDB::register_class<NetConn>();
-
 #define GDREGISTER_CLASS(m_class) ClassDB::register_class<m_class>()
   REGISTER_global_CLASSES;
   REGISTER_proto_CLASSES;
 #undef GDREGISTER_CLASS
+
+  ClassDB::register_class<GDExample>();
+  ClassDB::register_class<ServerAgent>();
+  ClassDB::register_class<ServerProxy>();
+  ClassDB::register_class<ServerStub>();
+
+  ClassDB::register_class<NetConn>();
+
 
 }
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://tx1tydywpgo2"
+
+[deps]
+
+files=["res://config/EntityAssets.AssetName.translation", "res://config/EntityAssets.Icon.translation", "res://config/EntityAssets.BindPoint.translation", "res://config/EntityAssets.Zoom.translation", "res://config/EntityAssets.skillhard.translation"]
+
+source_file="res://config/EntityAssets.csv"
+dest_files=["res://config/EntityAssets.AssetName.translation", "res://config/EntityAssets.Icon.translation", "res://config/EntityAssets.BindPoint.translation", "res://config/EntityAssets.Zoom.translation", "res://config/EntityAssets.skillhard.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

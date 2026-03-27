@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cvr81cegvx3wv"
+
+[deps]
+
+files=["res://config/foundation.reward.translation", "res://config/foundation.renum.translation", "res://config/foundation.des.translation"]
+
+source_file="res://config/foundation.csv"
+dest_files=["res://config/foundation.reward.translation", "res://config/foundation.renum.translation", "res://config/foundation.des.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

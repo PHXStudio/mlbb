@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bmts8ps5b1c16"
+
+[deps]
+
+files=["res://config/Blessing.SkillID.translation", "res://config/Blessing.Name.translation", "res://config/Blessing.ICON.translation", "res://config/Blessing.Attribute.translation", "res://config/Blessing.ConsumeGold.translation", "res://config/Blessing.AchieveExp.translation", "res://config/Blessing.LvUp.translation", "res://config/Blessing.Lv1Exp.translation", "res://config/Blessing.Lv2Exp.translation", "res://config/Blessing.Lv3Exp.translation", "res://config/Blessing.Lv4Exp.translation", "res://config/Blessing.Lv5Exp.translation", "res://config/Blessing.Lv6Exp.translation", "res://config/Blessing.Lv7Exp.translation", "res://config/Blessing.Lv8Exp.translation", "res://config/Blessing.Lv9Exp.translation", "res://config/Blessing.Lv10Exp.translation", "res://config/Blessing.Lv11Exp.translation", "res://config/Blessing.Lv12Exp.translation", "res://config/Blessing.Lv13Exp.translation", "res://config/Blessing.Lv14Exp.translation", "res://config/Blessing.Lv15Exp.translation", "res://config/Blessing.Lv16Exp.translation", "res://config/Blessing.Lv17Exp.translation", "res://config/Blessing.Lv18Exp.translation", "res://config/Blessing.Lv19Exp.translation", "res://config/Blessing.Lv20Exp.translation"]
+
+source_file="res://config/Blessing.csv"
+dest_files=["res://config/Blessing.SkillID.translation", "res://config/Blessing.Name.translation", "res://config/Blessing.ICON.translation", "res://config/Blessing.Attribute.translation", "res://config/Blessing.ConsumeGold.translation", "res://config/Blessing.AchieveExp.translation", "res://config/Blessing.LvUp.translation", "res://config/Blessing.Lv1Exp.translation", "res://config/Blessing.Lv2Exp.translation", "res://config/Blessing.Lv3Exp.translation", "res://config/Blessing.Lv4Exp.translation", "res://config/Blessing.Lv5Exp.translation", "res://config/Blessing.Lv6Exp.translation", "res://config/Blessing.Lv7Exp.translation", "res://config/Blessing.Lv8Exp.translation", "res://config/Blessing.Lv9Exp.translation", "res://config/Blessing.Lv10Exp.translation", "res://config/Blessing.Lv11Exp.translation", "res://config/Blessing.Lv12Exp.translation", "res://config/Blessing.Lv13Exp.translation", "res://config/Blessing.Lv14Exp.translation", "res://config/Blessing.Lv15Exp.translation", "res://config/Blessing.Lv16Exp.translation", "res://config/Blessing.Lv17Exp.translation", "res://config/Blessing.Lv18Exp.translation", "res://config/Blessing.Lv19Exp.translation", "res://config/Blessing.Lv20Exp.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

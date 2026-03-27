@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cxlbx5naxk5ql"
+
+[deps]
+
+files=["res://config/EmployeeMonSkill.SkillName.translation", "res://config/EmployeeMonSkill.SkillIcon.translation", "res://config/EmployeeMonSkill.SkillTips.translation"]
+
+source_file="res://config/EmployeeMonSkill.csv"
+dest_files=["res://config/EmployeeMonSkill.SkillName.translation", "res://config/EmployeeMonSkill.SkillIcon.translation", "res://config/EmployeeMonSkill.SkillTips.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

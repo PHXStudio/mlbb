@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c2iew44p3koy7"
+
+[deps]
+
+files=["res://config/Crystal.name.translation", "res://config/Crystal.property.translation", "res://config/Crystal.Quality.translation", "res://config/Crystal.type.translation", "res://config/Crystal.item.translation", "res://config/Crystal.property.translation"]
+
+source_file="res://config/Crystal.csv"
+dest_files=["res://config/Crystal.name.translation", "res://config/Crystal.property.translation", "res://config/Crystal.Quality.translation", "res://config/Crystal.type.translation", "res://config/Crystal.item.translation", "res://config/Crystal.property.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

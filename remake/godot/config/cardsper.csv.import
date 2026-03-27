@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bx1ndb2oxmshj"
+
+[deps]
+
+files=["res://config/cardsper.high.translation", "res://config/cardsper.middle.translation", "res://config/cardsper.low.translation", "res://config/cardsper.cost.translation"]
+
+source_file="res://config/cardsper.csv"
+dest_files=["res://config/cardsper.high.translation", "res://config/cardsper.middle.translation", "res://config/cardsper.low.translation", "res://config/cardsper.cost.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

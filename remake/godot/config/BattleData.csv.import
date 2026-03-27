@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ch70g2uyrlgva"
+
+[deps]
+
+files=["res://config/BattleData.BattleType.translation", "res://config/BattleData.dialogue1.translation", "res://config/BattleData.dialogue2.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.en.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.en.translation", "res://config/BattleData.en.translation", "res://config/BattleData.en.translation", "res://config/BattleData.en.translation", "res://config/BattleData.en.translation", "res://config/BattleData.BattleName.translation"]
+
+source_file="res://config/BattleData.csv"
+dest_files=["res://config/BattleData.BattleType.translation", "res://config/BattleData.dialogue1.translation", "res://config/BattleData.dialogue2.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.en.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.BP.translation", "res://config/BattleData.en.translation", "res://config/BattleData.en.translation", "res://config/BattleData.en.translation", "res://config/BattleData.en.translation", "res://config/BattleData.en.translation", "res://config/BattleData.BattleName.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

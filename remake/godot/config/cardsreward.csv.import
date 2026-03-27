@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c6pkywx3vdfx8"
+
+[deps]
+
+files=["res://config/cardsreward.reward.translation", "res://config/cardsreward.num.translation", "res://config/cardsreward.type.translation"]
+
+source_file="res://config/cardsreward.csv"
+dest_files=["res://config/cardsreward.reward.translation", "res://config/cardsreward.num.translation", "res://config/cardsreward.type.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

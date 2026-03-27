@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://damfoopus1bes"
+
+[deps]
+
+files=["res://config/ArtifactLevel.Exp.translation", "res://config/ArtifactLevel.JobType.translation", "res://config/ArtifactLevel.Item.translation", "res://config/ArtifactLevel.HpMax.translation", "res://config/ArtifactLevel.MpMax.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.Attack.translation", "res://config/ArtifactLevel.Icon.translation", "res://config/ArtifactLevel.Defense.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.Spirit.translation", "res://config/ArtifactLevel.Reply.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation"]
+
+source_file="res://config/ArtifactLevel.csv"
+dest_files=["res://config/ArtifactLevel.Exp.translation", "res://config/ArtifactLevel.JobType.translation", "res://config/ArtifactLevel.Item.translation", "res://config/ArtifactLevel.HpMax.translation", "res://config/ArtifactLevel.MpMax.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.Attack.translation", "res://config/ArtifactLevel.Icon.translation", "res://config/ArtifactLevel.Defense.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.Spirit.translation", "res://config/ArtifactLevel.Reply.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation", "res://config/ArtifactLevel.en.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

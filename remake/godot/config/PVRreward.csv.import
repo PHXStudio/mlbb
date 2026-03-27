@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dyb4styjx5bc1"
+
+[deps]
+
+files=["res://config/PVRreward.Ranking.translation", "res://config/PVRreward.dropID.translation", "res://config/PVRreward.dropID.translation", "res://config/PVRreward.en.translation"]
+
+source_file="res://config/PVRreward.csv"
+dest_files=["res://config/PVRreward.Ranking.translation", "res://config/PVRreward.dropID.translation", "res://config/PVRreward.dropID.translation", "res://config/PVRreward.en.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

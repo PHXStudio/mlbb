@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dytoveid7bvwx"
+
+[deps]
+
+files=["res://config/Quest.QuestId.translation", "res://config/Quest.QuestKind.translation", "res://config/Quest.QuestType.translation", "res://config/Quest.NeedLevel.translation", "res://config/Quest.en.translation", "res://config/Quest.RequireType.translation", "res://config/Quest.en.translation", "res://config/Quest.StartNPC.translation", "res://config/Quest.StartTalk.translation", "res://config/Quest.FinishNPCScene.translation", "res://config/Quest.FinishNPC.translation", "res://config/Quest.DoingScene.translation", "res://config/Quest.DoingCoordinate.translation", "res://config/Quest.ProTalk.translation", "res://config/Quest.FinishTalk.translation", "res://config/Quest.PreQuest.translation", "res://config/Quest.en.translation", "res://config/Quest.en.translation", "res://config/Quest.en.translation", "res://config/Quest.en.translation", "res://config/Quest.Target.translation", "res://config/Quest.TargetNum.translation", "res://config/Quest.DropID.translation", "res://config/Quest.DropID2.translation", "res://config/Quest.chuansong.translation", "res://config/Quest.QuestMiniDesc.translation", "res://config/Quest.Endtarget.translation", "res://config/Quest.QuestDes.translation", "res://config/Quest.JobType.translation", "res://config/Quest.JobLevel.translation", "res://config/Quest.en.translation", "res://config/Quest.AcceptScript.translation", "res://config/Quest.SubmitScript.translation", "res://config/Quest.PostQuest.translation", "res://config/Quest.Bossnpc.translation"]
+
+source_file="res://config/Quest.csv"
+dest_files=["res://config/Quest.QuestId.translation", "res://config/Quest.QuestKind.translation", "res://config/Quest.QuestType.translation", "res://config/Quest.NeedLevel.translation", "res://config/Quest.en.translation", "res://config/Quest.RequireType.translation", "res://config/Quest.en.translation", "res://config/Quest.StartNPC.translation", "res://config/Quest.StartTalk.translation", "res://config/Quest.FinishNPCScene.translation", "res://config/Quest.FinishNPC.translation", "res://config/Quest.DoingScene.translation", "res://config/Quest.DoingCoordinate.translation", "res://config/Quest.ProTalk.translation", "res://config/Quest.FinishTalk.translation", "res://config/Quest.PreQuest.translation", "res://config/Quest.en.translation", "res://config/Quest.en.translation", "res://config/Quest.en.translation", "res://config/Quest.en.translation", "res://config/Quest.Target.translation", "res://config/Quest.TargetNum.translation", "res://config/Quest.DropID.translation", "res://config/Quest.DropID2.translation", "res://config/Quest.chuansong.translation", "res://config/Quest.QuestMiniDesc.translation", "res://config/Quest.Endtarget.translation", "res://config/Quest.QuestDes.translation", "res://config/Quest.JobType.translation", "res://config/Quest.JobLevel.translation", "res://config/Quest.en.translation", "res://config/Quest.AcceptScript.translation", "res://config/Quest.SubmitScript.translation", "res://config/Quest.PostQuest.translation", "res://config/Quest.Bossnpc.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bwp5bj3tl55fx"
+
+[deps]
+
+files=["res://config/AIclass.monsterID.translation", "res://config/AIclass.level.translation", "res://config/AIclass.ME.translation", "res://config/AIclass.ME.translation", "res://config/AIclass.en.translation", "res://config/AIclass.en.translation", "res://config/AIclass.ME.translation", "res://config/AIclass.Addedvalue.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.DropID.translation"]
+
+source_file="res://config/AIclass.csv"
+dest_files=["res://config/AIclass.monsterID.translation", "res://config/AIclass.level.translation", "res://config/AIclass.ME.translation", "res://config/AIclass.ME.translation", "res://config/AIclass.en.translation", "res://config/AIclass.en.translation", "res://config/AIclass.ME.translation", "res://config/AIclass.Addedvalue.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.PT.translation", "res://config/AIclass.DropID.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

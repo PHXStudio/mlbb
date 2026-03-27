@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cx81vgxglxwp6"
+
+[deps]
+
+files=["res://config/AiNt.Type.translation", "res://config/AiNt.JobType.translation", "res://config/AiNt.PlayerID.translation", "res://config/AiNt.PlayerLv.translation", "res://config/AiNt.PlayerAI.translation", "res://config/AiNt.PlayerEquip.translation", "res://config/AiNt.BabyID.translation", "res://config/AiNt.BabyLv.translation", "res://config/AiNt.BabyAI.translation", "res://config/AiNt.EmployeeID.translation", "res://config/AiNt.UserName.translation", "res://config/AiNt.Zuobiao.translation", "res://config/AiNt.NpcID.translation", "res://config/AiNt.TitleId.translation"]
+
+source_file="res://config/AiNt.csv"
+dest_files=["res://config/AiNt.Type.translation", "res://config/AiNt.JobType.translation", "res://config/AiNt.PlayerID.translation", "res://config/AiNt.PlayerLv.translation", "res://config/AiNt.PlayerAI.translation", "res://config/AiNt.PlayerEquip.translation", "res://config/AiNt.BabyID.translation", "res://config/AiNt.BabyLv.translation", "res://config/AiNt.BabyAI.translation", "res://config/AiNt.EmployeeID.translation", "res://config/AiNt.UserName.translation", "res://config/AiNt.Zuobiao.translation", "res://config/AiNt.NpcID.translation", "res://config/AiNt.TitleId.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

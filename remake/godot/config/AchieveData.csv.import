@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b3vt5gd7kumxm"
+
+[deps]
+
+files=["res://config/AchieveData.AtName.translation", "res://config/AchieveData.Category.translation", "res://config/AchieveData.type.translation", "res://config/AchieveData.target.translation", "res://config/AchieveData.DropID.translation", "res://config/AchieveData.desc.translation", "res://config/AchieveData.title.translation"]
+
+source_file="res://config/AchieveData.csv"
+dest_files=["res://config/AchieveData.AtName.translation", "res://config/AchieveData.Category.translation", "res://config/AchieveData.type.translation", "res://config/AchieveData.target.translation", "res://config/AchieveData.DropID.translation", "res://config/AchieveData.desc.translation", "res://config/AchieveData.title.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

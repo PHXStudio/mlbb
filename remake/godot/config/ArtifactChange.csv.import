@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ddeukesljy605"
+
+[deps]
+
+files=["res://config/ArtifactChange.Icon.translation", "res://config/ArtifactChange.Diamonds.translation"]
+
+source_file="res://config/ArtifactChange.csv"
+dest_files=["res://config/ArtifactChange.Icon.translation", "res://config/ArtifactChange.Diamonds.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://4hy4mp4vuw68"
+
+[deps]
+
+files=["res://config/EmployeeQuest.EQName.translation", "res://config/EmployeeQuest.EmployeeMonster.translation", "res://config/EmployeeQuest.EmployeeQuestColor.translation", "res://config/EmployeeQuest.TimeRequier.translation", "res://config/EmployeeQuest.EmployeeRequier.translation", "res://config/EmployeeQuest.SuccessRate.translation", "res://config/EmployeeQuest.award1.translation", "res://config/EmployeeQuest.award2.translation", "res://config/EmployeeQuest.award3.translation", "res://config/EmployeeQuest.cost.translation"]
+
+source_file="res://config/EmployeeQuest.csv"
+dest_files=["res://config/EmployeeQuest.EQName.translation", "res://config/EmployeeQuest.EmployeeMonster.translation", "res://config/EmployeeQuest.EmployeeQuestColor.translation", "res://config/EmployeeQuest.TimeRequier.translation", "res://config/EmployeeQuest.EmployeeRequier.translation", "res://config/EmployeeQuest.SuccessRate.translation", "res://config/EmployeeQuest.award1.translation", "res://config/EmployeeQuest.award2.translation", "res://config/EmployeeQuest.award3.translation", "res://config/EmployeeQuest.cost.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

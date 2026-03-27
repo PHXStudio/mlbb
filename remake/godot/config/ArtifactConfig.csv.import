@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dwmkoeq026wq"
+
+[deps]
+
+files=["res://config/ArtifactConfig.JobType.translation", "res://config/ArtifactConfig.Diamonds.translation", "res://config/ArtifactConfig.Item.translation", "res://config/ArtifactConfig.Item.translation", "res://config/ArtifactConfig.LvBreach.translation", "res://config/ArtifactConfig.LvQuality.translation"]
+
+source_file="res://config/ArtifactConfig.csv"
+dest_files=["res://config/ArtifactConfig.JobType.translation", "res://config/ArtifactConfig.Diamonds.translation", "res://config/ArtifactConfig.Item.translation", "res://config/ArtifactConfig.Item.translation", "res://config/ArtifactConfig.LvBreach.translation", "res://config/ArtifactConfig.LvQuality.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

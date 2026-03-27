@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bp4ao233ihsua"
+
+[deps]
+
+files=["res://config/Sevendays.ID.translation", "res://config/Sevendays.AtName.translation", "res://config/Sevendays.Item.translation", "res://config/Sevendays.type.translation", "res://config/Sevendays.target.translation", "res://config/Sevendays.icon.translation"]
+
+source_file="res://config/Sevendays.csv"
+dest_files=["res://config/Sevendays.ID.translation", "res://config/Sevendays.AtName.translation", "res://config/Sevendays.Item.translation", "res://config/Sevendays.type.translation", "res://config/Sevendays.target.translation", "res://config/Sevendays.icon.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://qjqsimmsh70n"]
+
+[ext_resource type="Script" uid="uid://c3j0bktjfkf6b" path="res://assets/ui/create_player_3d.gd" id="1"]
+
+[sub_resource type="Environment" id="Environment_1"]
+
+[node name="CreatePlayer3D" type="Control" unique_id=746778326]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="." unique_id=433743681]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.15, 1)
+
+[node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1821572432]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="Viewport" type="SubViewport" parent="ViewportContainer" unique_id=2100752457]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Viewport#WorldRoot" type="Node3D" parent="ViewportContainer/Viewport" unique_id=72267397]
+
+[node name="WorldRoot#Camera3D" type="Camera3D" parent="ViewportContainer/Viewport" unique_id=706421420]
+transform = Transform3D(1, 0, 0, 0, 0.83951557, 0.5433357, 0, -0.5433357, 0.83951557, 0, 3, 10)
+fov = 40.0
+
+[node name="WorldRoot#DirectionalLight3D" type="DirectionalLight3D" parent="ViewportContainer/Viewport" unique_id=1935276897]
+transform = Transform3D(0.49999997, 0.86602545, 0, -0.61237246, 0.35355338, 0.7071068, 0.61237246, -0.35355338, 0.7071068, 0, 5, 0)
+light_energy = 0.7
+shadow_enabled = true
+
+[node name="WorldRoot#Sky" type="WorldEnvironment" parent="ViewportContainer/Viewport" unique_id=878164384]
+environment = SubResource("Environment_1")
+
+[node name="WorldRoot#CharacterCarousel" type="Node3D" parent="ViewportContainer/Viewport" unique_id=578175801]
+
+[node name="TitleLabel" type="Label" parent="." unique_id=459467723]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "创建角色"
+horizontal_alignment = 1
+
+[node name="LeftButton" type="Button" parent="." unique_id=1877201006]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -40.0
+offset_right = 108.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "<"
+
+[node name="RightButton" type="Button" parent="." unique_id=654801967]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -40.0
+offset_right = -40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = ">"
+
+[node name="FormPanel" type="Panel" parent="." unique_id=163845982]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NameLabel" type="Label" parent="FormPanel" unique_id=1576204970]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 80.0
+offset_bottom = 35.0
+text = "角色名:"
+
+[node name="NameInput" type="LineEdit" parent="FormPanel" unique_id=1149088317]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 280.0
+offset_bottom = 65.0
+placeholder_text = "请输入角色名 (2-12个字符)"
+
+[node name="ConfirmButton" type="Button" parent="FormPanel" unique_id=1886776273]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 75.0
+offset_right = 200.0
+offset_bottom = 110.0
+text = "创建角色"
+
+[node name="BackButton" type="Button" parent="." unique_id=1466115573]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "返回"
+
+[node name="StatusLabel" type="Label" parent="." unique_id=717735037]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -180.0
+offset_right = 200.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

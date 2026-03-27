@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dl5lphww5h7x6"
+
+[deps]
+
+files=["res://config/Drop.text.translation", "res://config/Drop.exp.translation", "res://config/Drop.money.translation", "res://config/Drop.en.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation"]
+
+source_file="res://config/Drop.csv"
+dest_files=["res://config/Drop.text.translation", "res://config/Drop.exp.translation", "res://config/Drop.money.translation", "res://config/Drop.en.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation", "res://config/Drop.item.translation", "res://config/Drop.item.translation", "res://config/Drop.pro.translation", "res://config/Drop.probability.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dmibthring8yx"
+
+[deps]
+
+files=["res://config/Course.Level.translation", "res://config/Course.Name.translation", "res://config/Course.en.translation", "res://config/Course.Desc.translation"]
+
+source_file="res://config/Course.csv"
+dest_files=["res://config/Course.Level.translation", "res://config/Course.Name.translation", "res://config/Course.en.translation", "res://config/Course.Desc.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://deq2bp6xh0lq"
+
+[deps]
+
+files=["res://config/PlayerData.sex.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.DefalutSkill.translation", "res://config/PlayerData.DefalutBabyId.translation", "res://config/PlayerData.Race.translation", "res://config/PlayerData.RaceIcon.translation", "res://config/PlayerData.DefaultSceneId.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.JobType.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.race.translation", "res://config/PlayerData.decs.translation"]
+
+source_file="res://config/PlayerData.csv"
+dest_files=["res://config/PlayerData.sex.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.DefalutSkill.translation", "res://config/PlayerData.DefalutBabyId.translation", "res://config/PlayerData.Race.translation", "res://config/PlayerData.RaceIcon.translation", "res://config/PlayerData.DefaultSceneId.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.JobType.translation", "res://config/PlayerData.PT.translation", "res://config/PlayerData.race.translation", "res://config/PlayerData.decs.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

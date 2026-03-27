@@ -18,10 +18,9 @@ namespace godot {
  * 负责管理协议操作、Godot 的 Node 系统和信号发射。
  */
 class ServerAgent
-    : public Node,
-      public Client2Server_Stub {
+    : public Resource{
 
-  GDCLASS(ServerAgent, Node)
+  GDCLASS(ServerAgent, Resource)
 
 public:
 
@@ -36,18 +35,14 @@ public:
   void on_data_received(const PackedByteArray &data);
 
   static void _bind_methods();
-  void _process(double delta) override;
-
-public: // 临时公开以注册虚拟函数
-  void _notification(int p_what);
+  void tick_frame();
 
 
 private:
   Ref<NetConn>    conn;
   Ref<ServerProxy> proxy;
   Ref<ServerStub> stub;
-  godot::ProtocolWriter* methodBegin() override;
-  void methodEnd() override;
+
 };
 
 } // namespace godot

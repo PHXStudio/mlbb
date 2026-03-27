@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://d2jkbe4237tmf"
+
+[deps]
+
+files=["res://config/GoodGroupData.ItemId.translation", "res://config/GoodGroupData.ItemStack.translation", "res://config/GoodGroupData.Weight.translation", "res://config/GoodGroupData.OpenTenMinNum.translation", "res://config/GoodGroupData.OpenTenMaxNum.translation"]
+
+source_file="res://config/GoodGroupData.csv"
+dest_files=["res://config/GoodGroupData.ItemId.translation", "res://config/GoodGroupData.ItemStack.translation", "res://config/GoodGroupData.Weight.translation", "res://config/GoodGroupData.OpenTenMinNum.translation", "res://config/GoodGroupData.OpenTenMaxNum.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

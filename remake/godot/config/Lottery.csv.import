@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://q7r481gbbmf8"
+
+[deps]
+
+files=["res://config/Lottery.LotteryID.translation", "res://config/Lottery.RewardLv.translation", "res://config/Lottery.Win.translation", "res://config/Lottery.Drop.translation", "res://config/Lottery.RewardName.translation", "res://config/Lottery.RewardRate.translation"]
+
+source_file="res://config/Lottery.csv"
+dest_files=["res://config/Lottery.LotteryID.translation", "res://config/Lottery.RewardLv.translation", "res://config/Lottery.Win.translation", "res://config/Lottery.Drop.translation", "res://config/Lottery.RewardName.translation", "res://config/Lottery.RewardRate.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bws6k7kjrsj7a"
+
+[deps]
+
+files=["res://config/EmployeeData.Name.translation", "res://config/EmployeeData.Decs.translation", "res://config/EmployeeData.JobType.translation", "res://config/EmployeeData.JobLv.translation", "res://config/EmployeeData.AssetID.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.DefalutSkill.translation", "res://config/EmployeeData.AI.translation", "res://config/EmployeeData.Race.translation", "res://config/EmployeeData.RaceIcon.translation", "res://config/EmployeeData.Quality.translation", "res://config/EmployeeData.InitialStar.translation", "res://config/EmployeeData.EvolutionNum.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Skill.translation", "res://config/EmployeeData.AST.translation"]
+
+source_file="res://config/EmployeeData.csv"
+dest_files=["res://config/EmployeeData.Name.translation", "res://config/EmployeeData.Decs.translation", "res://config/EmployeeData.JobType.translation", "res://config/EmployeeData.JobLv.translation", "res://config/EmployeeData.AssetID.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.DefalutSkill.translation", "res://config/EmployeeData.AI.translation", "res://config/EmployeeData.Race.translation", "res://config/EmployeeData.RaceIcon.translation", "res://config/EmployeeData.Quality.translation", "res://config/EmployeeData.InitialStar.translation", "res://config/EmployeeData.EvolutionNum.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.PT.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Grow.translation", "res://config/EmployeeData.Skill.translation", "res://config/EmployeeData.AST.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

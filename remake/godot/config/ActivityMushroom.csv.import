@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://mo473xn8e2y8"
+
+[deps]
+
+files=["res://config/ActivityMushroom.NpcID.translation", "res://config/ActivityMushroom.type.translation"]
+
+source_file="res://config/ActivityMushroom.csv"
+dest_files=["res://config/ActivityMushroom.NpcID.translation", "res://config/ActivityMushroom.type.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

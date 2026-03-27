@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://eyu8onrx4qtc"
+
+[deps]
+
+files=["res://config/ShopData.Name.translation", "res://config/ShopData.Classify.translation", "res://config/ShopData.ShopType.translation", "res://config/ShopData.Itemid.translation", "res://config/ShopData.Num.translation", "res://config/ShopData.ShopPayType.translation", "res://config/ShopData.Price.translation", "res://config/ShopData.en.translation", "res://config/ShopData.Hot.translation", "res://config/ShopData.en.translation", "res://config/ShopData.en.translation", "res://config/ShopData.en.translation", "res://config/ShopData.en.translation", "res://config/ShopData.Icon.translation", "res://config/ShopData.IOSID.translation"]
+
+source_file="res://config/ShopData.csv"
+dest_files=["res://config/ShopData.Name.translation", "res://config/ShopData.Classify.translation", "res://config/ShopData.ShopType.translation", "res://config/ShopData.Itemid.translation", "res://config/ShopData.Num.translation", "res://config/ShopData.ShopPayType.translation", "res://config/ShopData.Price.translation", "res://config/ShopData.en.translation", "res://config/ShopData.Hot.translation", "res://config/ShopData.en.translation", "res://config/ShopData.en.translation", "res://config/ShopData.en.translation", "res://config/ShopData.en.translation", "res://config/ShopData.Icon.translation", "res://config/ShopData.IOSID.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cbklg47chxngf"
+
+[deps]
+
+files=["res://config/Npc.PosX.translation", "res://config/Npc.PosZ.translation", "res://config/Npc.PosY.translation", "res://config/Npc.RotY.translation", "res://config/Npc.AssetID.translation", "res://config/Npc.NpcName.translation", "res://config/Npc.NpcQuest.translation", "res://config/Npc.NpcTalk.translation", "res://config/Npc.BabySkillLearn.translation", "res://config/Npc.UIAssetsId.translation", "res://config/Npc.QuestID.translation", "res://config/Npc.Transfer.translation", "res://config/Npc.NpcType.translation", "res://config/Npc.SceneID.translation", "res://config/Npc.OpenLv.translation"]
+
+source_file="res://config/Npc.csv"
+dest_files=["res://config/Npc.PosX.translation", "res://config/Npc.PosZ.translation", "res://config/Npc.PosY.translation", "res://config/Npc.RotY.translation", "res://config/Npc.AssetID.translation", "res://config/Npc.NpcName.translation", "res://config/Npc.NpcQuest.translation", "res://config/Npc.NpcTalk.translation", "res://config/Npc.BabySkillLearn.translation", "res://config/Npc.UIAssetsId.translation", "res://config/Npc.QuestID.translation", "res://config/Npc.Transfer.translation", "res://config/Npc.NpcType.translation", "res://config/Npc.SceneID.translation", "res://config/Npc.OpenLv.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

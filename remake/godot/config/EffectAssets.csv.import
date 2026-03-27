@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cqrvpp1r4skxc"
+
+[deps]
+
+files=["res://config/EffectAssets.AssetName.translation", "res://config/EffectAssets.EffectBehavioursID.translation", "res://config/EffectAssets.SoundID.translation"]
+
+source_file="res://config/EffectAssets.csv"
+dest_files=["res://config/EffectAssets.AssetName.translation", "res://config/EffectAssets.EffectBehavioursID.translation", "res://config/EffectAssets.SoundID.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

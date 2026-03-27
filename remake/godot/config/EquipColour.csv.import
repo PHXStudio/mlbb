@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ch4ug3xfjknxh"
+
+[deps]
+
+files=["res://config/EquipColour.HpMax.translation", "res://config/EquipColour.MpMax.translation", "res://config/EquipColour.Attack.translation", "res://config/EquipColour.Defense.translation", "res://config/EquipColour.Agile.translation", "res://config/EquipColour.Spirit.translation", "res://config/EquipColour.Reply.translation", "res://config/EquipColour.Hit.translation", "res://config/EquipColour.Dodge.translation", "res://config/EquipColour.Crit.translation", "res://config/EquipColour.counterpunch.translation", "res://config/EquipColour.Magicattack.translation", "res://config/EquipColour.Magicdefense.translation", "res://config/EquipColour.NoSleep.translation", "res://config/EquipColour.NoPetrifaction.translation", "res://config/EquipColour.NoDrunk.translation", "res://config/EquipColour.NoChaos.translation", "res://config/EquipColour.NoForget.translation"]
+
+source_file="res://config/EquipColour.csv"
+dest_files=["res://config/EquipColour.HpMax.translation", "res://config/EquipColour.MpMax.translation", "res://config/EquipColour.Attack.translation", "res://config/EquipColour.Defense.translation", "res://config/EquipColour.Agile.translation", "res://config/EquipColour.Spirit.translation", "res://config/EquipColour.Reply.translation", "res://config/EquipColour.Hit.translation", "res://config/EquipColour.Dodge.translation", "res://config/EquipColour.Crit.translation", "res://config/EquipColour.counterpunch.translation", "res://config/EquipColour.Magicattack.translation", "res://config/EquipColour.Magicdefense.translation", "res://config/EquipColour.NoSleep.translation", "res://config/EquipColour.NoPetrifaction.translation", "res://config/EquipColour.NoDrunk.translation", "res://config/EquipColour.NoChaos.translation", "res://config/EquipColour.NoForget.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

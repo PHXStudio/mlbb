@@ -2,6 +2,96 @@
 #define __proto_godot_reg_h__
 
 #define REGISTER_proto_CLASSES \
+	GDREGISTER_CLASS(MajorVersion); \
+	GDREGISTER_CLASS(MinorVersion); \
+	GDREGISTER_CLASS(PatchVersion); \
+	GDREGISTER_CLASS(PetQuality); \
+	GDREGISTER_CLASS(ErrorNo); \
+	GDREGISTER_CLASS(OperateType); \
+	GDREGISTER_CLASS(BindType); \
+	GDREGISTER_CLASS(ReconnectType); \
+	GDREGISTER_CLASS(SexType); \
+	GDREGISTER_CLASS(BattleType); \
+	GDREGISTER_CLASS(EntityType); \
+	GDREGISTER_CLASS(MineType); \
+	GDREGISTER_CLASS(GroupType); \
+	GDREGISTER_CLASS(SkillTargetType); \
+	GDREGISTER_CLASS(SkillType); \
+	GDREGISTER_CLASS(PassiveType); \
+	GDREGISTER_CLASS(PlayerStatus); \
+	GDREGISTER_CLASS(OccupationType); \
+	GDREGISTER_CLASS(PeriodType); \
+	GDREGISTER_CLASS(JobType); \
+	GDREGISTER_CLASS(RaceType); \
+	GDREGISTER_CLASS(BabyInitGear); \
+	GDREGISTER_CLASS(QualityColor); \
+	GDREGISTER_CLASS(PropertyType); \
+	GDREGISTER_CLASS(VipLevel); \
+	GDREGISTER_CLASS(ItemMainType); \
+	GDREGISTER_CLASS(ItemSubType); \
+	GDREGISTER_CLASS(ItemUseFlag); \
+	GDREGISTER_CLASS(EquipmentSlot); \
+	GDREGISTER_CLASS(WeaponType); \
+	GDREGISTER_CLASS(ChatKind); \
+	GDREGISTER_CLASS(BattlePosition); \
+	GDREGISTER_CLASS(BattleJudgeType); \
+	GDREGISTER_CLASS(OrderParamType); \
+	GDREGISTER_CLASS(OrderStatus); \
+	GDREGISTER_CLASS(AIEvent); \
+	GDREGISTER_CLASS(SyncIPropType); \
+	GDREGISTER_CLASS(BoxType); \
+	GDREGISTER_CLASS(QuestKind); \
+	GDREGISTER_CLASS(QuestType); \
+	GDREGISTER_CLASS(RequireType); \
+	GDREGISTER_CLASS(TeamType); \
+	GDREGISTER_CLASS(StateType); \
+	GDREGISTER_CLASS(SceneType); \
+	GDREGISTER_CLASS(BornType); \
+	GDREGISTER_CLASS(WeaponActionType); \
+	GDREGISTER_CLASS(SceneOutpuType); \
+	GDREGISTER_CLASS(TogetherStateType); \
+	GDREGISTER_CLASS(GuideAimType); \
+	GDREGISTER_CLASS(ScriptGameEvent); \
+	GDREGISTER_CLASS(SenseActorType); \
+	GDREGISTER_CLASS(GameEventType); \
+	GDREGISTER_CLASS(SneakAttackType); \
+	GDREGISTER_CLASS(ShopType); \
+	GDREGISTER_CLASS(ShopPayType); \
+	GDREGISTER_CLASS(GuidePointerRotateType); \
+	GDREGISTER_CLASS(NpcType); \
+	GDREGISTER_CLASS(OpenSubSystemFlag); \
+	GDREGISTER_CLASS(AchievementType); \
+	GDREGISTER_CLASS(CategoryType); \
+	GDREGISTER_CLASS(ClassifyType); \
+	GDREGISTER_CLASS(FunctionalPointType); \
+	GDREGISTER_CLASS(ActivityType); \
+	GDREGISTER_CLASS(MailType); \
+	GDREGISTER_CLASS(HelpType); \
+	GDREGISTER_CLASS(GuildJob); \
+	GDREGISTER_CLASS(ModifyListFlag); \
+	GDREGISTER_CLASS(GuildBuildingType); \
+	GDREGISTER_CLASS(SellItemType); \
+	GDREGISTER_CLASS(DiamondConfigClass); \
+	GDREGISTER_CLASS(DiamondConfigType); \
+	GDREGISTER_CLASS(FixType); \
+	GDREGISTER_CLASS(StorageType); \
+	GDREGISTER_CLASS(EmployeesBattleGroup); \
+	GDREGISTER_CLASS(GiftType); \
+	GDREGISTER_CLASS(GMT_Protocol); \
+	GDREGISTER_CLASS(GMCommandType); \
+	GDREGISTER_CLASS(NoticeSendType); \
+	GDREGISTER_CLASS(InsertMailType); \
+	GDREGISTER_CLASS(ItemContainerType); \
+	GDREGISTER_CLASS(UIBehaviorType); \
+	GDREGISTER_CLASS(HelpRaiseType); \
+	GDREGISTER_CLASS(SceneFilterType); \
+	GDREGISTER_CLASS(GatherStateType); \
+	GDREGISTER_CLASS(WishType); \
+	GDREGISTER_CLASS(ADType); \
+	GDREGISTER_CLASS(EmployeeSkillType); \
+	GDREGISTER_CLASS(EmployeeQuestColor); \
+	GDREGISTER_CLASS(EmployeeQuestStatus); \
+	GDREGISTER_CLASS(RobotActionType); \
 	GDREGISTER_CLASS(SGE_OrderInfo); \
 	GDREGISTER_CLASS(COM_ADLoginTotalContent); \
 	GDREGISTER_CLASS(COM_ADLoginTotal); \
@@ -115,6 +205,40 @@
 	GDREGISTER_CLASS(SGE_EmployeeQuestInst); \
 	GDREGISTER_CLASS(SGE_PlayerEmployeeQuestArray); \
 	GDREGISTER_CLASS(SGE_PlayerEmployeeQuest); \
+	GDREGISTER_CLASS(Client2Server_Proxy); \
+	GDREGISTER_CLASS(Client2Server_Stub); \
+	GDREGISTER_CLASS(Server2Client_Proxy); \
+	GDREGISTER_CLASS(Server2Client_Stub); \
+	GDREGISTER_CLASS(SGE_World2Login_Proxy); \
+	GDREGISTER_CLASS(SGE_World2Login_Stub); \
+	GDREGISTER_CLASS(SGE_Login2World_Proxy); \
+	GDREGISTER_CLASS(SGE_Login2World_Stub); \
+	GDREGISTER_CLASS(SGE_Gateway2World_Proxy); \
+	GDREGISTER_CLASS(SGE_Gateway2World_Stub); \
+	GDREGISTER_CLASS(SGE_World2DB_Proxy); \
+	GDREGISTER_CLASS(SGE_World2DB_Stub); \
+	GDREGISTER_CLASS(SGE_DB2World_Proxy); \
+	GDREGISTER_CLASS(SGE_DB2World_Stub); \
+	GDREGISTER_CLASS(SGE_Scene2World_Proxy); \
+	GDREGISTER_CLASS(SGE_Scene2World_Stub); \
+	GDREGISTER_CLASS(SGE_World2Scene_Proxy); \
+	GDREGISTER_CLASS(SGE_World2Scene_Stub); \
+	GDREGISTER_CLASS(SGE_Player_Scene2World_Proxy); \
+	GDREGISTER_CLASS(SGE_Player_Scene2World_Stub); \
+	GDREGISTER_CLASS(SGE_Player_World2Scene_Proxy); \
+	GDREGISTER_CLASS(SGE_Player_World2Scene_Stub); \
+	GDREGISTER_CLASS(SGE_World2GMT_Proxy); \
+	GDREGISTER_CLASS(SGE_World2GMT_Stub); \
+	GDREGISTER_CLASS(SGE_GMT2World_Proxy); \
+	GDREGISTER_CLASS(SGE_GMT2World_Stub); \
+	GDREGISTER_CLASS(SGE_World2Mall_Proxy); \
+	GDREGISTER_CLASS(SGE_World2Mall_Stub); \
+	GDREGISTER_CLASS(SGE_Mall2World_Proxy); \
+	GDREGISTER_CLASS(SGE_Mall2World_Stub); \
+	GDREGISTER_CLASS(Backlog_Proxy); \
+	GDREGISTER_CLASS(Backlog_Stub); \
+	GDREGISTER_CLASS(SGE_Log_Proxy); \
+	GDREGISTER_CLASS(SGE_Log_Stub); \
 	/* end of macro */
 
 #endif

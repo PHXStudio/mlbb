@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://p0xb0efyjmvl"
+
+[deps]
+
+files=["res://config/EmployeeConfig.EmployeeId.translation", "res://config/EmployeeConfig.star.translation", "res://config/EmployeeConfig.item.translation", "res://config/EmployeeConfig.item.translation", "res://config/EmployeeConfig.item.translation", "res://config/EmployeeConfig.item.translation", "res://config/EmployeeConfig.item.translation", "res://config/EmployeeConfig.money.translation"]
+
+source_file="res://config/EmployeeConfig.csv"
+dest_files=["res://config/EmployeeConfig.EmployeeId.translation", "res://config/EmployeeConfig.star.translation", "res://config/EmployeeConfig.item.translation", "res://config/EmployeeConfig.item.translation", "res://config/EmployeeConfig.item.translation", "res://config/EmployeeConfig.item.translation", "res://config/EmployeeConfig.item.translation", "res://config/EmployeeConfig.money.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

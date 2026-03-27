@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dogu05y2ubxtl"
+
+[deps]
+
+files=["res://config/family.Level.translation", "res://config/family.NeedMoney.translation", "res://config/family.Name.translation", "res://config/family.ICON.translation", "res://config/family.Desc.translation", "res://config/family.Number.translation", "res://config/family.Reward.translation", "res://config/family.Type.translation"]
+
+source_file="res://config/family.csv"
+dest_files=["res://config/family.Level.translation", "res://config/family.NeedMoney.translation", "res://config/family.Name.translation", "res://config/family.ICON.translation", "res://config/family.Desc.translation", "res://config/family.Number.translation", "res://config/family.Reward.translation", "res://config/family.Type.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

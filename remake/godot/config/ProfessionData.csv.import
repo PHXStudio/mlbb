@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dcrye3okcerqd"
+
+[deps]
+
+files=["res://config/ProfessionData.ProudSkillGroup.translation", "res://config/ProfessionData.Name.translation", "res://config/ProfessionData.JobType.translation", "res://config/ProfessionData.JobLv.translation", "res://config/ProfessionData.EquipType.translation", "res://config/ProfessionData.SkillGroup.translation", "res://config/ProfessionData.ProfessionIcon.translation", "res://config/ProfessionData.Recommand.translation", "res://config/ProfessionData.Describe.translation", "res://config/ProfessionData.RecommendSkills.translation", "res://config/ProfessionData.RecommendEquip.translation", "res://config/ProfessionData.RecommendEquipicon.translation", "res://config/ProfessionData.RecommendSkills1.translation", "res://config/ProfessionData.chuansong.translation", "res://config/ProfessionData.OpenLV.translation", "res://config/ProfessionData.pic.translation"]
+
+source_file="res://config/ProfessionData.csv"
+dest_files=["res://config/ProfessionData.ProudSkillGroup.translation", "res://config/ProfessionData.Name.translation", "res://config/ProfessionData.JobType.translation", "res://config/ProfessionData.JobLv.translation", "res://config/ProfessionData.EquipType.translation", "res://config/ProfessionData.SkillGroup.translation", "res://config/ProfessionData.ProfessionIcon.translation", "res://config/ProfessionData.Recommand.translation", "res://config/ProfessionData.Describe.translation", "res://config/ProfessionData.RecommendSkills.translation", "res://config/ProfessionData.RecommendEquip.translation", "res://config/ProfessionData.RecommendEquipicon.translation", "res://config/ProfessionData.RecommendSkills1.translation", "res://config/ProfessionData.chuansong.translation", "res://config/ProfessionData.OpenLV.translation", "res://config/ProfessionData.pic.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

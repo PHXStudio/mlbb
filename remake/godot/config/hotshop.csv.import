@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ci0gbttrq8mmr"
+
+[deps]
+
+files=["res://config/hotshop.type.translation", "res://config/hotshop.itemid.translation", "res://config/hotshop.num.translation", "res://config/hotshop.price.translation"]
+
+source_file="res://config/hotshop.csv"
+dest_files=["res://config/hotshop.type.translation", "res://config/hotshop.itemid.translation", "res://config/hotshop.num.translation", "res://config/hotshop.price.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

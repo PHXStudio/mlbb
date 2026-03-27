@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://chn7qo1eeooq8"
+
+[deps]
+
+files=["res://config/Talk.npcid1.translation", "res://config/Talk.content1.translation", "res://config/Talk.npcid2.translation", "res://config/Talk.content2.translation", "res://config/Talk.npcid3.translation", "res://config/Talk.content3.translation", "res://config/Talk.npcid4.translation", "res://config/Talk.content4.translation", "res://config/Talk.npcid5.translation", "res://config/Talk.content5.translation", "res://config/Talk.npcid6.translation", "res://config/Talk.content6.translation", "res://config/Talk.npcid7.translation", "res://config/Talk.content7.translation", "res://config/Talk.npcid8.translation", "res://config/Talk.content8.translation", "res://config/Talk.en.translation", "res://config/Talk.en.translation", "res://config/Talk.en.translation", "res://config/Talk.en.translation", "res://config/Talk.BattleID.translation"]
+
+source_file="res://config/Talk.csv"
+dest_files=["res://config/Talk.npcid1.translation", "res://config/Talk.content1.translation", "res://config/Talk.npcid2.translation", "res://config/Talk.content2.translation", "res://config/Talk.npcid3.translation", "res://config/Talk.content3.translation", "res://config/Talk.npcid4.translation", "res://config/Talk.content4.translation", "res://config/Talk.npcid5.translation", "res://config/Talk.content5.translation", "res://config/Talk.npcid6.translation", "res://config/Talk.content6.translation", "res://config/Talk.npcid7.translation", "res://config/Talk.content7.translation", "res://config/Talk.npcid8.translation", "res://config/Talk.content8.translation", "res://config/Talk.en.translation", "res://config/Talk.en.translation", "res://config/Talk.en.translation", "res://config/Talk.en.translation", "res://config/Talk.BattleID.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

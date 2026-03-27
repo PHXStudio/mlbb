@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://hsxoltcpge2w"
+
+[deps]
+
+files=["res://config/BabySuitSkill.SkillID.translation", "res://config/BabySuitSkill.level.translation"]
+
+source_file="res://config/BabySuitSkill.csv"
+dest_files=["res://config/BabySuitSkill.SkillID.translation", "res://config/BabySuitSkill.level.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

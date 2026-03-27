@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://mdt4kuqkv65v"
+
+[deps]
+
+files=["res://config/Scene.SceneType.translation", "res://config/Scene.scene.translation", "res://config/Scene.scene.translation", "res://config/Scene.scene.translation", "res://config/Scene.UnLockQuestID.translation", "res://config/Scene.EffectId.translation", "res://config/Scene.NavMesh.translation", "res://config/Scene.MUSIC_ID.translation", "res://config/Scene.SceneName.translation", "res://config/Scene.BattleName.translation", "res://config/Scene.offsetx.translation", "res://config/Scene.offsety.translation", "res://config/Scene.dir.translation", "res://config/Scene.zoom.translation", "res://config/Scene.minimap.translation", "res://config/Scene.EntryInfo.translation"]
+
+source_file="res://config/Scene.csv"
+dest_files=["res://config/Scene.SceneType.translation", "res://config/Scene.scene.translation", "res://config/Scene.scene.translation", "res://config/Scene.scene.translation", "res://config/Scene.UnLockQuestID.translation", "res://config/Scene.EffectId.translation", "res://config/Scene.NavMesh.translation", "res://config/Scene.MUSIC_ID.translation", "res://config/Scene.SceneName.translation", "res://config/Scene.BattleName.translation", "res://config/Scene.offsetx.translation", "res://config/Scene.offsety.translation", "res://config/Scene.dir.translation", "res://config/Scene.zoom.translation", "res://config/Scene.minimap.translation", "res://config/Scene.EntryInfo.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

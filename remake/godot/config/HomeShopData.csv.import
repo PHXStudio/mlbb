@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://tyhmxm30pkii"
+
+[deps]
+
+files=["res://config/HomeShopData.Name.translation", "res://config/HomeShopData.Itemid.translation", "res://config/HomeShopData.Num.translation", "res://config/HomeShopData.Price.translation", "res://config/HomeShopData.needlv.translation", "res://config/HomeShopData.Timelimit.translation"]
+
+source_file="res://config/HomeShopData.csv"
+dest_files=["res://config/HomeShopData.Name.translation", "res://config/HomeShopData.Itemid.translation", "res://config/HomeShopData.Num.translation", "res://config/HomeShopData.Price.translation", "res://config/HomeShopData.needlv.translation", "res://config/HomeShopData.Timelimit.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -4,245 +4,27 @@
 #include <godot_cpp/variant/packed_byte_array.hpp>
 #include "../rpc_gen/proto_godot.h"
 #include "../rpc/ProtocolWriter.h"
-
+#include "NetConn.h"
 namespace godot
 {
     class ServerStub
-        : public Resource
+        : public Client2Server_Stub
     {
-        GDCLASS(ServerStub, Resource)
+        GDCLASS(ServerStub, Client2Server_Stub)
         friend class ServerAgent;
 
-    public:
-        static void _bind_methods();
+    
+        protected:
 
-        void openvip(uint16_t vl);
-        void requestPhoto();
-        void ping();
-        void sessionlogin(Ref<COM_LoginInfo> info);
-        void login(Ref<COM_LoginInfo> info);
-        void createPlayer(String playername, uint8_t playerTmpId);
-        void deletePlayer(String playername);
-        void enterGame(uint32_t playerInstId);
-        void requestBag();
-        void requestEmployees();
-        void requestStorage(uint16_t tp);
-        void requestAchievement();
-        void initminig();
-        void requestCompound();
-        void move(float x, float z);
-        void moveToNpc(int32_t npcid);
-        void moveToNpc2(uint16_t type);
-        void moveToZone(int32_t sceneId, int32_t zoneId);
-        void autoBattle();
-        void stopAutoBattle();
-        void stopMove();
-        void exitCopy();
-        void transforScene(int32_t sceneId);
-        void sceneLoaded();
-        void querySimplePlayerInst(uint32_t instId);
-        void logout();
-        void changProp(uint32_t guid, TypedArray<COM_Addprop> props);
-        void learnSkill(uint32_t skid);
-        void babyLearnSkill(uint32_t instId, uint32_t oldSkId, uint32_t newSkId, uint32_t newSkLv);
-        void forgetSkill(uint32_t skid);
-        void syncOrder(Ref<COM_Order> order);
-        void syncOrderTimeout();
-        void sendChat(Ref<COM_Chat> content, String targetName);
-        void requestAudio(int32_t audioId);
-        void publishItemInst(uint16_t type, uint32_t itemInstId, uint16_t chatType, String playerName);
-        void queryItemInst(int32_t showId);
-        void publishbabyInst(uint16_t type, uint32_t babyInstId, String playerName);
-        void querybabyInst(int32_t showId);
-        void useItem(uint32_t slot, uint32_t target, uint32_t stack);
-        void wearEquipment(uint32_t target, uint32_t itemInstId);
-        void delEquipment(uint32_t target, uint32_t itemInstId);
-        void setPlayerFront(bool isFront);
-        void setBattlebaby(uint32_t babyID, bool isBattle);
-        void changeBabyName(uint32_t babyID, String name);
-        void intensifyBaby(uint32_t babyid);
-        void setBattleEmp(uint32_t empID, uint16_t group, bool isBattle);
-        void changeEmpBattleGroup(uint16_t group);
-        void requestEvolve(uint32_t empInstId);
-        void requestUpStar(uint32_t empInstId);
-        void requestDelEmp(uint32_t empInstId);
-        void delEmployee(TypedArray<uint32_t> emps);
-        void onekeyDelEmp();
-        void delEmployeeSoul(uint32_t instid, uint32_t soulNum);
-        void sortBagItem();
-        void sellBagItem(uint32_t instId, uint32_t stack);
-        void depositItemToStorage(uint32_t instid);
-        void depositBabyToStorage(uint32_t instid);
-        void storageItemToBag(uint32_t instid);
-        void storageBabyToPlayer(uint32_t instid);
-        void sortStorage(uint16_t tp);
-        void delStorageBaby(uint32_t instid);
-        void jointLobby();
-        void exitLobby();
-        void createTeam(Ref<COM_CreateTeamInfo> cti);
-        void changeTeam(Ref<COM_CreateTeamInfo> info);
-        void kickTeamMember(uint32_t uuid);
-        void changeTeamLeader(uint32_t uuid);
-        void joinTeam(uint32_t teamId, String pwd);
-        void exitTeam();
-        void changeTeamPassword(String pwd);
-        void joinTeamRoom();
-        void inviteTeamMember(String name);
-        void isjoinTeam(uint32_t teamId, bool isFlag);
-        void leaveTeam();
-        void backTeam();
-        void refuseBackTeam();
-        void teamCallMember(int32_t playerId);
-        void requestJoinTeam(String targetName);
-        void ratifyJoinTeam(String sendName);
-        void drawLotteryBox(uint16_t type, bool isFree);
-        void acceptQuest(int32_t questId);
-        void submitQuest(int32_t npcId, int32_t questId);
-        void giveupQuest(int32_t questId);
-        void requestContactInfoById(uint32_t instId);
-        void requestContactInfoByName(String instName);
-        void requestFriendList();
-        void addFriend(uint32_t instId);
-        void delFriend(uint32_t instId);
-        void addBlacklist(uint32_t instId);
-        void delBlacklist(uint32_t instId);
-        void requestReferrFriend();
-        void mining(int32_t gatherId, int32_t times);
-        void compoundItem(int32_t itemId, int32_t gemId);
-        void bagItemSplit(int32_t instId, int32_t splitNum);
-        void requestChallenge(String name);
-        void requestRival();
-        void requestMySelfJJCData();
-        void requestCheckMsg(String name);
-        void requestMyAllbattleMsg();
-        void requestJJCRank();
-        void requestLevelRank();
-        void requestBabyRank();
-        void requestEmpRank();
-        void requestPlayerFFRank();
-        void queryOnlinePlayerbyName(String name);
-        void queryPlayerbyName(String name);
-        void queryBaby(uint32_t instId);
-        void queryEmployee(uint32_t instId);
-        void guideFinish(uint64_t guideIdx);
-        void enterBattle(int32_t battleId);
-        void shopBuyItem(int32_t id, int32_t num);
-        void getFirstRechargeItem();
-        void requestLevelGift(int32_t level);
-        void setCurrentTitle(int32_t title);
-        void openBuyBox();
-        void requestAchaward(int32_t achId);
-        void sign(int32_t index);
-        void requestSignupReward7();
-        void requestSignupReward14();
-        void requestSignupReward28();
-        void requestActivityReward(int32_t index);
-        void resetHundredTier();
-        void enterHundredScene(int32_t level);
-        void delBaby(int32_t instId);
-        void resetBaby(int32_t instId);
-        void resetBabyProp(int32_t instId);
-        void remouldBaby(int32_t instid);
-        void empSkillLevelUp(uint32_t empId, int32_t skillId);
-        void setOpenDoubleTimeFlag(bool isFlag);
-        void talkedNpc(int32_t npcId);
-        void jjcBattleGo(uint32_t id);
-        void requestMyJJCTeamMsg();
-        void startMatching();
-        void stopMatching();
-        void exitPvpJJC();
-        void joinPvpLobby();
-        void exitPvpLobby();
-        void requestpvprank();
-        void joinWarriorchoose();
-        void warriorStart();
-        void warriorStop();
-        void sendMail(String playername, String title, String content);
-        void readMail(int32_t mailId);
-        void delMail(int32_t mailId);
-        void getMailItem(int32_t mailId);
-        void requestState();
-        void createGuild(String guildName);
-        void delGuild(uint32_t guildId);
-        void requestJoinGuild(uint32_t guid);
-        void leaveGuild();
-        void kickOut(int32_t guid);
-        void acceptRequestGuild(int32_t playerId);
-        void refuseRequestGuild(int32_t playerId);
-        void changeMemberPosition(int32_t targetId, uint16_t job);
-        void transferPremier(int32_t targetId);
-        void changeGuildNotice(String notice);
-        void queryGuildList(int16_t page);
-        void inviteJoinGuild(String playerName);
-        void respondInviteJoinGuild(String sendName);
-        void buyGuildItem(int32_t tableId, int32_t times);
-        void entryGuildBattle();
-        void transforGuildBattleScene();
-        void addGuildMoney(int32_t money);
-        void updateGuildBuiling(uint16_t gbt);
-        void refreshGuildShop();
-        void levelupGuildSkill(int32_t skId);
-        void presentGuildItem(int32_t num);
-        void progenitusAddExp(int32_t monsterId, bool isSuper);
-        void setProgenitusPosition(int32_t mId, int32_t pos);
-        void guildsign();
-        void fetchSelling(Ref<COM_SearchContext> context);
-        void fetchSelling2(Ref<COM_SearchContext> context);
-        void selling(int32_t iteminstid, int32_t babyinstid, int32_t price);
-        void unselling(int32_t sellid);
-        void buy(int32_t sellid);
-        void fixItem(int32_t instId, uint16_t type);
-        void fixAllItem(TypedArray<uint32_t> items, uint16_t type);
-        void makeDebirsItem(int32_t instId, int32_t num);
-        void levelUpMagicItem(TypedArray<uint32_t> items);
-        void tupoMagicItem(int32_t level);
-        void changeMagicJob(uint16_t job);
-        void requestPk(uint32_t playerId);
-        void uiBehavior(uint16_t type);
-        void openZhuanpan();
-        void zhuanpanGo(uint32_t counter);
-        void redemptionSpree(String code);
-        void sceneFilter(TypedArray<uint16_t> sfType);
-        void sendExamAnswer(uint32_t questionId, uint8_t answer);
-        void sendwishing(Ref<COM_Wishing> wish);
-        void requestWish();
-        void leaderCloseDialog();
-        void requestOnlineReward(uint32_t index);
-        void requestFundReward(uint32_t level);
-        void openCard(uint16_t index);
-        void resetCard();
-        void hotRoleBuy();
-        void requestSevenReward(uint32_t qid);
-        void vipreward();
-        void requestChargeTotalSingleReward(uint32_t index);
-        void requestChargeTotalReward(uint32_t index);
-        void requestChargeEverySingleReward(uint32_t index);
-        void requestChargeEveryReward(uint32_t index);
-        void requestLoginTotal(uint32_t index);
-        void buyDiscountStoreSingle(int32_t itemId, int32_t itemStack);
-        void buyDiscountStore(int32_t itemId, int32_t itemStack);
-        void requestEmployeeActivityReward(uint32_t index);
-        void requestmyselfrechargeleReward(uint32_t index);
-        void requestEverydayIntegral();
-        void buyIntegralItem(uint32_t id, uint32_t num);
-        void familyLoseLeader();
-        void verificationSMS(String phoneNumber, String code);
-        void lockItem(int32_t instId, bool isLock);
-        void lockBaby(int32_t instId, bool isLock);
-        void showBaby(int32_t instId);
-        void wearFuwen(int32_t itemInstId);
-        void takeoffFuwen(int32_t slotId);
-        void compFuwen(int32_t itemInstId);
-        void requestEmployeeQuest();
-        void acceptEmployeeQuest(int32_t questId, TypedArray<int32_t> employees);
-        void submitEmployeeQuest(int32_t questId);
-        void crystalUpLevel();
-        void resetCrystalProp(TypedArray<int32_t> locklist);
-        void magicItemOneKeyLevel();
-        void submitQuest2(int32_t npcId, int32_t questId, int32_t instId);
+        static void _bind_methods() {
+        }
 
-    private:
-        Client2Server_Stub *stub = nullptr;
+        ProtocolWriter* methodBegin() override;
+        void methodEnd() override;
+
+
+        Ref<NetConn> conn;
+        
     };
 
 }

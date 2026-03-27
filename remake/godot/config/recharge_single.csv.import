@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cu6ltntxt0o2r"
+
+[deps]
+
+files=["res://config/recharge_single.reward.translation", "res://config/recharge_single.renum.translation", "res://config/recharge_single.time.translation"]
+
+source_file="res://config/recharge_single.csv"
+dest_files=["res://config/recharge_single.reward.translation", "res://config/recharge_single.renum.translation", "res://config/recharge_single.time.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
