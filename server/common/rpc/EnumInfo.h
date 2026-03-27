@@ -3,6 +3,7 @@
 
 #include "Common.h"
 
+typedef int32_t EnumSize;
 /** 运行期enum信息. 
  * 组要负责在运行期进行id到名称的转换.
  */
