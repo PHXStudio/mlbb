@@ -182,7 +182,7 @@ public class TasharenWater : MonoBehaviour
 	void Awake ()
 	{
 		mTrans = transform;
-		mRen = renderer;
+		mRen = GetComponent<Renderer>();
 		quality = GetQuality();
 	}
 
@@ -267,14 +267,14 @@ public class TasharenWater : MonoBehaviour
 			GameObject go = new GameObject("Mirror Refl Camera id" + GetInstanceID() + " for " + current.GetInstanceID(), typeof(Camera), typeof(Skybox));
 			go.hideFlags = HideFlags.HideAndDontSave;
 
-			cam = go.camera;
+			cam = go.GetComponent<Camera>();
 			cam.enabled = false;
 
 			Transform t = cam.transform;
 			t.position = mTrans.position;
 			t.rotation = mTrans.rotation;
 
-			cam.gameObject.AddComponent("FlareLayer");
+			cam.gameObject.AddComponent<FlareLayer>();
 			mCameras[current] = cam;
 		}
 

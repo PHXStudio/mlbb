@@ -630,7 +630,7 @@ public class GameManager
             }
         }
         
-        Transform shadow = pack.actorObj_.transform.FindChild("Plane01");
+        Transform shadow = pack.actorObj_.transform.Find("Plane01");
         if(shadow != null)
             shadow.gameObject.SetActive(pack.layerName_.Equals("Default"));
         

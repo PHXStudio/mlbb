@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #################################################################################
 # platform linux SHELL                                                          #
 # brief    服务器启动脚本                                                       #
@@ -34,12 +34,6 @@ start() {
 	# `pwd`/test -d
 	# echo "test server start"
 }
-
-if [ "${SHELL}" != "/bin/bash" ]; then
-	echo "${SHELL}"
-	echo "error must use /bin/bash"
-	exit 0
-fi
 
 start
 

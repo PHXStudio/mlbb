@@ -241,7 +241,7 @@ public partial class EntityActionController
 				AssetInfoMgr.Instance.DecRefCount( weaponAssetBundle_, false );
 			}
 			WeaponObj = (GameObject)GameObject.Instantiate(asset.mainAsset) as GameObject;
-            WeaponObj.transform.parent = m_EntityObj.transform.FindChild(EntityAssetsData.GetData(weapon.weaponEntityId_).bindPoint_);
+            WeaponObj.transform.parent = m_EntityObj.transform.Find(EntityAssetsData.GetData(weapon.weaponEntityId_).bindPoint_);
 			if(updateWeaponCallBack_ != null)
 			{
 				updateWeaponCallBack_();
@@ -277,7 +277,7 @@ public partial class EntityActionController
 
     void RefuseAction()
     {
-        ClientLog.Instance.Log("³èÎï No£¡");
+        ClientLog.Instance.Log("ï¿½ï¿½ï¿½ï¿½ Noï¿½ï¿½");
         EffectAPI.PlayUIEffect((EFFECT_ID)GlobalValue.EFFECT_ChongwuNo, ApplicationEntry.Instance.uiRoot.transform, () =>
         {
             
@@ -289,7 +289,7 @@ public partial class EntityActionController
                 go.transform.localScale = Vector3.one;
                 go.transform.localPosition = Vector3.zero;
             }
-			//ClientLog.Instance.Log("³èÎï No£¡  ContinueAction");
+			//ClientLog.Instance.Log("ï¿½ï¿½ï¿½ï¿½ Noï¿½ï¿½  ContinueAction");
         });
 		ContinueAction();
     }
@@ -356,10 +356,10 @@ public partial class EntityActionController
         for (int i = 0; i < reportAction_.stateIds_.Length; ++i)
         {
             BattleActor actor = Battle.Instance.GetActorByInstId(reportAction_.stateIds_[i].ownerId_);
-            //Èç¹û´óÓÚ1 ÔòÑÓ³Ù¼Óbuff
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1 ï¿½ï¿½ï¿½Ó³Ù¼ï¿½buff
             if(reportAction_.stateIds_[i].addQueue_ > 0)
             {
-                //Èç¹ûÄ¿±êÊÇ×Ô¼º ¼Óµ½ÐÐ¶¯ºóstateÁÐ±í£¬·ñÔò¼Óµ½ÑÓ³ÙstateÁÐ±í
+                //ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ ï¿½Óµï¿½ï¿½Ð¶ï¿½ï¿½ï¿½stateï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½Ó³ï¿½stateï¿½Ð±ï¿½
                 if (reportAction_.stateIds_[i].ownerId_ == m_PlayerID)
                     afterActionBuff.Add(reportAction_.stateIds_[i]);
                 else
@@ -522,11 +522,11 @@ public partial class EntityActionController
                 aims[i].ForGuardPos = (int)reportAction_.huweiPosition_;
             }
             mainSkillInst = new SkillInst();
-			//ClientLog.Instance.Log("³èÎï No£¡  Cast: " + reportAction_.skill_ + "  caster : " + caster.InstName + " aim: " + aims[0].InstName + " len:" + aims.Count + " target: " + reportAction_.targets_[0].position_ + " len:" + reportAction_.targets_.Length);
+			//ClientLog.Instance.Log("ï¿½ï¿½ï¿½ï¿½ Noï¿½ï¿½  Cast: " + reportAction_.skill_ + "  caster : " + caster.InstName + " aim: " + aims[0].InstName + " len:" + aims.Count + " target: " + reportAction_.targets_[0].position_ + " len:" + reportAction_.targets_.Length);
             mainSkillInst.Cast(reportAction_.skill_, reportAction_.skillLevel_, caster, aims.ToArray(), reportAction_.targets_, FinishShow, DealCounterAction);
         });
 
-        //// ´¦ÀíÐèÒª³ýµôµÄactor
+        //// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½actor
         //DealEraseActor();
     }
 
@@ -538,7 +538,7 @@ public partial class EntityActionController
     }
 
     bool EraseOnce_;
-    // ´¦ÀíÐèÒª³ýµôµÄactor
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½actor
     void DealEraseActor()
     {
         EraseOnce_ = false;
@@ -582,8 +582,8 @@ public partial class EntityActionController
 
     void DealAfterActionState()
     {
-        // Ìí¼ÓÐÐ¶¯ºóstateÁÐ±í²¢½áËãtypeWorkÀàÐÍ×´Ì¬
-        // Ö®ºóÔÙfinishMove();
+        // ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½stateï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½typeWorkï¿½ï¿½ï¿½ï¿½×´Ì¬
+        // Ö®ï¿½ï¿½ï¿½ï¿½finishMove();
         ExcuteState(StateInst.ExcuteType.ET_Work);
         FinishShow();
     }
@@ -645,7 +645,7 @@ public partial class EntityActionController
 			self.ControlEntity.DealEntityDie();
 		}
         DealEraseActor();
-        //´¦ÀíÐÐ¶¯ºóbuff
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½buff
         DealAfterActionBuff();
 	}
 

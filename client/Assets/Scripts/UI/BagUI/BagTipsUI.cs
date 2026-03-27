@@ -275,7 +275,7 @@ public class BagTipsUI : MonoBehaviour
 						else
 						{
 						*/
-							UILabel lable =	objCell.transform.FindChild("name").GetComponent<UILabel>();
+							UILabel lable =	objCell.transform.Find("name").GetComponent<UILabel>();
 							lable.text  =  LanguageManager.instance.GetValue(_itemInst.propArr[i].type_.ToString())+sNum;
 							if(_itemInst.durability_ < _itemInst.durabilityMax_/2)
 							{

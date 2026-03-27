@@ -123,7 +123,7 @@ public class ChatMinCell : MonoBehaviour
 //                }
 				chatPos.localPosition = new Vector3(0,0,chatPos.localPosition.z);
 				back.height = audioHight+offset;
-                ///²ÝÁËÐ´Ê²Ã´
+                ///ï¿½ï¿½ï¿½ï¿½Ð´Ê²Ã´
             }
         }
 		get
@@ -155,7 +155,7 @@ public class ChatMinCell : MonoBehaviour
 		ChatSystem.startAudioOk += startAudio;
         ChatSystem.finishAudioOk += closeVecUI;
 		NetConnection.Instance.requestAudio (Info.audioId_);
-		Transform tr = _Audio.transform.FindChild ("newvec");
+		Transform tr = _Audio.transform.Find ("newvec");
 		tr.gameObject.SetActive (false);
 	}
 	public enum InfoType

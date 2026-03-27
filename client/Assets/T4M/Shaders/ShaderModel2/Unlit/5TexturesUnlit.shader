@@ -1,3 +1,7 @@
+// Upgrade NOTE: commented out 'sampler2D unity_Lightmap', a built-in variable
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+
 Shader "T4MShaders/ShaderModel2/Unlit/T4M 5 Textures Unlit LM" {
 Properties {
     _Splat0 ("Layer1 (RGB)", 2D) = "white" {}
@@ -44,13 +48,13 @@ SubShader {
 		float4 _Control_ST;
 		#ifdef LIGHTMAP_ON
             fixed4 unity_LightmapST;
-            sampler2D unity_Lightmap;
+            // sampler2D unity_Lightmap;
         #endif
 
 		v2f vert (appdata_full  v)
 		{
 			v2f o;
-			o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
+			o.pos = UnityObjectToClipPos (v.vertex);
 			o.uv[0] = TRANSFORM_TEX (v.texcoord, _Splat0);
 			o.uv[1] = TRANSFORM_TEX (v.texcoord, _Splat1);
 			o.uv[2] = TRANSFORM_TEX (v.texcoord, _Splat2);
@@ -86,7 +90,7 @@ SubShader {
 			
 			
 			#ifdef LIGHTMAP_ON
-           		 c.rgb *= DecodeLightmap(tex2D(unity_Lightmap, i.uv[6]));
+           		 c.rgb *= DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap, i.uv[6]));
             #endif
 			c.w = 0;
 			return c;

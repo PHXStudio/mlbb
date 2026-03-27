@@ -1,3 +1,8 @@
+// Upgrade NOTE: commented out 'float4 unity_LightmapST', a built-in variable
+// Upgrade NOTE: commented out 'sampler2D unity_Lightmap', a built-in variable
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+
 // - Unlit
 // - Per-vertex (virtual) camera space specular light
 // - SUPPORTS lightmap
@@ -26,8 +31,8 @@ SubShader {
 	samplerCUBE _ReflTex;
 	
 	#ifndef LIGHTMAP_OFF
-	float4 unity_LightmapST;
-	sampler2D unity_Lightmap;
+	// float4 unity_LightmapST;
+	// sampler2D unity_Lightmap;
 	#endif
 
 	//float _MainTexMipBias;
@@ -50,7 +55,7 @@ SubShader {
 	v2f vert (appdata_full v)
 	{
 		v2f o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		
 		o.uv = v.texcoord + frac(_ScrollingSpeed * _Time.y);
 		
@@ -92,7 +97,7 @@ SubShader {
 			#endif
 			
 			#ifndef LIGHTMAP_OFF
-			fixed3 lm = DecodeLightmap (tex2D(unity_Lightmap, i.lmap));
+			fixed3 lm = DecodeLightmap (UNITY_SAMPLE_TEX2D(unity_Lightmap, i.lmap));
 			c.rgb *= lm;
 			#endif
 			

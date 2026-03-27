@@ -59,13 +59,13 @@ public class CompoundSkillCellUI : MonoBehaviour
 
 		if( make.skillLevel >= 40 && !CompoundSystem.instance.GetIsOPenEquip((uint)_makeId) )
 		{
-            this.gameObject.transform.FindChild("bg").FindChild("can").GetComponent<UISprite>().gameObject.SetActive(false);
-            this.gameObject.transform.FindChild("bg").FindChild("noPag").GetComponent<UISprite>().gameObject.SetActive(true);
+            this.gameObject.transform.Find("bg").Find("can").GetComponent<UISprite>().gameObject.SetActive(false);
+            this.gameObject.transform.Find("bg").Find("noPag").GetComponent<UISprite>().gameObject.SetActive(true);
 			return;
 		}
 		else
 		{
-            this.gameObject.transform.FindChild("bg").FindChild("noPag").GetComponent<UISprite>().gameObject.SetActive(false);
+            this.gameObject.transform.Find("bg").Find("noPag").GetComponent<UISprite>().gameObject.SetActive(false);
 		}
 
 
@@ -81,14 +81,14 @@ public class CompoundSkillCellUI : MonoBehaviour
 		}
 		if(isItemEnough)
 		{
-            this.gameObject.transform.FindChild("bg").FindChild("can").GetComponent<UISprite>().gameObject.SetActive(true);
+            this.gameObject.transform.Find("bg").Find("can").GetComponent<UISprite>().gameObject.SetActive(true);
 		}
 		else
 		{
-            this.gameObject.transform.FindChild("bg").FindChild("can").GetComponent<UISprite>().gameObject.SetActive(false);
+            this.gameObject.transform.Find("bg").Find("can").GetComponent<UISprite>().gameObject.SetActive(false);
 		}
 
-        this.gameObject.transform.FindChild("bg").FindChild("recommend").GetComponent<UISprite>().gameObject.SetActive(false);
+        this.gameObject.transform.Find("bg").Find("recommend").GetComponent<UISprite>().gameObject.SetActive(false);
 		Profession pro =  Profession.get((JobType)GamePlayer.Instance.GetIprop(PropertyType.PT_Profession),GamePlayer.Instance.GetIprop(PropertyType.PT_ProfessionLevel));
 		ItemSubType[] items = pro.CanUsedItems(GamePlayer.Instance.GetIprop(PropertyType.PT_ProfessionLevel)*2+2);
 
@@ -96,7 +96,7 @@ public class CompoundSkillCellUI : MonoBehaviour
 		{
 			if(ItemData.GetData(_makeId).subType_ == items[i])
 			{
-                this.gameObject.transform.FindChild("bg").FindChild("recommend").GetComponent<UISprite>().gameObject.SetActive(true);
+                this.gameObject.transform.Find("bg").Find("recommend").GetComponent<UISprite>().gameObject.SetActive(true);
 				break;
 			}
 		}

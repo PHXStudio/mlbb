@@ -181,7 +181,7 @@ public class TeamPlayerInfo : UIBase
 
 			employes[i].transform.Find("icon").GetComponent<UISprite>().spriteName = EmployessSystem.instance.GetQualityBack((int)_splayerInst.battleEmps_[i].quality_);
 			employes[i].transform.Find("name").GetComponent<UILabel>().text = _splayerInst.battleEmps_[i].instName_;
-			UISprite sp = employes[i].transform.FindChild("icon").FindChild("zhiye").GetComponent<UISprite>();
+			UISprite sp = employes[i].transform.Find("icon").Find("zhiye").GetComponent<UISprite>();
 			sp.spriteName =Profession.get ((JobType)_splayerInst.battleEmps_[i].properties_[(int)PropertyType.PT_Profession],(int)_splayerInst.battleEmps_[i].properties_[(int)PropertyType.PT_ProfessionLevel]).jobtype_.ToString();
 			//employes[i].transform.Find("pross").GetComponent<UILabel>().text =  LanguageManager.instance.GetValue(((JobType)_splayerInst.battleEmps_[i].properties_[(int)PropertyType.PT_Profession]).ToString());
 			UITexture tex1 = employes[i].transform.Find("icon").Find("icon").GetComponent<UITexture>(); 
@@ -193,12 +193,12 @@ public class TeamPlayerInfo : UIBase
 		for(int i=0;i<_splayerInst.babies1_.Length;i++)
 		{
 			babeis[i].gameObject.SetActive(true);
-			UITexture tex = babeis[i].transform.FindChild("icon").GetComponent<UITexture>();
+			UITexture tex = babeis[i].transform.Find("icon").GetComponent<UITexture>();
 			HeadIconLoader.Instance.LoadIcon (EntityAssetsData.GetData((int)_splayerInst.babies1_[i].properties_[(int)PropertyType.PT_AssetId]).assetsIocn_, tex);
 			
-			UITexture tex1 = babeis[i].transform.FindChild("zhongzuIocn").GetComponent<UITexture>();
+			UITexture tex1 = babeis[i].transform.Find("zhongzuIocn").GetComponent<UITexture>();
 			HeadIconLoader.Instance.LoadIcon ( BabyData.GetData((int)_splayerInst.babies1_[i].properties_[(int)PropertyType.PT_TableId])._RaceIcon, tex1);
-			babeis[i].transform.FindChild("Label").GetComponent<UILabel>().text = _splayerInst.babies1_[i].properties_[(int)PropertyType.PT_Level].ToString();
+			babeis[i].transform.Find("Label").GetComponent<UILabel>().text = _splayerInst.babies1_[i].properties_[(int)PropertyType.PT_Level].ToString();
 		}
 
 		if(!GamePlayer.Instance.GetOpenSubSystemFlag(OpenSubSystemFlag.OSSF_Friend))

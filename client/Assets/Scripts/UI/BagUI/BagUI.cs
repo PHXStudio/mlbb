@@ -1961,7 +1961,7 @@ public class BagUI : UIBase
 				sNum =  " "+((int)x.value_).ToString();
 			}
 
-			UILabel lable =	objCell.transform.FindChild("name").GetComponent<UILabel>();
+			UILabel lable =	objCell.transform.Find("name").GetComponent<UILabel>();
 			lable.text  =  LanguageManager.instance.GetValue(x.type_.ToString())+sNum;
 
 			fuWengrid.AddChild(objCell.transform);

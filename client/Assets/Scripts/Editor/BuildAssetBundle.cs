@@ -26,10 +26,10 @@ public class BuildAssetBundle : MonoBehaviour
 	const string musicBundleOutputPath_ = "Assets/StreamingAssets/{0}/Music/";
     const string iconBundleOutputPath_ = "Assets/StreamingAssets/{0}/Icon/";
 
-    const string platformIOS_ = "AssetBundleIOS";
-    const string platformPC_ = "AssetBundlePC";
-    const string platformAndroid_ = "AssetBundleAndroid";
-    const string platformWP8_ = "AssetBundleWP8";
+    const string platformIOS_ =Configure.PlatformAssetFolder;
+    const string platformPC_ = Configure.PlatformAssetFolder;
+    const string platformAndroid_ = Configure.PlatformAssetFolder;
+    const string platformWP8_ = Configure.PlatformAssetFolder;
 
     const string uiDependJson = "Assets/StreamingAssets/{0}/TableTemp/UIDependence.json";
     const string effectDependJson = "Assets/StreamingAssets/{0}/TableTemp/EffectDependence.json";
@@ -576,7 +576,7 @@ public class BuildAssetBundle : MonoBehaviour
 		foreach (Object obj in SelectedAsset)   
 		{  
 			string targetPath = Application.dataPath + "/StreamingAssets/" + obj.name + ".bytes";
-            if (BuildPipeline.BuildAssetBundle(obj, null, targetPath, BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.DeterministicAssetBundle, BuildTarget.iPhone))
+            if (BuildPipeline.BuildAssetBundle(obj, null, targetPath, BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.DeterministicAssetBundle, BuildTarget.iOS))
             {
                 UnityEngine.Debug.Log(obj.name + "资源打包成功");  
 			}   
@@ -640,7 +640,7 @@ public class BuildAssetBundle : MonoBehaviour
         }
 
         BuildTarget tar = BuildTarget.StandaloneWindows;
-        if (pathName.Contains(platformIOS_)) tar = BuildTarget.iPhone;
+        if (pathName.Contains(platformIOS_)) tar = BuildTarget.iOS;
         else if (pathName.Contains(platformAndroid_)) tar = BuildTarget.Android;
 
         if (path.Equals(uiAssetsPath_))
@@ -822,7 +822,7 @@ public class BuildAssetBundle : MonoBehaviour
     {
         Caching.CleanCache();
         BuildTarget tar = BuildTarget.StandaloneWindows;
-        if (pathName.Contains(platformIOS_)) tar = BuildTarget.iPhone;
+        if (pathName.Contains(platformIOS_)) tar = BuildTarget.iOS;
         else if (pathName.Contains(platformAndroid_)) tar = BuildTarget.Android;
 
         string file = EditorUtility.OpenFilePanel("请选择UI依赖数据文件", Application.dataPath + "/../../config/Tables/", "json");
@@ -876,7 +876,7 @@ public class BuildAssetBundle : MonoBehaviour
     {
         Caching.CleanCache();
         BuildTarget tar = BuildTarget.StandaloneWindows;
-        if (pathName.Contains(platformIOS_)) tar = BuildTarget.iPhone;
+        if (pathName.Contains(platformIOS_)) tar = BuildTarget.iOS;
         else if (pathName.Contains(platformAndroid_)) tar = BuildTarget.Android;
 
         string file = EditorUtility.OpenFilePanel("请选择角色依赖数据文件", Application.dataPath + "/../../config/Tables/", "json");
@@ -933,7 +933,7 @@ public class BuildAssetBundle : MonoBehaviour
     {
         Caching.CleanCache();
         BuildTarget tar = BuildTarget.StandaloneWindows;
-        if (pathName.Contains(platformIOS_)) tar = BuildTarget.iPhone;
+        if (pathName.Contains(platformIOS_)) tar = BuildTarget.iOS;
         else if (pathName.Contains(platformAndroid_)) tar = BuildTarget.Android;
 
         string file = EditorUtility.OpenFilePanel("请选择特效依赖数据文件", Application.dataPath + "/../../config/Tables/", "json");
@@ -1333,9 +1333,9 @@ public class BuildAssetBundle : MonoBehaviour
 
             //if (!packMatOnly)
             //{
-                if (ps.renderer != null && ps.renderer.sharedMaterial != null && ps.renderer.sharedMaterial.mainTexture != null)
+                if (ps.GetComponent<Renderer>() != null && ps.GetComponent<Renderer>().sharedMaterial != null && ps.GetComponent<Renderer>().sharedMaterial.mainTexture != null)
                 {
-                    path = AssetDatabase.GetAssetPath(ps.renderer.sharedMaterial.mainTexture);
+                    path = AssetDatabase.GetAssetPath(ps.GetComponent<Renderer>().sharedMaterial.mainTexture);
                     if (!path.Equals("Resources/unity_builtin_extra"))
                     {
                         guid = AssetDatabase.AssetPathToGUID(path);

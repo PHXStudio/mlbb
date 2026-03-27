@@ -434,7 +434,7 @@ public class MainPanle : UIBase {
         if (GamePlayer.Instance.hasActivityOpen_)
         {
             GameObject obj2 = getBtnObj((int)OpenSubSystemFlag.OSSF_Activity);
-            Transform eff = obj2.transform.FindChild("lizixuanzhuan(Clone)");
+            Transform eff = obj2.transform.Find("lizixuanzhuan(Clone)");
             if (eff == null)
             {
                 GameObject tx = GameObject.Instantiate(openFunZhuan.gameObject) as GameObject;
@@ -1295,7 +1295,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Shop);
 		}
 		
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -1321,7 +1321,7 @@ public class MainPanle : UIBase {
 
 			if(GamePlayer.Instance.OpenFunEffectBtns.Contains((int)OpenSubSystemFlag.OSSF_MagicItem))
 			{
-				Transform txObj = magicItemBtn.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+				Transform txObj = magicItemBtn.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 				if(txObj != null)
 				{
 					txObj.gameObject.SetActive(false);
@@ -1331,7 +1331,7 @@ public class MainPanle : UIBase {
 
 			if(GamePlayer.Instance.OpenFunEffectBtns.Contains((int)OpenSubSystemFlag.OSSF_Make))
 			{
-				Transform txObj = makeBtn.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+				Transform txObj = makeBtn.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 				if(txObj != null)
 				{
 					txObj.gameObject.SetActive(false);
@@ -1342,7 +1342,7 @@ public class MainPanle : UIBase {
 			if(GamePlayer.Instance.OpenFunEffectBtns.Contains((int)OpenSubSystemFlag.OSSF_EmployeeGet) ||GamePlayer.Instance.OpenFunEffectBtns.Contains((int)OpenSubSystemFlag.OSSF_EmployeeList )
 			   ||GamePlayer.Instance.OpenFunEffectBtns.Contains((int)OpenSubSystemFlag.OSSF_EmployeeEquip))
 			{
-				Transform txObj = HuoBtn.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+				Transform txObj = HuoBtn.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 				if(txObj != null)
 				{
 					txObj.gameObject.SetActive(false);
@@ -1352,7 +1352,7 @@ public class MainPanle : UIBase {
 
 			if(GamePlayer.Instance.OpenFunEffectBtns.Contains((int)OpenSubSystemFlag.OSSF_Baby))
 			{
-				Transform txObj = babyBtn.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+				Transform txObj = babyBtn.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 				if(txObj != null)
 				{
 					txObj.gameObject.SetActive(false);
@@ -1362,7 +1362,7 @@ public class MainPanle : UIBase {
 
 			if(GamePlayer.Instance.OpenFunEffectBtns.Contains((int)OpenSubSystemFlag.OSSF_Skill))
 			{
-				Transform txObj = SkillBtn.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+				Transform txObj = SkillBtn.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 				if(txObj != null)
 				{
 					txObj.gameObject.SetActive(false);
@@ -1532,7 +1532,7 @@ public class MainPanle : UIBase {
 			
 			if(GamePlayer.Instance.OpenFunEffectBtns.Contains((int)OpenSubSystemFlag.OSSF_Family))
 			{
-				Transform txObj = familylBtn.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+				Transform txObj = familylBtn.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 				if(txObj != null)
 				{
 					txObj.gameObject.SetActive(false);
@@ -1542,7 +1542,7 @@ public class MainPanle : UIBase {
 			
 			if(GamePlayer.Instance.OpenFunEffectBtns.Contains((int)OpenSubSystemFlag.OSSF_Rank))
 			{
-				Transform txObj = paihangBtn.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+				Transform txObj = paihangBtn.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 				if(txObj != null)
 				{
 					txObj.gameObject.SetActive(false);
@@ -1617,7 +1617,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Activity);
 		}
 		
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -1635,7 +1635,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Achieve);
 		}
 		
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -1696,7 +1696,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Make);
 		}
 
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -1714,7 +1714,7 @@ public class MainPanle : UIBase {
 		{
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_MagicItem);
 		}
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -1735,7 +1735,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Rank);
 		}
 
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -1755,7 +1755,7 @@ public class MainPanle : UIBase {
 //		SignUpPanel.SwithShowMe();
 
 		FeaturesUIPanel.SwithShowMe ();
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -1905,7 +1905,7 @@ public class MainPanle : UIBase {
 		}
 
 
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -1917,7 +1917,7 @@ public class MainPanle : UIBase {
 	private void OnClickRile(ButtonScript obj, object args, int param1, int param2)
 	{
 		PlayerPropertyUI.SwithShowMe();
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -1938,7 +1938,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Skill);
 		}
 
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -1992,7 +1992,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Baby);
 		}
 
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2004,7 +2004,7 @@ public class MainPanle : UIBase {
 	private void OnClickBag(ButtonScript obj, object args, int param1, int param2)
 	{
 		BagUI.SwithShowMe ();
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2019,7 +2019,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Shop);
 		}
 		
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2037,7 +2037,7 @@ public class MainPanle : UIBase {
     private void OnClickSetting(ButtonScript obj, object args, int param1, int param2)
 	{
 		SetPanelUI.SwithShowMe ();
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2055,7 +2055,7 @@ public class MainPanle : UIBase {
     private void OnClickTisheng(ButtonScript obj, object args, int param1, int param2)
     {
        // raisePanel_.gameObject.SetActive(true);
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2078,7 +2078,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Family);
 		}
 
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2102,7 +2102,7 @@ public class MainPanle : UIBase {
 		{
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_DoubleExp);
 		}
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2121,7 +2121,7 @@ public class MainPanle : UIBase {
 		{
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_DoubleExp);
 		}
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2135,7 +2135,7 @@ public class MainPanle : UIBase {
 
     private void OnClickGatherBtn(ButtonScript obj, object args, int param1, int param2)
     {
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2152,7 +2152,7 @@ public class MainPanle : UIBase {
 		{
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Guid);
 		}
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2197,7 +2197,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Cystal);
 		}
 		
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2219,7 +2219,7 @@ public class MainPanle : UIBase {
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_AuctionHouse);
 		}
 
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -2969,7 +2969,7 @@ public class MainPanle : UIBase {
 
         //添加特效
         GameObject obj2 = getBtnObj((int)OpenSubSystemFlag.OSSF_Activity);
-        Transform eff = obj2.transform.FindChild("lizixuanzhuan(Clone)");
+        Transform eff = obj2.transform.Find("lizixuanzhuan(Clone)");
         if (eff == null)
         {
             GameObject tx = GameObject.Instantiate(openFunZhuan.gameObject) as GameObject;
@@ -3043,7 +3043,7 @@ public class MainPanle : UIBase {
 	{
 		if(!show)
 		{
-			Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+			Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 			if(txObj != null)
 			{
 				txObj.gameObject.SetActive(false);

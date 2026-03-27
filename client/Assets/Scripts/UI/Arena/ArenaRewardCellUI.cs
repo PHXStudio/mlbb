@@ -54,8 +54,8 @@ public class ArenaRewardCellUI : MonoBehaviour
 				break;
 			itemObjs[i].gameObject.SetActive(true);
 			ItemCellUI itemcell =  UIManager.Instance.AddItemCellUI (itemObjs[i].gameObject.GetComponent<UISprite>(),(uint)rewardList[i]);
-			itemObjs[i].transform.FindChild("name").GetComponent<UILabel>().text = ItemData.GetData(rewardList[i]).name_; 
-			itemObjs[i].transform.FindChild("Label").GetComponent<UILabel>().text = rewardNumList[i].ToString(); 
+			itemObjs[i].transform.Find("name").GetComponent<UILabel>().text = ItemData.GetData(rewardList[i]).name_; 
+			itemObjs[i].transform.Find("Label").GetComponent<UILabel>().text = rewardNumList[i].ToString(); 
 			itemcell.showTips = true;
 			itemObjs[i].SetActive(true);
 			itemObjs[i].transform.localScale = Vector3.one;

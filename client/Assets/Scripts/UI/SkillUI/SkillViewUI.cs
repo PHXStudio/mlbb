@@ -92,7 +92,7 @@ public class SkillViewUI : UIBase
 			
 			if(_profData.isProudSkill(_profType,(int)skills[i].skillID_,_profLevel))	  
 			{
-				obj.transform.FindChild("deyi").GetComponent<UISprite>().gameObject.SetActive(true);
+				obj.transform.Find("deyi").GetComponent<UISprite>().gameObject.SetActive(true);
 			}
 
 			UIManager.SetButtonEventHandler(obj,EnumButtonEvent.OnClick,OnClickMainSkill,0,0);
@@ -463,7 +463,7 @@ public class SkillViewUI : UIBase
 			
 			if(_profData.isProudSkill(_profType,(int)skills[i].skillID_,_profLevel))	  
 			{
-				obj.transform.FindChild("deyi").GetComponent<UISprite>().gameObject.SetActive(true);
+				obj.transform.Find("deyi").GetComponent<UISprite>().gameObject.SetActive(true);
 			}
 			
 			UIManager.SetButtonEventHandler(obj,EnumButtonEvent.OnClick,OnClickMainSkill,0,0);

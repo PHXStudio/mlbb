@@ -19,7 +19,7 @@ public class UvAnimator : MonoBehaviour
 		
 		Vector2 offset = new Vector2(u * size.x, v * size.y);
 		
-		renderer.material.SetTextureOffset("_MainTex", offset);
-		renderer.material.SetTextureScale("_MainTex", size);
+		GetComponent<Renderer>().material.SetTextureOffset("_MainTex", offset);
+		GetComponent<Renderer>().material.SetTextureScale("_MainTex", size);
 	}
 }

@@ -83,6 +83,7 @@ public class UILoginPanel : UIBase {
 
 	private void OnClickm_LoginB(ButtonScript obj, object args, int param1, int param2)
 	{
+        ClientLog.Instance.LogError("private void OnClickm_LoginB(ButtonScript obj, object args, int param1, int param2)");
         if(string.IsNullOrEmpty(userName_))
         {
 			if (GlobalValue.IsDebugMode)
@@ -103,8 +104,10 @@ public class UILoginPanel : UIBase {
             }
 
             SelectServPanel ssp = selectServPanel_.GetComponent<SelectServPanel>();
-            string host = ssp.Host(GameManager.ServName_);//"121.69.36.174";"testmhflc.tanyu.mobi";//"120.26.58.230";
-            int port =  ssp.Port(GameManager.ServName_);//20101;20401
+            //string host = ssp.Host(GameManager.ServName_);//"121.69.36.174";"testmhflc.tanyu.mobi";//"120.26.58.230";
+            //int port =  ssp.Port(GameManager.ServName_);//20101;20401
+            string host = "127.0.0.1";
+            int port = 21000;
             ClientLog.Instance.LogError(host + ":" + port);
             ApplicationEntry.Instance.ConnectToWorld(host, port);
             string localSaveServInfo = GameManager.ServName_ + ":" + GameManager.ServId_;
@@ -138,7 +141,7 @@ public class UILoginPanel : UIBase {
         if (string.IsNullOrEmpty(userNameInput.value))
             return;
 
-       // OnUserExternal((int)game.UserActionResultCode.kLoginSuccess);
+        OnUserExternal(0);
         inputGroup_.SetActive(false);
     }
 
@@ -163,9 +166,9 @@ public class UILoginPanel : UIBase {
         if (OnClickedTimer_ > 0f)
             OnClickedTimer_ -= Time.deltaTime;
 
-        if (OnClickedTimer_ < 0f && m_LoginB.collider.enabled == false)
+        if (OnClickedTimer_ < 0f && m_LoginB.GetComponent<Collider>().enabled == false)
         {
-			m_LoginB.collider.enabled = true;
+			m_LoginB.GetComponent<Collider>().enabled = true;
 			m_LoginB.GetComponentInChildren<UISprite>().color = Color.white;
         }
 

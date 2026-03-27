@@ -95,7 +95,7 @@ public class T4MObjSC : MonoBehaviour {
 				distances[27] = NormalView;
 				distances[28] = FarView;
 				distances[29] = BackGroundView;
-			    PlayerCamera.camera.layerCullDistances = distances;
+			    PlayerCamera.GetComponent<Camera>().layerCullDistances = distances;
 			}
 			
 			if (EnabledLODSystem && ObjPosition.Length>0 && Mode ==1){
@@ -175,13 +175,13 @@ public class T4MObjSC : MonoBehaviour {
 				distances[27] = NormalView;
 				distances[28] = FarView;
 				distances[29] = BackGroundView;
-			    PlayerCamera.camera.layerCullDistances = distances;
+			    PlayerCamera.GetComponent<Camera>().layerCullDistances = distances;
 			}else{
-				distances[26] = PlayerCamera.camera.farClipPlane;
-				distances[27] = PlayerCamera.camera.farClipPlane;
-				distances[28] = PlayerCamera.camera.farClipPlane;
-				distances[29] = PlayerCamera.camera.farClipPlane;
-			    PlayerCamera.camera.layerCullDistances = distances;	
+				distances[26] = PlayerCamera.GetComponent<Camera>().farClipPlane;
+				distances[27] = PlayerCamera.GetComponent<Camera>().farClipPlane;
+				distances[28] = PlayerCamera.GetComponent<Camera>().farClipPlane;
+				distances[29] = PlayerCamera.GetComponent<Camera>().farClipPlane;
+			    PlayerCamera.GetComponent<Camera>().layerCullDistances = distances;	
 			}
 			
 			if (LODPreview){

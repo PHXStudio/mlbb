@@ -52,18 +52,18 @@ public class MicroPhoneInput : MonoBehaviour {
 
 public void StartRecord()
 {
-	audio.Stop();
+	GetComponent<AudioSource>().Stop();
 	if (micArray.Length == 0)
 	{
 		ClientLog.Instance.Log("No Record Device!");
 		return;
 	}
-	audio.loop = false;
-	audio.mute = true;
-	audio.clip = Microphone.Start(null, false, RECORD_TIME, 44100); //22050 
+	GetComponent<AudioSource>().loop = false;
+	GetComponent<AudioSource>().mute = true;
+	GetComponent<AudioSource>().clip = Microphone.Start(null, false, RECORD_TIME, 44100); //22050 
 	while (!(Microphone.GetPosition(null)>0)) {
 	}
-	audio.Play ();
+	GetComponent<AudioSource>().Play ();
 	ClientLog.Instance.Log("StartRecord");
 	//倒计时
 	StartCoroutine(TimeDown());
@@ -82,7 +82,7 @@ public  void StopRecord()
 		return;
 	}
 	Microphone.End (null);
-	audio.Stop();
+	GetComponent<AudioSource>().Stop();
 	
 	ClientLog.Instance.Log("StopRecord");
 	// PlayRecord();
@@ -94,15 +94,15 @@ public  void StopRecord()
 
 public Byte[] GetClipData()
 {
-	if (audio.clip == null)
+	if (GetComponent<AudioSource>().clip == null)
 	{
 		ClientLog.Instance.Log("GetClipData audio.clip is null");
 		return null; 
 	}
 	
-	float[] samples = new float[audio.clip.samples];
+	float[] samples = new float[GetComponent<AudioSource>().clip.samples];
 	
-	audio.clip.GetData(samples, 0);
+	GetComponent<AudioSource>().clip.GetData(samples, 0);
 	
 	
 	Byte[] outData = new byte[samples.Length * 2];
@@ -166,14 +166,14 @@ public void PlayClipData(Int16[] intArr)
 }
 void PlayRecord()
 {
-	if (audio.clip == null)
+	if (GetComponent<AudioSource>().clip == null)
 	{
 		ClientLog.Instance.Log("audio.clip=null");
 		return;
 	}
-	audio.mute = false;
-	audio.loop = false;
-	audio.Play ();
+	GetComponent<AudioSource>().mute = false;
+	GetComponent<AudioSource>().loop = false;
+	GetComponent<AudioSource>().Play ();
 	ClientLog.Instance.Log("PlayRecord");
 	
 }
@@ -190,7 +190,7 @@ public  float GetAveragedVolume()
 {
 	float[] data=new float[256];
 	float a=0;
-	audio.GetOutputData(data,0);
+	GetComponent<AudioSource>().GetOutputData(data,0);
 	foreach(float s in data)
 	{
 		a+=Mathf.Abs(s);

@@ -178,16 +178,16 @@ public class T4MExtendsSC : Editor {
 		if (PlantObjPreview && T4MSC.T4MActived == "Activated" && OldActivStat != T4MSC.T4MActived){
 			T4MPlantRenderer =  PlantObjPreview.GetComponentsInChildren <Renderer>();
 			for(int i=0;i<T4MPlantRenderer.Length;i++){
-					if(T4MPlantRenderer[i].renderer.enabled == false)
-						T4MPlantRenderer[i].renderer.enabled = true;		
+					if(T4MPlantRenderer[i].GetComponent<Renderer>().enabled == false)
+						T4MPlantRenderer[i].GetComponent<Renderer>().enabled = true;		
 			}
 			
 			OldActivStat = T4MSC.T4MActived;
 		}else if (PlantObjPreview && T4MSC.T4MActived == "Deactivated" && OldActivStat != T4MSC.T4MActived){	
 			T4MPlantRenderer =  PlantObjPreview.GetComponentsInChildren <Renderer>();
 			for(int i=0;i<T4MPlantRenderer.Length;i++){
-				if(T4MPlantRenderer[i].renderer.enabled == true)
-					T4MPlantRenderer[i].renderer.enabled = false;		
+				if(T4MPlantRenderer[i].GetComponent<Renderer>().enabled == true)
+					T4MPlantRenderer[i].GetComponent<Renderer>().enabled = false;		
 			}
 			OldActivStat = T4MSC.T4MActived;
 		}
@@ -238,11 +238,11 @@ public class T4MExtendsSC : Editor {
 						
 							T4MPlantRenderer =  PlantObjPreview.GetComponentsInChildren <Renderer>();
 							for(int i=0;i<T4MPlantRenderer.Length;i++){
-								if (T4MPlantRenderer[i].renderer && T4MPlantRenderer[i].renderer.sharedMaterial.HasProperty("_MainTex")){
-									Texture Text = T4MPlantRenderer[i].renderer.sharedMaterial.GetTexture("_MainTex");
+								if (T4MPlantRenderer[i].GetComponent<Renderer>() && T4MPlantRenderer[i].GetComponent<Renderer>().sharedMaterial.HasProperty("_MainTex")){
+									Texture Text = T4MPlantRenderer[i].GetComponent<Renderer>().sharedMaterial.GetTexture("_MainTex");
 									Material NewPMat  = new Material ("Shader \"Hidden/Preview\" {\n Properties {\n _TintColor (\"Tint Color\", Color) = (0.5,0.5,0.5,0.1)\n _MainTex (\"Texture\", 2D) = \"white\" {}\n }\n Category {\n Tags { \"Queue\"=\"Transparent\" \"IgnoreProjector\"=\"True\" \"RenderType\"=\"Transparent\" }\n Blend SrcAlpha OneMinusSrcAlpha\n Cull Off Lighting Off ZWrite Off Fog { Color (0,0,0,0) }\n BindChannels {\n Bind \"Color\", color\n Bind \"Vertex\", vertex\n Bind \"TexCoord\", texcoord\n }\n SubShader {\n Pass {\n SetTexture [_MainTex] {\n constantColor [_TintColor]\n combine constant * primary\n }\n SetTexture [_MainTex] {\n combine texture * previous DOUBLE\n }\n }\n }\n }\n }");
-									T4MPlantRenderer[i].renderer.sharedMaterial = NewPMat;
-									T4MPlantRenderer[i].renderer.sharedMaterial.SetTexture("_MainTex", Text);
+									T4MPlantRenderer[i].GetComponent<Renderer>().sharedMaterial = NewPMat;
+									T4MPlantRenderer[i].GetComponent<Renderer>().sharedMaterial.SetTexture("_MainTex", Text);
 								}
 							}
 							T4MPreviewColl =  PlantObjPreview.GetComponentsInChildren <Collider>();
@@ -277,15 +277,15 @@ public class T4MExtendsSC : Editor {
 							T4MPlantRenderer =  PlantObjPreview.GetComponentsInChildren <Renderer>();
 							if (CheckPlacement !=0){
 								for(int i=0;i<T4MPlantRenderer.Length;i++){
-									T4MPlantRenderer[i].renderer.sharedMaterial.SetColor("_TintColor", new Color(1f,0.5f,0.5f,0.071f));		
+									T4MPlantRenderer[i].GetComponent<Renderer>().sharedMaterial.SetColor("_TintColor", new Color(1f,0.5f,0.5f,0.071f));		
 								}
 							}else{ 
 								for(int i=0;i<T4MPlantRenderer.Length;i++){
-									T4MPlantRenderer[i].renderer.sharedMaterial.SetColor("_TintColor", new Color(0.5f,0.5f,0.5f,0.2f));		
+									T4MPlantRenderer[i].GetComponent<Renderer>().sharedMaterial.SetColor("_TintColor", new Color(0.5f,0.5f,0.5f,0.2f));		
 								}
 							}
 							for(int i=0;i<T4MPlantRenderer.Length;i++){
-									T4MPlantRenderer[i].renderer.enabled = true;		
+									T4MPlantRenderer[i].GetComponent<Renderer>().enabled = true;		
 							}
 							Handles.color = new Color(0f,1f,0f,0.03f);
 							Handles.DrawSolidDisc(raycastHit.point, raycastHit.normal, T4MSC.T4MDistanceMin);
@@ -299,14 +299,14 @@ public class T4MExtendsSC : Editor {
 						}else if (e.shift == true && e.control == false){
 							T4MPlantRenderer =  PlantObjPreview.GetComponentsInChildren <Renderer>();
 							for(int i=0;i<T4MPlantRenderer.Length;i++){
-									T4MPlantRenderer[i].renderer.enabled = false;		
+									T4MPlantRenderer[i].GetComponent<Renderer>().enabled = false;		
 							}
 							Handles.color = new Color(1f,0f,0f,0.1f);
 							Handles.DrawSolidDisc(raycastHit.point, raycastHit.normal, T4MSC.T4MDistanceMin);
 						}else if (e.shift == false && e.control == true){
 							T4MPlantRenderer =  PlantObjPreview.GetComponentsInChildren <Renderer>();
 							for(int i=0;i<T4MPlantRenderer.Length;i++){
-									T4MPlantRenderer[i].renderer.enabled = false;		
+									T4MPlantRenderer[i].GetComponent<Renderer>().enabled = false;		
 							}
 							Handles.color = new Color(1f,1f,0f,0.1f);
 							Handles.DrawSolidDisc(raycastHit.point, raycastHit.normal, T4MSC.T4MDistanceMin);
@@ -535,7 +535,7 @@ public class T4MExtendsSC : Editor {
 		Vector3[] D = onPlayModeDestroyed.ToArray(typeof(Vector3)) as Vector3[];
 		
 		for (int i=0;i<F.Length;i++){
-			GameObject test = PrefabUtility.InstantiatePrefab((GameObject)Resources.LoadAssetAtPath(F[i], typeof(GameObject))) as GameObject;
+			GameObject test = PrefabUtility.InstantiatePrefab((GameObject)AssetDatabase.LoadAssetAtPath(F[i], typeof(GameObject))) as GameObject;
 			test.transform.position = P[i];
 			test.transform.rotation = R[i];
 			test.transform.localScale = S[i];

@@ -152,13 +152,13 @@ public class ChatMaxCell : MonoBehaviour
 		if (param1 == 1)
 		{
 			NetConnection.Instance.requestAudio (Right.audioId_);
-			Transform tr = _RAudioB.transform.FindChild ("dian");
+			Transform tr = _RAudioB.transform.Find ("dian");
 			tr.gameObject.SetActive(false);
 		} else
 			if(param1 == 2)
 		{
 			NetConnection.Instance.requestAudio (Left.audioId_);
-			Transform tr = _LAudioB.transform.FindChild ("dian");
+			Transform tr = _LAudioB.transform.Find ("dian");
 			tr.gameObject.SetActive(false);
 		}
 	}
@@ -268,7 +268,7 @@ public class ChatMaxCell : MonoBehaviour
         {
 			chatName = value.playerName_;
             if (GamePlayer.Instance != null && GamePlayer.Instance.InstName.Equals(value.playerName_))
-            { //ÕâÊÇÎÒÔÚËµ ÄáÂê~
+            { //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµ ï¿½ï¿½ï¿½ï¿½~
                 Right = value;
             }
             else

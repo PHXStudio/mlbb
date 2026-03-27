@@ -71,7 +71,7 @@ public class ApplicationEntry : MonoBehaviour
         XyskIOSAPI.SetNotBackup();
 #endif
 
-        uiCamera_ = uiRoot.GetComponentInChildren<UICamera>().camera;
+        uiCamera_ = uiRoot.GetComponentInChildren<UICamera>().GetComponent<Camera>();
 
         Application.targetFrameRate = 30;
         Application.runInBackground = true;

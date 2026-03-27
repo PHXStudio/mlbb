@@ -27,7 +27,7 @@ public class BabyTipsUI : MonoBehaviour {
 				levelLabel.text = _baby.GetIprop(PropertyType.PT_Level).ToString();
 				HeadIconLoader.Instance.LoadIcon (EntityAssetsData.GetData(_baby.GetIprop(PropertyType.PT_AssetId)).assetsIocn_, babyIcon);
 				HeadIconLoader.Instance.LoadIcon (BabyData.GetData(_baby.GetIprop(PropertyType.PT_TableId))._RaceIcon, RaceIcon);
-				this.gameObject.transform.FindChild("Bg").transform.FindChild("IconBg").GetComponent<UISprite>().spriteName =  
+				this.gameObject.transform.Find("Bg").transform.Find("IconBg").GetComponent<UISprite>().spriteName =  
 					BabyData.GetPetQuality(BabyData.GetData(_baby.GetIprop(PropertyType.PT_TableId))._PetQuality);
 				BabyData bdata = BabyData.GetData(baby.GetIprop(PropertyType.PT_TableId));
 

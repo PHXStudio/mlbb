@@ -182,7 +182,7 @@ public class chatfaceUI : MonoBehaviour {
 			go.transform.localScale = Vector3.one;
 			UISprite ssp = go.GetComponent<UISprite>();
 			ssp.spriteName = "";
-			Transform tsp = go.transform.FindChild("face");
+			Transform tsp = go.transform.Find("face");
 			UISprite sp = tsp.GetComponent<UISprite>();
 			sp.spriteName = strs[i];
 			go.name = strs[i];

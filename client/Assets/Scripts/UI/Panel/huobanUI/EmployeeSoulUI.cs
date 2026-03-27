@@ -51,7 +51,7 @@ public class EmployeeSoulUI : MonoBehaviour
 			{
 				o.transform.parent = null;
 				emplyoeeCellPool.Add(o);
-				o.transform.FindChild("select").gameObject.SetActive(false);
+				o.transform.Find("select").gameObject.SetActive(false);
 				o.gameObject.SetActive(false);
 			}
 			emplyoeeCellList.Clear();
@@ -85,7 +85,7 @@ public class EmployeeSoulUI : MonoBehaviour
 			cell.professionImg.spriteName = ((JobType)Edata[j].GetIprop(PropertyType.PT_Profession)).ToString();
 			cell.fightingNumLab.text = Edata[j].soul_.ToString();
 		//	cell.UpdateRed();
-			o.transform.FindChild("red").GetComponent<UISprite>().gameObject.SetActive(false); 
+			o.transform.Find("red").GetComponent<UISprite>().gameObject.SetActive(false); 
 		
 			HeadIconLoader.Instance.LoadIcon(EntityAssetsData.GetData(EmployeeData.GetData(Edata[j].GetIprop(PropertyType.PT_TableId)).asset_id).assetsIocn_,cell.icon);
 			
@@ -141,20 +141,20 @@ public class EmployeeSoulUI : MonoBehaviour
 		}
 		if(selectObj != null)
 		{
-			selectObj.transform.FindChild("red").GetComponent<UISprite>().gameObject.SetActive(false); 
+			selectObj.transform.Find("red").GetComponent<UISprite>().gameObject.SetActive(false); 
 		}
 		selectObj = obj.gameObject;
 		_fireEmployees.Clear ();
 		Employee  employee = GamePlayer.Instance.GetEmployeeById (cell.Employee.InstId);
 		if(_fireEmployees.IndexOf((uint)cell.Employee.InstId) < 0)
 		{
-			obj.transform.FindChild("red").GetComponent<UISprite>().gameObject.SetActive(true);
+			obj.transform.Find("red").GetComponent<UISprite>().gameObject.SetActive(true);
 			_fireEmployees.Add ((uint)employee.InstId);
 			
 		}
 		else
 		{
-			obj.transform.FindChild("red").GetComponent<UISprite>().gameObject.SetActive(false); 
+			obj.transform.Find("red").GetComponent<UISprite>().gameObject.SetActive(false); 
 			_fireEmployees.Remove((uint)employee.InstId);
 		}
 	}

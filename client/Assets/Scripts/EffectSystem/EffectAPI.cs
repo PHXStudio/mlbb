@@ -101,36 +101,36 @@ public class EffectAPI
 		if( ebd.effect_positionType == EffectBehaviourData.EffectPositionType.Up )
 		{
 			if(caster != null)
-				vcaster = new Vector3( caster.collider.bounds.center.x , caster.collider.bounds.center.y + caster.collider.bounds.size.y/2 , caster.collider.bounds.center.z );
+				vcaster = new Vector3( caster.GetComponent<Collider>().bounds.center.x , caster.GetComponent<Collider>().bounds.center.y + caster.GetComponent<Collider>().bounds.size.y/2 , caster.GetComponent<Collider>().bounds.center.z );
 			if( aims != null )
 			{
 				for( int iCount = 0; iCount < aims.Length; ++ iCount )
 				{
-					vaims[iCount] = new Vector3( aims[iCount].collider.bounds.center.x , aims[iCount].collider.bounds.center.y + aims[iCount].collider.bounds.size.y/2 , aims[iCount].collider.bounds.center.z );
+					vaims[iCount] = new Vector3( aims[iCount].GetComponent<Collider>().bounds.center.x , aims[iCount].GetComponent<Collider>().bounds.center.y + aims[iCount].GetComponent<Collider>().bounds.size.y/2 , aims[iCount].GetComponent<Collider>().bounds.center.z );
 				}
 			}
 		}
 		else if( ebd.effect_positionType == EffectBehaviourData.EffectPositionType.Center )
 		{
 			if(caster != null)
-				vcaster = caster.collider.bounds.center;
+				vcaster = caster.GetComponent<Collider>().bounds.center;
 			if( aims != null )
 			{
 				for( int iCount = 0; iCount < aims.Length; ++ iCount )
 				{
-					vaims[iCount] = aims[iCount].collider.bounds.center;
+					vaims[iCount] = aims[iCount].GetComponent<Collider>().bounds.center;
 				}
 			}
 		}
 		else if( ebd.effect_positionType == EffectBehaviourData.EffectPositionType.Down )
 		{
 			if(caster != null)
-				vcaster = new Vector3( caster.collider.bounds.center.x , caster.collider.bounds.center.y - caster.collider.bounds.size.y/2 , caster.collider.bounds.center.z );
+				vcaster = new Vector3( caster.GetComponent<Collider>().bounds.center.x , caster.GetComponent<Collider>().bounds.center.y - caster.GetComponent<Collider>().bounds.size.y/2 , caster.GetComponent<Collider>().bounds.center.z );
 			if( aims != null )
 			{
 				for( int iCount = 0; iCount < aims.Length; ++ iCount )
 				{
-					vaims[iCount] = new Vector3( aims[iCount].collider.bounds.center.x , aims[iCount].collider.bounds.center.y - aims[iCount].collider.bounds.size.y/2 , aims[iCount].collider.bounds.center.z );
+					vaims[iCount] = new Vector3( aims[iCount].GetComponent<Collider>().bounds.center.x , aims[iCount].GetComponent<Collider>().bounds.center.y - aims[iCount].GetComponent<Collider>().bounds.size.y/2 , aims[iCount].GetComponent<Collider>().bounds.center.z );
 				}
 			}
 		}

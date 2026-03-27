@@ -116,7 +116,7 @@ public class MazeEditor : EditorWindow {
 				if(strs.Length==3)
 				{
 					string path = string.Format ("Assets/ResData/Maze/{0}/{1}/pre/{2}.prefab",strs[0],strs[1],name);
-					GameObject go = Resources.LoadAssetAtPath(path,typeof(GameObject))as GameObject;
+					GameObject go = AssetDatabase.LoadAssetAtPath(path,typeof(GameObject))as GameObject;
 					GameObject clone = GameObject.Instantiate(go)as GameObject;
 					clone.name = ((MCube)mTerrain.cubes_[j]).Name;
 					clone.transform.parent = root.transform;				    

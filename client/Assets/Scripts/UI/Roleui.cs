@@ -120,7 +120,7 @@ public class Roleui : MonoBehaviour {
 			tp = sp.GetComponent<TweenPosition>();
 			ts = sp.GetComponent<TweenScale>();
 			sp.transform.parent = transform;
-            sp.transform.localPosition = GlobalInstanceFunction.WorldToUI(new Vector3(GetRoleObj().transform.position.x, (GetRoleObj().transform.position.y + GetRoleObj().collider.bounds.size.y) + 0.3f, GetRoleObj().transform.position.z));
+            sp.transform.localPosition = GlobalInstanceFunction.WorldToUI(new Vector3(GetRoleObj().transform.position.x, (GetRoleObj().transform.position.y + GetRoleObj().GetComponent<Collider>().bounds.size.y) + 0.3f, GetRoleObj().transform.position.z));
 			sp.transform.localPosition = new Vector2(sp.transform.localPosition.x + i * (sp.localSize.x+10),sp.transform.position.y+300);
 			sp.transform.localScale = Vector3.one;
 			if(type.Equals(PropertyType.PT_MpCurr))
@@ -186,7 +186,7 @@ public class Roleui : MonoBehaviour {
        // bubble.width = wid;
         bubble.height = hei+30;
         bubble.gameObject.SetActive(true);
-		bubble.gameObject.transform.localPosition = new Vector3(GetRoleObj().transform.position.x-GetRoleObj().collider.bounds.size.x/2, (GetRoleObj().transform.position.y +320) , GetRoleObj().transform.position.z)/*GlobalInstanceFunction.WorldToUI(new Vector3(GetRoleObj().transform.position.x-GetRoleObj().collider.bounds.size.x/2, (GetRoleObj().transform.position.y + GetRoleObj().collider.bounds.size.y) , GetRoleObj().transform.position.z))*/;
+		bubble.gameObject.transform.localPosition = new Vector3(GetRoleObj().transform.position.x-GetRoleObj().GetComponent<Collider>().bounds.size.x/2, (GetRoleObj().transform.position.y +320) , GetRoleObj().transform.position.z)/*GlobalInstanceFunction.WorldToUI(new Vector3(GetRoleObj().transform.position.x-GetRoleObj().collider.bounds.size.x/2, (GetRoleObj().transform.position.y + GetRoleObj().collider.bounds.size.y) , GetRoleObj().transform.position.z))*/;
         Invoke("HideBubble", 5f);
     }
 

@@ -444,10 +444,10 @@ public class FriendUI : UIBase
 
 	public void OnClickFirend(ButtonScript obj, object args, int param1, int param2)
     { 
-		if(obj.transform.FindChild("arrows").GetComponent<UISprite>().spriteName == "sanjiao2")
+		if(obj.transform.Find("arrows").GetComponent<UISprite>().spriteName == "sanjiao2")
 		{
 
-			friendBtn.transform.FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
+			friendBtn.transform.Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
 			addFriendBtn.gameObject.SetActive (false);
 			chatLisPane.gameObject.SetActive(false);
 			foreach (GameObject o in friendCellList)
@@ -460,8 +460,8 @@ public class FriendUI : UIBase
 		}
 		else
 		{
-			obj.transform.FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao2";
-			blackBtn.transform.FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
+			obj.transform.Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao2";
+			blackBtn.transform.Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
 			addFriendBtn.gameObject.SetActive (true);
 			addBlackBtn.gameObject.SetActive (false);
 			UpdataFriendList ();
@@ -476,9 +476,9 @@ public class FriendUI : UIBase
 
     public void OnInitBlack(ButtonScript obj, object args, int param1, int param2)
     {
-		if(obj.transform.FindChild("arrows").GetComponent<UISprite>().spriteName == "sanjiao2")
+		if(obj.transform.Find("arrows").GetComponent<UISprite>().spriteName == "sanjiao2")
 		{
-			blackBtn.transform.FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
+			blackBtn.transform.Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
 			addFriendBtn.gameObject.SetActive (false);
 			addBlackBtn.gameObject.SetActive (false);
 			
@@ -495,8 +495,8 @@ public class FriendUI : UIBase
 		}
 		else
 		{
-			obj.transform.FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao2";
-			friendBtn.transform.FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
+			obj.transform.Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao2";
+			friendBtn.transform.Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
 			addFriendBtn.gameObject.SetActive (false);
 			//addBlackBtn.gameObject.SetActive (true);	
 			UpdataBlackList (); 
@@ -1051,11 +1051,11 @@ public class FriendUI : UIBase
 		leftPane.gameObject.SetActive(true);
 		offPane.gameObject.SetActive(false);
 
-		if(friendBtn.transform.FindChild("arrows").GetComponent<UISprite>().spriteName == "sanjiao2")
+		if(friendBtn.transform.Find("arrows").GetComponent<UISprite>().spriteName == "sanjiao2")
 		{
 			UpdataFriendList();
 		}
-		else if(blackBtn.transform.FindChild("arrows").GetComponent<UISprite>().spriteName == "sanjiao2")
+		else if(blackBtn.transform.Find("arrows").GetComponent<UISprite>().spriteName == "sanjiao2")
 		{
 			UpdataBlackList();
 		}

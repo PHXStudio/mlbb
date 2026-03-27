@@ -96,8 +96,8 @@ public class HelpUI : UIBase
 			wayObj.gameObject.SetActive (false);
         qaObj.SetActive(false);
 		guideObj.gameObject.SetActive (true);
-		if(guideObj.transform.FindChild("equipAndSkill").GetComponent<HelpEquipAndSkillUI>().SelectType == 0)
-			guideObj.transform.FindChild("equipAndSkill").GetComponent<HelpEquipAndSkillUI>().SelectType = 1;
+		if(guideObj.transform.Find("equipAndSkill").GetComponent<HelpEquipAndSkillUI>().SelectType == 0)
+			guideObj.transform.Find("equipAndSkill").GetComponent<HelpEquipAndSkillUI>().SelectType = 1;
 	}
 
 	private void OnClickWay(ButtonScript obj, object args, int param1, int param2)

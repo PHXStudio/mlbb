@@ -486,9 +486,9 @@ public class MainbabyState : MonoBehaviour {
 			Listener = UIEventListener.Get(skillIcons[i].GetComponent<UIButton>().gameObject);
 			Listener.onPress = null;
 			UIManager.RemoveButtonEventHandler(skillIcons[i].gameObject,EnumButtonEvent.OnClick);
-            Transform ssp = skillIcons[i].transform.FindChild("suo000");
+            Transform ssp = skillIcons[i].transform.Find("suo000");
             ssp.gameObject.SetActive(false);
-            ssp = skillIcons[i].transform.FindChild("skillicon");
+            ssp = skillIcons[i].transform.Find("skillicon");
             ssp.gameObject.SetActive(false);
         }
 		BabyData bdata = BabyData.GetData (inst.GetIprop(PropertyType.PT_TableId));
@@ -513,9 +513,9 @@ public class MainbabyState : MonoBehaviour {
             if (i > bdata._SkillNum)
                 break; ///错误
 			skillIcons[i].gameObject.SetActive(true);
-            Transform ssp = skillIcons[i].transform.FindChild("suo000");
+            Transform ssp = skillIcons[i].transform.Find("suo000");
             ssp.gameObject.SetActive(false);
-            ssp = skillIcons[i].transform.FindChild("skillicon");
+            ssp = skillIcons[i].transform.Find("skillicon");
             ssp.gameObject.SetActive(true);
             UITexture sp = skillIcons[i].GetComponentInChildren<UITexture>();
             iconNames_.Add(skillDatas[i]._ResIconName);
@@ -526,11 +526,11 @@ public class MainbabyState : MonoBehaviour {
         }
 		for (int i =0; i<skillIcons.Length; i++) {
 			if (i < skillDatas.Count) {
-					Transform ps = skillIcons [i].transform.FindChild ("Ps");
+					Transform ps = skillIcons [i].transform.Find ("Ps");
 					ps.gameObject.SetActive (false);
 			}
 			if (i < bdata._SkillNum && i >= skillDatas.Count) {
-					Transform ps = skillIcons [i].transform.FindChild ("Ps");
+					Transform ps = skillIcons [i].transform.Find ("Ps");
 					ps.gameObject.SetActive (true);
 					skillIcons [i].gameObject.SetActive (true);
 					UIManager.SetButtonEventHandler (skillIcons [i].gameObject, EnumButtonEvent.OnClick, OnClickSkillNpc, 0, 0);

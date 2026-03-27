@@ -62,7 +62,7 @@ public class EmployeeBuySkillUI : UIBase
 			{
 				GameObject o  = Instantiate(cell)as GameObject;
 				o.transform.parent = grid.transform; 
-				HeadIconLoader.Instance.LoadIcon( s._Icon,o.transform.FindChild("icon").GetComponent<UITexture>());
+				HeadIconLoader.Instance.LoadIcon( s._Icon,o.transform.Find("icon").GetComponent<UITexture>());
 
 				
 				if(!_icons.Contains(s._Icon))
@@ -70,9 +70,9 @@ public class EmployeeBuySkillUI : UIBase
 					_icons.Add(s._Icon);
 				}
 
-				o.transform.FindChild("name").GetComponent<UILabel>().text = s._Name;
-				o.transform.FindChild("decs").GetComponent<UILabel>().text = ItemData.GetData(s._Itemid).desc_;
-				o.transform.FindChild("xiaohao").GetComponent<UILabel>().text = s._Price.ToString(); 
+				o.transform.Find("name").GetComponent<UILabel>().text = s._Name;
+				o.transform.Find("decs").GetComponent<UILabel>().text = ItemData.GetData(s._Itemid).desc_;
+				o.transform.Find("xiaohao").GetComponent<UILabel>().text = s._Price.ToString(); 
 				o.name = s._Id.ToString();
 				o.SetActive(true);
 				o.transform.localPosition = new Vector3(0,0,0);
