@@ -5,7 +5,7 @@
 #version 1.0.0									#
 #################################################################################
 
-#!/bin/sh
+#!/bin/bash
 
 pwd=`pwd`
 gateway=`ps aux | grep "$pwd/gateway -d" | grep -v "grep" | awk '{print $2}'`

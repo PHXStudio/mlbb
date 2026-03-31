@@ -175,7 +175,7 @@ public class magicItemLevelUpUI : MonoBehaviour
 				objCell = Object.Instantiate(propCell) as GameObject;
 			}
 
-			UILabel lable =	objCell.transform.FindChild("name").GetComponent<UILabel>(); 
+			UILabel lable =	objCell.transform.Find("name").GetComponent<UILabel>(); 
 
 			string nameStr = LanguageManager.instance.GetValue(nowdata.propArr[i].Key.ToString());
 

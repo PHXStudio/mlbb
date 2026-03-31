@@ -10,9 +10,9 @@
 struct SGE_OrderInfo
 {
 	// member list.
-	S32 productId_;
-	S32 productCount_;
-	F32 amount_;
+	int32_t productId_;
+	int32_t productCount_;
+	float amount_;
 	std::string orderId_;
 	std::string payTime_;
 	// field ids.
@@ -38,10 +38,10 @@ struct SGE_OrderInfo
 struct COM_ADLoginTotalContent
 {
 	// member list.
-	U32 totalDays_;
-	std::vector< U32 > itemIds_;
-	std::vector< U32 > itemStacks_;
-	U8 status_;
+	uint32_t totalDays_;
+	std::vector< uint32_t > itemIds_;
+	std::vector< uint32_t > itemStacks_;
+	uint8_t status_;
 	// field ids.
 	enum
 	{
@@ -64,9 +64,9 @@ struct COM_ADLoginTotalContent
 struct COM_ADLoginTotal
 {
 	// member list.
-	S32 loginDays_;
-	U64 sinceStamp_;
-	U64 endStamp_;
+	int32_t loginDays_;
+	uint64_t sinceStamp_;
+	uint64_t endStamp_;
 	std::vector< COM_ADLoginTotalContent > contents_;
 	// field ids.
 	enum
@@ -90,10 +90,10 @@ struct COM_ADLoginTotal
 struct COM_ADChargeTotalContent
 {
 	// member list.
-	U32 currencyCount_;
-	std::vector< U32 > itemIds_;
-	std::vector< U32 > itemStacks_;
-	U8 status_;
+	uint32_t currencyCount_;
+	std::vector< uint32_t > itemIds_;
+	std::vector< uint32_t > itemStacks_;
+	uint8_t status_;
 	// field ids.
 	enum
 	{
@@ -116,9 +116,9 @@ struct COM_ADChargeTotalContent
 struct COM_ADChargeTotal
 {
 	// member list.
-	S32 recharge_;
-	U64 sinceStamp_;
-	U64 endStamp_;
+	int32_t recharge_;
+	uint64_t sinceStamp_;
+	uint64_t endStamp_;
 	std::vector< COM_ADChargeTotalContent > contents_;
 	// field ids.
 	enum
@@ -142,10 +142,10 @@ struct COM_ADChargeTotal
 struct COM_ADDiscountStoreContent
 {
 	// member list.
-	U32 price_;
-	U32 itemId_;
-	F32 discount_;
-	U32 buyLimit_;
+	uint32_t price_;
+	uint32_t itemId_;
+	float discount_;
+	uint32_t buyLimit_;
 	// field ids.
 	enum
 	{
@@ -168,8 +168,8 @@ struct COM_ADDiscountStoreContent
 struct COM_ADDiscountStore
 {
 	// member list.
-	U64 sinceStamp_;
-	U64 endStamp_;
+	uint64_t sinceStamp_;
+	uint64_t endStamp_;
 	std::vector< COM_ADDiscountStoreContent > contents_;
 	// field ids.
 	enum
@@ -192,11 +192,11 @@ struct COM_ADDiscountStore
 struct COM_ADChargeEveryContent
 {
 	// member list.
-	U32 currencyCount_;
-	std::vector< U32 > itemIds_;
-	std::vector< U32 > itemStacks_;
-	U8 status_;
-	U8 count_;
+	uint32_t currencyCount_;
+	std::vector< uint32_t > itemIds_;
+	std::vector< uint32_t > itemStacks_;
+	uint8_t status_;
+	uint8_t count_;
 	// field ids.
 	enum
 	{
@@ -220,9 +220,9 @@ struct COM_ADChargeEveryContent
 struct COM_ADChargeEvery
 {
 	// member list.
-	S32 currentCount_;
-	U64 sinceStamp_;
-	U64 endStamp_;
+	int32_t currentCount_;
+	uint64_t sinceStamp_;
+	uint64_t endStamp_;
 	std::vector< COM_ADChargeEveryContent > contents_;
 	// field ids.
 	enum
@@ -246,8 +246,8 @@ struct COM_ADChargeEvery
 struct COM_ADCardsContent
 {
 	// member list.
-	U32 count_;
-	U32 rewardId_;
+	uint32_t count_;
+	uint32_t rewardId_;
 	// field ids.
 	enum
 	{
@@ -268,8 +268,8 @@ struct COM_ADCardsContent
 struct COM_ADCards
 {
 	// member list.
-	U64 sinceStamp_;
-	U64 endStamp_;
+	uint64_t sinceStamp_;
+	uint64_t endStamp_;
 	std::vector< COM_ADCardsContent > contents_;
 	// field ids.
 	enum
@@ -293,9 +293,9 @@ struct COM_ADHotRoleContent
 {
 	// member list.
 	EntityType type_;
-	U32 buyNum_;
-	U32 roleId_;
-	U32 price_;
+	uint32_t buyNum_;
+	uint32_t roleId_;
+	uint32_t price_;
 	// field ids.
 	enum
 	{
@@ -318,8 +318,8 @@ struct COM_ADHotRoleContent
 struct COM_ADHotRole
 {
 	// member list.
-	U64 sinceStamp_;
-	U64 endStamp_;
+	uint64_t sinceStamp_;
+	uint64_t endStamp_;
 	std::vector< COM_ADHotRoleContent > contents_;
 	// field ids.
 	enum
@@ -342,10 +342,10 @@ struct COM_ADHotRole
 struct COM_ADEmployeeTotalContent
 {
 	// member list.
-	U32 outputCount_;
-	std::vector< U32 > itemIds_;
-	std::vector< U32 > itemStacks_;
-	U8 status_;
+	uint32_t outputCount_;
+	std::vector< uint32_t > itemIds_;
+	std::vector< uint32_t > itemStacks_;
+	uint8_t status_;
 	// field ids.
 	enum
 	{
@@ -368,9 +368,9 @@ struct COM_ADEmployeeTotalContent
 struct COM_ADEmployeeTotal
 {
 	// member list.
-	S32 outputNum_;
-	U64 sinceStamp_;
-	U64 endStamp_;
+	int32_t outputNum_;
+	uint64_t sinceStamp_;
+	uint64_t endStamp_;
 	std::vector< COM_ADEmployeeTotalContent > contents_;
 	// field ids.
 	enum
@@ -394,8 +394,8 @@ struct COM_ADEmployeeTotal
 struct COM_GiftItem
 {
 	// member list.
-	U32 itemId_;
-	U32 itemNum_;
+	uint32_t itemId_;
+	uint32_t itemNum_;
 	// field ids.
 	enum
 	{
@@ -416,11 +416,11 @@ struct COM_GiftItem
 struct COM_ADGiftBag
 {
 	// member list.
-	U64 sinceStamp_;
-	U64 endStamp_;
+	uint64_t sinceStamp_;
+	uint64_t endStamp_;
 	bool isflag_;
-	U8 price_;
-	U8 oldprice_;
+	uint8_t price_;
+	uint8_t oldprice_;
 	std::vector< COM_GiftItem > itemdata_;
 	// field ids.
 	enum
@@ -446,9 +446,9 @@ struct COM_ADGiftBag
 struct COM_Sevenday
 {
 	// member list.
-	U32 quest_;
+	uint32_t quest_;
 	AchievementType stype_;
-	U32 qvalue_;
+	uint32_t qvalue_;
 	bool isfinish_;
 	bool isreward_;
 	// field ids.
@@ -474,11 +474,11 @@ struct COM_Sevenday
 struct COM_ZhuanpanContent
 {
 	// member list.
-	U32 id_;
-	U32 item_;
-	U32 itemNum_;
-	U32 rate_;
-	U32 maxdrop_;
+	uint32_t id_;
+	uint32_t item_;
+	uint32_t itemNum_;
+	uint32_t rate_;
+	uint32_t maxdrop_;
 	// field ids.
 	enum
 	{
@@ -503,7 +503,7 @@ struct COM_Zhuanpan
 {
 	// member list.
 	std::string playerName_;
-	U32 zhuanpanId_;
+	uint32_t zhuanpanId_;
 	// field ids.
 	enum
 	{
@@ -524,8 +524,8 @@ struct COM_Zhuanpan
 struct COM_ZhuanpanData
 {
 	// member list.
-	U64 sinceStamp_;
-	U64 endStamp_;
+	uint64_t sinceStamp_;
+	uint64_t endStamp_;
 	std::vector< COM_ZhuanpanContent > contents_;
 	std::vector< COM_Zhuanpan > rarity_;
 	// field ids.
@@ -550,10 +550,10 @@ struct COM_ZhuanpanData
 struct COM_IntegralContent
 {
 	// member list.
-	U32 id_;
-	U32 itemid_;
-	S32 times_;
-	S32 cost_;
+	uint32_t id_;
+	uint32_t itemid_;
+	int32_t times_;
+	int32_t cost_;
 	// field ids.
 	enum
 	{
@@ -576,9 +576,9 @@ struct COM_IntegralContent
 struct COM_IntegralData
 {
 	// member list.
-	U64 sinceStamp_;
-	U64 endStamp_;
-	U32 integral_;
+	uint64_t sinceStamp_;
+	uint64_t endStamp_;
+	uint32_t integral_;
 	bool isflag_;
 	std::vector< COM_IntegralContent > contents_;
 	// field ids.
@@ -642,7 +642,7 @@ struct COM_LoginInfo
 	// member list.
 	std::string username_;
 	std::string password_;
-	U32 version_;
+	uint32_t version_;
 	std::string sessionkey_;
 	std::string mac_;
 	std::string idfa_;
@@ -672,8 +672,8 @@ struct COM_LoginInfo
 struct COM_FPosition
 {
 	// member list.
-	F32 x_;
-	F32 z_;
+	float x_;
+	float z_;
 	bool isLast_;
 	// field ids.
 	enum
@@ -699,27 +699,27 @@ struct COM_ScenePlayerInformation
 	bool isLeader_;
 	bool isTeamMember_;
 	bool isInBattle_;
-	S16 vip_;
-	S32 instId_;
-	S32 assetId_;
-	S32 weaponItemId_;
-	S32 fashionId_;
-	S32 hpMax_;
-	S32 hpCrt_;
-	S32 mpMax_;
-	S32 mpCrt_;
-	S32 level_;
-	S32 battlePower_;
-	S32 jl_;
-	S32 magicLv_;
-	U64 openSubSystemFlag_;
-	S32 title_;
+	int16_t vip_;
+	int32_t instId_;
+	int32_t assetId_;
+	int32_t weaponItemId_;
+	int32_t fashionId_;
+	int32_t hpMax_;
+	int32_t hpCrt_;
+	int32_t mpMax_;
+	int32_t mpCrt_;
+	int32_t level_;
+	int32_t battlePower_;
+	int32_t jl_;
+	int32_t magicLv_;
+	uint64_t openSubSystemFlag_;
+	int32_t title_;
 	std::string instName_;
 	std::string guildeName_;
 	JobType jt_;
 	EntityType type_;
 	COM_FPosition originPos_;
-	S32 showBabyTableId_;
+	int32_t showBabyTableId_;
 	std::string showBabyName_;
 	// field ids.
 	enum
@@ -766,18 +766,18 @@ struct COM_BattleEntityInformation
 	// member list.
 	EntityType type_;
 	std::string instName_;
-	S32 instId_;
-	S32 tableId_;
-	S32 assetId_;
+	int32_t instId_;
+	int32_t tableId_;
+	int32_t assetId_;
 	JobType jt_;
 	BattlePosition battlePosition_;
-	S32 weaponItemId_;
-	S32 fashionId_;
-	S32 hpMax_;
-	S32 hpCrt_;
-	S32 mpMax_;
-	S32 mpCrt_;
-	S32 level_;
+	int32_t weaponItemId_;
+	int32_t fashionId_;
+	int32_t hpMax_;
+	int32_t hpCrt_;
+	int32_t mpMax_;
+	int32_t mpCrt_;
+	int32_t level_;
 	// field ids.
 	enum
 	{
@@ -810,15 +810,15 @@ struct COM_BattleEntityInformation
 struct COM_SimpleInformation
 {
 	// member list.
-	S32 instId_;
-	S32 level_;
-	S32 asset_id_;
+	int32_t instId_;
+	int32_t level_;
+	int32_t asset_id_;
 	std::string instName_;
-	S32 weaponItemId_;
-	S32 fashionId_;
-	U32 section_;
+	int32_t weaponItemId_;
+	int32_t fashionId_;
+	uint32_t section_;
 	JobType jt_;
-	S32 jl_;
+	int32_t jl_;
 	// field ids.
 	enum
 	{
@@ -846,10 +846,10 @@ struct COM_SimpleInformation
 struct COM_AccountInfo
 {
 	// member list.
-	U32 guid_;
+	uint32_t guid_;
 	std::string username_;
 	std::string password_;
-	U64 createtime_;
+	uint64_t createtime_;
 	std::string phoneNumber_;
 	// field ids.
 	enum
@@ -875,7 +875,7 @@ struct COM_PropValue
 {
 	// member list.
 	PropertyType type_;
-	F32 value_;
+	float value_;
 	// field ids.
 	enum
 	{
@@ -896,18 +896,18 @@ struct COM_PropValue
 struct COM_Item
 {
 	// member list.
-	U32 itemId_;
-	U32 instId_;
-	S16 stack_;
+	uint32_t itemId_;
+	uint32_t instId_;
+	int16_t stack_;
 	bool isBind_;
 	bool isLock_;
-	S8 strLevel_;
-	S16 slot_;
-	S32 skillID_;
-	S32 durability_;
-	S32 durabilityMax_;
-	S32 usedTimeout_;
-	S32 lastSellTime_;
+	int8_t strLevel_;
+	int16_t slot_;
+	int32_t skillID_;
+	int32_t durability_;
+	int32_t durabilityMax_;
+	int32_t usedTimeout_;
+	int32_t lastSellTime_;
 	std::vector< COM_PropValue > propArr;
 	// field ids.
 	enum
@@ -940,8 +940,8 @@ struct COM_Item
 struct COM_DropItem
 {
 	// member list.
-	U32 itemId_;
-	U32 itemNum_;
+	uint32_t itemId_;
+	uint32_t itemNum_;
 	// field ids.
 	enum
 	{
@@ -962,9 +962,9 @@ struct COM_DropItem
 struct COM_CrystalProp
 {
 	// member list.
-	U32 level_;
+	uint32_t level_;
 	PropertyType type_;
-	U32 val_;
+	uint32_t val_;
 	// field ids.
 	enum
 	{
@@ -986,7 +986,7 @@ struct COM_CrystalProp
 struct COM_CrystalData
 {
 	// member list.
-	U32 level_;
+	uint32_t level_;
 	std::vector< COM_CrystalProp > props_;
 	// field ids.
 	enum
@@ -1008,8 +1008,8 @@ struct COM_CrystalData
 struct COM_QuestTarget
 {
 	// member list.
-	U32 targetId_;
-	S32 targetNum_;
+	uint32_t targetId_;
+	int32_t targetNum_;
 	// field ids.
 	enum
 	{
@@ -1030,9 +1030,9 @@ struct COM_QuestTarget
 struct COM_Skill
 {
 	// member list.
-	U32 skillID_;
-	U32 skillExp_;
-	U32 skillLevel_;
+	uint32_t skillID_;
+	uint32_t skillExp_;
+	uint32_t skillLevel_;
 	// field ids.
 	enum
 	{
@@ -1054,7 +1054,7 @@ struct COM_Skill
 struct COM_QuestInst
 {
 	// member list.
-	S32 questId_;
+	int32_t questId_;
 	std::vector< COM_QuestTarget > targets_;
 	// field ids.
 	enum
@@ -1076,12 +1076,12 @@ struct COM_QuestInst
 struct COM_State
 {
 	// member list.
-	U32 stateId_;
-	S8 turn_;
-	S8 tick_;
-	S8 type_;
-	S32 value0_;
-	S32 value1_;
+	uint32_t stateId_;
+	int8_t turn_;
+	int8_t tick_;
+	int8_t type_;
+	int32_t value0_;
+	int32_t value1_;
 	// field ids.
 	enum
 	{
@@ -1108,9 +1108,9 @@ struct COM_Entity
 	// member list.
 	EntityType type_;
 	std::string instName_;
-	U32 instId_;
+	uint32_t instId_;
 	BattlePosition battlePosition_;
-	std::vector< F32 > properties_;
+	std::vector< float > properties_;
 	std::vector< COM_Skill > skill_;
 	std::vector< COM_Item > equips_;
 	std::vector< COM_State > states_;
@@ -1145,13 +1145,13 @@ struct COM_BabyInst : public COM_Entity
 	bool isBattle_;
 	bool isBind_;
 	bool isLock_;
-	S32 tableId_;
-	S32 slot_;
-	U32 intensifyLevel_;
-	U32 intensifynum_;
-	S32 lastSellTime_;
-	std::vector< S32 > gear_;
-	std::vector< F32 > addprop_;
+	int32_t tableId_;
+	int32_t slot_;
+	uint32_t intensifyLevel_;
+	uint32_t intensifynum_;
+	int32_t lastSellTime_;
+	std::vector< int32_t > gear_;
+	std::vector< float > addprop_;
 	// field ids.
 	enum
 	{
@@ -1184,10 +1184,10 @@ struct COM_EmployeeInst : public COM_Entity
 	// member list.
 	std::string ownerName_;
 	bool isBattle_;
-	U32 weaponId_;
+	uint32_t weaponId_;
 	QualityColor quality_;
-	U32 star_;
-	U32 soul_;
+	uint32_t star_;
+	uint32_t soul_;
 	// field ids.
 	enum
 	{
@@ -1212,18 +1212,18 @@ struct COM_EmployeeInst : public COM_Entity
 struct COM_ContactInfo
 {
 	// member list.
-	U32 instId_;
+	uint32_t instId_;
 	std::string name_;
-	U32 level_;
-	F32 exp_;
+	uint32_t level_;
+	float exp_;
 	JobType job_;
-	U32 assetId_;
-	U32 jobLevel_;
+	uint32_t assetId_;
+	uint32_t jobLevel_;
 	VipLevel vip_;
-	U32 ff_;
-	U32 rank_;
-	S32 section_;
-	U32 value_;
+	uint32_t ff_;
+	uint32_t rank_;
+	int32_t section_;
+	uint32_t value_;
 	bool isLine_;
 	// field ids.
 	enum
@@ -1256,18 +1256,18 @@ struct COM_ContactInfo
 struct SGE_ContactInfoExt : public COM_ContactInfo
 {
 	// member list.
-	U64 rolefirst_;
-	U64 rolelast_;
-	U64 logoutTime_;
-	U32 gold_;
-	U32 diamond_;
-	U32 magicgold_;
-	S32 guildContribute_;
+	uint64_t rolefirst_;
+	uint64_t rolelast_;
+	uint64_t logoutTime_;
+	uint32_t gold_;
+	uint32_t diamond_;
+	uint32_t magicgold_;
+	int32_t guildContribute_;
 	std::string accName_;
 	std::string userid_;
 	std::string pfid_;
 	std::string pfname_;
-	U32 serverid_;
+	uint32_t serverid_;
 	// field ids.
 	enum
 	{
@@ -1298,9 +1298,9 @@ struct SGE_ContactInfoExt : public COM_ContactInfo
 struct COM_Achievement
 {
 	// member list.
-	U32 achId_;
+	uint32_t achId_;
 	AchievementType achType_;
-	U32 achValue_;
+	uint32_t achValue_;
 	bool isAch_;
 	bool isAward_;
 	// field ids.
@@ -1326,11 +1326,11 @@ struct COM_Achievement
 struct COM_HundredBattle
 {
 	// member list.
-	U32 playerId_;
-	U32 tier_;
-	U32 curTier_;
-	U32 surplus_;
-	U32 resetNum_;
+	uint32_t playerId_;
+	uint32_t tier_;
+	uint32_t curTier_;
+	uint32_t surplus_;
+	uint32_t resetNum_;
 	// field ids.
 	enum
 	{
@@ -1354,13 +1354,13 @@ struct COM_HundredBattle
 struct COM_PlayerVsPlayer
 {
 	// member list.
-	S32 playerInst_;
-	S32 section_;
-	S32 value_;
-	S32 winNum_;
-	S32 battleNum_;
-	F32 winValue_;
-	S32 contWin_;
+	int32_t playerInst_;
+	int32_t section_;
+	int32_t value_;
+	int32_t winNum_;
+	int32_t battleNum_;
+	float winValue_;
+	int32_t contWin_;
 	bool isCont_;
 	// field ids.
 	enum
@@ -1388,8 +1388,8 @@ struct COM_PlayerVsPlayer
 struct COM_Activity
 {
 	// member list.
-	S32 actId_;
-	S32 counter_;
+	int32_t actId_;
+	int32_t counter_;
 	// field ids.
 	enum
 	{
@@ -1411,8 +1411,8 @@ struct COM_ActivityTable
 {
 	// member list.
 	std::vector< COM_Activity > activities_;
-	std::vector< U32 > flag_;
-	S32 reward_;
+	std::vector< uint32_t > flag_;
+	int32_t reward_;
 	// field ids.
 	enum
 	{
@@ -1434,8 +1434,8 @@ struct COM_ActivityTable
 struct COM_CourseGift
 {
 	// member list.
-	U32 id_;
-	F32 timeout_;
+	uint32_t id_;
+	float timeout_;
 	// field ids.
 	enum
 	{
@@ -1460,9 +1460,9 @@ struct COM_SimplePlayerInst : public COM_Entity
 	bool isBattle_;
 	bool autoBattle_;
 	bool isTeamLeader_;
-	S32 sceneId_;
-	U64 openSubSystemFlag_;
-	S64 createTime_;
+	int32_t sceneId_;
+	uint64_t openSubSystemFlag_;
+	int64_t createTime_;
 	std::string guildName_;
 	COM_FPosition scenePos_;
 	COM_PlayerVsPlayer pvpInfo_;
@@ -1502,48 +1502,48 @@ struct COM_PlayerInst : public COM_Entity
 	bool isBattle_;
 	bool autoBattle_;
 	bool isTeamLeader_;
-	S32 sceneId_;
-	U64 openSubSystemFlag_;
-	S64 createTime_;
+	int32_t sceneId_;
+	uint64_t openSubSystemFlag_;
+	int64_t createTime_;
 	std::string guildName_;
 	COM_FPosition scenePos_;
 	COM_PlayerVsPlayer pvpInfo_;
 	bool onlineTimeFlag_;
-	F32 onlineTime_;
-	std::vector< U32 > onlineTimeReward_;
+	float onlineTime_;
+	std::vector< uint32_t > onlineTimeReward_;
 	bool isFund_;
-	std::vector< U32 > fundtags_;
+	std::vector< uint32_t > fundtags_;
 	bool openDoubleTimeFlag_;
 	bool isFirstLogin_;
 	bool firstRechargeDiamond_;
 	bool isFirstRechargeGift_;
-	F32 offlineExp_;
-	F32 rivalTime_;
-	S8 rivalNum_;
-	S8 promoteAward_;
-	U64 guideIdx_;
-	F32 noTalkTime_;
-	U32 wishShareNum_;
-	U32 warriortrophyNum_;
-	U32 employeelasttime_;
-	U32 employeeonecount_;
-	U32 employeetencount_;
-	F32 greenBoxTimes_;
-	F32 blueBoxTimes_;
-	U32 greenBoxFreeNum_;
+	float offlineExp_;
+	float rivalTime_;
+	int8_t rivalNum_;
+	int8_t promoteAward_;
+	uint64_t guideIdx_;
+	float noTalkTime_;
+	uint32_t wishShareNum_;
+	uint32_t warriortrophyNum_;
+	uint32_t employeelasttime_;
+	uint32_t employeeonecount_;
+	uint32_t employeetencount_;
+	float greenBoxTimes_;
+	float blueBoxTimes_;
+	uint32_t greenBoxFreeNum_;
 	COM_HundredBattle hbInfo_;
-	std::vector< S32 > openScenes_;
-	std::vector< U32 > copyNum_;
-	S32 magicItemLevel_;
-	S32 magicItemeExp_;
+	std::vector< int32_t > openScenes_;
+	std::vector< uint32_t > copyNum_;
+	int32_t magicItemLevel_;
+	int32_t magicItemeExp_;
 	JobType magicItemeJob_;
-	S32 magicTupoLevel_;
-	std::vector< S32 > cachedNpcs_;
+	int32_t magicTupoLevel_;
+	std::vector< int32_t > cachedNpcs_;
 	std::vector< std::string > gft_;
-	std::vector< U32 > babycache_;
-	std::vector< S32 > titles_;
-	S32 guildContribution_;
-	U32 exitGuildTime_;
+	std::vector< uint32_t > babycache_;
+	std::vector< int32_t > titles_;
+	int32_t guildContribution_;
+	uint32_t exitGuildTime_;
 	std::vector< COM_Skill > guildSkills_;
 	std::vector< ADType > gmActivities_;
 	COM_ADLoginTotal festival_;
@@ -1563,7 +1563,7 @@ struct COM_PlayerInst : public COM_Entity
 	std::vector< COM_Sevenday > sevendata_;
 	bool viprewardflag_;
 	std::string phoneNumber_;
-	std::vector< U32 > levelgift_;
+	std::vector< uint32_t > levelgift_;
 	COM_ActivityTable activity_;
 	std::vector< COM_Item > fuwen_;
 	COM_CrystalData crystalData_;
@@ -1658,7 +1658,7 @@ struct COM_PlayerInst : public COM_Entity
 struct COM_MonsterInst : public COM_Entity
 {
 	// member list.
-	std::vector< S32 > gear_;
+	std::vector< int32_t > gear_;
 	// field ids.
 	enum
 	{
@@ -1677,8 +1677,8 @@ struct COM_ReportState : public COM_State
 {
 	// member list.
 	bool add_;
-	S32 ownerId_;
-	S8 addQueue_;
+	int32_t ownerId_;
+	int8_t addQueue_;
 	// field ids.
 	enum
 	{
@@ -1745,15 +1745,15 @@ struct COM_Order
 {
 	// member list.
 	OrderStatus status_;
-	S32 casterId_;
-	S32 target_;
-	S32 skill_;
-	S32 itemId_;
-	S32 weaponInstId_;
-	S32 babyId_;
-	S8 isSec_;
-	S8 uinteGroup_;
-	S32 uniteNum_;
+	int32_t casterId_;
+	int32_t target_;
+	int32_t skill_;
+	int32_t itemId_;
+	int32_t weaponInstId_;
+	int32_t babyId_;
+	int8_t isSec_;
+	int8_t uinteGroup_;
+	int32_t uniteNum_;
 	bool isNo_;
 	// field ids.
 	enum
@@ -1784,8 +1784,8 @@ struct COM_Order
 struct COM_ReportActionCounter
 {
 	// member list.
-	S32 casterId_;
-	U8 targetPosition_;
+	int32_t casterId_;
+	uint8_t targetPosition_;
 	COM_ReportTarget props_;
 	std::vector< COM_ReportState > states_;
 	// field ids.
@@ -1811,12 +1811,12 @@ struct COM_ReportAction : public COM_Order
 {
 	// member list.
 	bool zhuachongOk_;
-	U8 skillLevel_;
-	U8 huweiPosition_;
+	uint8_t skillLevel_;
+	uint8_t huweiPosition_;
 	BattlePosition bp0_;
 	BattlePosition bp1_;
 	COM_BattleEntityInformation baby_;
-	std::vector< S32 > eraseEntities_;
+	std::vector< int32_t > eraseEntities_;
 	std::vector< COM_ReportTarget > targets_;
 	std::vector< COM_ReportState > stateIds_;
 	std::vector< COM_ReportActionCounter > counters_;
@@ -1874,9 +1874,9 @@ struct COM_BattleReport
 struct COM_InitBattle
 {
 	// member list.
-	U32 battleId_;
+	uint32_t battleId_;
 	BattleType bt_;
-	U32 roundCount_;
+	uint32_t roundCount_;
 	OperateType opType_;
 	SneakAttackType sneakAttack_;
 	std::vector< COM_BattleEntityInformation > actors_;
@@ -1905,11 +1905,11 @@ struct COM_CreateTeamInfo
 {
 	// member list.
 	TeamType type_;
-	U8 maxMemberSize_;
+	uint8_t maxMemberSize_;
 	std::string name_;
 	std::string pwd_;
-	U16 minLevel_;
-	U16 maxLevel_;
+	uint16_t minLevel_;
+	uint16_t maxLevel_;
 	// field ids.
 	enum
 	{
@@ -1934,11 +1934,11 @@ struct COM_CreateTeamInfo
 struct COM_SimpleTeamInfo : public COM_CreateTeamInfo
 {
 	// member list.
-	U32 teamId_;
-	U8 curMemberSize_;
+	uint32_t teamId_;
+	uint8_t curMemberSize_;
 	std::string leaderName_;
 	JobType job_;
-	U32 joblevel_;
+	uint32_t joblevel_;
 	bool needPassword_;
 	bool isRunning_;
 	bool isWelcome_;
@@ -1988,9 +1988,9 @@ struct COM_JJCBattleMsg
 	// member list.
 	std::string defier_;
 	std::string bydefier_;
-	U32 rank_;
+	uint32_t rank_;
 	bool isWin_;
-	S64 curTime_;
+	int64_t curTime_;
 	// field ids.
 	enum
 	{
@@ -2015,8 +2015,8 @@ struct COM_BattleEmp
 {
 	// member list.
 	EmployeesBattleGroup empBattleGroup_;
-	std::vector< U32 > employeeGroup1_;
-	std::vector< U32 > employeeGroup2_;
+	std::vector< uint32_t > employeeGroup1_;
+	std::vector< uint32_t > employeeGroup2_;
 	// field ids.
 	enum
 	{
@@ -2038,9 +2038,9 @@ struct COM_BattleEmp
 struct COM_Gather
 {
 	// member list.
-	U32 gatherId_;
+	uint32_t gatherId_;
 	GatherStateType flag_;
-	U32 num_;
+	uint32_t num_;
 	// field ids.
 	enum
 	{
@@ -2062,22 +2062,22 @@ struct COM_Gather
 struct SGE_DBPlayerData : public COM_PlayerInst
 {
 	// member list.
-	S32 versionNumber_;
+	int32_t versionNumber_;
 	bool freeze_;
 	bool seal_;
-	U32 signs_;
-	S32 sellIdMax_;
-	S32 push_;
-	S32 acceptRandQuestCounter_;
-	S32 submitRandQuestCounter_;
+	uint32_t signs_;
+	int32_t sellIdMax_;
+	int32_t push_;
+	int32_t acceptRandQuestCounter_;
+	int32_t submitRandQuestCounter_;
 	std::string pfid_;
-	S32 itemStoreSize_;
-	S32 babyStoreSize_;
+	int32_t itemStoreSize_;
+	int32_t babyStoreSize_;
 	std::vector< SGE_OrderInfo > orders_;
-	U64 loginTime_;
-	U64 logoutTime_;
-	U32 genItemMaxGuid_;
-	U32 gaterMaxNum_;
+	uint64_t loginTime_;
+	uint64_t logoutTime_;
+	uint32_t genItemMaxGuid_;
+	uint32_t gaterMaxNum_;
 	bool firstRollEmployeeCon_;
 	bool firstRollEmployeeDia_;
 	std::vector< COM_EmployeeInst > employees_;
@@ -2086,18 +2086,18 @@ struct SGE_DBPlayerData : public COM_PlayerInst
 	std::vector< COM_BabyInst > babies_;
 	std::vector< COM_Item > bagItems_;
 	std::vector< COM_QuestInst > quests_;
-	std::vector< S32 > completeQuests_;
+	std::vector< int32_t > completeQuests_;
 	std::vector< COM_Item > mineReward_;
 	std::vector< COM_JJCBattleMsg > jjcBattleMsg_;
 	std::vector< COM_ContactInfo > friend_;
 	std::vector< COM_ContactInfo > blacklist_;
-	std::vector< S32 > achValues_;
+	std::vector< int32_t > achValues_;
 	std::vector< COM_Achievement > achievement_;
 	EmployeesBattleGroup empBattleGroup_;
-	std::vector< U32 > employeeGroup1_;
-	std::vector< U32 > employeeGroup2_;
+	std::vector< uint32_t > employeeGroup1_;
+	std::vector< uint32_t > employeeGroup2_;
 	std::vector< COM_Gather > gatherData_;
-	std::vector< U32 > compoundList_;
+	std::vector< uint32_t > compoundList_;
 	// field ids.
 	enum
 	{
@@ -2153,13 +2153,13 @@ struct COM_BattleOverClearing
 {
 	// member list.
 	bool isFly_;
-	S32 playExp_;
-	U32 playLevel_;
-	U32 playFree_;
-	S32 pvpJJCGrade_;
-	S32 money_;
-	U32 babyExp_;
-	U32 babyLevel_;
+	int32_t playExp_;
+	uint32_t playLevel_;
+	uint32_t playFree_;
+	int32_t pvpJJCGrade_;
+	int32_t money_;
+	uint32_t babyExp_;
+	uint32_t babyLevel_;
 	std::vector< COM_DropItem > items_;
 	std::vector< COM_Skill > skills_;
 	// field ids.
@@ -2191,7 +2191,7 @@ struct COM_Addprop
 {
 	// member list.
 	PropertyType type_;
-	U32 uVal_;
+	uint32_t uVal_;
 	// field ids.
 	enum
 	{
@@ -2212,8 +2212,8 @@ struct COM_Addprop
 struct COM_ExpendItem
 {
 	// member list.
-	U32 itemInstId_;
-	U32 num_;
+	uint32_t itemInstId_;
+	uint32_t num_;
 	// field ids.
 	enum
 	{
@@ -2237,13 +2237,13 @@ struct COM_Chat
 	ChatKind ck_;
 	bool isAudio_;
 	std::string content_;
-	S32 audioTime_;
-	std::vector< U8 > audio_;
+	int32_t audioTime_;
+	std::vector< uint8_t > audio_;
 	bool isMe;
-	S32 teamId_;
+	int32_t teamId_;
 	TeamType teamType_;
-	S16 teamMinLevel_;
-	S16 teamMaxLevel_;
+	int16_t teamMinLevel_;
+	int16_t teamMaxLevel_;
 	std::string teamName_;
 	// field ids.
 	enum
@@ -2274,11 +2274,11 @@ struct COM_Chat
 struct COM_ChatInfo : public COM_Chat
 {
 	// member list.
-	S32 audioId_;
-	U16 assetId_;
+	int32_t audioId_;
+	uint16_t assetId_;
 	std::string playerName_;
 	std::string guildName_;
-	U32 instId_;
+	uint32_t instId_;
 	// field ids.
 	enum
 	{
@@ -2302,14 +2302,14 @@ struct COM_ChatInfo : public COM_Chat
 struct COM_EndlessStair
 {
 	// member list.
-	U32 rank_;
+	uint32_t rank_;
 	std::string name_;
 	JobType job_;
-	U32 joblevel_;
-	S32 assetId_;
-	U32 level_;
-	F32 rivalTime_;
-	S32 rivalNum_;
+	uint32_t joblevel_;
+	int32_t assetId_;
+	uint32_t level_;
+	float rivalTime_;
+	int32_t rivalNum_;
 	// field ids.
 	enum
 	{
@@ -2336,11 +2336,11 @@ struct COM_EndlessStair
 struct COM_BabyRankData
 {
 	// member list.
-	U32 instId_;
-	S32 rank_;
+	uint32_t instId_;
+	int32_t rank_;
 	std::string name_;
 	std::string ownerName_;
-	S32 ff_;
+	int32_t ff_;
 	// field ids.
 	enum
 	{
@@ -2364,11 +2364,11 @@ struct COM_BabyRankData
 struct COM_EmployeeRankData
 {
 	// member list.
-	U32 instId_;
-	S32 rank_;
+	uint32_t instId_;
+	int32_t rank_;
 	std::string name_;
 	std::string ownerName_;
-	S32 ff_;
+	int32_t ff_;
 	// field ids.
 	enum
 	{
@@ -2392,8 +2392,8 @@ struct COM_EmployeeRankData
 struct COM_MailItem
 {
 	// member list.
-	S32 itemId_;
-	S32 itemStack_;
+	int32_t itemId_;
+	int32_t itemStack_;
 	// field ids.
 	enum
 	{
@@ -2414,15 +2414,15 @@ struct COM_MailItem
 struct COM_Mail
 {
 	// member list.
-	S32 mailId_;
+	int32_t mailId_;
 	MailType mailType_;
-	S64 timestamp_;
+	int64_t timestamp_;
 	std::string sendPlayerName_;
 	std::string recvPlayerName_;
 	std::string title_;
 	std::string content_;
-	S32 money_;
-	S32 diamond_;
+	int32_t money_;
+	int32_t diamond_;
 	std::vector< COM_MailItem > items_;
 	bool isRead_;
 	// field ids.
@@ -2454,8 +2454,8 @@ struct COM_Mail
 struct COM_GuildBuilding
 {
 	// member list.
-	S32 level_;
-	S32 struction_;
+	int32_t level_;
+	int32_t struction_;
 	// field ids.
 	enum
 	{
@@ -2476,12 +2476,12 @@ struct COM_GuildBuilding
 struct COM_GuildRequestData
 {
 	// member list.
-	S64 roleId_;
-	S8 level_;
+	int64_t roleId_;
+	int8_t level_;
 	std::string roleName_;
-	S32 time_;
-	S8 prof_;
-	S8 profLevel_;
+	int32_t time_;
+	int8_t prof_;
+	int8_t profLevel_;
 	// field ids.
 	enum
 	{
@@ -2506,9 +2506,9 @@ struct COM_GuildRequestData
 struct COM_GuildProgen
 {
 	// member list.
-	S32 mId_;
-	S32 lev_;
-	S32 exp_;
+	int32_t mId_;
+	int32_t lev_;
+	int32_t exp_;
 	// field ids.
 	enum
 	{
@@ -2530,21 +2530,21 @@ struct COM_GuildProgen
 struct COM_Guild
 {
 	// member list.
-	S8 guildLevel_;
-	S32 createTime_;
-	U32 guildId_;
-	U32 guildContribution_;
-	U32 fundz_;
-	S32 presentNum_;
-	S64 master_;
+	int8_t guildLevel_;
+	int32_t createTime_;
+	uint32_t guildId_;
+	uint32_t guildContribution_;
+	uint32_t fundz_;
+	int32_t presentNum_;
+	int64_t master_;
 	std::string masterName_;
 	std::string guildName_;
 	std::string notice_;
 	std::vector< COM_GuildRequestData > requestList_;
-	S32 noFundzDays_;
+	int32_t noFundzDays_;
 	std::vector< COM_GuildBuilding > buildings_;
 	std::vector< COM_GuildProgen > progenitus_;
-	std::vector< S32 > progenitusPositions_;
+	std::vector< int32_t > progenitusPositions_;
 	// field ids.
 	enum
 	{
@@ -2578,8 +2578,8 @@ struct COM_Guild
 struct COM_GuildShopItem
 {
 	// member list.
-	S32 shopId_;
-	S32 buyLimit_;
+	int32_t shopId_;
+	int32_t buyLimit_;
 	// field ids.
 	enum
 	{
@@ -2600,17 +2600,17 @@ struct COM_GuildShopItem
 struct COM_GuildMember
 {
 	// member list.
-	S8 level_;
-	S8 shopRefreshTimes_;
-	U32 guildId_;
-	S8 profType_;
-	S8 profLevel_;
-	S32 contribution_;
-	S8 job_;
-	S32 roleId_;
-	U32 offlineTime_;
+	int8_t level_;
+	int8_t shopRefreshTimes_;
+	uint32_t guildId_;
+	int8_t profType_;
+	int8_t profLevel_;
+	int32_t contribution_;
+	int8_t job_;
+	int32_t roleId_;
+	uint32_t offlineTime_;
 	std::string roleName_;
-	U32 joinTime_;
+	uint32_t joinTime_;
 	bool signflag_;
 	std::vector< COM_GuildShopItem > shopItems_;
 	// field ids.
@@ -2644,14 +2644,14 @@ struct COM_GuildMember
 struct COM_GuildViewerData
 {
 	// member list.
-	U32 guid_;
+	uint32_t guid_;
 	std::string guildName_;
 	std::string playerName_;
 	std::string notice_;
-	S8 level_;
-	S16 memberNum_;
-	S16 memberTotal_;
-	S8 guildRank_;
+	int8_t level_;
+	int16_t memberNum_;
+	int16_t memberTotal_;
+	int8_t guildRank_;
 	// field ids.
 	enum
 	{
@@ -2681,10 +2681,10 @@ struct COM_SearchContext
 	std::string title_;
 	ItemSubType ist_;
 	RaceType rt_;
-	S32 itemId_;
-	S32 babyId_;
-	S32 begin_;
-	S32 limit_;
+	int32_t itemId_;
+	int32_t babyId_;
+	int32_t begin_;
+	int32_t limit_;
 	// field ids.
 	enum
 	{
@@ -2710,15 +2710,15 @@ struct COM_SearchContext
 struct COM_SellItem
 {
 	// member list.
-	S32 guid_;
-	S32 sellPlayerId_;
-	S32 sellPrice;
+	int32_t guid_;
+	int32_t sellPlayerId_;
+	int32_t sellPrice;
 	std::string title_;
 	ItemSubType ist_;
 	RaceType rt_;
 	COM_Item item_;
 	COM_BabyInst baby_;
-	S32 time_;
+	int32_t time_;
 	// field ids.
 	enum
 	{
@@ -2746,15 +2746,15 @@ struct COM_SellItem
 struct COM_SelledItem
 {
 	// member list.
-	S32 guid_;
-	S32 sellPlayerId_;
-	S32 sellTime_;
-	S32 selledTime_;
-	S32 itemId_;
-	S32 babyId_;
-	S32 itemStack_;
-	S32 price_;
-	S32 tax_;
+	int32_t guid_;
+	int32_t sellPlayerId_;
+	int32_t sellTime_;
+	int32_t selledTime_;
+	int32_t itemId_;
+	int32_t babyId_;
+	int32_t itemStack_;
+	int32_t price_;
+	int32_t tax_;
 	// field ids.
 	enum
 	{
@@ -2782,10 +2782,10 @@ struct COM_SelledItem
 struct SGE_BuyContent
 {
 	// member list.
-	S32 playerId_;
-	S32 guid_;
-	S32 diamond_;
-	S32 magic_;
+	int32_t playerId_;
+	int32_t guid_;
+	int32_t diamond_;
+	int32_t magic_;
 	bool isBabyFull_;
 	bool isBagFull_;
 	// field ids.
@@ -2812,13 +2812,13 @@ struct SGE_BuyContent
 struct SGE_ScenePlayerInfo
 {
 	// member list.
-	S32 playerId_;
-	S32 playerLevel_;
-	S32 sceneId_;
-	S32 entryId_;
-	std::vector< S32 > currentQuestIds_;
-	std::vector< S32 > accecptQuestIds_;
-	std::vector< S32 > openScenes_;
+	int32_t playerId_;
+	int32_t playerLevel_;
+	int32_t sceneId_;
+	int32_t entryId_;
+	std::vector< int32_t > currentQuestIds_;
+	std::vector< int32_t > accecptQuestIds_;
+	std::vector< int32_t > openScenes_;
 	// field ids.
 	enum
 	{
@@ -2844,10 +2844,10 @@ struct SGE_ScenePlayerInfo
 struct COM_SceneInfo
 {
 	// member list.
-	S32 sceneId_;
+	int32_t sceneId_;
 	COM_FPosition position_;
 	std::vector< COM_ScenePlayerInformation > players_;
-	std::vector< S32 > npcs_;
+	std::vector< int32_t > npcs_;
 	// field ids.
 	enum
 	{
@@ -2904,10 +2904,10 @@ struct COM_Notice
 	// member list.
 	NoticeSendType SendType_;
 	std::string note_;
-	F32 accumulate_;
-	F32 startTime_;
-	F32 stopTime_;
-	F32 interval_;
+	float accumulate_;
+	float startTime_;
+	float stopTime_;
+	float interval_;
 	bool validate_;
 	// field ids.
 	enum
@@ -2934,7 +2934,7 @@ struct COM_Notice
 struct COM_ShowItemInst
 {
 	// member list.
-	S32 showId_;
+	int32_t showId_;
 	std::string playerName_;
 	COM_Item itemInst_;
 	// field ids.
@@ -2958,9 +2958,9 @@ struct COM_ShowItemInst
 struct COM_ShowItemInstInfo
 {
 	// member list.
-	S32 showId_;
+	int32_t showId_;
 	std::string playerName_;
-	U32 itemId_;
+	uint32_t itemId_;
 	// field ids.
 	enum
 	{
@@ -2982,7 +2982,7 @@ struct COM_ShowItemInstInfo
 struct COM_ShowbabyInst
 {
 	// member list.
-	S32 showId_;
+	int32_t showId_;
 	std::string playerName_;
 	COM_BabyInst babyInst_;
 	// field ids.
@@ -3006,9 +3006,9 @@ struct COM_ShowbabyInst
 struct COM_ShowbabyInstInfo
 {
 	// member list.
-	S32 showId_;
+	int32_t showId_;
 	std::string playerName_;
-	U32 babyId_;
+	uint32_t babyId_;
 	// field ids.
 	enum
 	{
@@ -3034,7 +3034,7 @@ struct SGE_Account
 	std::string pfid_;
 	std::string pfname_;
 	std::string accountid_;
-	U64 createtime_;
+	uint64_t createtime_;
 	std::string mac_;
 	std::string idfa_;
 	std::string ip_;
@@ -3070,13 +3070,13 @@ struct SGE_Login
 	std::string pfid_;
 	std::string pfname_;
 	std::string accountid_;
-	U32 roleId_;
-	U64 logintime_;
-	U64 logouttime_;
-	U64 firsttime_;
-	U64 rolefirsttime_;
-	U32 firstserid_;
-	U32 serverid_;
+	uint32_t roleId_;
+	uint64_t logintime_;
+	uint64_t logouttime_;
+	uint64_t firsttime_;
+	uint64_t rolefirsttime_;
+	uint32_t firstserid_;
+	uint32_t serverid_;
 	std::string mac_;
 	std::string idfa_;
 	std::string ip_;
@@ -3118,10 +3118,10 @@ struct SGE_Order
 	std::string pfid_;
 	std::string pfname_;
 	std::string orderid_;
-	U32 roleId_;
-	U32 rolelv_;
+	uint32_t roleId_;
+	uint32_t rolelv_;
 	std::string accountid_;
-	F32 payment_;
+	float payment_;
 	std::string paytime_;
 	// field ids.
 	enum
@@ -3150,9 +3150,9 @@ struct SGE_Order
 struct SGE_LogUIBehavior
 {
 	// member list.
-	U32 accountGuid_;
+	uint32_t accountGuid_;
 	std::string accountName_;
-	U32 playerGuid_;
+	uint32_t playerGuid_;
 	std::string playerName_;
 	std::string clientIp_;
 	UIBehaviorType type_;
@@ -3183,20 +3183,20 @@ struct SGE_LogRole
 	std::string gamename_;
 	std::string pfid_;
 	std::string pfname_;
-	U32 roleid_;
-	U64 cachetime_;
+	uint32_t roleid_;
+	uint64_t cachetime_;
 	std::string accountid_;
-	S8 serverid_;
+	int8_t serverid_;
 	std::string servername_;
-	S8 firstserid_;
-	U64 rolefirsttime_;
-	U64 rolelasttime_;
-	S8 rolelv_;
-	S64 gold_;
-	S64 diamond_;
-	S64 magicgold_;
-	S8 vip_;
-	S64 ce_;
+	int8_t firstserid_;
+	uint64_t rolefirsttime_;
+	uint64_t rolelasttime_;
+	int8_t rolelv_;
+	int64_t gold_;
+	int64_t diamond_;
+	int64_t magicgold_;
+	int8_t vip_;
+	int64_t ce_;
 	// field ids.
 	enum
 	{
@@ -3232,17 +3232,17 @@ struct SGE_LogRole
 struct SGE_LogProduceTrack
 {
 	// member list.
-	U64 timestamp_;
-	S32 from_;
-	U32 playerId_;
+	uint64_t timestamp_;
+	int32_t from_;
+	uint32_t playerId_;
 	std::string playerName_;
-	U32 itemId_;
-	U32 itemInstId_;
-	S32 itemStack_;
-	S32 diamond_;
-	S32 money_;
-	S32 exp_;
-	S32 magic_;
+	uint32_t itemId_;
+	uint32_t itemInstId_;
+	int32_t itemStack_;
+	int32_t diamond_;
+	int32_t money_;
+	int32_t exp_;
+	int32_t magic_;
 	// field ids.
 	enum
 	{
@@ -3272,12 +3272,12 @@ struct SGE_LogProduceTrack
 struct COM_Exam
 {
 	// member list.
-	U8 questionIndex_;
-	U8 rightNum_;
-	U8 errorNum_;
-	U32 money_;
-	U32 exp_;
-	std::vector< U32 > questions_;
+	uint8_t questionIndex_;
+	uint8_t rightNum_;
+	uint8_t errorNum_;
+	uint32_t money_;
+	uint32_t exp_;
+	std::vector< uint32_t > questions_;
 	// field ids.
 	enum
 	{
@@ -3302,9 +3302,9 @@ struct COM_Exam
 struct COM_Answer
 {
 	// member list.
-	U8 questionIndex_;
-	U32 money_;
-	U32 exp_;
+	uint8_t questionIndex_;
+	uint32_t money_;
+	uint32_t exp_;
 	bool isRigth_;
 	// field ids.
 	enum
@@ -3350,7 +3350,7 @@ struct COM_Wishing
 struct COM_Wish
 {
 	// member list.
-	U32 playerInstId_;
+	uint32_t playerInstId_;
 	std::string playerName_;
 	std::string wish_;
 	// field ids.
@@ -3374,9 +3374,9 @@ struct COM_Wish
 struct SGE_GmtOrder
 {
 	// member list.
-	S32 shopId_;
+	int32_t shopId_;
 	std::string orderId_;
-	F32 payment_;
+	float payment_;
 	// field ids.
 	enum
 	{
@@ -3402,7 +3402,7 @@ struct COM_KeyContent
 	std::string pfid_;
 	std::string key_;
 	std::string playerName_;
-	S64 usetime_;
+	int64_t usetime_;
 	std::vector< COM_GiftItem > items_;
 	// field ids.
 	enum
@@ -3429,9 +3429,9 @@ struct COM_EmployeeQuestInst
 {
 	// member list.
 	EmployeeQuestStatus status_;
-	S32 questId_;
-	S32 timeout_;
-	std::vector< S32 > usedEmployees_;
+	int32_t questId_;
+	int32_t timeout_;
+	std::vector< int32_t > usedEmployees_;
 	// field ids.
 	enum
 	{
@@ -3454,8 +3454,8 @@ struct COM_EmployeeQuestInst
 struct SGE_EmployeeQuestInst : public COM_EmployeeQuestInst
 {
 	// member list.
-	S64 doTime_;
-	S64 refreshTime_;
+	int64_t doTime_;
+	int64_t refreshTime_;
 	// field ids.
 	enum
 	{
@@ -3494,8 +3494,8 @@ struct SGE_PlayerEmployeeQuestArray
 struct SGE_PlayerEmployeeQuest
 {
 	// member list.
-	S32 playerId_;
-	std::vector< S32 > usedEmployees_;
+	int32_t playerId_;
+	std::vector< int32_t > usedEmployees_;
 	std::vector< SGE_PlayerEmployeeQuestArray > quests_;
 	// field ids.
 	enum

@@ -5,3 +5,8 @@
 ./rpc -i ../schema/proto.arpc -o ../server/common/gen_rpc/ -g cpp
 ./rpc -i ../schema/struct.arpc -o ../server/common/gen_rpc/ -g cpp
 ./rpc -i ../schema/structold.arpc -o ../server/common/gen_rpc/ -g cpp
+
+
+
+./rpc -i ../schema/proto.arpc -o ../remake/src/rpc_gen/ -g godot
+./rpc -i ../schema/global.arpc -o ../remake/src/rpc_gen/ -g godot

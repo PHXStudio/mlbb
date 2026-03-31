@@ -1,4 +1,6 @@
-﻿Shader "Custom/XRay"     
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/XRay"     
 {    
     Properties     
     {
@@ -47,7 +49,7 @@
             v2f vert (appdata v)    
             {    
                 v2f o;    
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);    
+                o.pos = UnityObjectToClipPos(v.vertex);    
                 half2 capCoord;  
                 float3 nor = mul((float3x3)UNITY_MATRIX_IT_MV, v.normal);    
                 //capCoord.x = dot(UNITY_MATRIX_IT_MV[0].xyz,v.normal);  
@@ -127,7 +129,7 @@
 
                 v2f vert (appdata_base v) {
                     v2f o;
-                    o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
+                    o.pos = UnityObjectToClipPos (v.vertex);
 
                     float3 viewDir = normalize(ObjSpaceViewDir(v.vertex));
                     float dotProduct = 1 - dot(v.normal, viewDir);

@@ -191,7 +191,7 @@ public class GatherUI : MonoBehaviour
         foreach (GatherKindCell gkc in _KindItems)
         {
             gkc._SelectHandler = null;
-            gkc.active = false;
+            gkc.enabled = false;
             //GameObject.Destroy(gkc.gameObject);
         }
         //_KindItems.Clear();
@@ -209,7 +209,7 @@ public class GatherUI : MonoBehaviour
             {
                 gkc = _KindItems[_KindItemSize];
             }
-            gkc.active = true;
+            gkc.enabled = true;
             gkc.Data = g;
             gkc._SelectHandler = _SelectKind;
 

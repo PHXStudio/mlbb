@@ -246,6 +246,12 @@ ALTER TABLE `gmtoos`
 --
 
 --
+-- 表的数据 `gmtoos`
+--
+INSERT INTO `gmtoos` (`id`, `name`, `password`, `level`, `admin`, `tel`, `time`) VALUES
+(1, 'superadmin', 'Admin@123', 999, 'system', '00000000000', 'init');
+
+--
 -- 使用表AUTO_INCREMENT `gmtoos`
 --
 ALTER TABLE `gmtoos`

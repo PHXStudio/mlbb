@@ -3,11 +3,11 @@
 #include "Common.h"
 #include "ProtocolReader.h"
 
-/** 从一个bytes数组读取. */
+/** ProtocolReader over a byte vector. */
 class ProtocolBytesReader : public ProtocolReader
 {
 public:
-	ProtocolBytesReader(std::vector<UINT8>& bytes):
+	ProtocolBytesReader(std::vector<uint8_t>& bytes):
 	bytes_(bytes),
 	rdPtr_(0)
 	{}
@@ -22,7 +22,7 @@ public:
 	}
 
 private:
-	std::vector<UINT8>& bytes_;
+	std::vector<uint8_t>& bytes_;
 	size_t					rdPtr_;
 };
 

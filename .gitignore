@@ -1,0 +1,6 @@
+server/image/
+server/build/
+server/mysql_data/
+.DS_Store
+*.os
+/webserv/mysql_data

@@ -121,37 +121,37 @@ public class HelpEquipInfoUI : MonoBehaviour
 
 						if(int.Parse(_itemData.propArr[i].Value[1]) < 0)
 						{
-							objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.grey;
+							objCell.transform.Find("name").GetComponent<UILabel>().color = Color.grey;
 						}
 						else if(int.Parse(_itemData.propArr[i].Value[0]) >= 15 && int.Parse(_itemData.propArr[i].Value[1]) <= 17)
 						{
-							objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.black;
+							objCell.transform.Find("name").GetComponent<UILabel>().color = Color.black;
 						}
 						else if(int.Parse(_itemData.propArr[i].Value[0]) >= 18 && int.Parse(_itemData.propArr[i].Value[1]) <= 19)
 						{
-							objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.green;
+							objCell.transform.Find("name").GetComponent<UILabel>().color = Color.green;
 						}
 						else if(int.Parse(_itemData.propArr[i].Value[0]) >= 20 && int.Parse(_itemData.propArr[i].Value[1]) <= 21)
 						{
-							objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.blue;
+							objCell.transform.Find("name").GetComponent<UILabel>().color = Color.blue;
 						}
 						else if(int.Parse(_itemData.propArr[i].Value[0]) >= 22 &&int.Parse( _itemData.propArr[i].Value[1]) <= 23)
 						{
-							objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.magenta;
+							objCell.transform.Find("name").GetComponent<UILabel>().color = Color.magenta;
 						}
 						else 
 						{
-							objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.grey;
+							objCell.transform.Find("name").GetComponent<UILabel>().color = Color.grey;
 						}
 
 						if(sNum != sNum1)
 						{
-							objCell.transform.FindChild("name").GetComponent<UILabel>().text  =
+							objCell.transform.Find("name").GetComponent<UILabel>().text  =
 								LanguageManager.instance.GetValue(_itemData.propArr[i].Key.ToString())+ sNum + "-"+sNum1;
 						}
 						else
 						{
-							objCell.transform.FindChild("name").GetComponent<UILabel>().text  =
+							objCell.transform.Find("name").GetComponent<UILabel>().text  =
 								LanguageManager.instance.GetValue(_itemData.propArr[i].Key.ToString())+ sNum;
 						}
 						objCell.transform.parent = grid.transform;

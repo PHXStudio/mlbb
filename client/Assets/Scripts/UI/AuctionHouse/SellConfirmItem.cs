@@ -103,13 +103,13 @@ public class SellConfirmItem : MonoBehaviour {
         {
             if (i < cellPool.Count)
             {
-                cellPool[i].transform.FindChild("name").GetComponent<UILabel>().text = LanguageManager.instance.GetValue(inst_.propArr[i].type_.ToString()) + ": " + ((int)inst_.propArr[i].value_).ToString();
+                cellPool[i].transform.Find("name").GetComponent<UILabel>().text = LanguageManager.instance.GetValue(inst_.propArr[i].type_.ToString()) + ": " + ((int)inst_.propArr[i].value_).ToString();
                 cellPool[i].SetActive(true);
             }
             else
             {
                 cellGo = GameObject.Instantiate(propCell_) as GameObject;
-                cellGo.transform.FindChild("name").GetComponent<UILabel>().text = LanguageManager.instance.GetValue(inst_.propArr[i].type_.ToString()) + ": " + ((int)inst_.propArr[i].value_).ToString();
+                cellGo.transform.Find("name").GetComponent<UILabel>().text = LanguageManager.instance.GetValue(inst_.propArr[i].type_.ToString()) + ": " + ((int)inst_.propArr[i].value_).ToString();
                 grid_.AddChild(cellGo.transform);
                 cellGo.transform.localScale = Vector3.one;
                 cellGo.SetActive(true);

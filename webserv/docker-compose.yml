@@ -1,0 +1,60 @@
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mlbb-webserv-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-gmtools}
+      MYSQL_USER: ${MYSQL_USER:-xysk}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-123456}
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ${INIT_SQL_FILE:-./src/gmtools/static/gmtools.sql}:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-root}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    networks:
+      - webserv-network
+
+  webserv:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        GO_VERSION: ${GO_VERSION:-1.22}
+        APP_NAME: ${APP_NAME:-gmtools}
+    image: mlbb-webserv-${APP_NAME:-gmtools}:go${GO_VERSION:-1.22}
+    container_name: mlbb-webserv-${APP_NAME:-gmtools}
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    environment:
+      APP_NAME: ${APP_NAME:-gmtools}
+      DB_HOST: ${DB_HOST:-mysql-db}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_USER: ${DB_USER:-xysk}
+      DB_PASS: ${DB_PASS:-123456}
+      DB_NAME: ${DB_NAME:-gmtools}
+    command: >
+      sh -c "
+      if [ -f /app/conf/app.conf ]; then
+        sed -i \"s|^dbhost *=.*|dbhost = \\\"$${DB_HOST}\\\"|\" /app/conf/app.conf || true;
+        sed -i \"s|^dbport *=.*|dbport = $${DB_PORT}|\" /app/conf/app.conf || true;
+        sed -i \"s|^dbuser *=.*|dbuser = \\\"$${DB_USER}\\\"|\" /app/conf/app.conf || true;
+        sed -i \"s|^dbpass *=.*|dbpass = \\\"$${DB_PASS}\\\"|\" /app/conf/app.conf || true;
+        sed -i \"s|^dbname *=.*|dbname = \\\"$${DB_NAME}\\\"|\" /app/conf/app.conf || true;
+      fi;
+      exec /app/$${APP_NAME}
+      "
+    ports:
+      - "${APP_PORT:-8980}:8980"
+    restart: unless-stopped
+    networks:
+      - webserv-network
+
+networks:
+  webserv-network:
+    driver: bridge

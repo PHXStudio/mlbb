@@ -96,7 +96,7 @@ public class BattleActor {
 
     public Vector3 SkillNamePos()
     {
-        Vector3 pos = new Vector3(ControlEntity.ActorObj.transform.position.x, ControlEntity.ActorObj.transform.position.y + (ControlEntity.ActorObj.collider.bounds.size.y - ControlEntity.ActorObj.collider.bounds.center.y) / 2f, ControlEntity.ActorObj.transform.position.z);
+        Vector3 pos = new Vector3(ControlEntity.ActorObj.transform.position.x, ControlEntity.ActorObj.transform.position.y + (ControlEntity.ActorObj.GetComponent<Collider>().bounds.size.y - ControlEntity.ActorObj.GetComponent<Collider>().bounds.center.y) / 2f, ControlEntity.ActorObj.transform.position.z);
         return pos;
     }
 

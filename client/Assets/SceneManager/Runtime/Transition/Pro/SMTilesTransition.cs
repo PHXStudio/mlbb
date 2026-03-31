@@ -64,8 +64,8 @@ public class SMTilesTransition : SMPostRenderTransitionWithMobileShader
 			backgroundMaterial.mainTexture = backgroundTexture;
 		}
 		
-		topLeft = gameObject.camera.ScreenToWorldPoint (new Vector3 (0, Screen.height, distance));
-		bottomRight = gameObject.camera.ScreenToWorldPoint (new Vector3 (Screen.width, 0, distance));
+		topLeft = gameObject.GetComponent<Camera>().ScreenToWorldPoint (new Vector3 (0, Screen.height, distance));
+		bottomRight = gameObject.GetComponent<Camera>().ScreenToWorldPoint (new Vector3 (Screen.width, 0, distance));
 		
 		width = bottomRight.x - topLeft.x;
 		height = topLeft.y - bottomRight.y;
@@ -108,7 +108,7 @@ public class SMTilesTransition : SMPostRenderTransitionWithMobileShader
 	{
 		// rendering phase
 		GL.PushMatrix ();
-		GL.LoadProjectionMatrix (gameObject.camera.projectionMatrix);
+		GL.LoadProjectionMatrix (gameObject.GetComponent<Camera>().projectionMatrix);
 		GL.LoadIdentity ();
 
 		for (int pass = 0; pass < shaderMaterial.passCount; pass++) {

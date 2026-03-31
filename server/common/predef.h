@@ -14,11 +14,9 @@
 #include <iostream>
 #include <fstream>
 
-#define BOOST_FILESYSTEM_VERSION 3
-#include <boost/filesystem.hpp>
-#include <boost/shared_ptr.hpp>
-#include <boost/weak_ptr.hpp>
-#include <boost/unordered_map.hpp>
+#include <memory>
+#include <functional>
+#include <list>
 #include "LinuxCommon.h"
 
 #include "ace/OS.h" 

@@ -167,11 +167,11 @@ public class PartnerPostion : MonoBehaviour {
 			
 			if(cell.Employee.isForBattle_)
 			{
-				cell.transform.FindChild("select").GetComponent<UISprite>().gameObject.SetActive(true);//.spriteName = "hb_renwukuangxuanzhong";
+				cell.transform.Find("select").GetComponent<UISprite>().gameObject.SetActive(true);//.spriteName = "hb_renwukuangxuanzhong";
 			}
 			else
 			{
-				cell.transform.FindChild("select").GetComponent<UISprite>().gameObject.SetActive(false);
+				cell.transform.Find("select").GetComponent<UISprite>().gameObject.SetActive(false);
 				//cell.backImg.spriteName = "hb_renwukuang";
 			}
 			cell.pinzhi.spriteName  =  EmployessSystem.instance.GetQualityBack((int)battles[i].quality_);
@@ -262,11 +262,11 @@ public class PartnerPostion : MonoBehaviour {
 
 			if(cell.Employee.isForBattle_)
 			{
-				cell.transform.FindChild("select").GetComponent<UISprite>().gameObject.SetActive(true);//.spriteName = "hb_renwukuangxuanzhong";
+				cell.transform.Find("select").GetComponent<UISprite>().gameObject.SetActive(true);//.spriteName = "hb_renwukuangxuanzhong";
 			}
 			else
 			{
-				cell.transform.FindChild("select").GetComponent<UISprite>().gameObject.SetActive(false);
+				cell.transform.Find("select").GetComponent<UISprite>().gameObject.SetActive(false);
 				//cell.backImg.spriteName = "hb_renwukuang";
 			}
 			cell.pinzhi.spriteName  =  EmployessSystem.instance.GetQualityBack((int)Edata[i].quality_);
@@ -382,7 +382,7 @@ public class PartnerPostion : MonoBehaviour {
 			clone.GetComponent<EmployeeCellUI>().nameLab.text = emps[i].InstName;
 			clone.SetActive (true);
 			//UIManager.SetButtonEventHandler(clone,EnumButtonEvent.OnClick,OnShowEmployee,i,0);
-			UIManager.SetButtonEventHandler(clone.transform.FindChild("down").gameObject,EnumButtonEvent.OnClick,OnDownBattleEmployee,i,0);
+			UIManager.SetButtonEventHandler(clone.transform.Find("down").gameObject,EnumButtonEvent.OnClick,OnDownBattleEmployee,i,0);
 
 			clone.GetComponent<EmployeeCellUI>().Employee =emps[i];
 			HeadIconLoader.Instance.LoadIcon(EntityAssetsData.GetData(EmployeeData.GetData(emps[i].GetIprop(PropertyType.PT_TableId)).asset_id).assetsIocn_,clone.GetComponent<EmployeeCellUI>().icon);
@@ -661,7 +661,7 @@ public class PartnerPostion : MonoBehaviour {
 			GameObject clone = GameObject.Instantiate (biaoqian)as GameObject;
 			clone.GetComponent<EmployeeCellUI>().Employee = inst;
 			clone.GetComponent<EmployeeCellUI>().nameLab.text = inst.InstName;
-			UIManager.SetButtonEventHandler(clone.transform.FindChild("down").gameObject,EnumButtonEvent.OnClick,OnDownBattleEmployee,posCellList.Count,0);
+			UIManager.SetButtonEventHandler(clone.transform.Find("down").gameObject,EnumButtonEvent.OnClick,OnDownBattleEmployee,posCellList.Count,0);
 			HeadIconLoader.Instance.LoadIcon(EntityAssetsData.GetData(EmployeeData.GetData(inst.GetIprop(PropertyType.PT_TableId)).asset_id).assetsIocn_,clone.GetComponent<EmployeeCellUI>().icon);
 			if(!_icons.Contains(EntityAssetsData.GetData(EmployeeData.GetData(inst.GetIprop(PropertyType.PT_TableId)).asset_id).assetsIocn_))
 			{
@@ -789,11 +789,11 @@ public class PartnerPostion : MonoBehaviour {
 
 			if(GamePlayer.Instance.GetEmployeeIsBattle(cell.Employee.InstId,_selectEmpGroup))
 			{
-				cell.transform.FindChild("select").GetComponent<UISprite>().gameObject.SetActive(true);
+				cell.transform.Find("select").GetComponent<UISprite>().gameObject.SetActive(true);
 			}
 			else
 			{
-				cell.transform.FindChild("select").GetComponent<UISprite>().gameObject.SetActive(false);
+				cell.transform.Find("select").GetComponent<UISprite>().gameObject.SetActive(false);
 			}
 		}
 	}

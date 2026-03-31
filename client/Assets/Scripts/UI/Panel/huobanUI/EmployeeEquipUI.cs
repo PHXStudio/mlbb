@@ -60,7 +60,7 @@ public class EmployeeEquipUI : MonoBehaviour
 		{
             if (i == 6)
             {
-                // ×¢²áÒÂ·þµÄ²ÛÎ»
+                // ×¢ï¿½ï¿½ï¿½Â·ï¿½ï¿½Ä²ï¿½Î»
                 GuideManager.Instance.RegistGuideAim(equipList[i].gameObject, GuideAimType.GAT_PartnerDetailBodySlot);
             }
 			UIManager.SetButtonEventHandler (equipList[i].gameObject, EnumButtonEvent.OnClick, OnPlayerEquip, 0, 0);
@@ -73,11 +73,11 @@ public class EmployeeEquipUI : MonoBehaviour
 
 		UpdataPanel ();
 
-        // ×¢²á×°±¸°´Å¥
+        // ×¢ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½Å¥
        
 
 		//GuideManager.Instance.RegistGuideAim(equipList[6].gameObject, GuideAimType.GAT_PartnerDetailBodySlot);
-        ///»ï°é²Ù×÷½çÃæ´ò¿ªÊÂ¼þ
+        ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
         GuideManager.Instance.ProcEvent(ScriptGameEvent.SGE_PartnerDetailUIOpen);
 	}
 
@@ -282,33 +282,33 @@ public class EmployeeEquipUI : MonoBehaviour
 							sNum = " "+ int.Parse(idata.propArr[i].Value[0]);
 						}
 
-					objCell.transform.FindChild("name").GetComponent<UILabel>().text  =
+					objCell.transform.Find("name").GetComponent<UILabel>().text  =
 					LanguageManager.instance.GetValue(idata.propArr[i].Key.ToString())+ sNum;// + " - "+sNum1;
 						
 					if(int.Parse(idata.propArr[i].Value[0]) < 0)
 					{
-						objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.grey;
+						objCell.transform.Find("name").GetComponent<UILabel>().color = Color.grey;
 					}
 					else if(int.Parse(idata.propArr[i].Value[0]) >= 15 && int.Parse(idata.propArr[i].Value[0]) <= 17)
 					{
-						objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.black;
+						objCell.transform.Find("name").GetComponent<UILabel>().color = Color.black;
 					}
 					else if(int.Parse(idata.propArr[i].Value[0]) >= 18 && int.Parse(idata.propArr[i].Value[0]) <= 19)
 					{
-						objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.green;
+						objCell.transform.Find("name").GetComponent<UILabel>().color = Color.green;
 					}
 					else if(int.Parse(idata.propArr[i].Value[0]) >= 20 && int.Parse(idata.propArr[i].Value[0]) <= 21)
 					{
-						objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.blue;
+						objCell.transform.Find("name").GetComponent<UILabel>().color = Color.blue;
 					}
 					else if(int.Parse(idata.propArr[i].Value[0]) >= 22 && int.Parse(idata.propArr[i].Value[0]) <= 23)
 					{
-						objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.magenta;
+						objCell.transform.Find("name").GetComponent<UILabel>().color = Color.magenta;
 					}
 					else 
 					{
-						objCell.transform.FindChild("name").GetComponent<UILabel>().color = Color.white;
-						objCell.transform.FindChild("name").GetComponent<UILabel>().text = "[FECE29]" + objCell.transform.FindChild("name").GetComponent<UILabel>().text;
+						objCell.transform.Find("name").GetComponent<UILabel>().color = Color.white;
+						objCell.transform.Find("name").GetComponent<UILabel>().text = "[FECE29]" + objCell.transform.Find("name").GetComponent<UILabel>().text;
 					}
 
 
@@ -346,19 +346,19 @@ public class EmployeeEquipUI : MonoBehaviour
 					makeItem[m].name  = mData.needItems[m];
 					UIManager.SetButtonEventHandler (iCell.gameObject, EnumButtonEvent.OnClick, OnMakeItem, int.Parse(mData.needItems[m]), 0);
 				//	iCell.showTips = true;
-					makeItem[m].transform.FindChild("name").GetComponent<UILabel>().text = ItemData.GetData(int.Parse(mData.needItems[m])).name_;
+					makeItem[m].transform.Find("name").GetComponent<UILabel>().text = ItemData.GetData(int.Parse(mData.needItems[m])).name_;
 					int hNum = BagSystem.instance.GetItemMaxNum(uint.Parse(mData.needItems[m]));
 					int nNum =  int.Parse(mData.needItemNum[m]);
 					if(hNum < nNum)
 					{
-						makeItem[m].transform.FindChild("Label").GetComponent<UILabel>().color = Color.red;
+						makeItem[m].transform.Find("Label").GetComponent<UILabel>().color = Color.red;
 						makeBtn.isEnabled = false;
 					}
 					else
 					{
-						makeItem[m].transform.FindChild("Label").GetComponent<UILabel>().color = Color.white;
+						makeItem[m].transform.Find("Label").GetComponent<UILabel>().color = Color.white;
 					}
-					makeItem[m].transform.FindChild("Label").GetComponent<UILabel>().text  = hNum +"/" + nNum;
+					makeItem[m].transform.Find("Label").GetComponent<UILabel>().text  = hNum +"/" + nNum;
 				}
 
 				if(ISHaveEquip(EquipItemid))
@@ -414,19 +414,19 @@ public class EmployeeEquipUI : MonoBehaviour
 			makeItem[m].name  = mData.needItems[m];
 			UIManager.SetButtonEventHandler (iCell.gameObject, EnumButtonEvent.OnClick, OnMakeItem, int.Parse(mData.needItems[m]), 0);
 			//	iCell.showTips = true;
-			makeItem[m].transform.FindChild("name").GetComponent<UILabel>().text = ItemData.GetData(int.Parse(mData.needItems[m])).name_;
+			makeItem[m].transform.Find("name").GetComponent<UILabel>().text = ItemData.GetData(int.Parse(mData.needItems[m])).name_;
 			int hNum = BagSystem.instance.GetItemMaxNum(uint.Parse(mData.needItems[m]));
 			int nNum =  int.Parse(mData.needItemNum[m]);
 			if(hNum < nNum)
 			{
-				makeItem[m].transform.FindChild("Label").GetComponent<UILabel>().color = Color.red;
+				makeItem[m].transform.Find("Label").GetComponent<UILabel>().color = Color.red;
 				makeBtn.isEnabled = false;
 			}
 			else
 			{
-				makeItem[m].transform.FindChild("Label").GetComponent<UILabel>().color = Color.white;
+				makeItem[m].transform.Find("Label").GetComponent<UILabel>().color = Color.white;
 			}
-			makeItem[m].transform.FindChild("Label").GetComponent<UILabel>().text  = hNum +"/" + nNum;
+			makeItem[m].transform.Find("Label").GetComponent<UILabel>().text  = hNum +"/" + nNum;
 		}
 	}
 
@@ -553,7 +553,7 @@ public class EmployeeEquipUI : MonoBehaviour
 		*/
 		NetConnection.Instance.wearEquipment ((uint)curEmployee.InstId, bItem.instId_);
 
-        // µã»÷´Ë×°±¸³É¹¦
+        // ï¿½ï¿½ï¿½ï¿½ï¿½×°ï¿½ï¿½ï¿½É¹ï¿½
         GuideManager.Instance.ProcEvent(ScriptGameEvent.SGE_PartnerDetailEquipSucc);
 	}
 
@@ -607,7 +607,7 @@ public class EmployeeEquipUI : MonoBehaviour
 		}
 
 
-        // Å×ÊÇ·ñ¿É×°±¸ 
+        // ï¿½ï¿½ï¿½Ç·ï¿½ï¿½×°ï¿½ï¿½ 
         //equipBtn.isEnabled
         GuideManager.Instance.ProcEvent(ScriptGameEvent.SGE_PartnerDetailEquipClick, equipBtn.isEnabled? 1: 0);
 	}

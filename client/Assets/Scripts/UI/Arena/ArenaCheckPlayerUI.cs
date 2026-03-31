@@ -117,15 +117,15 @@ public class ArenaCheckPlayerUI : MonoBehaviour
                 for (int i = 0; i < _playerInst.babies1_.Length; i++)
                 {
                     babies[i].gameObject.SetActive(true);
-                    HeadIconLoader.Instance.LoadIcon(EntityAssetsData.GetData(BabyData.GetData((int)_playerInst.babies1_[i].properties_[(int)PropertyType.PT_TableId])._AssetsID).assetsIocn_, babies[i].transform.FindChild("icon").GetComponent<UITexture>());
+                    HeadIconLoader.Instance.LoadIcon(EntityAssetsData.GetData(BabyData.GetData((int)_playerInst.babies1_[i].properties_[(int)PropertyType.PT_TableId])._AssetsID).assetsIocn_, babies[i].transform.Find("icon").GetComponent<UITexture>());
 
-                    HeadIconLoader.Instance.LoadIcon(BabyData.GetData((int)_playerInst.babies1_[i].properties_[(int)PropertyType.PT_TableId])._RaceIcon, babies[i].transform.FindChild("zhongzuIcon").GetComponent<UITexture>());
+                    HeadIconLoader.Instance.LoadIcon(BabyData.GetData((int)_playerInst.babies1_[i].properties_[(int)PropertyType.PT_TableId])._RaceIcon, babies[i].transform.Find("zhongzuIcon").GetComponent<UITexture>());
                     if (!_icons.Contains(EntityAssetsData.GetData(BabyData.GetData((int)_playerInst.babies1_[i].properties_[(int)PropertyType.PT_TableId])._AssetsID).assetsIocn_))
                     {
                         _icons.Add(EntityAssetsData.GetData(BabyData.GetData((int)_playerInst.babies1_[i].properties_[(int)PropertyType.PT_TableId])._AssetsID).assetsIocn_);
                     }
 
-                    babies[i].transform.FindChild("Label").GetComponent<UILabel>().text = "LV: " + (int)_playerInst.babies1_[i].properties_[(int)PropertyType.PT_Level];
+                    babies[i].transform.Find("Label").GetComponent<UILabel>().text = "LV: " + (int)_playerInst.babies1_[i].properties_[(int)PropertyType.PT_Level];
 
                     if (!_icons.Contains(EntityAssetsData.GetData(BabyData.GetData((int)_playerInst.babies1_[i].properties_[(int)PropertyType.PT_TableId])._AssetsID).assetsIocn_))
                     {

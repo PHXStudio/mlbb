@@ -230,12 +230,12 @@ public class CompoundUI : UIBase
 		for(int i= 1;i<levelNum;i++)
 		{
 			obj = Object.Instantiate (skillCell.gameObject) as GameObject;
-            root = obj.transform.FindChild("bg");
+            root = obj.transform.Find("bg");
 			if(i ==0)
 			{
 				UIManager.SetButtonEventHandler (obj, EnumButtonEvent.OnClick, OnSkillCell, 1, 0);
 
-                root.FindChild("level").GetComponent<UILabel>().text = "1-9"; 
+                root.Find("level").GetComponent<UILabel>().text = "1-9"; 
 				obj.name  = "1";
 
 			}
@@ -243,7 +243,7 @@ public class CompoundUI : UIBase
 			{
 				UIManager.SetButtonEventHandler (obj, EnumButtonEvent.OnClick, OnSkillCell, i*10, 0);
 				int num = i*10;
-                root.FindChild("level").GetComponent<UILabel>().text = num + "-" + (num + 9); 
+                root.Find("level").GetComponent<UILabel>().text = num + "-" + (num + 9); 
 				obj.name  =(i*10)+"";
 			}
 
@@ -422,7 +422,7 @@ public class CompoundUI : UIBase
 						sNum = " " + (float.Parse(proplist[i].Value));
 					}
 				}
-				UILabel lable =	objCell.transform.FindChild("name").GetComponent<UILabel>();
+				UILabel lable =	objCell.transform.Find("name").GetComponent<UILabel>();
 				lable.text  =  LanguageManager.instance.GetValue(proplist[i].Key.ToString())+sNum;
 
 				objCell.transform.parent = gemInfoGrid.transform;
@@ -446,13 +446,13 @@ public class CompoundUI : UIBase
 	{
 		if(_chindItemCellObj != null && _chindItemCellObj != obj)
 		{
-            _chindItemCellObj.transform.FindChild("bg").FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
+            _chindItemCellObj.transform.Find("bg").Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
 			_chindItemCellObj = null;
 		}
 
-        if (obj.transform.FindChild("bg").FindChild("arrows").GetComponent<UISprite>().spriteName == "sanjiao2")
+        if (obj.transform.Find("bg").Find("arrows").GetComponent<UISprite>().spriteName == "sanjiao2")
 		{
-            obj.transform.FindChild("bg").FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
+            obj.transform.Find("bg").Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
 			foreach(GameObject c in chindCellList)
 			{
 				skillGrid.RemoveChild(c.transform);
@@ -466,7 +466,7 @@ public class CompoundUI : UIBase
 		}
 		else
 		{
-            obj.transform.FindChild("bg").FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao2";
+            obj.transform.Find("bg").Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao2";
 
 			foreach(GameObject c in chindCellList)
 			{
@@ -519,7 +519,7 @@ public class CompoundUI : UIBase
 							CompoundSkillCellUI cell = objCell.GetComponent<CompoundSkillCellUI>();
 							cell.SkillId = m.skillId;
 							cell.MakeId = m.itemId_;
-                            cell.gameObject.transform.FindChild("bg").FindChild("recommend").GetComponent<UISprite>().gameObject.SetActive(true);
+                            cell.gameObject.transform.Find("bg").Find("recommend").GetComponent<UISprite>().gameObject.SetActive(true);
 							skillGrid.AddChild(objCell.transform,++indx);
 							objCell.SetActive(true);
 							objCell.transform.localScale = Vector3.one;
@@ -750,8 +750,8 @@ public class CompoundUI : UIBase
 		{
 			djobj= Object.Instantiate(propCell.gameObject) as GameObject;
 		}
-		djobj.transform.FindChild ("skillName").GetComponent<UILabel> ().text = LanguageManager.instance.GetValue ("dengji") +" "+ itemData.level_;
-		djobj.transform.FindChild("arrow").GetComponent<UISprite>().gameObject.SetActive(false);
+		djobj.transform.Find ("skillName").GetComponent<UILabel> ().text = LanguageManager.instance.GetValue ("dengji") +" "+ itemData.level_;
+		djobj.transform.Find("arrow").GetComponent<UISprite>().gameObject.SetActive(false);
 		djobj.transform.parent = propGrid.transform;
 		djobj.transform.localScale = Vector3.one;
 		djobj.SetActive(true);
@@ -770,9 +770,9 @@ public class CompoundUI : UIBase
 			{
 				obj= Object.Instantiate(propCell.gameObject) as GameObject;
 			}
-			obj.transform.FindChild("skillName").GetComponent<UILabel>().text =  LanguageManager.instance.GetValue(itemData.propArr[i].Key.ToString())+" "  
+			obj.transform.Find("skillName").GetComponent<UILabel>().text =  LanguageManager.instance.GetValue(itemData.propArr[i].Key.ToString())+" "  
 				+itemData.propArr[i].Value[0].ToString()+"-"+itemData.propArr[i].Value[1].ToString() + " ";
-			obj.transform.FindChild("arrow").GetComponent<UISprite>().gameObject.SetActive(false);
+			obj.transform.Find("arrow").GetComponent<UISprite>().gameObject.SetActive(false);
 			obj.transform.parent = propGrid.transform;
 			obj.transform.localScale = Vector3.one;
 			obj.SetActive(true);
@@ -799,9 +799,9 @@ public class CompoundUI : UIBase
 			{
 				Pobj= Object.Instantiate(propCell.gameObject) as GameObject;
 			}
-			Pobj.transform.FindChild("skillName").GetComponent<UILabel>().text =  LanguageManager.instance.GetValue(itemD.propArr[i].Key.ToString())+" "  
+			Pobj.transform.Find("skillName").GetComponent<UILabel>().text =  LanguageManager.instance.GetValue(itemD.propArr[i].Key.ToString())+" "  
 				+itemD.propArr[i].Value[0].ToString()+"-"+itemD.propArr[i].Value[1].ToString() + " ";
-			Pobj.transform.FindChild("arrow").GetComponent<UISprite>().gameObject.SetActive(true);
+			Pobj.transform.Find("arrow").GetComponent<UISprite>().gameObject.SetActive(true);
 			Pobj.transform.parent = PBpropGrid.transform;
 			Pobj.transform.localScale = Vector3.one;
 			Pobj.SetActive(true);
@@ -985,7 +985,7 @@ public class CompoundUI : UIBase
 
 		if(_chindItemCellObj != null && _chindItemCellObj != obj)
 		{
-			_chindItemCellObj.transform.FindChild("bg").FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
+			_chindItemCellObj.transform.Find("bg").Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao";
 			_chindItemCellObj = null;
 		}
 		
@@ -1167,7 +1167,7 @@ public class CompoundUI : UIBase
 
 	private void SelectItem()
 	{
-		levelBtnCellList[0].gameObject.transform.FindChild("arrows").GetComponent<UISprite>().spriteName = "sanjiao2";
+		levelBtnCellList[0].gameObject.transform.Find("arrows").GetComponent<UISprite>().spriteName = "sanjiao2";
 		int indx = skillGrid.GetIndex (levelBtnCellList[0].gameObject.transform);
 		int pLevel = 1;// GamePlayer.Instance.GetIprop (PropertyType.PT_Level) / 10 + 1;
 		if(pLevel== 1)
@@ -1202,7 +1202,7 @@ public class CompoundUI : UIBase
 						CompoundSkillCellUI cell = objCell.GetComponent<CompoundSkillCellUI>();
 						cell.SkillId = m.skillId;
 						cell.MakeId = m.itemId_;
-						cell.gameObject.transform.FindChild("recommend").GetComponent<UISprite>().gameObject.SetActive(true);
+						cell.gameObject.transform.Find("recommend").GetComponent<UISprite>().gameObject.SetActive(true);
 						skillGrid.AddChild(objCell.transform,++indx);
 						objCell.SetActive(true);
 						objCell.transform.localScale = Vector3.one;

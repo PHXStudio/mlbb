@@ -173,13 +173,13 @@ public class Tips : MonoBehaviour {
 								}
 								if(_itemInst.propArr[i].value_  == float.Parse(_itemData.propArr[a].Value[1]))
 								{
-									objCell.transform.FindChild("name").GetComponent<UILabel>().text  =
+									objCell.transform.Find("name").GetComponent<UILabel>().text  =
 										"[E845EB]"+
 											LanguageManager.instance.GetValue(_itemInst.propArr[i].type_.ToString())+ sNum+"[-]";
 								}
 								else
 								{
-									objCell.transform.FindChild("name").GetComponent<UILabel>().text  = 
+									objCell.transform.Find("name").GetComponent<UILabel>().text  = 
 										LanguageManager.instance.GetValue(_itemInst.propArr[i].type_.ToString())+sNum;
 								}
 								break;

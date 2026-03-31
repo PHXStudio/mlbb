@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 public class ChatMin : MonoBehaviour
 {
-    bool _IsInit = false; //³õÊ¼»¯Ò»´Î
-    bool _IsDirty = true; //ÊÇ·ñÐèÒª¸üÐÂ
+    bool _IsInit = false; //ï¿½ï¿½Ê¼ï¿½ï¿½Ò»ï¿½ï¿½
+    bool _IsDirty = true; //ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½
 
     bool[] _OpenChannels = new bool[(int)ChatKind.CK_Max];
     List<COM_ChatInfo> _ChannelInfo;
 	//public UIFont _font;
-    public UIGrid _Grid; //ÏÔÊ¾ÁÐ±í
-    public GameObject _GridItem; //ÁÐ±íÔªËØ
+    public UIGrid _Grid; //ï¿½ï¿½Ê¾ï¿½Ð±ï¿½
+    public GameObject _GridItem; //ï¿½Ð±ï¿½Ôªï¿½ï¿½
     public UIScrollView _Sv;
     public UIScrollBar _Sb;
 	public ChatGrid cGrid;
@@ -21,7 +21,7 @@ public class ChatMin : MonoBehaviour
 	public GameObject yuyinTips;
 	private bool isShowTeamLevel;
 	ChatKind _SendChatKind = ChatKind.CK_World;
-    Stack<GameObject> _GridItemCache = new Stack<GameObject>(); //»º´æ
+    Stack<GameObject> _GridItemCache = new Stack<GameObject>(); //ï¿½ï¿½ï¿½ï¿½
     GameObject _Alloc()
     {
         GameObject o = null;
@@ -132,7 +132,7 @@ public class ChatMin : MonoBehaviour
         {
             for (int i = 0; i < _OpenChannels.Length; ++i)
             {
-                _OpenChannels[i] = true; //Ä¬ÈÏÈ«¿ª
+                _OpenChannels[i] = true; //Ä¬ï¿½ï¿½È«ï¿½ï¿½
             }
             ChatSystem.RegMakeDirtyFunc(MakeDirty);
             _IsInit = true;
@@ -173,7 +173,7 @@ public class ChatMin : MonoBehaviour
 			GamePlayer.Instance.OpenFunEffectBtns.Remove((int)OpenSubSystemFlag.OSSF_Friend);
 		}
 		
-		Transform txObj = obj.gameObject.transform.FindChild ("lizixuanzhuan(Clone)");
+		Transform txObj = obj.gameObject.transform.Find ("lizixuanzhuan(Clone)");
 		if(txObj != null)
 		{
 			txObj.gameObject.SetActive(false);
@@ -250,7 +250,7 @@ public class ChatMin : MonoBehaviour
 		if (!ChatSystem.GetChannelInfo(_OpenChannels, ref _ChannelInfo,ref index))
             return;
         if (_ChannelInfo.Count == 0)
-        { //Ä¾ÓÐ
+        { //Ä¾ï¿½ï¿½
             _CachedFreeGridItem(0);
             _IsDirty = false;
             return;
@@ -258,9 +258,9 @@ public class ChatMin : MonoBehaviour
 
         for (int i = 0; i < _ChannelInfo.Count; ++i)
         {
-		   _MakedGridItem(i, _ChannelInfo[i]); //Á´±íÏÂ±ê·ÃÎÊ ÊÇ²»ÊÇºÜ
+		   _MakedGridItem(i, _ChannelInfo[i]); //ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½ï¿½ï¿½ï¿½ ï¿½Ç²ï¿½ï¿½Çºï¿½
         }
-        _CachedFreeGridItem(_ChannelInfo.Count); //ÇåÀí¶àÓàÎï¼þ 
+        _CachedFreeGridItem(_ChannelInfo.Count); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 
         //_Grid.Reposition();
 //        GlobalInstanceFunction.Instance.Invoke(() =>
@@ -286,7 +286,7 @@ public class ChatMin : MonoBehaviour
 		closeAudio ();
 	}
 
-    ///<³õÊ¼»¯Ò»¸öITEMÈç¹û²»¹»³¤ÍùÉÏ¼Ó
+    ///<ï¿½ï¿½Ê¼ï¿½ï¿½Ò»ï¿½ï¿½ITEMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½
     void _MakedGridItem(int idx, COM_ChatInfo p)
     {
 
@@ -315,7 +315,7 @@ public class ChatMin : MonoBehaviour
         cmi.Info = p;
     }
 
-    ///<´ÓIDX(°üº¬)ÍùºóµÄËùÓÐITEMÈÓµ½³Ø×ÓÀïÈ¥
+    ///<ï¿½ï¿½IDX(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ITEMï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥
     void _CachedFreeGridItem(int idx)
     {
         //int gsize = _Grid.transform.childCount;

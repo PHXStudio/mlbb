@@ -1,3 +1,8 @@
+// Upgrade NOTE: commented out 'sampler2D unity_Lightmap', a built-in variable
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+
 Shader "T4MShaders/ShaderModel2/Unlit/T4M World Projection Shader + LM"{
     Properties{
     	_UpSide ("Up/Side Fighting", Float) = 2.5
@@ -26,7 +31,7 @@ Shader "T4MShaders/ShaderModel2/Unlit/T4M World Projection Shader + LM"{
                 float4 _Tiling;
                 #ifdef LIGHTMAP_ON
 		            fixed4 unity_LightmapST;
-		            sampler2D unity_Lightmap;
+		            // sampler2D unity_Lightmap;
 		        #endif
                 struct v2f
                 {
@@ -41,9 +46,9 @@ Shader "T4MShaders/ShaderModel2/Unlit/T4M World Projection Shader + LM"{
                 v2f vert(appdata_base v)
                 {
                     v2f o;
-                    o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
-                    o.worldnormal = mul(_Object2World, float4(v.normal, 0.0f)).xyz;
-                    o.worldpos = mul(_Object2World, v.vertex);
+                    o.pos = UnityObjectToClipPos (v.vertex);
+                    o.worldnormal = mul(unity_ObjectToWorld, float4(v.normal, 0.0f)).xyz;
+                    o.worldpos = mul(unity_ObjectToWorld, v.vertex);
                     #ifdef LIGHTMAP_ON
 		            	o.uv[0] = v.texcoord.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 		            #endif
@@ -62,7 +67,7 @@ Shader "T4MShaders/ShaderModel2/Unlit/T4M World Projection Shader + LM"{
 					c.xyz =  lerp(lerp(Up, Side, projnormal.z), Side2, projnormal.x);
                     c.w = 0;
                     #ifdef LIGHTMAP_ON
-		           		 c.rgb *= DecodeLightmap(tex2D(unity_Lightmap, i.uv[0]));
+		           		 c.rgb *= DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap, i.uv[0]));
 		            #endif
 					return c;
                 }

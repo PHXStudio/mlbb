@@ -305,7 +305,7 @@ public class TurnOnUIPlanel : UIBase {
 	UISprite cursp;
 	void OnClickitem(GameObject sender)
 	{
-		UISprite sp =sender.transform.parent.FindChild ("scl").GetComponent<UISprite>();
+		UISprite sp =sender.transform.parent.Find ("scl").GetComponent<UISprite>();
 		if(cursp !=null)
 		{
 			cursp.gameObject.SetActive(false);

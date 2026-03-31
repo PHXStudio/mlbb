@@ -133,7 +133,7 @@ public class magicItemTupoUI : MonoBehaviour
 				objCell = Object.Instantiate(nowPropCell) as GameObject;
 			}
 			
-			UILabel lable =	objCell.transform.FindChild("name").GetComponent<UILabel>(); 
+			UILabel lable =	objCell.transform.Find("name").GetComponent<UILabel>(); 
 			float vNum = (float.Parse(levelData.propArr[i].Value)) + (float.Parse(levelData.propArr[i].Value)  * addNum1);
 			lable.text  =  LanguageManager.instance.GetValue(levelData.propArr[i].Key.ToString()) + " +" + (int)vNum;
 			
@@ -196,7 +196,7 @@ public class magicItemTupoUI : MonoBehaviour
 				objCell = Object.Instantiate(beferPropCell) as GameObject;
 			}
 
-			UILabel lable =	objCell.transform.FindChild("name").GetComponent<UILabel>(); 
+			UILabel lable =	objCell.transform.Find("name").GetComponent<UILabel>(); 
 			float vNum = (float.Parse(beferLevelData.propArr[i].Value)) + (float.Parse(beferLevelData.propArr[i].Value)  * addNum);
 			lable.text  =  LanguageManager.instance.GetValue(beferLevelData.propArr[i].Key.ToString())+" +"+(int)vNum;//(int)(float.Parse(levelData.propArr[i].Value) + ((float.Parse(levelData.propArr[i].Value)  *0.1f)));
 			objCell.transform.parent = beferPropGrid.transform;

@@ -13,24 +13,8 @@ public class SDK185 : MonoBehaviour
 
         SDKInterface.Instance.Init();
 
-        ClientLog.Instance.LogError("INIT  ______");
-        SDKInterface.Instance.OnLoginSuc = delegate (LoginResult result)
-        {
-            OnLoginSuc(result);
-        };
 
-        SDKInterface.Instance.OnLogout = delegate ()
-        {
-            OnLogout();
-        };
-
-        SDKInterface.Instance.OnPaySuc = delegate (int payCode)
-        {
-            OnPaySuc(payCode);
-        };
-
-        DontDestroyOnLoad(this);
-        // SDKInterface.Instance.Login();
+         SDKInterface.Instance.Login();
     }
 
     void Update()

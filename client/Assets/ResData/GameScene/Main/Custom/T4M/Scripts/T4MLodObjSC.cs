@@ -62,7 +62,7 @@ using System.Collections;
 		
 			int Lay2 = gameObject.layer; 
 		
-			if(distanceFromCamera <= PlayerCamera.camera.layerCullDistances[Lay2]+5){
+			if(distanceFromCamera <= PlayerCamera.GetComponent<Camera>().layerCullDistances[Lay2]+5){
 				 if(distanceFromCamera < LOD2Start && ObjLodStatus != 1){
 					LOD3.enabled = LOD2.enabled = false;
 					LOD1.enabled = true;

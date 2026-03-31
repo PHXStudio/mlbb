@@ -3,88 +3,86 @@
 
 #include "Common.h"
 
-/** ARPC通讯协议读取器接口.
-	ProtocolReader 为 service proxy 提供arpc通讯协议解编数据读取接口。
-	一个 ProtocolReader 可以得到 一个service proxy 在反序列化rpc数据后的读取事件，
-	派生类可以重载这个接口，将数据从内存或网络读取出来。
+/** ARPC protocol reader interface.
+	Provides demarshaling reads for service proxies: implement read() to supply bytes from memory or a socket.
 */
 class ProtocolReader
 {
 public:
-	/** 读入rpc序列化数据. 
-		proxy在rpc调用过程中通过此接口读取序列化数据.
-		@param data 数据指针.
-		@param len 数据长度.
+	/** Read marshaled RPC payload bytes.
+		Called by the proxy while handling a call.
+		@param data Destination buffer.
+		@param len Number of bytes.
 	*/
 	virtual bool read(void* data, size_t len) = 0;
 
 	/** @name read basic types. */
 	//@{
-	bool readType(S64& v)
+	bool readType(int64_t& v)
 	{
-		return read(&v, sizeof(S64));
+		return read(&v, sizeof(int64_t));
 	}
-	bool readType(U64& v)
+	bool readType(uint64_t& v)
 	{
-		return read(&v, sizeof(U64));
+		return read(&v, sizeof(uint64_t));
 	}
-	bool readType(F64& v)
+	bool readType(double& v)
 	{
-		return read(&v, sizeof(F64));
+		return read(&v, sizeof(double));
 	}
-	bool readType(F32& v)
+	bool readType(float& v)
 	{
-		return read(&v, sizeof(F32));
+		return read(&v, sizeof(float));
 	}
-	bool readType(S32& v)
+	bool readType(int32_t& v)
 	{
-		return read(&v, sizeof(S32));
+		return read(&v, sizeof(int32_t));
 	}
-	bool readType(U32& v)
+	bool readType(uint32_t& v)
 	{
-		return read(&v, sizeof(U32));
+		return read(&v, sizeof(uint32_t));
 	}
-	bool readType(S16& v)
+	bool readType(int16_t& v)
 	{
-		return read(&v, sizeof(S16));
+		return read(&v, sizeof(int16_t));
 	}
-	bool readType(U16& v)
+	bool readType(uint16_t& v)
 	{
-		return read(&v, sizeof(U16));
+		return read(&v, sizeof(uint16_t));
 	}
-	bool readType(S8& v)
+	bool readType(int8_t& v)
 	{
-		return read(&v, sizeof(S8));
+		return read(&v, sizeof(int8_t));
 	}
-	bool readType(U8& v)
+	bool readType(uint8_t& v)
 	{
-		return read(&v, sizeof(U8));
+		return read(&v, sizeof(uint8_t));
 	}
-	bool readType(B8& v)
+	bool readType(bool& v)
 	{
 		char vv;
-		if(!read(&vv, sizeof(B8)))
+		if(!read(&vv, sizeof(bool)))
 			return false;
 		v = vv?true:false;
 		return true;
 	}
-	bool readType(STRING& v, U32 maxlen)
+	bool readType(std::string& v, uint32_t maxlen)
 	{
-		U32 len;
+		uint32_t len;
 		if(!readDynSize(len) || len > maxlen)
 			return false;
 		v.resize(len);
 		return read((void*)v.c_str(), len);
 	}
-	bool readDynSize(U32& s)
+	bool readDynSize(uint32_t& s)
 	{
 		s = 0;
-		U8 b;
+		uint8_t b;
 		if(!readType(b))
 			return false;
-		S32 n = (b & 0XC0)>>6;
+		int32_t n = (b & 0XC0)>>6;
 		s = (b & 0X3F);
-		for(S32 i = 0; i < n; i++)
+		for(int32_t i = 0; i < n; i++)
 		{
 			if(!readType(b))
 				return false;

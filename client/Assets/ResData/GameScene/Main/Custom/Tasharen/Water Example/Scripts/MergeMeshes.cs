@@ -105,7 +105,7 @@ public class MergeMeshes : MonoBehaviour
 			Mesh mesh = filter.sharedMesh;
 
 			// Assume the first material if none was specified
-			if (material == null) material = filter.renderer.sharedMaterial;
+			if (material == null) material = filter.GetComponent<Renderer>().sharedMaterial;
 
 			// Vertex colors and indices must always be present
 			vertexCount += mesh.vertexCount;
@@ -150,7 +150,7 @@ public class MergeMeshes : MonoBehaviour
 			Matrix4x4 l2w = filter.transform.localToWorldMatrix;
 
 			// Disable this renderer
-			Renderer ren = filter.renderer;
+			Renderer ren = filter.GetComponent<Renderer>();
 
 			// If we are not destroying renderers, add this renderer to the list
 			if (afterMerging != PostMerge.DestroyRenderers)
@@ -168,7 +168,7 @@ public class MergeMeshes : MonoBehaviour
 				// Find the object's root (rigidbody)
 				while (trans != mTrans)
 				{
-					if (trans.rigidbody != null)
+					if (trans.GetComponent<Rigidbody>() != null)
 					{
 						root = trans.gameObject;
 						break;

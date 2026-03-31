@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-//Õâ¸öÎÄ¼þÊÇÊ²Ã´¶«Î÷×Ô¶¯Éú³ÉµÄ
+//ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê²Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Éµï¿½
 using System;
 using System.IO;
 using System.Collections;
@@ -43,7 +43,7 @@ static public class Configure
     }
 
     /// <summary>
-    /// Asset ¸ùÄ¿Â¼
+    /// Asset ï¿½ï¿½Ä¿Â¼
     /// </summary>
 
 #if UNITY_IOS || UNITY_IPHONE
@@ -55,7 +55,7 @@ static public class Configure
 #endif
 
     /// <summary>
-    /// ¶ÁÈ¡ÎÄ¼þµÄ·½Ê½
+    /// ï¿½ï¿½È¡ï¿½Ä¼ï¿½ï¿½Ä·ï¿½Ê½
     /// </summary>
     public const string FolderMethod = "file:///";
 
@@ -116,9 +116,9 @@ static public class Configure
     public static string cfgPath = "file:///" + Application.dataPath + "/../../Config/Tables/";
 	public static string scriptPath = Application.dataPath + "/../../Config/Tables/LuaRoot/";
 	//public static string assetsPath = "file:///" + Application.persistentDataPath + "/AssetBundlePC/";
-	public static string assetsPath = "file:///" + Application.streamingAssetsPath + "/AssetBundlePC/"; //
+	public static string assetsPath = "file:///" + Application.streamingAssetsPath + "/01/"; //
 	public static string cfgPathStn = "file:///" + Application.dataPath + "/../../Config/Tables/";
-	public static string assetsPathstreaming = "file:///" + Application.streamingAssetsPath + "/AssetBundlePC/";
+	public static string assetsPathstreaming = "file:///" + Application.streamingAssetsPath + "/01/";
 	public static string scriptPathStre = Application.dataPath + "/../../Config/Tables/LuaRoot/";
 
 #elif UNITY_IOS || UNITY_IPHONE

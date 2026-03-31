@@ -225,8 +225,8 @@ public class XuanPanel : UIBase {
 		if(createP == null)return;
 		if (posIndex < cRole.playerPos.Length) {
 
-            createP.transform.parent = gameObject.transform;
-            createP.transform.localPosition = GlobalInstanceFunction.WorldToUI(cRole.playerPos[posIndex].position);
+           // createP.transform.parent = gameObject.transform;
+            //createP.transform.localPosition = GlobalInstanceFunction.WorldToUI(cRole.playerPos[posIndex].position);
             createP.transform.localScale = Vector3.one;
 			createP.gameObject.SetActive(true);
 		}

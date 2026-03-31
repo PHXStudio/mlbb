@@ -1753,9 +1753,9 @@ public class Prebattle {
 
     public bool CanReachable(Vector3 srcPos, Vector3 destPos)
     {
-        NavMeshPath path = new NavMeshPath();
-        bool ret = NavMesh.CalculatePath(srcPos, destPos, 1, path);
-        ret = (path.status == NavMeshPathStatus.PathComplete);
+        UnityEngine.AI.NavMeshPath path = new UnityEngine.AI.NavMeshPath();
+        bool ret = UnityEngine.AI.NavMesh.CalculatePath(srcPos, destPos, 1, path);
+        ret = (path.status == UnityEngine.AI.NavMeshPathStatus.PathComplete);
         return ret;
     }
 
@@ -2124,7 +2124,7 @@ public class Avatar
         if (bc == null)
             bc = gameObject_.AddComponent<BoxCollider>();
         bc.isTrigger = true;
-        collider_ = gameObject_.collider;
+        collider_ = gameObject_.GetComponent<Collider>();
 
         //不可容忍
         if (!isPlayer_ && animator_ == null)
@@ -2164,7 +2164,7 @@ public class Avatar
         if (bc == null)
             bc = gameObject_.AddComponent<BoxCollider>();
         bc.isTrigger = true;
-        collider_ = gameObject_.collider;
+        collider_ = gameObject_.GetComponent<Collider>();
 
         //不可容忍
         if (!isPlayer_ && animator_ == null)
@@ -2189,7 +2189,7 @@ public class Avatar
         nameLabel_.name = "NameLabel";
         vipSp_ = nameLblTrans_.GetComponentInChildren<UISprite>();
         if (!isPlayer_)
-            nameLblTrans_.localPosition = GlobalInstanceFunction.WorldToUI(new Vector3(go.transform.position.x, go.transform.position.y - go.collider.bounds.size.y / 4, go.transform.position.z));
+            nameLblTrans_.localPosition = GlobalInstanceFunction.WorldToUI(new Vector3(go.transform.position.x, go.transform.position.y - go.GetComponent<Collider>().bounds.size.y / 4, go.transform.position.z));
         else
             nameLblTrans_.localPosition = new Vector2(0f, -40f);
         nameLblTrans_.localScale = Vector3.one;

@@ -10,7 +10,7 @@ public class GetInfoOnClick : MonoBehaviour {
 
     void OnClick()
     {
-		Transform lbl = transform.FindChild ("Task2Label");
+		Transform lbl = transform.Find ("Task2Label");
 		UILabel lal = null;
 		if(lbl != null)
 		{

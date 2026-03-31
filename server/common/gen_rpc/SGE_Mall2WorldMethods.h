@@ -1,7 +1,7 @@
-virtual bool fetchSellOk(S32 playerid, std::vector< COM_SellItem >& items, S32 totalSize);
-virtual bool fetchMySellOk(S32 playerid, std::vector< COM_SellItem >& items);
-virtual bool fetchSelledItemOk(S32 playerId, std::vector< COM_SelledItem >& items);
-virtual bool sellOk(S32 playerid, COM_SellItem& item);
-virtual bool unSellOk(S32 playerid, S32 sellid);
-virtual bool buyOk(S32 playerid, COM_SellItem& item);
-virtual bool buyFail(S32 playerid, ErrorNo errorno);
+virtual bool fetchSellOk(int32_t playerid, std::vector< COM_SellItem >& items, int32_t totalSize);
+virtual bool fetchMySellOk(int32_t playerid, std::vector< COM_SellItem >& items);
+virtual bool fetchSelledItemOk(int32_t playerId, std::vector< COM_SelledItem >& items);
+virtual bool sellOk(int32_t playerid, COM_SellItem& item);
+virtual bool unSellOk(int32_t playerid, int32_t sellid);
+virtual bool buyOk(int32_t playerid, COM_SellItem& item);
+virtual bool buyFail(int32_t playerid, ErrorNo errorno);

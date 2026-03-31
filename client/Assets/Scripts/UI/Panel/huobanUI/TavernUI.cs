@@ -598,7 +598,7 @@ public class TavernUI : MonoBehaviour {
 					EmployeeKuangObj[i].transform.Find("job").GetComponent<UISprite>().spriteName = Employee[i].professionType_.ToString();
 					EmployeeKuangObj[i].GetComponent<UISprite>().spriteName = EmployessSystem.instance.GetQualityBack((int)Employee[i].quality_);
 					EmployeeKuangObj[i].transform.Find("back").GetComponent<UISprite>().spriteName = EmployessSystem.instance.GetCellQualityBack((int)Employee[i].quality_);
-					Transform txObj = EmployeeKuangObj[i].gameObject.transform.FindChild ("effct");
+					Transform txObj = EmployeeKuangObj[i].gameObject.transform.Find ("effct");
 					if(txObj != null)
 					{
 						txObj.gameObject.SetActive(false);

@@ -53,8 +53,8 @@ InitSQLTables::go(SQLTask* pTask)
 	static const char* EndlessStairTableDDL = 
 "CREATE TABLE IF NOT EXISTS EndlessStair("
 "PlayerName	VARCHAR(60) NOT NULL,"
-"Rank INT NOT NULL,"
-"PRIMARY KEY(Rank)"
+"RankId INT NOT NULL,"
+"PRIMARY KEY(RankId)"
 ");";
 
 	static const char* BabyTableDDL = 

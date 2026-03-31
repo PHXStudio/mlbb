@@ -168,9 +168,9 @@ public class ChatBabytips : UIBase {
 			Listener = UIEventListener.Get(skillIcons[i].GetComponent<UIButton>().gameObject);
 			Listener.onPress = null;
 			UIManager.RemoveButtonEventHandler(skillIcons[i].gameObject,EnumButtonEvent.OnClick);
-			Transform ssp = skillIcons[i].transform.FindChild("suo000");
+			Transform ssp = skillIcons[i].transform.Find("suo000");
 			ssp.gameObject.SetActive(false);
-			ssp = skillIcons[i].transform.FindChild("skillicon");
+			ssp = skillIcons[i].transform.Find("skillicon");
 			ssp.gameObject.SetActive(false);
 		}
 		
@@ -194,9 +194,9 @@ public class ChatBabytips : UIBase {
 				break; /// rongcuo 
             if (i > bsdata._SkillNum)
 				break; ///错误
-			Transform ssp = skillIcons[i].transform.FindChild("suo000");
+			Transform ssp = skillIcons[i].transform.Find("suo000");
 			ssp.gameObject.SetActive(false);
-			ssp = skillIcons[i].transform.FindChild("skillicon");
+			ssp = skillIcons[i].transform.Find("skillicon");
 			ssp.gameObject.SetActive(true);
 			UITexture sp = skillIcons[i].GetComponentInChildren<UITexture>();
 			HeadIconLoader.Instance.LoadIcon(skillDatas[i]._ResIconName, sp);          
@@ -208,12 +208,12 @@ public class ChatBabytips : UIBase {
 		{
 			if(i< skillDatas.Count)
 			{
-				Transform lab = skillIcons[i].transform.FindChild("Label");
+				Transform lab = skillIcons[i].transform.Find("Label");
 				lab.gameObject.SetActive(false);
 			}
 			if (i < bsdata._SkillNum && i >= skillDatas.Count)
 			{
-				Transform lab = skillIcons[i].transform.FindChild("Label");
+				Transform lab = skillIcons[i].transform.Find("Label");
 				lab.gameObject.SetActive(true);
 				
 				//UIManager.SetButtonEventHandler (skillIcons[i].gameObject, EnumButtonEvent.OnClick, OnClickSkillNpc,0, 0);

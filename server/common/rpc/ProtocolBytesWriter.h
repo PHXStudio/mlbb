@@ -5,11 +5,11 @@
 #include "ProtocolWriter.h"
 
 
-/** 写入一个bytes数组. */
+/** ProtocolWriter that appends to a byte vector. */
 class ProtocolBytesWriter : public ProtocolWriter
 {
 public:
-	ProtocolBytesWriter(std::vector<UINT8>& b):
+	ProtocolBytesWriter(std::vector<uint8_t>& b):
 	bytes_(b)
 	{}
 
@@ -19,10 +19,10 @@ public:
 		bytes_.resize(s + len);
 		::memcpy(&(bytes_[s]), data, len);
 	}
-	std::vector<UINT8>& getBytes()	{ return bytes_; }
+	std::vector<uint8_t>& getBytes()	{ return bytes_; }
 
 private:
-	std::vector<UINT8>& bytes_;
+	std::vector<uint8_t>& bytes_;
 };
 
 

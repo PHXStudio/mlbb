@@ -1,0 +1,9 @@
+.git
+.idea
+**/.idea
+**/*.iml
+**/*.log
+**/logs
+bin
+tmp
+vendor

@@ -247,7 +247,7 @@ public class AutomaticAssetBundle : EditorWindow {
 		}
         for (int i = 0; i < files.Count; ++i )
         {
-            BuildTarget tar = ios ? BuildTarget.iPhone : (android ? BuildTarget.Android : BuildTarget.StandaloneWindows);
+            BuildTarget tar = ios ? BuildTarget.iOS : (android ? BuildTarget.Android : BuildTarget.StandaloneWindows);
             BuildPipeline.BuildAssetBundle(files[i], null, pathName, BuildAssetBundleOptions.CollectDependencies, tar);
         }
 	}

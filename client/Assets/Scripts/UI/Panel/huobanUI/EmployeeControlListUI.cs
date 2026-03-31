@@ -73,11 +73,11 @@ public class EmployeeControlListUI : MonoBehaviour
 				cell.fightingNumLab.text = emp.GetIprop(PropertyType.PT_FightingForce).ToString();
 				if( emp.isForBattle_)
 				{
-					emplyoeeCellList[i].transform.FindChild("inBattle").gameObject.SetActive(true);
+					emplyoeeCellList[i].transform.Find("inBattle").gameObject.SetActive(true);
 				}
 				else
 				{
-					emplyoeeCellList[i].transform.FindChild("inBattle").gameObject.SetActive(false);
+					emplyoeeCellList[i].transform.Find("inBattle").gameObject.SetActive(false);
 				}
 
 			}
@@ -108,7 +108,7 @@ public class EmployeeControlListUI : MonoBehaviour
 			{
 				o.transform.parent = null;
 				emplyoeeCellPool.Add(o);
-				o.transform.FindChild("select").gameObject.SetActive(false);
+				o.transform.Find("select").gameObject.SetActive(false);
 				o.gameObject.SetActive(false);
 			}
 			emplyoeeCellList.Clear();
@@ -132,11 +132,11 @@ public class EmployeeControlListUI : MonoBehaviour
 			
 			if( battles[i].isForBattle_)
 			{
-				o.transform.FindChild("inBattle").gameObject.SetActive(true);
+				o.transform.Find("inBattle").gameObject.SetActive(true);
 			}
 			else
 			{
-				o.transform.FindChild("inBattle").gameObject.SetActive(false);
+				o.transform.Find("inBattle").gameObject.SetActive(false);
 			}
 			
 			EmployeeCellUI cell = o.GetComponent<EmployeeCellUI>();
@@ -191,11 +191,11 @@ public class EmployeeControlListUI : MonoBehaviour
 
 			if( Edata[j].isForBattle_)
 			{
-				o.transform.FindChild("inBattle").gameObject.SetActive(true);
+				o.transform.Find("inBattle").gameObject.SetActive(true);
 			}
 			else
 			{
-				o.transform.FindChild("inBattle").gameObject.SetActive(false);
+				o.transform.Find("inBattle").gameObject.SetActive(false);
 			}
 
 			EmployeeCellUI cell = o.GetComponent<EmployeeCellUI>();
@@ -239,11 +239,11 @@ public class EmployeeControlListUI : MonoBehaviour
 		if(selectObj == null)
 		{
 			selectObj = obj.gameObject;
-			selectObj.transform.FindChild("select").gameObject.SetActive(true);
+			selectObj.transform.Find("select").gameObject.SetActive(true);
 		}
 		else if(selectObj != obj.gameObject)
 		{
-			selectObj.transform.FindChild("select").gameObject.SetActive(false);
+			selectObj.transform.Find("select").gameObject.SetActive(false);
 		}
 
 		Employee employee = cell.Employee;

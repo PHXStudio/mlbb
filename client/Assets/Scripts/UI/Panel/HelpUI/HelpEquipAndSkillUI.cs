@@ -309,7 +309,7 @@ public class HelpEquipAndSkillUI : MonoBehaviour
 
 	private void OnEquipTypeBtn(ButtonScript obj, object args, int param1, int param2)
 	{
-		equipTypeLab.text = obj.transform.FindChild ("Label").GetComponent<UILabel> ().text;
+		equipTypeLab.text = obj.transform.Find ("Label").GetComponent<UILabel> ().text;
 		switch(param1)
 		{
 		case  1:
@@ -404,7 +404,7 @@ public class HelpEquipAndSkillUI : MonoBehaviour
 
 	private void OnSkillTypeBtn(ButtonScript obj, object args, int param1, int param2)
 	{
-		skillTypeLab.text = obj.transform.FindChild ("Label").GetComponent<UILabel> ().text;
+		skillTypeLab.text = obj.transform.Find ("Label").GetComponent<UILabel> ().text;
 		skillTypes.gameObject.SetActive(false);
 		if(param1 <= 0)
 			return;

@@ -427,8 +427,8 @@ public static class GlobalValue
 	{
 		get
 		{
-			bool isDebug = channelID.Equals(TestChannelID) || channelID.Equals(AnysdkChannelID);
-			return false;
+			//bool isDebug = channelID.Equals(TestChannelID) || channelID.Equals(AnysdkChannelID);
+			return true;
 		}
 	}
 	//开发测试的ChannelID is 9

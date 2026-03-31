@@ -5,7 +5,7 @@
 #version 1.0.0									#
 #################################################################################
 
-#!/bin/sh
+#!/bin/bash
 
 gateway=`ps -e | grep "gateway" | awk '{print $1}'`
 worldserver=`ps -e | grep "world" | awk '{print $1}'`  

@@ -88,7 +88,7 @@ public class ChatItem : MonoBehaviour
         prefabCeches = new List<GameObject>();
         list = new List<LabelType>();
 
-        back = transform.FindChild("back").GetComponent<UISprite>();
+        back = transform.Find("back").GetComponent<UISprite>();
     }
 
     /// <summary>

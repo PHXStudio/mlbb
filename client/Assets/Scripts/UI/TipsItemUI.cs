@@ -153,7 +153,7 @@ public class TipsItemUI : MonoBehaviour
 					}
 				
 
-					UILabel lable =	objCell.transform.FindChild("name").GetComponent<UILabel>();
+					UILabel lable =	objCell.transform.Find("name").GetComponent<UILabel>();
 					lable.text  =  LanguageManager.instance.GetValue(value.propArr[i].Key.ToString())+sNum;
 				
 					if(ItemData.GetData((int)value.id_).mainType_ == ItemMainType.IMT_FuWen)
@@ -274,7 +274,7 @@ public class TipsItemUI : MonoBehaviour
 						sNum =  " "+(int)value.propArr[i].value_ ;
 					}
 					
-					UILabel lable =	objCell.transform.FindChild("name").GetComponent<UILabel>();
+					UILabel lable =	objCell.transform.Find("name").GetComponent<UILabel>();
 					lable.text  =  LanguageManager.instance.GetValue(value.propArr[i].type_.ToString())+sNum;
 					
 					float perNum = EquipColorData.GetEquipPerNum(itemD.level_, value.propArr[i].type_,(int)value.propArr[i].value_);
