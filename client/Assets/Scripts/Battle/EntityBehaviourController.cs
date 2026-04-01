@@ -52,9 +52,14 @@ public partial class EntityActionController
 		}
 	}
 
-	void RegisterActionCallBack()
+void RegisterActionCallBack()
 	{
 		ActionCallBack	acb = ActorObj.GetComponent<ActionCallBack>();
+		if (acb == null)
+		{
+			Debug.LogWarning("ActionCallBack component missing on " + ActorObj.name + ", auto adding.");
+			acb = ActorObj.AddComponent<ActionCallBack>();
+		}
 		acb.m_BeAttackFinishCallBack = BeAttackActionFinishCallBack;
         acb.m_PlaySingBrustCallBack = SingActionBrustCallBack;
 		acb.m_PlaySingAcitonCallBack = SingActionFinishCallBack;
@@ -89,6 +94,9 @@ public partial class EntityActionController
 			SetAnimationParam(GlobalValue.FMove, AnimatorParamType.APT_Float, distance);
 //			PlayEntityAction( GlobalValue.ActionName , GlobalValue.Action_Run);
 		ActionCallBack	callback = ActorObj.GetComponent<ActionCallBack>();
+		if (callback == null)
+			ActorObj.AddComponent<ActionCallBack> ();
+		callback = ActorObj.GetComponent<ActionCallBack>();
 		callback.m_MoveFinishCallBack = CallBack;
 		Hashtable args = new Hashtable();
 		args.Add("easeType", iTween.EaseType.linear);

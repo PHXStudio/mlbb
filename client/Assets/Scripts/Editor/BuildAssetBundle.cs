@@ -1199,7 +1199,7 @@ public class BuildAssetBundle : MonoBehaviour
     {
         effectRefDic_.Clear();
         string path = effectAssetsPath_;
-        string pathName = string.Format(effectBundleOutputPath_, platformAndroid_);
+       // string pathName = string.Format(effectBundleOutputPath_, platformAndroid_);
         string[] filePaths = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
         for (int i = 0; i < filePaths.Length; ++i)
         {

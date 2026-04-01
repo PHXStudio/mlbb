@@ -47,6 +47,11 @@ public class BuildAsset : MonoBehaviour
     static Dictionary<string, List<string>> uiRefDic_ = new Dictionary<string, List<string>>();
     static Dictionary<string, List<string>> effectRefDic_ = new Dictionary<string, List<string>>();
 
+    static string crtUI_;
+    static string crtPlayer_;
+    static string crtEffect_;
+    static string[] ExcludeUI = new string[] { "" };
+
     static void initPlayerRefAssets()
     {
         string jsonStr = File.ReadAllText(playerDependConfigFileName_);
@@ -368,6 +373,234 @@ public class BuildAsset : MonoBehaviour
         }
         AssetDatabase.Refresh();
     }
+    [MenuItem("BuildToolset/CreateUIDependence")]
+    public static void CreateUIDependence()
+    {
+        uiRefDic_.Clear();
+        string path = uiPrefabFolder_;
+        string[] filePaths = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
+        for (int i = 0; i < filePaths.Length; ++i)
+        {
+            if (filePaths[i].Contains(".meta"))
+                continue;
+            string filePath = filePaths[i].Substring(filePaths[i].IndexOf("Assets"));
+            if (Contain(filePath))
+                continue;
+            Object file = AssetDatabase.LoadAssetAtPath(filePath, typeof(Object));
+            crtUI_ = file.name;
+            ListAtlas(((GameObject)file).transform);
+        }
+        string jsonStr = LitJson.JsonMapper.ToJson(uiRefDic_);
+        File.WriteAllText(configFolder_ + "/UIDependence.json", jsonStr);
+        AssetDatabase.Refresh();
+        UnityEngine.Debug.Log("CreateUIDependence Success");
+    }
+
+    static bool Contain(string fileName)
+    {
+        for (int i = 0; i < ExcludeUI.Length; ++i)
+        {
+            if (ExcludeUI[i].Equals(fileName))
+                return true;
+        }
+        return false;
+    }
+
+    static void ListAtlas(Transform trans)
+    {
+        UISprite sprite = trans.GetComponent<UISprite>();
+        if (sprite != null && sprite.atlas != null)
+        {
+            if (!uiRefDic_.ContainsKey(crtUI_))
+                uiRefDic_.Add(crtUI_, new List<string>());
+            if (!uiRefDic_[crtUI_].Contains(sprite.atlas.name))
+                uiRefDic_[crtUI_].Add(sprite.atlas.name);
+        }
+        for (int i = 0; i < trans.childCount; ++i)
+        {
+            ListAtlas(trans.GetChild(i));
+        }
+    }
+
+    [MenuItem("BuildToolset/CreatePlayerDependence")]
+    public static void CreatePlayerDependence()
+    {
+        playerRefDic_.Clear();
+        string path = playerPrefabFolder_;
+        string[] filePaths = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
+        for (int i = 0; i < filePaths.Length; ++i)
+        {
+            if (filePaths[i].Contains(".meta"))
+                continue;
+            string filePath = filePaths[i].Substring(filePaths[i].IndexOf("Assets"));
+            Object file = AssetDatabase.LoadAssetAtPath(filePath, typeof(Object));
+            crtPlayer_ = file.name;
+            ListPlayerRef(((GameObject)file).transform);
+        }
+        string jsonStr = LitJson.JsonMapper.ToJson(playerRefDic_);
+        File.WriteAllText(configFolder_ + "/PlayerDependence.json", jsonStr);
+        AssetDatabase.Refresh();
+        UnityEngine.Debug.Log("CreatePlayerDependence Success");
+    }
+
+    static void ListPlayerRef(Transform trans)
+    {
+        if (!playerRefDic_.ContainsKey(crtPlayer_))
+        {
+            playerRefDic_.Add(crtPlayer_, new List<string>());
+        }
+
+        Animator anim = trans.GetComponent<Animator>();
+        string path = "";
+        string guid = "";
+        if (anim != null && anim.runtimeAnimatorController != null)
+        {
+            path = AssetDatabase.GetAssetPath(anim.runtimeAnimatorController);
+            guid = AssetDatabase.AssetPathToGUID(path);
+            if (!playerRefDic_[crtPlayer_].Contains(guid))
+                playerRefDic_[crtPlayer_].Add(guid);
+        }
+
+        SkinnedMeshRenderer smr = trans.GetComponent<SkinnedMeshRenderer>();
+        if (smr != null)
+        {
+            path = AssetDatabase.GetAssetPath(smr.sharedMaterial);
+            guid = AssetDatabase.AssetPathToGUID(path);
+            if (!playerRefDic_[crtPlayer_].Contains(guid))
+                playerRefDic_[crtPlayer_].Add(guid);
+
+            path = AssetDatabase.GetAssetPath(smr.sharedMaterial.mainTexture);
+            guid = AssetDatabase.AssetPathToGUID(path);
+            if (!playerRefDic_[crtPlayer_].Contains(guid))
+                playerRefDic_[crtPlayer_].Add(guid);
+
+            path = AssetDatabase.GetAssetPath(smr.sharedMesh);
+            guid = AssetDatabase.AssetPathToGUID(path);
+            if (!playerRefDic_[crtPlayer_].Contains(guid))
+                playerRefDic_[crtPlayer_].Add(guid);
+        }
+        for (int i = 0; i < trans.childCount; ++i)
+        {
+            ListPlayerRef(trans.GetChild(i));
+        }
+    }
+
+    [MenuItem("BuildToolset/CreateEffectDependence")]
+    public static void CreateEffectDependence()
+    {
+        effectRefDic_.Clear();
+        string path = effectPrefabFolder_;
+        string[] filePaths = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
+        for (int i = 0; i < filePaths.Length; ++i)
+        {
+            if (filePaths[i].Contains(".meta"))
+                continue;
+            string filePath = filePaths[i].Substring(filePaths[i].IndexOf("Assets"));
+            Object file = AssetDatabase.LoadAssetAtPath(filePath, typeof(Object));
+            crtEffect_ = file.name;
+            ListEffectRef(((GameObject)file).transform);
+        }
+        string jsonStr = LitJson.JsonMapper.ToJson(effectRefDic_);
+        File.WriteAllText(configFolder_ + "/EffectDependence.json", jsonStr);
+        AssetDatabase.Refresh();
+        UnityEngine.Debug.Log("CreateEffectDependence Success");
+    }
+
+    static void AddEffectRef(Object obj)
+    {
+        if (obj == null) return;
+        string path = AssetDatabase.GetAssetPath(obj);
+        if (string.IsNullOrEmpty(path) || path.Equals("Resources/unity_builtin_extra")) return;
+        string guid = AssetDatabase.AssetPathToGUID(path);
+        if (!string.IsNullOrEmpty(guid) && !effectRefDic_[crtEffect_].Contains(guid))
+            effectRefDic_[crtEffect_].Add(guid);
+    }
+
+    static void AddEffectRefFromMaterial(Material mat)
+    {
+        if (mat == null) return;
+        AddEffectRef(mat);
+        AddEffectRef(mat.mainTexture);
+    }
+
+    static void ListEffectRef(Transform trans)
+    {
+        if (!effectRefDic_.ContainsKey(crtEffect_))
+        {
+            effectRefDic_.Add(crtEffect_, new List<string>());
+        }
+
+        // Animation (legacy)
+        Animation anima = trans.GetComponent<Animation>();
+        if (anima != null)
+        {
+            foreach (AnimationState state in anima)
+                AddEffectRef(state.clip);
+        }
+
+        // Animator
+        Animator anim = trans.GetComponent<Animator>();
+        if (anim != null)
+            AddEffectRef(anim.runtimeAnimatorController);
+
+        // MeshRenderer
+        MeshRenderer mr = trans.GetComponent<MeshRenderer>();
+        if (mr != null)
+        {
+            AddEffectRefFromMaterial(mr.sharedMaterial);
+            MeshFilter mf = trans.GetComponent<MeshFilter>();
+            if (mf != null)
+                AddEffectRef(mf.sharedMesh);
+        }
+
+        // SkinnedMeshRenderer
+        SkinnedMeshRenderer smr = trans.GetComponent<SkinnedMeshRenderer>();
+        if (smr != null)
+        {
+            AddEffectRefFromMaterial(smr.sharedMaterial);
+            AddEffectRef(smr.sharedMesh);
+        }
+
+        // ParticleSystem
+        ParticleSystem ps = trans.GetComponent<ParticleSystem>();
+        if (ps != null)
+        {
+            Renderer psr = ps.GetComponent<Renderer>();
+            if (psr != null)
+                AddEffectRefFromMaterial(psr.sharedMaterial);
+        }
+
+        // TrailRenderer
+        TrailRenderer tr = trans.GetComponent<TrailRenderer>();
+        if (tr != null)
+            AddEffectRefFromMaterial(tr.sharedMaterial);
+
+        // LineRenderer
+        LineRenderer lr = trans.GetComponent<LineRenderer>();
+        if (lr != null)
+            AddEffectRefFromMaterial(lr.sharedMaterial);
+
+        // Projector
+        //Projector proj = trans.GetComponent<Projector>();
+        //if (proj != null)
+        //    AddEffectRefFromMaterial(proj.sharedMaterial);
+
+        // Light (cookie texture)
+        Light light = trans.GetComponent<Light>();
+        if (light != null)
+            AddEffectRef(light.cookie);
+
+        // AudioSource
+        AudioSource audio = trans.GetComponent<AudioSource>();
+        if (audio != null)
+            AddEffectRef(audio.clip);
+
+        for (int i = 0; i < trans.childCount; ++i)
+        {
+            ListEffectRef(trans.GetChild(i));
+        }
+    }
+
     [MenuItem("BuildToolset/MakeAll")]
     public static void BuildAll()
     {

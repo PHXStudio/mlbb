@@ -113,13 +113,20 @@ static public class Configure
 
 
 #if UNITY_EDITOR
-    public static string cfgPath = "file:///" + Application.dataPath + "/../../Config/Tables/";
-	public static string scriptPath = Application.dataPath + "/../../Config/Tables/LuaRoot/";
+    public static string cfgPath = "file:///" + ConfigFolder;
+    public static string scriptPath = TableFolder + "/LuaRoot/";
+    public static string assetsPath = "file:///" + StreamAssetsFolder + "/";
+	public static string assetsPathstreaming = "file:///" + StreamAssetsFolder + "/"; 
+	public static string cfgPathStn =  "file:///" + TableFolder;
+	public static string scriptPathStre =TableFolder + "/LuaRoot/";
+
+    //public static string cfgPath = "file:///" + Application.dataPath + "/../../Config/Tables/";
+	//public static string scriptPath = Application.dataPath + "/../../Config/Tables/LuaRoot/";
 	//public static string assetsPath = "file:///" + Application.persistentDataPath + "/AssetBundlePC/";
-	public static string assetsPath = "file:///" + Application.streamingAssetsPath + "/01/"; //
-	public static string cfgPathStn = "file:///" + Application.dataPath + "/../../Config/Tables/";
-	public static string assetsPathstreaming = "file:///" + Application.streamingAssetsPath + "/01/";
-	public static string scriptPathStre = Application.dataPath + "/../../Config/Tables/LuaRoot/";
+	//public static string assetsPath = "file:///" + Application.streamingAssetsPath + "/01/"; //
+	//public static string cfgPathStn = "file:///" + Application.dataPath + "/../../Config/Tables/";
+	//public static string assetsPathstreaming = "file:///" + Application.streamingAssetsPath + "/01/";
+	//public static string scriptPathStre = Application.dataPath + "/../../Config/Tables/LuaRoot/";
 
 #elif UNITY_IOS || UNITY_IPHONE
 	public static string cfgPath = "file:///" + CommonDefines.persistentDataPath + "/AssetBundleIOS/TableTemp/";
@@ -144,12 +151,7 @@ static public class Configure
 	public static string cfgPathStn = Application.streamingAssetsPath + "/AssetBundleAndroid/TableTemp/";
 	public static string scriptPathStre = Application.streamingAssetsPath + "/AssetBundleAndroid/TableTemp/LuaRoot/";
 #else
-	public static string cfgPath = "file:///" + Application.streamingAssetsPath + "/AssetBundlePC/TableTemp/";
-    public static string scriptPath = Application.streamingAssetsPath + "/AssetBundlePC/TableTemp/LuaRoot/";
-    public static string assetsPath = "file:///" + Application.streamingAssetsPath + "/AssetBundlePC/";
-	public static string assetsPathstreaming = "file:///" + Application.streamingAssetsPath + "/AssetBundlePC/"; 
-	public static string cfgPathStn =  "file:///" + Application.streamingAssetsPath + "/AssetBundlePC/TableTemp/";
-	public static string scriptPathStre = Application.streamingAssetsPath + "/AssetBundlePC/TableTemp/LuaRoot/";
+
 #endif
 
 
