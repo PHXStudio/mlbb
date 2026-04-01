@@ -219,7 +219,7 @@ public class AutomaticAssetBundle : EditorWindow {
 
 	void Pack(string path, string pathName)
 	{
-		Caching.CleanCache();
+		Caching.ClearCache();
 		List<Object> files = new List<Object>();
 		if (path.Contains ("."))
 		{

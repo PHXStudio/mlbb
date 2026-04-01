@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 1a493d1e853530e4582892af246307c9
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: ______001
     100002: ______002
@@ -19,6 +19,19 @@ ModelImporter:
     100026: dimian
     100028: //RootNode
     100030: shuikeng
+    100032: "\u5BF9\u8C61001"
+    100034: "\u5BF9\u8C61002"
+    100036: "\u5BF9\u8C61003"
+    100038: "\u5BF9\u8C61004"
+    100040: "\u5BF9\u8C61005"
+    100042: "\u5BF9\u8C61006"
+    100044: "\u5BF9\u8C61007"
+    100046: "\u5BF9\u8C61008"
+    100048: "\u5BF9\u8C61009"
+    100050: "\u5BF9\u8C61010"
+    100052: "\u5BF9\u8C61011"
+    100054: "\u5BF9\u8C61012"
+    100056: "\u5BF9\u8C61013"
     400000: ______001
     400002: ______002
     400004: ______003
@@ -35,6 +48,19 @@ ModelImporter:
     400026: dimian
     400028: //RootNode
     400030: shuikeng
+    400032: "\u5BF9\u8C61001"
+    400034: "\u5BF9\u8C61002"
+    400036: "\u5BF9\u8C61003"
+    400038: "\u5BF9\u8C61004"
+    400040: "\u5BF9\u8C61005"
+    400042: "\u5BF9\u8C61006"
+    400044: "\u5BF9\u8C61007"
+    400046: "\u5BF9\u8C61008"
+    400048: "\u5BF9\u8C61009"
+    400050: "\u5BF9\u8C61010"
+    400052: "\u5BF9\u8C61011"
+    400054: "\u5BF9\u8C61012"
+    400056: "\u5BF9\u8C61013"
     2300000: ______001
     2300002: ______002
     2300004: ______003
@@ -48,6 +74,19 @@ ModelImporter:
     2300020: ______011
     2300022: ______012
     2300024: ______013
+    2300026: "\u5BF9\u8C61001"
+    2300028: "\u5BF9\u8C61002"
+    2300030: "\u5BF9\u8C61003"
+    2300032: "\u5BF9\u8C61004"
+    2300034: "\u5BF9\u8C61005"
+    2300036: "\u5BF9\u8C61006"
+    2300038: "\u5BF9\u8C61007"
+    2300040: "\u5BF9\u8C61008"
+    2300042: "\u5BF9\u8C61009"
+    2300044: "\u5BF9\u8C61010"
+    2300046: "\u5BF9\u8C61011"
+    2300048: "\u5BF9\u8C61012"
+    2300050: "\u5BF9\u8C61013"
     3300000: ______001
     3300002: ______002
     3300004: ______003
@@ -61,6 +100,19 @@ ModelImporter:
     3300020: ______011
     3300022: ______012
     3300024: ______013
+    3300026: "\u5BF9\u8C61001"
+    3300028: "\u5BF9\u8C61002"
+    3300030: "\u5BF9\u8C61003"
+    3300032: "\u5BF9\u8C61004"
+    3300034: "\u5BF9\u8C61005"
+    3300036: "\u5BF9\u8C61006"
+    3300038: "\u5BF9\u8C61007"
+    3300040: "\u5BF9\u8C61008"
+    3300042: "\u5BF9\u8C61009"
+    3300044: "\u5BF9\u8C61010"
+    3300046: "\u5BF9\u8C61011"
+    3300048: "\u5BF9\u8C61012"
+    3300050: "\u5BF9\u8C61013"
     4300000: ______001
     4300002: ______002
     4300004: ______003
@@ -74,59 +126,119 @@ ModelImporter:
     4300020: ______011
     4300022: ______012
     4300024: ______013
+    4300026: "\u5BF9\u8C61001"
+    4300028: "\u5BF9\u8C61002"
+    4300030: "\u5BF9\u8C61003"
+    4300032: "\u5BF9\u8C61004"
+    4300034: "\u5BF9\u8C61005"
+    4300036: "\u5BF9\u8C61006"
+    4300038: "\u5BF9\u8C61007"
+    4300040: "\u5BF9\u8C61008"
+    4300042: "\u5BF9\u8C61009"
+    4300044: "\u5BF9\u8C61010"
+    4300046: "\u5BF9\u8C61011"
+    4300048: "\u5BF9\u8C61012"
+    4300050: "\u5BF9\u8C61013"
     7400000: Take 001
     9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #287'
+    second: {fileID: 2100000, guid: 0a8b07f8668b975478e7bbd4f5a7511e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dimian
+    second: {fileID: 2100000, guid: 178b7f6a673834c4b8e56b2806a1dbde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shandong
+    second: {fileID: 2100000, guid: 16f2decd6a3c67e43aba3a2a225300e3, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
+    keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

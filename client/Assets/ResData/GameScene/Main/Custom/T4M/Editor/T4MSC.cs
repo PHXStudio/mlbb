@@ -5,6 +5,8 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Text;
+
+#pragma warning disable 0618
 	
 public class T4MSC : EditorWindow {
 	
@@ -224,8 +226,10 @@ public class T4MSC : EditorWindow {
 	GameObject UnityTerrain;
 	GameObject AddObject;
 	Transform PlayerCam;
+#if !UNITY_2018_1_OR_NEWER
 	ProceduralMaterial PreceduralAdd;
 	ProceduralMaterial Precedural;
+#endif
 	
 	Shader LOD1S;
 	Shader LOD2S;
@@ -2350,6 +2354,7 @@ public class T4MSC : EditorWindow {
 				GUILayout.EndHorizontal();
 				
 				GUILayout.Label("Add / Replace / Substances Update" , EditorStyles.boldLabel);
+#if !UNITY_2018_1_OR_NEWER
 					EditorGUILayout.BeginVertical("box");
 					EditorGUILayout.BeginHorizontal();
 						GUILayout.Label("",GUILayout.Width(3));
@@ -2508,6 +2513,11 @@ public class T4MSC : EditorWindow {
 					ClassicMat();	
 					
 				}
+#else
+				EditorGUILayout.HelpBox("Substance Designer built-in support was removed in newer Unity versions. Use classic textures instead.", MessageType.Info);
+				MaterialTyp = MaterialType.Classic;
+				ClassicMat();
+#endif
 				}
 				break;
 				
@@ -2651,6 +2661,7 @@ public class T4MSC : EditorWindow {
 					CurrentSelect.gameObject.GetComponent <T4MObjSC>().T4MMaterial.SetFloat ("_Blend",BlendFac);
 	}
 	
+	#if !UNITY_2018_1_OR_NEWER
 	void Substance()
 	{
 		
@@ -2741,6 +2752,7 @@ public class T4MSC : EditorWindow {
 		
 	
 	}
+	#endif
 	
 	void MyT4M()
 	{
@@ -4124,3 +4136,5 @@ public class T4MSC : EditorWindow {
 	}
 	
 }
+
+#pragma warning restore 0618

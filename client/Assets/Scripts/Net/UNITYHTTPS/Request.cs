@@ -89,17 +89,25 @@ namespace UnityHTTP
             this.method = method;
             this.uri = new Uri (uri);
             this.byteStream = new MemoryStream(form.data);
-#if UNITY_5
-            foreach ( var entry in form.headers )
+            foreach (object entry in form.headers)
             {
-                this.AddHeader( entry.Key, entry.Value );
+                if (entry is DictionaryEntry)
+                {
+                    DictionaryEntry de = (DictionaryEntry)entry;
+                    this.AddHeader((string)de.Key, (string)de.Value);
+                }
+                else
+                {
+                    // Handles generic KeyValuePair<string, string> headers in newer Unity versions
+                    var entryType = entry.GetType();
+                    var key = entryType.GetProperty("Key").GetValue(entry, null) as string;
+                    var value = entryType.GetProperty("Value").GetValue(entry, null) as string;
+                    if (!string.IsNullOrEmpty(key) && value != null)
+                    {
+                        this.AddHeader(key, value);
+                    }
+                }
             }
-#else
-            foreach ( DictionaryEntry entry in form.headers )
-            {
-                this.AddHeader( (string)entry.Key, (string)entry.Value );
-            }
-#endif
         }
 
         public Request( string method, string uri, Hashtable data )

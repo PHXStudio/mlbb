@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 using System.IO;
 using System.Diagnostics;
@@ -626,7 +626,7 @@ public class BuildAssetBundle : MonoBehaviour
         if (Directory.Exists(pathName))
             Directory.Delete(pathName, true);
         Directory.CreateDirectory(pathName);
-        Caching.CleanCache();
+        Caching.ClearCache();
         List<Object> files = new List<Object>();
         string[] filePaths = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
         for (int i = 0; i < filePaths.Length; ++i)
@@ -820,7 +820,7 @@ public class BuildAssetBundle : MonoBehaviour
 
     static void PackSimpleUI(string pathName)
     {
-        Caching.CleanCache();
+        Caching.ClearCache();
         BuildTarget tar = BuildTarget.StandaloneWindows;
         if (pathName.Contains(platformIOS_)) tar = BuildTarget.iOS;
         else if (pathName.Contains(platformAndroid_)) tar = BuildTarget.Android;
@@ -874,7 +874,7 @@ public class BuildAssetBundle : MonoBehaviour
 
     static void PackSimplePlayer(string pathName)
     {
-        Caching.CleanCache();
+        Caching.ClearCache();
         BuildTarget tar = BuildTarget.StandaloneWindows;
         if (pathName.Contains(platformIOS_)) tar = BuildTarget.iOS;
         else if (pathName.Contains(platformAndroid_)) tar = BuildTarget.Android;
@@ -931,7 +931,7 @@ public class BuildAssetBundle : MonoBehaviour
 
     static void PackSimpleEffect(string pathName)
     {
-        Caching.CleanCache();
+        Caching.ClearCache();
         BuildTarget tar = BuildTarget.StandaloneWindows;
         if (pathName.Contains(platformIOS_)) tar = BuildTarget.iOS;
         else if (pathName.Contains(platformAndroid_)) tar = BuildTarget.Android;
@@ -1060,12 +1060,20 @@ public class BuildAssetBundle : MonoBehaviour
     static void GenericBuild(string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
     {
         EditorUserBuildSettings.SwitchActiveBuildTarget(build_target);
+#if UNITY_2018_1_OR_NEWER
+        UnityEditor.Build.Reporting.BuildReport report = BuildPipeline.BuildPlayer(scenes, target_dir, build_target, build_options);
+        if (report == null || report.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
+        {
+            UnityEngine.Debug.LogError("BuildPlayer failure: " + (report == null ? "null report" : report.summary.result.ToString()));
+        }
+#else
         string res = BuildPipeline.BuildPlayer(scenes, target_dir, build_target, build_options);
 
         if (res.Length > 0)
         {
             UnityEngine.Debug.LogError("BuildPlayer failure: " + res);
         }
+#endif
     }
 
     [MenuItem("Tools/CreateUIDependence")]
@@ -1389,7 +1397,7 @@ public class BuildAssetBundle : MonoBehaviour
     static void BakeLightMapping512()
     {
         LightmapEditorSettings.maxAtlasHeight = 512;
-        LightmapEditorSettings.maxAtlasWidth = 512;
+        LightmapEditorSettings.maxAtlasSize = 512;
         Lightmapping.Clear();
         Lightmapping.Bake();
     }
@@ -1398,7 +1406,7 @@ public class BuildAssetBundle : MonoBehaviour
     static void BakeLightMapping256()
     {
         LightmapEditorSettings.maxAtlasHeight = 256;
-        LightmapEditorSettings.maxAtlasWidth = 256;
+        LightmapEditorSettings.maxAtlasSize = 256;
         Lightmapping.Clear();
         Lightmapping.Bake();
     }
@@ -1407,7 +1415,7 @@ public class BuildAssetBundle : MonoBehaviour
     static void BakeLightMapping128()
     {
         LightmapEditorSettings.maxAtlasHeight = 128;
-        LightmapEditorSettings.maxAtlasWidth = 128;
+        LightmapEditorSettings.maxAtlasSize = 128;
         Lightmapping.Clear();
         Lightmapping.Bake();
     }

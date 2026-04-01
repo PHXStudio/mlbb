@@ -22,7 +22,7 @@ using System.Collections.Generic;
 	public static void testBuildLightMap()
 	{
 		LightmapEditorSettings.maxAtlasHeight = 512;
-		LightmapEditorSettings.maxAtlasWidth = 512;
+		LightmapEditorSettings.maxAtlasSize = 512;
 		Lightmapping.Clear();
 		Lightmapping.Bake();
 	}

@@ -189,7 +189,7 @@ public class BuildAsset : MonoBehaviour
     {
 
         mkdir(playerBundleOutputFolder_);
-        Caching.CleanCache();
+        Caching.ClearCache();
         //dep角色shader
         { 
             BuildPipeline.PushAssetDependencies();
@@ -239,7 +239,7 @@ public class BuildAsset : MonoBehaviour
     static void BuildUI()
     {
         mkdir(uiBundleOutputFolder_);
-        Caching.CleanCache();
+        Caching.ClearCache();
         { 
             //dep字体(所有ui)
             BuildPipeline.PushAssetDependencies();
@@ -285,7 +285,7 @@ public class BuildAsset : MonoBehaviour
     public static void BuildEffect()
     {
         mkdir(effectBundleOutputFolder_);
-        Caching.CleanCache();
+        Caching.ClearCache();
         {
             initEffectRefAssets();
             List<Object> files = filter(effectPrefabFolder_);
@@ -329,7 +329,7 @@ public class BuildAsset : MonoBehaviour
     public static void BuildWeapon()
     {
         mkdir(weaponBundleOutputFolder_);
-        Caching.CleanCache();
+        Caching.ClearCache();
         List<Object> files = filter(weaponPrefabFolder_);
         for (int i = 0; i < files.Count; ++i)
         {
@@ -353,7 +353,7 @@ public class BuildAsset : MonoBehaviour
     public static void BuildMusic()
     {
         mkdir(musicBundleOutputFolder_);
-        Caching.CleanCache();
+        Caching.ClearCache();
         List<Object> files = filter(musicPrefabFolder_);
         for (int i = 0; i < files.Count; ++i)
         {
@@ -365,7 +365,7 @@ public class BuildAsset : MonoBehaviour
     public static void BuildIcon()
     {
         mkdir(iconBundleOutputFolder_);
-        Caching.CleanCache();
+        Caching.ClearCache();
         List<Object> files = filter(iconPrefabFolder_);
         for (int i = 0; i < files.Count; ++i)
         {
