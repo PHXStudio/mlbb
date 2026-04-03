@@ -4,3 +4,8 @@
 # Unity auto-generated files
 *.csproj
 *.sln
+
+# Unity temporary files
+/Logs
+/obj
+/Temp
