@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -520,10 +520,20 @@ public class ApplicationEntry : MonoBehaviour
         //这个界面为ui打开前的loading 需要快速加载 所以预先加载到内存
         UIAssetMgr.LoadUI(UIASSETS_ID.UIASSETS_UILoading, (Assets, paramData) =>
         {
-            uiLoadingPanel_ = GameObject.Instantiate(Assets.mainAsset) as GameObject;
+            GameObject uiLoadingContent = GameObject.Instantiate(Assets.mainAsset) as GameObject;
+            uiLoadingPanel_ = new GameObject("UILoadingPanel");
+            uiLoadingPanel_.layer = LayerMask.NameToLayer("UI");
             uiLoadingPanel_.transform.parent = uiRoot.transform;
+            uiLoadingPanel_.transform.localPosition = Vector3.zero;
+            uiLoadingPanel_.transform.localRotation = Quaternion.identity;
             uiLoadingPanel_.transform.localScale = Vector3.zero;
             uiLoadingPanel_.SetActive(false);
+
+            uiLoadingContent.transform.parent = uiLoadingPanel_.transform;
+            uiLoadingContent.transform.localPosition = Vector3.zero;
+            uiLoadingContent.transform.localRotation = Quaternion.identity;
+            uiLoadingContent.transform.localScale = Vector3.one;
+
             UIPanel panel = uiLoadingPanel_.GetComponent<UIPanel>();
             if (panel == null)
                 panel = uiLoadingPanel_.AddComponent<UIPanel>();

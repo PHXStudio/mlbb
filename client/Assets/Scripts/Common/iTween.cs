@@ -695,11 +695,23 @@ public class iTween : MonoBehaviour{
 		}
 		
 		//set tempColor and base fromColor:
+		#if UNITY_2019_1_OR_NEWER
+		UnityEngine.UI.Graphic graphic = target.GetComponent<UnityEngine.UI.Graphic>();
+		if(graphic){
+			tempColor=fromColor=graphic.color;
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
 		if(target.GetComponent(typeof(GUITexture))){
-			tempColor=fromColor=target.GetComponent<GUITexture>().color;	
-		}else if(target.GetComponent(typeof(GUIText))){
+			tempColor=fromColor=target.GetComponent<GUITexture>().color;
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
+		if(target.GetComponent(typeof(GUIText))){
 			tempColor=fromColor=target.GetComponent<GUIText>().material.color;
-		}else if(target.GetComponent<Renderer>()){
+		}else
+		#endif
+		if(target.GetComponent<Renderer>()){
 			tempColor=fromColor=target.GetComponent<Renderer>().material.color;
 		}else if(target.GetComponent<Light>()){
 			tempColor=fromColor=target.GetComponent<Light>().color;
@@ -733,11 +745,22 @@ public class iTween : MonoBehaviour{
 		}
 		
 		//apply fromColor:
+		#if UNITY_2019_1_OR_NEWER
+		if(graphic){
+			graphic.color = fromColor;
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
 		if(target.GetComponent(typeof(GUITexture))){
-			target.GetComponent<GUITexture>().color=fromColor;	
-		}else if(target.GetComponent(typeof(GUIText))){
+			target.GetComponent<GUITexture>().color=fromColor;
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
+		if(target.GetComponent(typeof(GUIText))){
 			target.GetComponent<GUIText>().material.color=fromColor;
-		}else if(target.GetComponent<Renderer>()){
+		}else
+		#endif
+		if(target.GetComponent<Renderer>()){
 			target.GetComponent<Renderer>().material.color=fromColor;
 		}else if(target.GetComponent<Light>()){
 			target.GetComponent<Light>().color=fromColor;
@@ -3322,13 +3345,26 @@ public class iTween : MonoBehaviour{
 		//colors = new Color[3];
 		
 		//from and init to values:
+		#if UNITY_2019_1_OR_NEWER
+		UnityEngine.UI.Graphic graphic = GetComponent<UnityEngine.UI.Graphic>();
+		if(graphic){
+			colors = new Color[1,3];
+			colors[0,0] = colors[0,1] = graphic.color;
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
 		if(GetComponent(typeof(GUITexture))){
 			colors = new Color[1,3];
 			colors[0,0] = colors[0,1] = GetComponent<GUITexture>().color;
-		}else if(GetComponent(typeof(GUIText))){
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
+		if(GetComponent(typeof(GUIText))){
 			colors = new Color[1,3];
 			colors[0,0] = colors[0,1] = GetComponent<GUIText>().material.color;
-		}else if(GetComponent<Renderer>()){
+		}else
+		#endif
+		if(GetComponent<Renderer>()){
 			colors = new Color[GetComponent<Renderer>().materials.Length,3];
 			for (int i = 0; i < GetComponent<Renderer>().materials.Length; i++) {
 				colors[i,0]=GetComponent<Renderer>().materials[i].GetColor(namedcolorvalue.ToString());
@@ -4098,13 +4134,25 @@ public class iTween : MonoBehaviour{
 		*/
 		
 		//apply:
+		#if UNITY_2019_1_OR_NEWER
+		UnityEngine.UI.Graphic graphic = GetComponent<UnityEngine.UI.Graphic>();
+		if(graphic){
+			graphic.color = colors[0,2];
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
 		if(GetComponent(typeof(GUITexture))){
 			//guiTexture.color=colors[2];
 			GetComponent<GUITexture>().color=colors[0,2];
-		}else if(GetComponent(typeof(GUIText))){
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
+		if(GetComponent(typeof(GUIText))){
 			//guiText.material.color=colors[2];
 			GetComponent<GUIText>().material.color=colors[0,2];
-		}else if(GetComponent<Renderer>()){
+		}else
+		#endif
+		if(GetComponent<Renderer>()){
 			//renderer.material.color=colors[2];
 			for (int i = 0; i < colors.GetLength(0); i++) {
 				GetComponent<Renderer>().materials[i].SetColor(namedcolorvalue.ToString(),colors[i,2]);
@@ -4116,13 +4164,24 @@ public class iTween : MonoBehaviour{
 		
 		//dial in:
 		if(percentage==1){
+			#if UNITY_2019_1_OR_NEWER
+			if(graphic){
+				graphic.color = colors[0,1];
+			}else
+			#endif
+			#if !UNITY_2019_1_OR_NEWER
 			if(GetComponent(typeof(GUITexture))){
 				//guiTexture.color=colors[1];
 				GetComponent<GUITexture>().color=colors[0,1];
-			}else if(GetComponent(typeof(GUIText))){
+			}else
+			#endif
+			#if !UNITY_2019_1_OR_NEWER
+			if(GetComponent(typeof(GUIText))){
 				//guiText.material.color=colors[1];
 				GetComponent<GUIText>().material.color=colors[0,1];
-			}else if(GetComponent<Renderer>()){
+			}else
+			#endif
+			if(GetComponent<Renderer>()){
 				//renderer.material.color=colors[1];	
 				for (int i = 0; i < colors.GetLength(0); i++) {
 					GetComponent<Renderer>().materials[i].SetColor(namedcolorvalue.ToString(),colors[i,1]);
@@ -4843,11 +4902,23 @@ public class iTween : MonoBehaviour{
 		}
 		
 		//init values:
+		#if UNITY_2019_1_OR_NEWER
+		UnityEngine.UI.Graphic graphic = target.GetComponent<UnityEngine.UI.Graphic>();
+		if(graphic){
+			colors[0] = colors[1] = graphic.color;
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
 		if(target.GetComponent(typeof(GUITexture))){
 			colors[0] = colors[1] = target.GetComponent<GUITexture>().color;
-		}else if(target.GetComponent(typeof(GUIText))){
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
+		if(target.GetComponent(typeof(GUIText))){
 			colors[0] = colors[1] = target.GetComponent<GUIText>().material.color;
-		}else if(target.GetComponent<Renderer>()){
+		}else
+		#endif
+		if(target.GetComponent<Renderer>()){
 			colors[0] = colors[1] = target.GetComponent<Renderer>().material.color;
 		}else if(target.GetComponent<Light>()){
 			colors[0] = colors[1] = target.GetComponent<Light>().color;	
@@ -4878,11 +4949,22 @@ public class iTween : MonoBehaviour{
 		colors[3].a=Mathf.SmoothDamp(colors[0].a,colors[1].a,ref colors[2].a,time);
 		
 		//apply:
+		#if UNITY_2019_1_OR_NEWER
+		if(graphic){
+			graphic.color = colors[3];
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
 		if(target.GetComponent(typeof(GUITexture))){
 			target.GetComponent<GUITexture>().color=colors[3];
-		}else if(target.GetComponent(typeof(GUIText))){
+		}else
+		#endif
+		#if !UNITY_2019_1_OR_NEWER
+		if(target.GetComponent(typeof(GUIText))){
 			target.GetComponent<GUIText>().material.color=colors[3];
-		}else if(target.GetComponent<Renderer>()){
+		}else
+		#endif
+		if(target.GetComponent<Renderer>()){
 			target.GetComponent<Renderer>().material.color=colors[3];
 		}else if(target.GetComponent<Light>()){
 			target.GetComponent<Light>().color=colors[3];	
@@ -5986,7 +6068,16 @@ public class iTween : MonoBehaviour{
 	/// </param>
 	public static void CameraFadeDepth(int depth){
 		if(cameraFade){
+			#if UNITY_2019_1_OR_NEWER
+			UnityEngine.Canvas canvas = cameraFade.GetComponent<UnityEngine.Canvas>();
+			if(canvas){
+				canvas.sortingOrder = depth;
+			}else{
+				cameraFade.transform.position=new Vector3(cameraFade.transform.position.x,cameraFade.transform.position.y,depth);
+			}
+			#else
 			cameraFade.transform.position=new Vector3(cameraFade.transform.position.x,cameraFade.transform.position.y,depth);
+			#endif
 		}
 	}
 	
@@ -6007,7 +6098,14 @@ public class iTween : MonoBehaviour{
 	/// </param>
 	public static void CameraFadeSwap(Texture2D texture){
 		if(cameraFade){
+			#if UNITY_2019_1_OR_NEWER
+			UnityEngine.UI.RawImage rawImage = cameraFade.GetComponentInChildren<UnityEngine.UI.RawImage>();
+			if(rawImage){
+				rawImage.texture = texture;
+			}
+			#else
 			cameraFade.GetComponent<GUITexture>().texture=texture;
+			#endif
 		}
 	}
 	
@@ -6029,10 +6127,28 @@ public class iTween : MonoBehaviour{
 		}else{			
 			//establish colorFade object:
 			cameraFade = new GameObject("iTween Camera Fade");
+			#if UNITY_2019_1_OR_NEWER
+			UnityEngine.Canvas canvas = cameraFade.AddComponent<UnityEngine.Canvas>();
+			canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+			canvas.sortingOrder = depth;
+			
+			GameObject fadeImage = new GameObject("Fade");
+			fadeImage.transform.SetParent(cameraFade.transform,false);
+			UnityEngine.UI.RawImage rawImage = fadeImage.AddComponent<UnityEngine.UI.RawImage>();
+			rawImage.texture = texture;
+			rawImage.color = new Color(.5f,.5f,.5f,0);
+			
+			UnityEngine.RectTransform rect = rawImage.rectTransform;
+			rect.anchorMin = Vector2.zero;
+			rect.anchorMax = Vector2.one;
+			rect.offsetMin = Vector2.zero;
+			rect.offsetMax = Vector2.zero;
+			#else
 			cameraFade.transform.position= new Vector3(.5f,.5f,depth);
 			cameraFade.AddComponent<GUITexture>();
 			cameraFade.GetComponent<GUITexture>().texture=texture;
 			cameraFade.GetComponent<GUITexture>().color = new Color(.5f,.5f,.5f,0);
+			#endif
 			return cameraFade;
 		}
 	}
@@ -6052,10 +6168,28 @@ public class iTween : MonoBehaviour{
 		}else{			
 			//establish colorFade object:
 			cameraFade = new GameObject("iTween Camera Fade");
+			#if UNITY_2019_1_OR_NEWER
+			UnityEngine.Canvas canvas = cameraFade.AddComponent<UnityEngine.Canvas>();
+			canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+			canvas.sortingOrder = Defaults.cameraFadeDepth;
+			
+			GameObject fadeImage = new GameObject("Fade");
+			fadeImage.transform.SetParent(cameraFade.transform,false);
+			UnityEngine.UI.RawImage rawImage = fadeImage.AddComponent<UnityEngine.UI.RawImage>();
+			rawImage.texture = texture;
+			rawImage.color = new Color(.5f,.5f,.5f,0);
+			
+			UnityEngine.RectTransform rect = rawImage.rectTransform;
+			rect.anchorMin = Vector2.zero;
+			rect.anchorMax = Vector2.one;
+			rect.offsetMin = Vector2.zero;
+			rect.offsetMax = Vector2.zero;
+			#else
 			cameraFade.transform.position= new Vector3(.5f,.5f,Defaults.cameraFadeDepth);
 			cameraFade.AddComponent<GUITexture>();
 			cameraFade.GetComponent<GUITexture>().texture=texture;
 			cameraFade.GetComponent<GUITexture>().color = new Color(.5f,.5f,.5f,0);
+			#endif
 			return cameraFade;
 		}
 	}
@@ -6072,10 +6206,28 @@ public class iTween : MonoBehaviour{
 		}else{			
 			//establish colorFade object:
 			cameraFade = new GameObject("iTween Camera Fade");
+			#if UNITY_2019_1_OR_NEWER
+			UnityEngine.Canvas canvas = cameraFade.AddComponent<UnityEngine.Canvas>();
+			canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+			canvas.sortingOrder = Defaults.cameraFadeDepth;
+			
+			GameObject fadeImage = new GameObject("Fade");
+			fadeImage.transform.SetParent(cameraFade.transform,false);
+			UnityEngine.UI.RawImage rawImage = fadeImage.AddComponent<UnityEngine.UI.RawImage>();
+			rawImage.texture = CameraTexture(Color.black);
+			rawImage.color = new Color(.5f,.5f,.5f,0);
+			
+			UnityEngine.RectTransform rect = rawImage.rectTransform;
+			rect.anchorMin = Vector2.zero;
+			rect.anchorMax = Vector2.one;
+			rect.offsetMin = Vector2.zero;
+			rect.offsetMax = Vector2.zero;
+			#else
 			cameraFade.transform.position= new Vector3(.5f,.5f,Defaults.cameraFadeDepth);
 			cameraFade.AddComponent<GUITexture>();
 			cameraFade.GetComponent<GUITexture>().texture=CameraTexture(Color.black);
 			cameraFade.GetComponent<GUITexture>().color = new Color(.5f,.5f,.5f,0);
+			#endif
 			return cameraFade;
 		}
 	}	
