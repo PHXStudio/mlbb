@@ -1,2 +1,6 @@
 /Assets/StreamingAssets
 /Library
+
+# Unity auto-generated files
+*.csproj
+*.sln
